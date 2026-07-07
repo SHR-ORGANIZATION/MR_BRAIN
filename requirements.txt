@@ -1,0 +1,11 @@
+customtkinter>=5.0
+Pillow>=9.0
+python-docx>=0.8
+openpyxl>=3.0
+python-pptx>=0.6
+reportlab>=3.6
+scikit-learn>=1.0
+pandas>=1.5
+sentence-transformers>=2.0
+faiss-cpu>=1.7
+PyPDF2>=3.0

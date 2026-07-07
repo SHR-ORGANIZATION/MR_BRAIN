@@ -1,0 +1,1113 @@
+command,intent
+open chrome,open_app
+launch chrome,open_app
+start chrome,open_app
+open google chrome,open_app
+run chrome,open_app
+open vscode,open_app
+launch vscode,open_app
+start vscode,open_app
+open visual studio code,open_app
+run vscode,open_app
+open calculator,open_app
+launch calculator,open_app
+start calculator,open_app
+open paint,open_app
+start paint,open_app
+launch paint,open_app
+open notepad,open_app
+launch notepad,open_app
+start notepad,open_app
+open word,open_app
+launch word,open_app
+start microsoft word,open_app
+open excel,open_app
+launch excel,open_app
+start microsoft excel,open_app
+open powerpoint,open_app
+launch powerpoint,open_app
+start powerpoint,open_app
+open file explorer,open_app
+launch explorer,open_app
+open cmd,open_app
+open command prompt,open_app
+launch cmd,open_app
+open powershell,open_app
+launch powershell,open_app
+open task manager,open_app
+launch task manager,open_app
+run the application chrome,open_app
+start the program notepad,open_app
+launch the app vscode,open_app
+open microsoft word for me,open_app
+start up chrome please,open_app
+launch visual studio code,open_app
+open the calculator app,open_app
+start up paint,open_app
+run the notepad application,open_app
+close chrome,close_app
+exit chrome,close_app
+terminate chrome,close_app
+close vscode,close_app
+exit vscode,close_app
+terminate vscode,close_app
+close calculator,close_app
+exit calculator,close_app
+close notepad,close_app
+terminate notepad,close_app
+close word,close_app
+exit word,close_app
+close excel,close_app
+exit excel,close_app
+close powerpoint,close_app
+exit powerpoint,close_app
+kill chrome process,close_app
+kill notepad,close_app
+shut down chrome,close_app
+shut down vscode,close_app
+close the chrome browser,close_app
+exit the application word,close_app
+terminate notepad process,close_app
+create folder school,create_folder
+make folder school,create_folder
+create directory school,create_folder
+create folder project,create_folder
+make new folder project,create_folder
+create directory project,create_folder
+create folder test,create_folder
+make folder test,create_folder
+create new folder test,create_folder
+generate folder test,create_folder
+create folder reports,create_folder
+make folder downloads,create_folder
+create new folder backup,create_folder
+create folder on desktop,create_folder
+make a new folder called work,create_folder
+create a folder named photos,create_folder
+build a new directory called archive,create_folder
+make directory called music,create_folder
+create a new folder movies,create_folder
+new folder called documents,create_folder
+delete folder school,delete_folder
+remove folder school,delete_folder
+delete directory school,delete_folder
+delete folder project,delete_folder
+remove project folder,delete_folder
+delete test folder,delete_folder
+remove directory test,delete_folder
+erase folder test,delete_folder
+delete folder documents,delete_folder
+remove folder documents,delete_folder
+delete folder backup,delete_folder
+remove folder old_data,delete_folder
+destroy folder temp,delete_folder
+get rid of folder junk,delete_folder
+eliminate directory cache,delete_folder
+remove the folder called old_backup,delete_folder
+delete the directory named temp_files,delete_folder
+erase folder scratch,delete_folder
+create file notes.txt,create_file
+make file notes.txt,create_file
+generate file notes.txt,create_file
+create file report.docx,create_file
+make file report.docx,create_file
+create file test.txt,create_file
+generate file test.txt,create_file
+create a new file test.txt,create_file
+make a new file notes.txt,create_file
+create text file notes.txt,create_file
+create file readme.md,create_file
+make file config.json,create_file
+create file data.csv,create_file
+generate file index.html,create_file
+create file script.py,create_file
+new file called hello.py,create_file
+make a blank file output.txt,create_file
+generate a new file log.txt,create_file
+create a text file called diary.txt,create_file
+make new file summary.txt,create_file
+delete file notes.txt,delete_file
+remove file notes.txt,delete_file
+erase file notes.txt,delete_file
+delete report.docx,delete_file
+remove report.docx,delete_file
+delete file test.txt,delete_file
+erase test.txt,delete_file
+remove file test.txt,delete_file
+delete document report.docx,delete_file
+remove document report.docx,delete_file
+delete file old_data.csv,delete_file
+remove file backup.zip,delete_file
+erase file temp.txt,delete_file
+get rid of file junk.txt,delete_file
+destroy file outdated.docx,delete_file
+eliminate file cache.tmp,delete_file
+remove the file called old_report.pdf,delete_file
+delete the document named draft.txt,delete_file
+rename file notes.txt to readme.txt,rename_file
+change file name report.docx to final_report.docx,rename_file
+rename file old.txt to new.txt,rename_file
+change name of file data.csv to results.csv,rename_file
+rename file script.py to main.py,rename_file
+rename file index.html to home.html,rename_file
+rename file test.txt to final.txt,rename_file
+change file name config.json to settings.json,rename_file
+rename the file photo.jpg to profile.jpg,rename_file
+change the name of file draft.docx to final.docx,rename_file
+rename file log.txt to archive.txt,rename_file
+change file name readme.md to documentation.md,rename_file
+rename file old_data.csv to new_data.csv,rename_file
+rename file image.png to logo.png,rename_file
+change file name from style.css to theme.css,rename_file
+rename folder projects to archive,rename_folder
+change folder name school to university,rename_folder
+rename folder old_data to backup_data,rename_folder
+change name of folder test to production,rename_folder
+rename folder documents to docs,rename_folder
+rename folder downloads to saved,rename_folder
+rename the folder called temp to archive,rename_folder
+change the folder name from work to office,rename_folder
+rename folder music to songs,rename_folder
+change folder name photos to pictures,rename_folder
+rename folder desktop_backup to backup,rename_folder
+change name of folder drafts to completed,rename_folder
+move file report.docx to documents,move_file
+transfer file notes.txt to backup,move_file
+move file data.csv to archive,move_file
+move file test.txt to desktop,move_file
+transfer file report.pdf to documents,move_file
+move file config.json to settings,move_file
+move the file called photo.jpg to pictures folder,move_file
+transfer the file readme.md to docs folder,move_file
+move file output.txt to results folder,move_file
+relocate file data.xlsx to archive folder,move_file
+shift file notes.txt to documents,move_file
+move file log.txt to logs folder,move_file
+transform file image.png to assets,move_file
+move file script.py to src folder,move_file
+relocate file config.yaml to config folder,move_file
+move folder project to archive,move_folder
+transfer folder school to backup,move_folder
+move folder documents to external_drive,move_folder
+move folder downloads to backup_drive,move_folder
+transfer folder data to archive,move_folder
+move the folder called photos to pictures_drive,move_folder
+relocate folder temp to trash,move_folder
+shift folder work to backup_drive,move_folder
+move folder music to media_drive,move_folder
+transfer folder reports to archive_drive,move_folder
+relocate folder old_projects to storage,move_folder
+move folder cache to temp_drive,move_folder
+copy file notes.txt to backup,copy_file
+duplicate file report.docx to desktop,copy_file
+copy file data.csv to documents,copy_file
+copy file readme.md to project,copy_file
+duplicate file config.json to settings,copy_file
+copy file test.txt to archive,copy_file
+copy the file called photo.jpg to backup folder,copy_file
+duplicate the file report.pdf to desktop folder,copy_file
+copy file output.txt to results folder,copy_file
+replicate file data.xlsx to backup drive,copy_file
+make a copy of file notes.txt in archive,copy_file
+duplicate file script.py to src folder,copy_file
+copy file image.png to assets folder,copy_file
+make a copy of log.txt in logs folder,copy_file
+duplicate file style.css to themes folder,copy_file
+find report.pdf,search_file
+search file report.pdf,search_file
+locate report.pdf,search_file
+find notes.txt,search_file
+search for notes.txt,search_file
+locate notes.txt,search_file
+find project.docx,search_file
+search project.docx,search_file
+locate project.docx,search_file
+find my file report.pdf,search_file
+search for readme.md,search_file
+locate config.json on my computer,search_file
+find all python files,search_file
+search for index.html,search_file
+look for the file called data.csv,search_file
+search for any pdf files,search_file
+find files named report on my computer,search_file
+locate the file script.py,search_file
+search for image files on my pc,search_file
+find where the file config.json is,search_file
+find folder projects,search_folder
+search directory school,search_folder
+locate folder backup,search_folder
+find directory documents,search_folder
+search for folder archive,search_folder
+find folder downloads,search_folder
+search directory data,search_folder
+locate folder reports,search_folder
+look for the folder called temp,search_folder
+search for directory named config,search_folder
+find the folder called music on my computer,search_folder
+locate directory named src,search_folder
+search for any folder named backup,search_folder
+find folder called photos,search_folder
+look for directory named logs,search_folder
+open file report.docx,open_file
+launch file notes.txt,open_file
+open file data.csv,open_file
+open file readme.md,open_file
+open the file presentation.pptx,open_file
+open file index.html,open_file
+open the document called report.pdf,open_file
+launch the file config.json,open_file
+open up the file script.py,open_file
+start the file readme.txt,open_file
+open the text file notes.txt,open_file
+launch document final_report.docx,open_file
+open up data.xlsx for me,open_file
+show me the file image.png,open_file
+open file called settings.json,open_file
+open folder documents,open_folder
+show folder downloads,open_folder
+open folder projects,open_folder
+open directory backup,open_folder
+show directory documents,open_folder
+open folder desktop,open_folder
+open the folder called photos,open_folder
+show me the downloads folder,open_folder
+open up the directory named src,open_folder
+launch the folder called music,open_folder
+navigate to folder documents,open_folder
+browse to folder desktop,open_folder
+open the directory called archive,open_folder
+show me folder reports,open_folder
+launch folder called backup,open_folder
+read file notes.txt,read_file
+show contents of report.docx,read_file
+read file config.json,read_file
+open and read readme.md,read_file
+read file data.csv,read_file
+show me the contents of test.txt,read_file
+read the file script.py,read_file
+display contents of file notes.txt,read_file
+what does the file config.json contain,read_file
+show me what is inside readme.md,read_file
+read the text file diary.txt,read_file
+display the content of file data.csv,read_file
+open and read the file log.txt,read_file
+show file contents of settings.json,read_file
+read the contents of the file report.txt,read_file
+generate document AI_Project_Proposal.docx,generate_document
+create report annual_summary.docx,generate_document
+generate report quarterly_review.pdf,generate_document
+create document project_plan.docx,generate_document
+generate document meeting_notes.txt,generate_document
+create report sales_data.xlsx,generate_document
+generate document presentation.pptx,generate_document
+create a professional report about AI.docx,generate_document
+generate a document about climate change.docx,generate_document
+create a report about machine learning.pdf,generate_document
+make a document called business_plan.docx,generate_document
+generate a pdf report about finances,generate_document
+create a word document about history.docx,generate_document
+generate a presentation about marketing.pptx,generate_document
+create an excel report about sales.xlsx,generate_document
+search python tutorial,search_web
+search angular documentation,search_web
+find laravel tutorial online,search_web
+search machine learning notes,search_web
+look for python course,search_web
+search django guide,search_web
+find bootstrap tutorial,search_web
+search javascript course,search_web
+look up html tutorial,search_web
+search networking notes,search_web
+search for artificial intelligence trends,search_web
+google react hooks tutorial,search_web
+search for best coding practices,search_web
+look up database optimization,search_web
+search web for cloud computing,search_web
+find node js documentation,search_web
+search for typescript generics,search_web
+search online for python tutorials,search_web
+google how to learn javascript,search_web
+search the web for react tutorials,search_web
+look up angular best practices online,search_web
+search for css grid layout guide,search_web
+find information about docker online,search_web
+search google for kubernetes guide,search_web
+look for git tutorial online,search_web
+open youtube,open_website
+open github,open_website
+open google,open_website
+go to youtube,open_website
+visit github,open_website
+open stackoverflow,open_website
+go to google,open_website
+visit wikipedia,open_website
+open facebook,open_website
+open chatgpt,open_website
+visit twitter,open_website
+open instagram,open_website
+go to tiktok,open_website
+visit openai,open_website
+open x,open_website
+navigate to youtube,open_website
+browse to github,open_website
+go to facebook.com,open_website
+visit chatgpt website,open_website
+open the website google,open_website
+find app chrome,search_app
+search installed applications,search_app
+find notepad in my computer,search_app
+search for visual studio code,search_app
+locate installed app word,search_app
+find program excel,search_app
+search installed programs,search_app
+find application calculator,search_app
+look for installed app paint,search_app
+search for program powerpoint,search_app
+find apps matching chrome,search_app
+search for installed software,search_app
+locate program notepad on my computer,search_app
+find application named vscode,search_app
+search my computer for installed apps,search_app
+run command dir,run_command
+execute command ipconfig,run_command
+run command ping google.com,run_command
+execute system command tasklist,run_command
+run terminal command hostname,run_command
+run command systeminfo,run_command
+execute command whoami,run_command
+run command cls,run_command
+execute the command ipconfig /all,run_command
+run command netstat,run_command
+run terminal command date /t,run_command
+execute command time /t,run_command
+run command ver in terminal,run_command
+execute system command vol,run_command
+run command set in terminal,run_command
+show running processes,list_processes
+list active applications,list_processes
+show all running tasks,list_processes
+list active processes,list_processes
+display running programs,list_processes
+show what apps are open,list_processes
+list running tasks,list_processes
+show active applications,list_processes
+what programs are currently running,list_processes
+show me all running processes,list_processes
+display active tasks on my computer,list_processes
+list all open applications,list_processes
+show running services and processes,list_processes
+what apps are active right now,list_processes
+display all running programs,list_processes
+create angular project school,create_project
+create angular project tourism,create_project
+generate angular project school,create_project
+make angular project tourism,create_project
+create laravel project ecommerce,create_project
+generate laravel project ecommerce,create_project
+make laravel project ecommerce,create_project
+create laravel project inventory,create_project
+generate laravel inventory project,create_project
+make angular project inventory,create_project
+create react project myapp,create_project
+create react project dashboard,create_project
+generate react project portfolio,create_project
+make react project blog,create_project
+create python project calculator,create_project
+generate python project web_scraper,create_project
+make python project api_server,create_project
+create node project chatapp,create_project
+generate node project rest_api,create_project
+make node project blog,create_project
+create html project landing_page,create_project
+generate html project portfolio,create_project
+make html project website,create_project
+create django project ecommerce,create_project
+generate django project blog,create_project
+create vue project dashboard,create_project
+generate vue project todolist,create_project
+make a new react project called shop,create_project
+build a python project named analyzer,create_project
+scaffold a new angular app called admin,create_project
+create a new laravel project named store,create_project
+generate a node project called api_server,create_project
+make a new html website called portfolio,create_project
+move file alpha.txt to beta,move_file
+move file source.py to target,move_file
+move file photo.jpg to gallery,move_file
+move file homework.docx to school,move_file
+move file budget.xlsx to finance,move_file
+move file resume.pdf to jobs,move_file
+move file song.mp3 to music,move_file
+move file video.mp4 to movies,move_file
+move file draft.txt to final,move_file
+move file input.csv to processed,move_file
+please move file log.txt to archive,move_file
+i want to move file data.json to config,move_file
+help me move file readme.md to docs,move_file
+transfer file image.png to assets,move_file
+transfer file report.pdf to documents,move_file
+relocate file notes.txt to backup,move_file
+shift file code.py to src,move_file
+move the file report.docx to the archive folder,move_file
+can you move file data.csv to the output folder,move_file
+move file settings.yaml to config directory,move_file
+copy file alpha.txt to beta,copy_file
+copy file source.py to target,copy_file
+copy file photo.jpg to gallery,copy_file
+copy file homework.docx to backup,copy_file
+copy file budget.xlsx to safe,copy_file
+copy file resume.pdf to cloud,copy_file
+copy file draft.txt to final,copy_file
+copy file input.csv to processed,copy_file
+please copy file log.txt to archive,copy_file
+i want to copy file data.json to backup,copy_file
+duplicate file image.png to assets,copy_file
+duplicate file report.pdf to desktop,copy_file
+make a copy of file notes.txt to backup,copy_file
+make a copy of report.docx to documents,copy_file
+replicate file settings.json to config,copy_file
+copy the file readme.md to docs folder,copy_file
+can you copy file data.csv to output,copy_file
+duplicate the file script.py to src folder,copy_file
+create a copy of file config.yaml to backup,copy_file
+copy file index.html to dist folder,copy_file
+open file alpha.txt for me,open_file
+open file report.docx now,open_file
+open file photo.jpg please,open_file
+open file budget.xlsx,open_file
+open file presentation.pptx,open_file
+open file resume.pdf,open_file
+open file notes.txt for me,open_file
+open file index.html in browser,open_file
+open file data.csv in excel,open_file
+open file script.py in vscode,open_file
+open the file report.pdf,open_file
+can you open the file readme.md,open_file
+launch the file config.json for me,open_file
+start the file document.docx,open_file
+open up the file image.png,open_file
+open file called results.xlsx,open_file
+open the text file notes.txt,open_file
+open the document presentation.pptx,open_file
+open the spreadsheet data.csv,open_file
+open the pdf file report.pdf,open_file
+open folder documents for me,open_folder
+open folder downloads now,open_folder
+open folder pictures please,open_folder
+open folder desktop for me,open_folder
+open folder music now,open_folder
+open folder videos please,open_folder
+open folder projects for me,open_folder
+open folder backup now,open_folder
+show me the folder documents,open_folder
+show me the downloads folder,open_folder
+show the pictures folder,open_folder
+show me the desktop folder,open_folder
+navigate to folder documents,open_folder
+navigate to the downloads folder,open_folder
+browse to folder pictures,open_folder
+browse to the music folder,open_folder
+launch the folder called projects,open_folder
+launch folder backup for me,open_folder
+open up folder documents,open_folder
+open up the folder called videos,open_folder
+rename file old.txt to new.txt,rename_file
+rename file draft.docx to final.docx,rename_file
+rename file temp.py to main.py,rename_file
+rename file untitled.txt to notes.txt,rename_file
+rename file image1.png to logo.png,rename_file
+rename file data_old.csv to data.csv,rename_file
+rename file backup.zip to archive.zip,rename_file
+rename file test.js to app.js,rename_file
+change file name old.txt to new.txt,rename_file
+change file name draft.docx to final.docx,rename_file
+change the file name from temp.py to main.py,rename_file
+change the name of file untitled.txt to notes.txt,rename_file
+rename the file photo.jpg to profile.jpg,rename_file
+rename the file readme.txt to documentation.txt,rename_file
+can you rename file data.csv to results.csv,rename_file
+please rename file old_config.json to config.json,rename_file
+i want to rename file draft.txt to final.txt,rename_file
+help me rename file test.py to app.py,rename_file
+change the file called style.css to theme.css,rename_file
+rename the document report_v1.docx to report_final.docx,rename_file
+rename folder old to new,rename_folder
+rename folder temp to permanent,rename_folder
+rename folder work to office,rename_folder
+rename folder draft to final,rename_folder
+rename folder photos to images,rename_folder
+rename folder code to source,rename_folder
+rename folder v1 to v2,rename_folder
+rename folder test_env to prod_env,rename_folder
+change folder name old to new,rename_folder
+change folder name temp to permanent,rename_folder
+change the folder name from work to office,rename_folder
+change the name of folder draft to final,rename_folder
+rename the folder called photos to images,rename_folder
+rename the folder from old_projects to projects,rename_folder
+can you rename folder v1 to v2,rename_folder
+please rename folder test_env to prod_env,rename_folder
+i want to rename folder old_backup to backup,rename_folder
+help me rename folder scratch to workspace,rename_folder
+change the folder called temp_data to data,rename_folder
+rename the folder from old_projects to projects,rename_folder
+read file notes.txt for me,read_file
+read file config.json please,read_file
+read file data.csv now,read_file
+read file readme.md for me,read_file
+read file script.py please,read_file
+read file log.txt now,read_file
+read file settings.yaml for me,read_file
+read file report.txt please,read_file
+show contents of file notes.txt,read_file
+show contents of file config.json,read_file
+show contents of file data.csv,read_file
+show contents of file readme.md,read_file
+display contents of file log.txt,read_file
+display contents of file settings.yaml,read_file
+what does the file notes.txt say,read_file
+what does the file config.json contain,read_file
+what is inside the file data.csv,read_file
+what is inside the file readme.md,read_file
+show me what is in file log.txt,read_file
+show me what is in file script.py,read_file
+read the text file called notes.txt,read_file
+read the file called config.json,read_file
+open and read file data.csv,read_file
+open and read file readme.md,read_file
+find the file report.pdf on my computer,search_file
+search for the file notes.txt on disk,search_file
+locate the file data.csv on my pc,search_file
+find the file readme.md somewhere,search_file
+search for any file called config.json,search_file
+find files matching report on my computer,search_file
+search for all pdf files on my pc,search_file
+locate any file named notes on my drive,search_file
+find where the file script.py is located,search_file
+search for the file image.png on disk,search_file
+find all text files on my computer,search_file
+locate the file called budget.xlsx,search_file
+search for the document named report.docx,search_file
+find the spreadsheet data.csv on my pc,search_file
+look for the file readme.md on my computer,search_file
+find the folder called projects on my computer,search_folder
+search for the directory named backup on my pc,search_folder
+locate the folder named documents on disk,search_folder
+find any folder matching archive on my drive,search_folder
+search for the directory called config,search_folder
+locate any folder named temp on my computer,search_folder
+find the folder music on my pc,search_folder
+search for directory named src on my disk,search_folder
+find folder called downloads on my computer,search_folder
+search for the folder named reports,search_folder
+locate folder called backup on my drive,search_folder
+find the directory called logs on my pc,search_folder
+search for folder named photos on my computer,search_folder
+look for the directory called assets,search_folder
+find where the folder called data is located,search_folder
+copy file invoice.pdf to records,copy_file
+copy file template.docx to new_doc,copy_file
+copy file database.db to backup_drive,copy_file
+copy file credentials.env to secure,copy_file
+copy file main.py to backup.py,copy_file
+duplicate file invoice.pdf to records,copy_file
+duplicate file template.docx to new_doc,copy_file
+duplicate file database.db to backup_drive,copy_file
+duplicate file app.js to app_backup.js,copy_file
+duplicate file style.css to style_old.css,copy_file
+make a copy of file invoice.pdf in records,copy_file
+make a copy of template.docx in templates,copy_file
+make a copy of database.db in backup,copy_file
+make a copy of app.js in src,copy_file
+make a copy of style.css in themes,copy_file
+please copy the file data.json to config folder,copy_file
+please duplicate the file readme.md to docs,copy_file
+i need to copy the file report.pdf to shared folder,copy_file
+i want to duplicate file image.png to gallery,copy_file
+help me copy the file script.py to project folder,copy_file
+create file todo.txt on my desktop,create_file
+create file changelog.md in the project,create_file
+create file .gitignore for my repo,create_file
+create file docker-compose.yml for containers,create_file
+create file package.json for my project,create_file
+make file todo.txt on my desktop,create_file
+make file changelog.md in the project,create_file
+make file .env for environment variables,create_file
+make file app.config for settings,create_file
+make file tsconfig.json for typescript,create_file
+generate file sitemap.xml for the website,create_file
+generate file robots.txt for seo,create_file
+generate file webpack.config.js for bundling,create_file
+generate file .dockerignore for docker,create_file
+generate file babel.config.js for transpilation,create_file
+create a new blank file called scratch.txt,create_file
+create a new empty file called placeholder.txt,create_file
+create a text file named diary.txt on desktop,create_file
+create a json file called config.json,create_file
+create a python file named utils.py,create_file
+move file invoice.pdf to archive folder,move_file
+move file template.docx to templates folder,move_file
+move file database.db to production folder,move_file
+move file credentials.env to secure folder,move_file
+move file main.py to src folder,move_file
+transfer file invoice.pdf to archive folder,move_file
+transfer file template.docx to templates folder,move_file
+transfer file database.db to production folder,move_file
+transfer file app.js to dist folder,move_file
+transfer file style.css to themes folder,move_file
+relocate file invoice.pdf to archive directory,move_file
+relocate file template.docx to templates directory,move_file
+relocate file database.db to production directory,move_file
+shift file main.py to src directory,move_file
+shift file app.js to dist directory,move_file
+please move the file report.pdf to the shared drive,move_file
+please transfer the file data.csv to the output directory,move_file
+i need to move the file notes.txt to my documents folder,move_file
+i want to transfer file image.png to the gallery folder,move_file
+help me move the file script.py to the source directory,move_file
+rename file draft_v1.txt to draft_v2.txt,rename_file
+rename file screenshot.png to banner.png,rename_file
+rename file export.csv to monthly_report.csv,rename_file
+rename file handler.js to controller.js,rename_file
+rename file utils.py to helpers.py,rename_file
+change file name draft_v1.txt to draft_v2.txt,rename_file
+change file name screenshot.png to banner.png,rename_file
+change file name export.csv to monthly_report.csv,rename_file
+change the file name from handler.js to controller.js,rename_file
+change the file name from utils.py to helpers.py,rename_file
+please rename the file called temp.txt to output.txt,rename_file
+please change the file name from old.js to new.js,rename_file
+i want to rename file data_v1.csv to data_v2.csv,rename_file
+i need to rename the file called draft.docx to final.docx,rename_file
+help me rename file app_old.py to app.py,rename_file
+rename the file report_v1.pdf to report_final.pdf,rename_file
+rename the document called rough.txt to polished.txt,rename_file
+can you rename file server_old.js to server.js,rename_file
+can you change file name from style_v1.css to style.css,rename_file
+rename file from test_spec.py to test_main.py,rename_file
+hello,greeting
+hi,greeting
+hey,greeting
+hola,greeting
+good morning,greeting
+good afternoon,greeting
+good evening,greeting
+howdy,greeting
+greetings,greeting
+habari,greeting
+mambo,greeting
+sasa,greeting
+vipi,greeting
+hello nova,greeting
+hi nova,greeting
+hey there,greeting
+hello there,greeting
+hi there,greeting
+whats up,greeting
+how are you,greeting
+good day,greeting
+nice to meet you,greeting
+hello how are you,greeting
+hi how are you doing,greeting
+hey whats going on,greeting
+good morning nova,greeting
+good evening nova,greeting
+hello friend,greeting
+hey buddy,greeting
+yo,greeting
+sup,greeting
+hello assistant,greeting
+hi assistant,greeting
+tell me a joke,unknown
+what time is it,unknown
+play music,unknown
+take a screenshot,unknown
+send email,unknown
+make a call,unknown
+record screen,unknown
+change wallpaper,unknown
+set alarm,unknown
+check battery,unknown
+turn off wifi,unknown
+increase volume,unknown
+decrease brightness,unknown
+lock computer,unknown
+restart computer,unknown
+install program,unknown
+uninstall app,unknown
+update windows,unknown
+check disk space,unknown
+connect bluetooth,unknown
+print document,unknown
+scan file,unknown
+translate text,unknown
+compress file,unknown
+extract zip,unknown
+burn cd,unknown
+check ip address,unknown
+ping server,unknown
+format usb,unknown
+create shortcut,unknown
+make me a new file called notes.txt,create_file
+create a text file on desktop,create_file
+I need a new file called report.txt,create_file
+make file todo.txt,create_file
+create new file readme.md,create_file
+generate a new file called data.csv,create_file
+make a new folder called projects,create_folder
+create a folder on my desktop,create_folder
+I need a new folder called backup,create_folder
+make folder photos,create_folder
+create new folder work stuff,create_folder
+set up a folder called archive,create_folder
+remove the file old_report.txt,delete_file
+get rid of that temp file,delete_file
+delete my notes file,delete_file
+erase the file called draft.txt,delete_file
+remove file junk.txt from downloads,delete_file
+can you delete that file for me,delete_file
+del file old_data.csv,delete_file
+remove the folder called temp,delete_folder
+get rid of that empty folder,delete_folder
+delete the backup folder,delete_folder
+erase the old project folder,delete_folder
+del folder cache,delete_folder
+change the name of my report to final report,rename_file
+rename that file to something better,rename_file
+rename file old.txt to new.txt,rename_file
+change file name from draft to final,rename_file
+I want to rename my notes file,rename_file
+change the folder name from work to projects,rename_folder
+rename that folder to archive,rename_folder
+rename folder old to new,rename_folder
+change name of the backup folder,rename_folder
+put that file in the documents folder,move_file
+transfer my report to downloads,move_file
+move my notes to the desktop,move_file
+send that file to my documents,move_file
+relocate the file to pictures,move_file
+move file report.pdf to documents,move_file
+put that folder in documents,move_folder
+transfer the project folder to desktop,move_folder
+move the backup folder to downloads,move_folder
+duplicate my report file,copy_file
+make a copy of that file,copy_file
+clone the file called data.xlsx,copy_file
+copy file report.pdf to backup.pdf,copy_file
+I need a copy of my notes,copy_file
+replicate that file for me,copy_file
+duplicate the project folder,copy_folder
+make a copy of the backup folder,copy_folder
+copy folder work to work_backup,copy_folder
+find my invoice file,search_file
+look for a file called report,search_file
+where is my document file,search_file
+search for any pdf files,search_file
+I need to find my notes,search_file
+locate the file called budget.xlsx,search_file
+can you find my resume file,search_file
+find my project folder,search_folder
+look for a folder called work,search_folder
+where is the backup folder,search_folder
+search for the archive folder,search_folder
+open that document for me,open_file
+show me my report file,open_file
+open the file called invoice.pdf,open_file
+can you open my notes,open_file
+show me my documents folder,open_folder
+open the downloads folder,open_folder
+take me to my desktop folder,open_folder
+open my pictures folder,open_folder
+launch chrome for me,open_app
+start up notepad,open_app
+I need calculator,open_app
+can you open paint,open_app
+start word for me,open_app
+open up excel,open_app
+run powershell,open_app
+close chrome please,close_app
+shut down notepad,close_app
+exit vscode,close_app
+quit chrome,close_app
+kill the calculator,close_app
+write me a report about AI,generate_document
+create a document about climate change,generate_document
+generate a report on world economy,generate_document
+make me a document about history,generate_document
+google how to learn python,search_web
+search the web for AI tutorials,search_web
+look up machine learning online,search_web
+search for python programming,search_web
+go to youtube,open_website
+take me to github,open_website
+visit stackoverflow,open_website
+open facebook for me,open_website
+hello there,greeting
+hey how are you,greeting
+good morning nova,greeting
+hi nova,greeting
+hello assistant,greeting
+hey whats up,greeting
+habari yako,greeting
+mambo vipi,greeting
+copy folder work to backup,copy_folder
+duplicate the project folder,copy_folder
+make a copy of the archive folder,copy_folder
+copy that folder to my desktop,copy_folder
+clone the backup folder,copy_folder
+replicate the work folder,copy_folder
+move folder work to documents,move_folder
+put the archive folder on desktop,move_folder
+transfer folder backup to downloads,move_folder
+send that folder to documents,move_folder
+tengeneza faili report,create_file
+tengeneza folder nyumba,create_folder
+futa faili old_report,delete_file
+futa folder temp,delete_folder
+nakili faili ABDUL to MADAM,copy_file
+nakili folder backup to desktop,copy_folder
+hamisha faili invoice to documents,move_file
+hamisha folder project to downloads,move_folder
+tafuta faili shakira,search_file
+tafuta folder madam,search_folder
+findi SHAKIRA,search_file
+fina nyumba,create_folder
+fungua notepad,open_app
+funga chrome,close_app
+tengeneza faili mpya,create_file
+futa kabrasha old,delete_folder
+nakili kabrasha data,copy_folder
+hamisha kabrasha archive,move_folder
+tafuta kabrasha work,search_folder
+badilisha jina faili report,rename_file
+create file nyumba,create_file
+find file shakira,search_file
+search folder named madam,search_folder
+copy ABDUL.docx to MADAM,copy_file
+copy ABDUL.docx to MADAM FOLDER,copy_file
+relocate the project folder to desktop,move_folder
+open the browser,open_app
+i want to open notepad,open_app
+start up vscode for me,open_app
+launch google chrome,open_app
+run calculator please,open_app
+open tiktok for me,open_app
+open youtube now,open_app
+open instagram,open_app
+open whatsapp web,open_app
+open spotify music,open_app
+open netflix,open_app
+open discord,open_app
+open github,open_app
+open chatgpt,open_app
+open reddit,open_app
+open facebook,open_app
+open twitter,open_app
+open linkedin,open_app
+open twitch,open_app
+open gmail,open_app
+open bing,open_app
+open wikipedia,open_app
+open amazon,open_app
+open zoom,open_app
+open telegram,open_app
+open slack,open_app
+open outlook email,open_app
+create a text file on desktop,create_file
+make a new file called notes,create_file
+i need a new text file,create_file
+create blank file,create_file
+generate a new file,create_file
+build a new file,create_file
+make file report.txt,create_file
+new file please,create_file
+create a folder for my work,create_folder
+make new directory,create_folder
+i need a new folder,create_folder
+create folder on desktop,create_folder
+make a directory called backup,create_folder
+new folder on my desktop,create_folder
+delete that annoying file,delete_file
+remove the old report,delete_file
+get rid of this file,delete_file
+can you delete that file,delete_file
+trash that file,delete_file
+clean up old files,delete_file
+erase that document,delete_file
+delete folder temp,delete_folder
+remove that empty folder,delete_folder
+get rid of the old folder,delete_folder
+clean up the temp directory,delete_folder
+destroy that folder,delete_folder
+rename this file to something better,rename_file
+change the name of this file,rename_file
+rename report to final_report,rename_file
+i want to rename this file,rename_file
+change file name to invoice_2024,rename_file
+rename folder work to archive,rename_folder
+change the folder name,rename_folder
+rename this directory please,rename_folder
+copy this file to my documents,copy_file
+duplicate that report,copy_file
+make a copy of this file,copy_file
+i need a copy of this document,copy_file
+clone that file to downloads,copy_file
+copy my resume to documents folder,copy_file
+copy folder backup to external drive,copy_folder
+duplicate the entire folder,copy_folder
+make a copy of this directory,copy_folder
+replicate the project folder,copy_folder
+move this file to the archive folder,move_file
+transfer that document to downloads,move_file
+put this file in the work folder,move_file
+relocate that file please,move_file
+send this file to my documents,move_file
+move folder to a new location,move_folder
+transfer that directory,move_folder
+put this folder in downloads,move_folder
+open this file for me,open_file
+can you open that document,open_file
+show me that file,open_file
+read that text file,open_file
+open the report please,open_file
+open this folder,open_folder
+show me that directory,open_folder
+browse that folder,open_folder
+open file explorer to documents,open_folder
+read the contents of that file,read_file
+show me what is in that file,read_file
+read this document,read_file
+display file contents,read_file
+search for any pdf files,search_file
+find all images on my desktop,search_file
+look for files named report,search_file
+where are my invoice files,search_file
+locate that document,search_file
+search for the work folder,search_folder
+find directory named backup,search_folder
+look for folders called archive,search_folder
+where is my project folder,search_folder
+google something for me,search_web
+search the web for python tutorials,search_web
+look up machine learning online,search_web
+search google for weather today,search_web
+open google.com,open_website
+visit youtube.com,open_website
+go to stackoverflow,open_website
+open the wikipedia website,open_website
+close chrome browser,close_app
+exit notepad,close_app
+quit the application,close_app
+kill the chrome process,close_app
+stop vscode,close_app
+show me running processes,list_processes
+what programs are running,list_processes
+display active processes,list_processes
+run a terminal command,run_command
+execute dir command,run_command
+run ping google.com,run_command
+create a react project called myapp,create_project
+make a new python project,create_project
+generate django project blog,create_project
+create a node project server,create_project
+scaffold a vue project dashboard,create_project
+hello there,greeting
+hey nova,greeting
+hi how are you,greeting
+good morning,greeting
+hello my assistant,greeting
+hey what can you do,greeting
+hi there friend,greeting
+hello good afternoon,greeting
+sup bro,greeting
+mambo,greeting
+sasa,greeting
+habari,greeting
+hello hi,greeting
+hey buddy,greeting
+open tiktok for me,open_app
+i want to watch youtube,open_app
+play spotify,open_app
+check my instagram,open_app
+open whatsapp please,open_app
+launch facebook,open_app
+open netflix for movies,open_app
+start discord,open_app
+open github repo,open_app
+check reddit,open_app
+open chatgpt ai,open_app
+open google search,open_app
+open my gmail inbox,open_app
+open bing search,open_app
+look up on wikipedia,open_app
+open amazon shopping,open_app
+start zoom meeting,open_app
+open telegram chat,open_app
+open slack workspace,open_app
+check outlook mail,open_app
+create assignment about cybersecurity,generate_document
+make assignment on machine learning,generate_document
+generate assignment on python programming,generate_document
+create assignment about AI ethics,generate_document
+create research proposal on AI in healthcare,generate_document
+make research proposal about renewable energy,generate_document
+generate research proposal on quantum computing,generate_document
+create a research proposal on climate change,generate_document
+create report about climate change,generate_document
+make report on market analysis,generate_document
+generate report on cybersecurity trends,generate_document
+create a report about artificial intelligence,generate_document
+create assignment on networking,generate_document
+create research proposal on blockchain technology,generate_document
+create report on data science,generate_document
+move folder users from C to D,move_folder
+move folder from C drive to D drive,move_folder
+copy folder from C to D,move_folder
+move folder test to D:\backup,move_folder
+move folder project to D:\archive,move_folder
+transfer folder documents to D drive,move_folder
+move folder from volume C to volume D,move_folder
+move folder photos to D:\pictures,move_folder
+move folder downloads to D:\downloads,move_folder
+relocate folder music to D:\music,move_folder
+shift folder videos to D:\videos,move_folder
+move folder from C to volume D,move_folder
+open file on volume D,open_file
+open folder from drive D,open_folder
+open document on D drive,open_file
+find file on D drive,search_file
+search folder on D drive,search_folder
+move file from C to D drive,move_file
+copy file from C to D drive,copy_file
+transfer file to D drive,move_file
+look for distributed system notes,search_file
+find distributed systems notes,search_file
+search for distributed system notes pdf,search_file
+locate distributed system notes on my computer,search_file
+open distributed system notes,open_file
+open notes about distributed systems,open_file
+show me distributed system notes,search_file
+find pdf about distributed systems,search_file
+locate document about distributed systems,search_file
+open my distributed systems notes,open_file
+read distributed system notes pdf,read_file
+move users form C to D,move_folder
+move users from C drive to D drive,move_folder
+move folder users from disk C to volume D,move_folder
+copy users from C to D,copy_folder
+transfer users folder from C to D,move_folder
+relocate users folder to D drive,move_folder
+open my document on volume D,open_file
+find the file mydocument on D drive,search_file
+open mydocument from volume D,open_file
+locate mydocument in volume D,search_file
+show mydocument in volume D,search_file
+read mydocument in volume D on C drive,read_file
+copy ABDUL.docx to MADAM FOLDER,copy_file
+find file shakira in my project,search_file
+search for document named distributed system notes,search_file
+open file from C drive,open_file
+open folder from C drive,open_folder
+find folder on volume D,search_folder
+move folder to D drive,move_folder
+copy folder to external drive D,copy_folder
