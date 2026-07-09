@@ -1935,6 +1935,12 @@ class AMAZONAI:
             elif intent == "system_info":
                 # System info is already formatted in the handler
                 lines.append(message)
+            elif intent == "os_command":
+                # OS commands: show action and message directly
+                lines.append(f"{action}")
+                if message:
+                    lines.append("")
+                    lines.append(message)
             else:
                 lines.append(f"{action}")
                 lines.append("")

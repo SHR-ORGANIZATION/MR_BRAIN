@@ -3086,3 +3086,318 @@ Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_mo
 2026-07-09 08:43:50,492 - INFO - Training completed at: 2026-07-09 08:43:50.492116
 2026-07-09 08:43:50,492 - INFO - ============================================================
 2026-07-09 08:43:50,492 - INFO - ✅ Training complete!
+2026-07-09 09:28:47,312 - INFO - Using device: cpu
+2026-07-09 09:28:47,313 - INFO - ============================================================
+2026-07-09 09:28:47,313 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 09:28:47,313 - INFO - ============================================================
+2026-07-09 09:28:47,313 - INFO - Started at: 2026-07-09 09:28:47.313506
+2026-07-09 09:28:47,313 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-09 09:28:47,319 - INFO - Loaded 32 samples, 10 unique intents
+2026-07-09 09:28:47,321 - INFO - Intent distribution:
+intent
+open_app             9
+greeting             8
+os_command           4
+create_folder        2
+system_info          2
+empty_trash          2
+generate_document    2
+list_processes       1
+search_web           1
+create_file          1
+Name: count, dtype: int64
+2026-07-09 09:28:47,321 - INFO - Number of unique intents: 10
+2026-07-09 09:28:47,321 - INFO - Intents: ['create_file', 'create_folder', 'empty_trash', 'generate_document', 'greeting', 'list_processes', 'open_app', 'os_command', 'search_web', 'system_info']
+2026-07-09 09:28:47,322 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-09 09:28:47,323 - INFO - Some classes have < 2 samples, using simple split
+2026-07-09 09:28:47,324 - INFO - Train: 25 samples
+2026-07-09 09:28:47,324 - INFO - Test: 7 samples
+2026-07-09 09:28:47,324 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-09 09:28:50,062 - INFO - Loading model: distilbert-base-uncased (10 classes)
+2026-07-09 09:28:51,100 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-09 09:28:51,100 - INFO - 
+============================================================
+2026-07-09 09:28:51,100 - INFO - Training for 10 epochs on cpu
+2026-07-09 09:28:51,100 - INFO - Total steps: 20, Warmup: 2
+2026-07-09 09:28:51,100 - INFO - ============================================================
+
+2026-07-09 09:28:55,826 - INFO - Epoch 1/10 | Train Loss: 2.3156 | Train Acc: 12.00% | Test Loss: 2.3236 | Test Acc: 14.29%
+2026-07-09 09:28:58,683 - INFO -   -> Best model saved (accuracy: 14.29%)
+2026-07-09 09:29:03,942 - INFO - Epoch 2/10 | Train Loss: 2.3253 | Train Acc: 4.00% | Test Loss: 2.2992 | Test Acc: 0.00%
+2026-07-09 09:29:08,886 - INFO - Epoch 3/10 | Train Loss: 2.2598 | Train Acc: 16.00% | Test Loss: 2.2586 | Test Acc: 28.57%
+2026-07-09 09:29:11,201 - INFO -   -> Best model saved (accuracy: 28.57%)
+2026-07-09 09:29:15,915 - INFO - Epoch 4/10 | Train Loss: 2.2091 | Train Acc: 44.00% | Test Loss: 2.2260 | Test Acc: 42.86%
+2026-07-09 09:29:18,201 - INFO -   -> Best model saved (accuracy: 42.86%)
+2026-07-09 09:29:22,799 - INFO - Epoch 5/10 | Train Loss: 2.1634 | Train Acc: 56.00% | Test Loss: 2.1950 | Test Acc: 42.86%
+2026-07-09 09:29:27,328 - INFO - Epoch 6/10 | Train Loss: 2.1333 | Train Acc: 56.00% | Test Loss: 2.1695 | Test Acc: 42.86%
+2026-07-09 09:29:31,879 - INFO - Epoch 7/10 | Train Loss: 2.0795 | Train Acc: 56.00% | Test Loss: 2.1497 | Test Acc: 42.86%
+2026-07-09 09:29:36,687 - INFO - Epoch 8/10 | Train Loss: 2.0671 | Train Acc: 48.00% | Test Loss: 2.1345 | Test Acc: 42.86%
+2026-07-09 09:29:41,334 - INFO - Epoch 9/10 | Train Loss: 2.0259 | Train Acc: 60.00% | Test Loss: 2.1241 | Test Acc: 42.86%
+2026-07-09 09:29:46,044 - INFO - Epoch 10/10 | Train Loss: 1.9739 | Train Acc: 68.00% | Test Loss: 2.1192 | Test Acc: 42.86%
+2026-07-09 09:29:48,085 - INFO - 
+============================================================
+2026-07-09 09:29:48,085 - INFO - Final Evaluation
+2026-07-09 09:29:48,085 - INFO - ============================================================
+2026-07-09 09:29:48,281 - INFO - 
+Best Accuracy: 42.86%
+2026-07-09 09:29:48,282 - INFO - Final Accuracy: 42.86%
+2026-07-09 09:29:48,282 - INFO - 
+Classification Report:
+                   precision    recall  f1-score   support
+
+generate_document     0.0000    0.0000    0.0000         1
+         greeting     0.5000    1.0000    0.6667         1
+         open_app     0.4000    1.0000    0.5714         2
+       os_command     0.0000    0.0000    0.0000         1
+       search_web     0.0000    0.0000    0.0000         1
+      system_info     0.0000    0.0000    0.0000         1
+
+         accuracy                         0.4286         7
+        macro avg     0.1500    0.3333    0.2063         7
+     weighted avg     0.1857    0.4286    0.2585         7
+
+2026-07-09 09:29:48,283 - INFO - 
+Confusion Matrix:
+[[0 0 1 0 0 0]
+ [0 1 0 0 0 0]
+ [0 0 2 0 0 0]
+ [0 0 1 0 0 0]
+ [0 0 1 0 0 0]
+ [0 1 0 0 0 0]]
+2026-07-09 09:29:48,283 - INFO - 
+Misclassified examples (4):
+2026-07-09 09:29:48,283 - INFO -   Text: 'create excel file' -> True: generate_document, Pred: open_app
+2026-07-09 09:29:48,283 - INFO -   Text: 'lists installed applications' -> True: os_command, Pred: open_app
+2026-07-09 09:29:48,284 - INFO -   Text: 'analyse """
+Voice Input/Output Module for AMAZON AI
+Adds speech recognition (voice commands) and text-to-speech (voice responses) to the desktop assistant.
+"""
+import threading
+import queue
+import time
+from pathlib import Path
+
+try:
+    import pyttsx3
+except ImportError:
+    pyttsx3 = None
+
+try:
+    import speech_recognition as sr
+except ImportError:
+    sr = None
+
+
+class VoiceEngine:
+    """Handles voice input (speech-to-text) and voice output (text-to-speech)."""
+
+    def __init__(self):
+        self.recognizer = sr.Recognizer() if sr else None
+        self.microphone = None
+        self.microphone_name = None
+        self.tts_engine = None
+        self.is_listening = False
+        self.is_speaking = False
+        self.voice_enabled = True
+        self.listening_callback = None
+        self.listening_callback_error = None
+        self.speaking_callback = None
+        self.language = "en-US"
+
+        if pyttsx3:
+            try:
+                self.tts_engine = pyttsx3.init()
+                self.tts_engine.setProperty("rate", 160)
+                self.tts_engine.setProperty("volume", 0.9)
+            except Exception:
+                self.tts_engine = None
+
+        self._select_microphone()
+
+    def set_language(self, lang):
+        self.language = lang or "en-US"
+
+    def _select_microphone(self):
+        if not sr:
+            return
+        try:
+            names = sr.Microphone.list_microphone_names()
+        except Exception as e:
+            print("Mic enumeration failed:", e)
+            return
+        print("Microphones detected:", len(names))
+        if not names:
+            print("No microphone available.")
+            return
+        # Prefer realtek microphone array over virtual devices
+        preferred_keywords = [
+            "microphone array",
+            "realtek",
+            "frontmic",
+            "array",
+            "airpods",
+            "headset",
+        ]
+        excluded_keywords = [
+            "itop",
+            "virtual",
+        ]
+        chosen_index = None
+        for idx, name in enumerate(names):
+            low = name.lower()
+            if any(k in low for k in preferred_keywords) and not any(k in low for k in excluded_keywords):
+                chosen_index = idx
+                break
+        if chosen_index is None:
+            # fallback: first input-capable device
+            for idx, name in enumerate(names):
+                if "output" not in name.lower():
+                    chosen_index = idx
+                    break
+        if chosen_index is None:
+            chosen_index = 0
+        try:
+            self.microphone = sr.Microphone(device_index=chosen_index)
+            self.microphone_name = names[chosen_index]
+            print(f"Selected microphone index {chosen_index}: {self.microphone_name}")
+        except Exception as e:
+            print(f"Failed to open microphone index {chosen_index}: {e}")
+
+    def start_listening(self, on_result=None, on_error=None):
+        """Start background listening thread."""
+        if self.is_listening:
+            return
+        self.is_listening = True
+        self.listening_callback = on_result
+        self.listening_callback_error = on_error
+        t = threading.Thread(target=self._listen_loop, daemon=True)
+        t.start()
+        try:
+            self._play_beep()
+        except Exception:
+            pass
+
+    def stop_listening(self):
+        """Stop listening."""
+        self.is_listening = False
+        try:
+            if self._mic_active and hasattr(self, '_mic_source'):
+                pass
+        except Exception:
+            pass
+
+    def _listen_loop(self):
+        """Background listening loop using speech_recognition."""
+        if not sr or not self.microphone:
+            err = "speech_recognition library not installed or microphone not available."
+            print("VOICE ERROR:", err)
+            if self.listening_callback_error:
+                self.listening_callback_error(err)
+            self.is_listening = False
+            return
+
+        print("Voice thread started")
+        try:
+            with self.microphone as source:
+                print("Microphone opened, adjusting ambient noise...")
+                self.recognizer.adjust_for_ambient_noise(source, duration=1)
+                print("Ambient noise calibration done. Listening...")
+                while self.is_listening:
+                    try:
+                        print("Waiting for speech...")
+                        audio = self.recognizer.listen(source, timeout=3, phrase_time_limit=8)
+                        print("Audio captured")
+                    except sr.WaitTimeoutError:
+                        print("Listen timeout: no speech detected")
+                        continue
+                    try:
+                        print("Recognizing...")
+                        text = self.recognizer.recognize_google(audio, language=self.language)
+                        print("Recognized:", text)
+                        if text and self.listening_callback:
+                            self.listening_callback(text)
+                    except sr.UnknownValueError:
+                        print("Could not understand audio (UnknownValueError)")
+                        if self.listening_callback_error:
+                            self.listening_callback_error("Could not understand audio")
+                        continue
+                    except sr.RequestError as e:
+                        msg = f"Google recognition error: {e}"
+                        print(msg)
+                        if self.listening_callback_error:
+                            self.listening_callback_error(msg)
+                        time.sleep(0.5)
+                    except Exception as e:
+                        msg = f"Recognition unexpected error: {e}"
+                        print("VOICE ERROR:", msg)
+                        if self.listening_callback_error:
+                            self.listening_callback_error(msg)
+                        time.sleep(0.5)
+        except Exception as e:
+            msg = f"Microphone/open error: {e}"
+            print("VOICE ERROR:", msg)
+            if self.listening_callback_error:
+                self.listening_callback_error(msg)
+        finally:
+            print("Voice thread stopping")
+            self.is_listening = False
+
+    def speak(self, text):
+        """Speak text aloud using TTS."""
+        if not self.voice_enabled:
+            return
+        if not self.tts_engine:
+            return
+        threading.Thread(target=self._speak_thread, args=(text,), daemon=True).start()
+
+    def _speak_thread(self, text):
+        """Speak in background thread."""
+        try:
+            self.is_speaking = True
+            if self.speaking_callback:
+                self.speaking_callback(True)
+            self.tts_engine.say(text)
+            self.tts_engine.runAndWait()
+        except Exception:
+            pass
+        finally:
+            self.is_speaking = False
+            if self.speaking_callback:
+                self.speaking_callback(False)
+
+    def stop_speaking(self):
+        """Stop current speech."""
+        try:
+            if self.tts_engine:
+                self.tts_engine.stop()
+        except Exception:
+            pass
+        self.is_speaking = False
+
+    def set_voice_enabled(self, enabled):
+        """Enable or disable voice output."""
+        self.voice_enabled = enabled
+
+    def is_voice_available(self):
+        """Check if voice libraries are installed."""
+        return pyttsx3 is not None and sr is not None
+
+
+# Singleton voice engine
+_voice_engine = None
+
+
+def get_voice_engine():
+    """Get or create the global voice engine."""
+    global _voice_engine
+    if _voice_engine is None:
+        _voice_engine = VoiceEngine()
+    return _voice_engine' -> True: search_web, Pred: open_app
+2026-07-09 09:29:48,284 - INFO -   Text: 'scan computer' -> True: system_info, Pred: greeting
+2026-07-09 09:29:48,286 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-09 09:29:48,286 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-09 09:29:48,286 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-09 09:29:48,286 - INFO - Training completed at: 2026-07-09 09:29:48.286414
+2026-07-09 09:29:48,286 - INFO - ============================================================
+2026-07-09 09:29:48,286 - INFO - ✅ Training complete!

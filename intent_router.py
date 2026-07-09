@@ -1522,15 +1522,21 @@ def _handle_os_command(intent, command, parsed):
     if ("list" in cmd_lower and "app" in cmd_lower) or ("list" in action.lower() and "app" in action.lower()):
         print(f"[DEBUG] List apps detected! Command: {command}, Action: {action}")
         try:
-            from system.environment_scanner import get_installed_apps, initialize_environment
+            from system.environment_scanner import get_installed_apps, initialize_environment, get_scanner
                 
             print("[DEBUG] Initializing environment...")
             # Ensure environment is initialized
             initialize_environment()
+            
+            # Debug: check scanner state
+            scanner = get_scanner()
+            print(f"[DEBUG] Scanner apps count after init: {len(scanner.apps)}")
                 
             print("[DEBUG] Getting installed apps...")
             apps = get_installed_apps()
             print(f"[DEBUG] Found {len(apps)} apps")
+            if apps:
+                print(f"[DEBUG] First 3 apps: {list(apps.keys())[:3]}")
                 
             if apps:
                 lines = [f"📱 **Installed Applications** ({len(apps)} found):", ""]
@@ -1538,7 +1544,7 @@ def _handle_os_command(intent, command, parsed):
                 sorted_apps = sorted(apps.items(), key=lambda x: x[1].get('display_name', x[0]))
                 for i, (key, app_info) in enumerate(sorted_apps[:50], 1):  # Show first 50
                     display_name = app_info.get('display_name', key)
-                    lines.append(f"  {i}. {display_name}")
+                    lines.append(f"{i}. {display_name}")
                     
                 if len(apps) > 50:
                     lines.append("")
