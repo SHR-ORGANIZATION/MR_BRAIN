@@ -3,6 +3,7 @@ import socket
 import urllib.parse
 import urllib.request
 import json
+import platform
 from pathlib import Path
 from datetime import datetime
 
@@ -70,20 +71,72 @@ def search_folder(query, root=None, max_results=50):
 
 
 def search_applications(query=None, max_results=50):
-    search_paths = [Path(os.environ.get("ProgramFiles", "C:/Program Files")), Path(os.environ.get("ProgramFiles(x86)", "C:/Program Files (x86)"))]
+    """Search for installed applications (cross-platform)."""
+    current_os = platform.system()
     matches = []
+    
     try:
-        for root in search_paths:
-            if not root.exists():
-                continue
-            for item in root.rglob("*.exe"):
-                if query is None or query.lower() in item.stem.lower():
-                    matches.append(str(item.resolve()))
-                    if len(matches) >= max_results:
-                        break
-            if len(matches) >= max_results:
-                break
-        return _build_result("Search Applications", query or "all", "success", f"Found {len(matches)} installed application(s)", "Application", extra=matches)
+        if current_os == "Darwin":
+            # macOS: search /Applications and ~/Applications
+            search_paths = [Path("/Applications"), Path("/System/Applications"), Path.home() / "Applications"]
+            for search_path in search_paths:
+                if not search_path.exists():
+                    continue
+                for item in search_path.rglob("*.app"):
+                    if query is None or query.lower() in item.stem.lower():
+                        matches.append(str(item.resolve()))
+                        if len(matches) >= max_results:
+                            break
+                if len(matches) >= max_results:
+                    break
+        
+        elif current_os == "Windows":
+            # Windows: search Program Files
+            search_paths = [
+                Path(os.environ.get("ProgramFiles", "C:/Program Files")),
+                Path(os.environ.get("ProgramFiles(x86)", "C:/Program Files (x86)"))
+            ]
+            for root in search_paths:
+                if not root.exists():
+                    continue
+                for item in root.rglob("*.exe"):
+                    if query is None or query.lower() in item.stem.lower():
+                        matches.append(str(item.resolve()))
+                        if len(matches) >= max_results:
+                            break
+                if len(matches) >= max_results:
+                    break
+        else:
+            # Linux: search /usr/share/applications and /usr/bin
+            desktop_paths = [Path("/usr/share/applications"), Path("/usr/local/share/applications"),
+                             Path.home() / ".local/share/applications"]
+            for root in desktop_paths:
+                if not root.exists():
+                    continue
+                for item in root.glob("*.desktop"):
+                    if query is None or query.lower() in item.stem.lower():
+                        matches.append(str(item.resolve()))
+                        if len(matches) >= max_results:
+                            break
+                if len(matches) >= max_results:
+                    break
+            
+            # Also search /usr/bin for command-line apps
+            bin_paths = [Path("/usr/bin"), Path("/usr/local/bin")]
+            for bin_path in bin_paths:
+                if not bin_path.exists():
+                    continue
+                for item in bin_path.iterdir():
+                    if item.is_file() and os.access(str(item), os.X_OK):
+                        if query is None or query.lower() in item.name.lower():
+                            matches.append(str(item.resolve()))
+                            if len(matches) >= max_results:
+                                break
+                if len(matches) >= max_results:
+                    break
+        
+        return _build_result("Search Applications", query or "all", "success",
+                            f"Found {len(matches)} installed application(s)", "Application", extra=matches)
     except Exception as e:
         return _build_result("Search Applications", query or "all", "failed", str(e), "Application", extra=[])
 

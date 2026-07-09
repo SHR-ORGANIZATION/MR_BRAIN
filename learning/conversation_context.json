@@ -1,0 +1,452 @@
+[
+  {
+    "command": "hello",
+    "intent": "greeting",
+    "timestamp": "2026-07-08T14:00:40.805577"
+  },
+  {
+    "command": "hep me please",
+    "intent": "greeting",
+    "timestamp": "2026-07-08T14:00:56.066360"
+  },
+  {
+    "command": "i need your commands",
+    "intent": "greeting",
+    "timestamp": "2026-07-08T14:01:18.287588"
+  },
+  {
+    "command": "write doc using microsoft work with HAMISI heaadig",
+    "intent": "create_file",
+    "timestamp": "2026-07-08T14:02:02.300429"
+  },
+  {
+    "command": "write a document about AI",
+    "intent": "open_file",
+    "timestamp": "2026-07-08T14:42:16.509882"
+  },
+  {
+    "command": "write a document about AI and save as hamisi.docs",
+    "intent": "open_file",
+    "timestamp": "2026-07-08T14:42:55.781689"
+  },
+  {
+    "command": "write a document about AI and save as hamisi.docs",
+    "intent": "open_file",
+    "timestamp": "2026-07-08T14:46:52.961862"
+  },
+  {
+    "command": "write a document about AI and save as hamisi.docs",
+    "intent": "open_file",
+    "timestamp": "2026-07-08T14:56:05.099059"
+  },
+  {
+    "command": "write a document about AI and save as hamisi.docs",
+    "intent": "open_file",
+    "timestamp": "2026-07-08T14:56:09.485839"
+  },
+  {
+    "command": "write a document about AI and save as hamisi.docs",
+    "intent": "open_file",
+    "timestamp": "2026-07-08T14:56:13.529555"
+  },
+  {
+    "command": "realy?",
+    "intent": "greeting",
+    "timestamp": "2026-07-08T16:05:42.781698"
+  },
+  {
+    "command": "wow",
+    "intent": "greeting",
+    "timestamp": "2026-07-08T16:06:05.566399"
+  },
+  {
+    "command": "really",
+    "intent": "greeting",
+    "timestamp": "2026-07-08T16:06:13.562474"
+  },
+  {
+    "command": "realy",
+    "intent": "open_app",
+    "timestamp": "2026-07-08T16:06:25.277632"
+  },
+  {
+    "command": "open corel draw",
+    "intent": "open_app",
+    "timestamp": "2026-07-08T16:12:32.716044"
+  },
+  {
+    "command": "open coreldraw",
+    "intent": "open_app",
+    "timestamp": "2026-07-08T16:13:33.863009"
+  },
+  {
+    "command": "open panda",
+    "intent": "open_app",
+    "timestamp": "2026-07-08T16:14:03.245275"
+  },
+  {
+    "command": "open coreldraw",
+    "intent": "open_app",
+    "timestamp": "2026-07-08T16:14:36.927154"
+  },
+  {
+    "command": "hel me to creaate Leo kabla hamjaondoka ofsini, nataka Schedule yake ya Training inayoeleza kila kitu mtakachofaya kwa muda mtakaoona unatosha kufanyiwa Training.",
+    "intent": "move_file",
+    "timestamp": "2026-07-08T16:15:34.128498"
+  },
+  {
+    "command": "create professional training schedules!",
+    "intent": "create_folder",
+    "timestamp": "2026-07-08T17:37:57.904098"
+  },
+  {
+    "command": "hello",
+    "intent": "greeting",
+    "timestamp": "2026-07-08T20:56:30.454681"
+  },
+  {
+    "command": "are you goodd",
+    "intent": "greeting",
+    "timestamp": "2026-07-08T20:56:42.869289"
+  },
+  {
+    "command": "sleep my computer",
+    "intent": null,
+    "timestamp": "2026-07-08T20:57:00.393321"
+  },
+  {
+    "command": "rganize my desktop",
+    "intent": "open_app",
+    "timestamp": "2026-07-08T21:01:07.047950"
+  },
+  {
+    "command": "organize my desktop",
+    "intent": "create_folder",
+    "timestamp": "2026-07-08T21:01:19.157616"
+  },
+  {
+    "command": "find duplicate photos",
+    "intent": "search_file",
+    "timestamp": "2026-07-08T21:02:19.954325"
+  },
+  {
+    "command": "show my computer info",
+    "intent": "system_info",
+    "timestamp": "2026-07-08T21:04:33.329734"
+  },
+  {
+    "command": "sleep my  computter",
+    "intent": "sleep",
+    "timestamp": "2026-07-08T21:04:51.482766"
+  },
+  {
+    "command": "list processes",
+    "intent": "list_processes",
+    "timestamp": "2026-07-08T21:05:32.415803"
+  },
+  {
+    "command": "hi",
+    "intent": "greeting",
+    "timestamp": "2026-07-08T21:47:32.273246"
+  },
+  {
+    "command": "sleep my mac",
+    "intent": "sleep",
+    "timestamp": "2026-07-08T21:47:42.634602"
+  },
+  {
+    "command": "analyse \"\"\"\nVoice Input/Output Module for AMAZON AI\nAdds speech recognition (voice commands) and text-to-speech (voice responses) to the desktop assistant.\n\"\"\"\nimport threading\nimport queue\nimport time\nfrom pathlib import Path\n\ntry:\n    import pyttsx3\nexcept ImportError:\n    pyttsx3 = None\n\ntry:\n    import speech_recognition as sr\nexcept ImportError:\n    sr = None\n\n\nclass VoiceEngine:\n    \"\"\"Handles voice input (speech-to-text) and voice output (text-to-speech).\"\"\"\n\n    def __init__(self):\n        self.recognizer = sr.Recognizer() if sr else None\n        self.microphone = None\n        self.microphone_name = None\n        self.tts_engine = None\n        self.is_listening = False\n        self.is_speaking = False\n        self.voice_enabled = True\n        self.listening_callback = None\n        self.listening_callback_error = None\n        self.speaking_callback = None\n        self.language = \"en-US\"\n\n        if pyttsx3:\n            try:\n                self.tts_engine = pyttsx3.init()\n                self.tts_engine.setProperty(\"rate\", 160)\n                self.tts_engine.setProperty(\"volume\", 0.9)\n            except Exception:\n                self.tts_engine = None\n\n        self._select_microphone()\n\n    def set_language(self, lang):\n        self.language = lang or \"en-US\"\n\n    def _select_microphone(self):\n        if not sr:\n            return\n        try:\n            names = sr.Microphone.list_microphone_names()\n        except Exception as e:\n            print(\"Mic enumeration failed:\", e)\n            return\n        print(\"Microphones detected:\", len(names))\n        if not names:\n            print(\"No microphone available.\")\n            return\n        # Prefer realtek microphone array over virtual devices\n        preferred_keywords = [\n            \"microphone array\",\n            \"realtek\",\n            \"frontmic\",\n            \"array\",\n            \"airpods\",\n            \"headset\",\n        ]\n        excluded_keywords = [\n            \"itop\",\n            \"virtual\",\n        ]\n        chosen_index = None\n        for idx, name in enumerate(names):\n            low = name.lower()\n            if any(k in low for k in preferred_keywords) and not any(k in low for k in excluded_keywords):\n                chosen_index = idx\n                break\n        if chosen_index is None:\n            # fallback: first input-capable device\n            for idx, name in enumerate(names):\n                if \"output\" not in name.lower():\n                    chosen_index = idx\n                    break\n        if chosen_index is None:\n            chosen_index = 0\n        try:\n            self.microphone = sr.Microphone(device_index=chosen_index)\n            self.microphone_name = names[chosen_index]\n            print(f\"Selected microphone index {chosen_index}: {self.microphone_name}\")\n        except Exception as e:\n            print(f\"Failed to open microphone index {chosen_index}: {e}\")\n\n    def start_listening(self, on_result=None, on_error=None):\n        \"\"\"Start background listening thread.\"\"\"\n        if self.is_listening:\n            return\n        self.is_listening = True\n        self.listening_callback = on_result\n        self.listening_callback_error = on_error\n        t = threading.Thread(target=self._listen_loop, daemon=True)\n        t.start()\n        try:\n            self._play_beep()\n        except Exception:\n            pass\n\n    def stop_listening(self):\n        \"\"\"Stop listening.\"\"\"\n        self.is_listening = False\n        try:\n            if self._mic_active and hasattr(self, '_mic_source'):\n                pass\n        except Exception:\n            pass\n\n    def _listen_loop(self):\n        \"\"\"Background listening loop using speech_recognition.\"\"\"\n        if not sr or not self.microphone:\n            err = \"speech_recognition library not installed or microphone not available.\"\n            print(\"VOICE ERROR:\", err)\n            if self.listening_callback_error:\n                self.listening_callback_error(err)\n            self.is_listening = False\n            return\n\n        print(\"Voice thread started\")\n        try:\n            with self.microphone as source:\n                print(\"Microphone opened, adjusting ambient noise...\")\n                self.recognizer.adjust_for_ambient_noise(source, duration=1)\n                print(\"Ambient noise calibration done. Listening...\")\n                while self.is_listening:\n                    try:\n                        print(\"Waiting for speech...\")\n                        audio = self.recognizer.listen(source, timeout=3, phrase_time_limit=8)\n                        print(\"Audio captured\")\n                    except sr.WaitTimeoutError:\n                        print(\"Listen timeout: no speech detected\")\n                        continue\n                    try:\n                        print(\"Recognizing...\")\n                        text = self.recognizer.recognize_google(audio, language=self.language)\n                        print(\"Recognized:\", text)\n                        if text and self.listening_callback:\n                            self.listening_callback(text)\n                    except sr.UnknownValueError:\n                        print(\"Could not understand audio (UnknownValueError)\")\n                        if self.listening_callback_error:\n                            self.listening_callback_error(\"Could not understand audio\")\n                        continue\n                    except sr.RequestError as e:\n                        msg = f\"Google recognition error: {e}\"\n                        print(msg)\n                        if self.listening_callback_error:\n                            self.listening_callback_error(msg)\n                        time.sleep(0.5)\n                    except Exception as e:\n                        msg = f\"Recognition unexpected error: {e}\"\n                        print(\"VOICE ERROR:\", msg)\n                        if self.listening_callback_error:\n                            self.listening_callback_error(msg)\n                        time.sleep(0.5)\n        except Exception as e:\n            msg = f\"Microphone/open error: {e}\"\n            print(\"VOICE ERROR:\", msg)\n            if self.listening_callback_error:\n                self.listening_callback_error(msg)\n        finally:\n            print(\"Voice thread stopping\")\n            self.is_listening = False\n\n    def speak(self, text):\n        \"\"\"Speak text aloud using TTS.\"\"\"\n        if not self.voice_enabled:\n            return\n        if not self.tts_engine:\n            return\n        threading.Thread(target=self._speak_thread, args=(text,), daemon=True).start()\n\n    def _speak_thread(self, text):\n        \"\"\"Speak in background thread.\"\"\"\n        try:\n            self.is_speaking = True\n            if self.speaking_callback:\n                self.speaking_callback(True)\n            self.tts_engine.say(text)\n            self.tts_engine.runAndWait()\n        except Exception:\n            pass\n        finally:\n            self.is_speaking = False\n            if self.speaking_callback:\n                self.speaking_callback(False)\n\n    def stop_speaking(self):\n        \"\"\"Stop current speech.\"\"\"\n        try:\n            if self.tts_engine:\n                self.tts_engine.stop()\n        except Exception:\n            pass\n        self.is_speaking = False\n\n    def set_voice_enabled(self, enabled):\n        \"\"\"Enable or disable voice output.\"\"\"\n        self.voice_enabled = enabled\n\n    def is_voice_available(self):\n        \"\"\"Check if voice libraries are installed.\"\"\"\n        return pyttsx3 is not None and sr is not None\n\n\n# Singleton voice engine\n_voice_engine = None\n\n\ndef get_voice_engine():\n    \"\"\"Get or create the global voice engine.\"\"\"\n    global _voice_engine\n    if _voice_engine is None:\n        _voice_engine = VoiceEngine()\n    return _voice_engine",
+    "intent": "search_web",
+    "timestamp": "2026-07-08T21:52:38.097363"
+  },
+  {
+    "command": "search lukinet.co.tz",
+    "intent": "search_file",
+    "timestamp": "2026-07-08T21:54:29.125464"
+  },
+  {
+    "command": "send email to hamisibnj95@gmail.com",
+    "intent": "move_file",
+    "timestamp": "2026-07-08T21:56:24.770164"
+  },
+  {
+    "command": "browse www.lukinet.co.tz",
+    "intent": "search_file",
+    "timestamp": "2026-07-08T21:58:37.713053"
+  },
+  {
+    "command": "open chrom and serach lukinet.co.tz",
+    "intent": "open_app",
+    "timestamp": "2026-07-08T21:58:58.921322"
+  },
+  {
+    "command": "open chrome",
+    "intent": "open_app",
+    "timestamp": "2026-07-08T21:59:25.235475"
+  },
+  {
+    "command": "\"Send email to john@example.com\" \u2192 Opens email composer",
+    "intent": "open_file",
+    "timestamp": "2026-07-08T22:01:24.147787"
+  },
+  {
+    "command": "send email to hamisibnj955@gmail.com",
+    "intent": "read_file",
+    "timestamp": "2026-07-08T22:08:29.614948"
+  },
+  {
+    "command": "\"Send email to john@example.com",
+    "intent": "move_file",
+    "timestamp": "2026-07-08T22:09:27.714854"
+  },
+  {
+    "command": "empty my trash",
+    "intent": "empty_trash",
+    "timestamp": "2026-07-08T22:12:17.456082"
+  },
+  {
+    "command": "write invetatin leter for inbnj95",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:13:07.498142"
+  },
+  {
+    "command": "retrain model",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:19:33.564554"
+  },
+  {
+    "command": "retrain your self",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:20:06.638140"
+  },
+  {
+    "command": "all about your model",
+    "intent": "open_file",
+    "timestamp": "2026-07-08T22:20:32.578427"
+  },
+  {
+    "command": "are you sure??",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:21:09.375211"
+  },
+  {
+    "command": "yoou uderstand me?",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:21:33.182332"
+  },
+  {
+    "command": "retrain model",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:26:33.678263"
+  },
+  {
+    "command": "jifunze mwenyewe",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:26:49.710501"
+  },
+  {
+    "command": "unafahhamu lugha ngapi??",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:27:06.710351"
+  },
+  {
+    "command": "wewe ni nani??",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:27:25.527147"
+  },
+  {
+    "command": "what is your name??",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:27:44.413986"
+  },
+  {
+    "command": "can leaarn kiswahili",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:28:08.970458"
+  },
+  {
+    "command": "can you learn swahili?",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:28:27.715583"
+  },
+  {
+    "command": "you language is?",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:28:48.930984"
+  },
+  {
+    "command": "wewe ni amazo ai kwa sasa unatumia language moja tu na kiswahili kidogo",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:29:35.990821"
+  },
+  {
+    "command": "do you know me",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:36:48.016110"
+  },
+  {
+    "command": "what yo need to know",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:37:10.068591"
+  },
+  {
+    "command": "write invitation letter forr hamisi wedding",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:37:39.897262"
+  },
+  {
+    "command": "write invitation letter for hamisi",
+    "intent": "unknown",
+    "timestamp": "2026-07-08T22:38:00.699466"
+  },
+  {
+    "command": "hello",
+    "intent": "greeting",
+    "timestamp": "2026-07-08T23:16:26.978819"
+  },
+  {
+    "command": "empty my trash and let me comfirm",
+    "intent": "empty_trash",
+    "timestamp": "2026-07-08T23:17:16.032805"
+  },
+  {
+    "command": "open whatsapp",
+    "intent": "open_app",
+    "timestamp": "2026-07-08T23:17:41.094495"
+  },
+  {
+    "command": "open insta",
+    "intent": "open_app",
+    "timestamp": "2026-07-08T23:18:00.002153"
+  },
+  {
+    "command": "open insttagram",
+    "intent": "open_app",
+    "timestamp": "2026-07-08T23:18:31.370431"
+  },
+  {
+    "command": "open instagram",
+    "intent": "open_app",
+    "timestamp": "2026-07-08T23:18:45.282113"
+  },
+  {
+    "command": "open appstore",
+    "intent": "open_app",
+    "timestamp": "2026-07-08T23:19:32.207788"
+  },
+  {
+    "command": "open app store",
+    "intent": "open_app",
+    "timestamp": "2026-07-08T23:19:41.747099"
+  },
+  {
+    "command": "open microsoft word",
+    "intent": "open_app",
+    "timestamp": "2026-07-08T23:20:09.118362"
+  },
+  {
+    "command": "open powerpoint",
+    "intent": "open_app",
+    "timestamp": "2026-07-08T23:20:23.419501"
+  },
+  {
+    "command": "create excel doc",
+    "intent": null,
+    "timestamp": "2026-07-09T04:15:26.880950"
+  },
+  {
+    "command": "create excel document",
+    "intent": null,
+    "timestamp": "2026-07-09T04:15:57.932162"
+  },
+  {
+    "command": "create excel",
+    "intent": null,
+    "timestamp": "2026-07-09T04:16:37.534610"
+  },
+  {
+    "command": "hello",
+    "intent": "greeting",
+    "timestamp": "2026-07-09T04:18:36.174596"
+  },
+  {
+    "command": "write excel document",
+    "intent": null,
+    "timestamp": "2026-07-09T04:19:10.688486"
+  },
+  {
+    "command": "ind azampay folder",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T04:20:32.525562"
+  },
+  {
+    "command": "find azampay folder",
+    "intent": null,
+    "timestamp": "2026-07-09T04:20:42.056764"
+  },
+  {
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T04:22:23.943825"
+  },
+  {
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T04:24:57.597463"
+  },
+  {
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T04:25:08.545956"
+  },
+  {
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T04:26:55.507682"
+  },
+  {
+    "command": "reate word document about AI",
+    "intent": "open_file",
+    "timestamp": "2026-07-09T04:28:04.565157"
+  },
+  {
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T04:28:19.951810"
+  },
+  {
+    "command": "open youtube",
+    "intent": "open_app",
+    "timestamp": "2026-07-09T04:29:13.357559"
+  },
+  {
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T04:30:16.258861"
+  },
+  {
+    "command": "make excel sheet about budget",
+    "intent": "generate_document",
+    "timestamp": "2026-07-09T04:30:42.408856"
+  },
+  {
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T04:31:02.603393"
+  },
+  {
+    "command": "create file named test.txt",
+    "intent": "create_file",
+    "timestamp": "2026-07-09T04:32:44.168403"
+  },
+  {
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T04:34:51.144363"
+  },
+  {
+    "command": "Creates Word document about AI",
+    "intent": "open_file",
+    "timestamp": "2026-07-09T04:36:25.869918"
+  }
+]

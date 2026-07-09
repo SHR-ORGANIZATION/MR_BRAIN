@@ -1,0 +1,854 @@
+2026-07-08 22:27:16,787 - INFO - Using device: cpu
+2026-07-08 22:27:16,787 - INFO - ============================================================
+2026-07-08 22:27:16,787 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-08 22:27:16,787 - INFO - ============================================================
+2026-07-08 22:27:16,787 - INFO - Started at: 2026-07-08 22:27:16.787815
+2026-07-08 22:27:16,787 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-08 22:27:16,807 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-08 22:27:16,811 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-08 22:46:02,302 - INFO - Using device: cpu
+2026-07-08 22:46:02,303 - INFO - ============================================================
+2026-07-08 22:46:02,303 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-08 22:46:02,303 - INFO - ============================================================
+2026-07-08 22:46:02,303 - INFO - Started at: 2026-07-08 22:46:02.303456
+2026-07-08 22:46:02,303 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-08 22:46:02,308 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-08 22:46:02,313 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-08 22:47:33,599 - INFO - Using device: cpu
+2026-07-08 22:47:33,600 - INFO - ============================================================
+2026-07-08 22:47:33,600 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-08 22:47:33,600 - INFO - ============================================================
+2026-07-08 22:47:33,600 - INFO - Started at: 2026-07-08 22:47:33.600414
+2026-07-08 22:47:33,600 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-08 22:47:33,605 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-08 22:47:33,610 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-08 22:48:56,159 - INFO - Using device: cpu
+2026-07-08 22:48:56,159 - INFO - ============================================================
+2026-07-08 22:48:56,159 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-08 22:48:56,159 - INFO - ============================================================
+2026-07-08 22:48:56,160 - INFO - Started at: 2026-07-08 22:48:56.159999
+2026-07-08 22:48:56,160 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-08 22:48:56,164 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-08 22:48:56,169 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-08 22:49:49,587 - INFO - Using device: cpu
+2026-07-08 22:49:49,588 - INFO - ============================================================
+2026-07-08 22:49:49,588 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-08 22:49:49,588 - INFO - ============================================================
+2026-07-08 22:49:49,588 - INFO - Started at: 2026-07-08 22:49:49.588491
+2026-07-08 22:49:49,588 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-08 22:49:49,593 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-08 22:49:49,597 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-08 23:06:07,836 - INFO - Using device: cpu
+2026-07-08 23:06:07,837 - INFO - ============================================================
+2026-07-08 23:06:07,837 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-08 23:06:07,837 - INFO - ============================================================
+2026-07-08 23:06:07,837 - INFO - Started at: 2026-07-08 23:06:07.837658
+2026-07-08 23:06:07,837 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-08 23:06:07,842 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-08 23:06:07,846 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-08 23:16:35,666 - INFO - Using device: cpu
+2026-07-08 23:16:35,667 - INFO - ============================================================
+2026-07-08 23:16:35,667 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-08 23:16:35,667 - INFO - ============================================================
+2026-07-08 23:16:35,667 - INFO - Started at: 2026-07-08 23:16:35.667345
+2026-07-08 23:16:35,667 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-08 23:16:35,672 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-08 23:16:35,677 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-08 23:20:51,866 - INFO - Using device: cpu
+2026-07-08 23:20:51,867 - INFO - ============================================================
+2026-07-08 23:20:51,867 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-08 23:20:51,867 - INFO - ============================================================
+2026-07-08 23:20:51,867 - INFO - Started at: 2026-07-08 23:20:51.867960
+2026-07-08 23:20:51,868 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-08 23:20:51,873 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-08 23:20:51,878 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 04:15:52,669 - INFO - Using device: cpu
+2026-07-09 04:15:52,670 - INFO - ============================================================
+2026-07-09 04:15:52,671 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 04:15:52,698 - INFO - ============================================================
+2026-07-09 04:15:52,698 - INFO - Started at: 2026-07-09 04:15:52.698527
+2026-07-09 04:15:52,698 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 04:15:52,727 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 04:15:52,736 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 04:25:31,180 - INFO - Using device: cpu
+2026-07-09 04:25:31,180 - INFO - ============================================================
+2026-07-09 04:25:31,181 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 04:25:31,181 - INFO - ============================================================
+2026-07-09 04:25:31,181 - INFO - Started at: 2026-07-09 04:25:31.181254
+2026-07-09 04:25:31,181 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 04:25:31,186 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 04:25:31,192 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 04:27:06,511 - INFO - Using device: cpu
+2026-07-09 04:27:06,525 - INFO - ============================================================
+2026-07-09 04:27:06,525 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 04:27:06,525 - INFO - ============================================================
+2026-07-09 04:27:06,525 - INFO - Started at: 2026-07-09 04:27:06.525667
+2026-07-09 04:27:06,525 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 04:27:06,532 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 04:27:06,537 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 04:36:50,710 - INFO - Using device: cpu
+2026-07-09 04:36:50,710 - INFO - ============================================================
+2026-07-09 04:36:50,711 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 04:36:50,711 - INFO - ============================================================
+2026-07-09 04:36:50,711 - INFO - Started at: 2026-07-09 04:36:50.711271
+2026-07-09 04:36:50,711 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 04:36:50,716 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 04:36:50,721 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 04:37:38,106 - INFO - Using device: cpu
+2026-07-09 04:37:38,106 - INFO - ============================================================
+2026-07-09 04:37:38,107 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 04:37:38,107 - INFO - ============================================================
+2026-07-09 04:37:38,107 - INFO - Started at: 2026-07-09 04:37:38.107222
+2026-07-09 04:37:38,107 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 04:37:38,112 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 04:37:38,118 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 04:41:04,698 - INFO - Using device: cpu
+2026-07-09 04:41:04,698 - INFO - ============================================================
+2026-07-09 04:41:04,699 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 04:41:04,699 - INFO - ============================================================
+2026-07-09 04:41:04,699 - INFO - Started at: 2026-07-09 04:41:04.699219
+2026-07-09 04:41:04,699 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 04:41:04,704 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 04:41:04,708 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 04:42:03,018 - INFO - Using device: cpu
+2026-07-09 04:42:03,019 - INFO - ============================================================
+2026-07-09 04:42:03,019 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 04:42:03,019 - INFO - ============================================================
+2026-07-09 04:42:03,019 - INFO - Started at: 2026-07-09 04:42:03.019634
+2026-07-09 04:42:03,019 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 04:42:03,025 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 04:42:03,030 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 05:24:21,838 - INFO - Using device: cpu
+2026-07-09 05:24:21,839 - INFO - ============================================================
+2026-07-09 05:24:21,839 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 05:24:21,839 - INFO - ============================================================
+2026-07-09 05:24:21,839 - INFO - Started at: 2026-07-09 05:24:21.839528
+2026-07-09 05:24:21,839 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 05:24:21,844 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 05:24:21,849 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 05:30:02,231 - INFO - Using device: cpu
+2026-07-09 05:30:02,231 - INFO - ============================================================
+2026-07-09 05:30:02,232 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 05:30:02,232 - INFO - ============================================================
+2026-07-09 05:30:02,232 - INFO - Started at: 2026-07-09 05:30:02.232303
+2026-07-09 05:30:02,232 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 05:30:02,237 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 05:30:02,243 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 05:35:19,663 - INFO - Using device: cpu
+2026-07-09 05:35:19,663 - INFO - ============================================================
+2026-07-09 05:35:19,664 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 05:35:19,664 - INFO - ============================================================
+2026-07-09 05:35:19,664 - INFO - Started at: 2026-07-09 05:35:19.664235
+2026-07-09 05:35:19,664 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 05:35:19,669 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 05:35:19,672 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 05:42:26,540 - INFO - Using device: cpu
+2026-07-09 05:42:26,541 - INFO - ============================================================
+2026-07-09 05:42:26,541 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 05:42:26,541 - INFO - ============================================================
+2026-07-09 05:42:26,541 - INFO - Started at: 2026-07-09 05:42:26.541385
+2026-07-09 05:42:26,541 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 05:42:26,546 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 05:42:26,551 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 05:44:54,599 - INFO - Using device: cpu
+2026-07-09 05:44:54,599 - INFO - ============================================================
+2026-07-09 05:44:54,599 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 05:44:54,599 - INFO - ============================================================
+2026-07-09 05:44:54,599 - INFO - Started at: 2026-07-09 05:44:54.599830
+2026-07-09 05:44:54,599 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 05:44:54,604 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 05:44:54,607 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 05:50:15,002 - INFO - Using device: cpu
+2026-07-09 05:50:15,002 - INFO - ============================================================
+2026-07-09 05:50:15,003 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 05:50:15,003 - INFO - ============================================================
+2026-07-09 05:50:15,003 - INFO - Started at: 2026-07-09 05:50:15.003175
+2026-07-09 05:50:15,003 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 05:50:15,008 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 05:50:15,014 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 05:52:03,851 - INFO - Using device: cpu
+2026-07-09 05:52:03,851 - INFO - ============================================================
+2026-07-09 05:52:03,851 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 05:52:03,851 - INFO - ============================================================
+2026-07-09 05:52:03,851 - INFO - Started at: 2026-07-09 05:52:03.851891
+2026-07-09 05:52:03,852 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 05:52:03,856 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 05:52:03,859 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 05:57:29,543 - INFO - Using device: cpu
+2026-07-09 05:57:29,544 - INFO - ============================================================
+2026-07-09 05:57:29,544 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 05:57:29,544 - INFO - ============================================================
+2026-07-09 05:57:29,544 - INFO - Started at: 2026-07-09 05:57:29.544297
+2026-07-09 05:57:29,544 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 05:57:29,549 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 05:57:29,554 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 07:24:31,273 - INFO - Using device: cpu
+2026-07-09 07:24:31,274 - INFO - ============================================================
+2026-07-09 07:24:31,274 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 07:24:31,274 - INFO - ============================================================
+2026-07-09 07:24:31,274 - INFO - Started at: 2026-07-09 07:24:31.274595
+2026-07-09 07:24:31,274 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 07:24:31,279 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 07:24:31,285 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 07:28:29,949 - INFO - Using device: cpu
+2026-07-09 07:28:29,949 - INFO - ============================================================
+2026-07-09 07:28:29,949 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 07:28:29,950 - INFO - ============================================================
+2026-07-09 07:28:29,950 - INFO - Started at: 2026-07-09 07:28:29.950118
+2026-07-09 07:28:29,950 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 07:28:29,954 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 07:28:29,959 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 07:33:08,768 - INFO - Using device: cpu
+2026-07-09 07:33:08,768 - INFO - ============================================================
+2026-07-09 07:33:08,769 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 07:33:08,769 - INFO - ============================================================
+2026-07-09 07:33:08,769 - INFO - Started at: 2026-07-09 07:33:08.769245
+2026-07-09 07:33:08,769 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 07:33:08,774 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 07:33:08,780 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 07:37:28,635 - INFO - Using device: cpu
+2026-07-09 07:37:28,636 - INFO - ============================================================
+2026-07-09 07:37:28,636 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 07:37:28,636 - INFO - ============================================================
+2026-07-09 07:37:28,636 - INFO - Started at: 2026-07-09 07:37:28.636359
+2026-07-09 07:37:28,636 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 07:37:28,642 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 07:37:28,647 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 07:38:26,930 - INFO - Using device: cpu
+2026-07-09 07:38:26,931 - INFO - ============================================================
+2026-07-09 07:38:26,931 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 07:38:26,931 - INFO - ============================================================
+2026-07-09 07:38:26,931 - INFO - Started at: 2026-07-09 07:38:26.931684
+2026-07-09 07:38:26,931 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 07:38:26,937 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 07:38:26,943 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 07:40:34,214 - INFO - Using device: cpu
+2026-07-09 07:40:34,214 - INFO - ============================================================
+2026-07-09 07:40:34,215 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 07:40:34,215 - INFO - ============================================================
+2026-07-09 07:40:34,215 - INFO - Started at: 2026-07-09 07:40:34.215470
+2026-07-09 07:40:34,215 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/dataset.csv
+2026-07-09 07:40:34,223 - ERROR - 
+❌ Error during training: ['command', 'intent']
+2026-07-09 07:40:34,229 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 476, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 237, in main
+    df = load_data(DATASET_PATH)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 200, in load_data
+    df = df.dropna(subset=['command', 'intent'])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/pandas/core/frame.py", line 6692, in dropna
+    raise KeyError(np.array(subset)[check].tolist())
+KeyError: ['command', 'intent']
+
+2026-07-09 07:43:07,393 - INFO - Using device: cpu
+2026-07-09 07:43:07,393 - INFO - ============================================================
+2026-07-09 07:43:07,393 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 07:43:07,394 - INFO - ============================================================
+2026-07-09 07:43:07,394 - INFO - Started at: 2026-07-09 07:43:07.394174
+2026-07-09 07:43:07,394 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-09 07:43:07,416 - INFO - Loaded 26 samples, 10 unique intents
+2026-07-09 07:43:07,419 - INFO - Intent distribution:
+intent
+open_app             9
+greeting             8
+empty_trash          2
+create_folder        1
+system_info          1
+list_processes       1
+search_web           1
+generate_document    1
+create_file          1
+os_command           1
+Name: count, dtype: int64
+2026-07-09 07:43:07,419 - INFO - Number of unique intents: 10
+2026-07-09 07:43:07,419 - INFO - Intents: ['create_file', 'create_folder', 'empty_trash', 'generate_document', 'greeting', 'list_processes', 'open_app', 'os_command', 'search_web', 'system_info']
+2026-07-09 07:43:07,421 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-09 07:43:07,425 - ERROR - 
+❌ Error during training: The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.
+2026-07-09 07:43:07,430 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 488, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 270, in main
+    train_texts, test_texts, train_labels, test_labels = train_test_split(
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/sklearn/utils/_param_validation.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/sklearn/model_selection/_split.py", line 2872, in train_test_split
+    train, test = next(cv.split(X=arrays[0], y=stratify))
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/sklearn/model_selection/_split.py", line 1909, in split
+    for train, test in self._iter_indices(X, y, groups):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/sklearn/model_selection/_split.py", line 2318, in _iter_indices
+    raise ValueError(
+ValueError: The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.
+
+2026-07-09 07:44:18,473 - INFO - Using device: cpu
+2026-07-09 07:44:18,474 - INFO - ============================================================
+2026-07-09 07:44:18,474 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 07:44:18,474 - INFO - ============================================================
+2026-07-09 07:44:18,474 - INFO - Started at: 2026-07-09 07:44:18.474822
+2026-07-09 07:44:18,475 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-09 07:44:18,482 - INFO - Loaded 26 samples, 10 unique intents
+2026-07-09 07:44:18,484 - INFO - Intent distribution:
+intent
+open_app             9
+greeting             8
+empty_trash          2
+create_folder        1
+system_info          1
+list_processes       1
+search_web           1
+generate_document    1
+create_file          1
+os_command           1
+Name: count, dtype: int64
+2026-07-09 07:44:18,485 - INFO - Number of unique intents: 10
+2026-07-09 07:44:18,485 - INFO - Intents: ['create_file', 'create_folder', 'empty_trash', 'generate_document', 'greeting', 'list_processes', 'open_app', 'os_command', 'search_web', 'system_info']
+2026-07-09 07:44:18,488 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-09 07:44:18,489 - INFO - Some classes have < 2 samples, using simple split
+2026-07-09 07:44:18,492 - INFO - Train: 20 samples
+2026-07-09 07:44:18,492 - INFO - Test: 6 samples
+2026-07-09 07:44:18,492 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-09 07:44:20,880 - INFO - Loading model: distilbert-base-uncased (10 classes)
+2026-07-09 07:44:21,809 - ERROR - 
+❌ Error during training: __init__() got an unexpected keyword argument 'correct_bias'
+2026-07-09 07:44:21,809 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 502, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 313, in main
+    optimizer = AdamW(
+TypeError: __init__() got an unexpected keyword argument 'correct_bias'
+
+2026-07-09 07:45:22,448 - INFO - Using device: cpu
+2026-07-09 07:45:22,448 - INFO - ============================================================
+2026-07-09 07:45:22,448 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 07:45:22,448 - INFO - ============================================================
+2026-07-09 07:45:22,448 - INFO - Started at: 2026-07-09 07:45:22.448692
+2026-07-09 07:45:22,448 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-09 07:45:22,456 - INFO - Loaded 26 samples, 10 unique intents
+2026-07-09 07:45:22,457 - INFO - Intent distribution:
+intent
+open_app             9
+greeting             8
+empty_trash          2
+create_folder        1
+system_info          1
+list_processes       1
+search_web           1
+generate_document    1
+create_file          1
+os_command           1
+Name: count, dtype: int64
+2026-07-09 07:45:22,458 - INFO - Number of unique intents: 10
+2026-07-09 07:45:22,458 - INFO - Intents: ['create_file', 'create_folder', 'empty_trash', 'generate_document', 'greeting', 'list_processes', 'open_app', 'os_command', 'search_web', 'system_info']
+2026-07-09 07:45:22,459 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-09 07:45:22,459 - INFO - Some classes have < 2 samples, using simple split
+2026-07-09 07:45:22,460 - INFO - Train: 20 samples
+2026-07-09 07:45:22,460 - INFO - Test: 6 samples
+2026-07-09 07:45:22,460 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-09 07:45:24,824 - INFO - Loading model: distilbert-base-uncased (10 classes)
+2026-07-09 07:45:25,685 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-09 07:45:25,686 - INFO - 
+============================================================
+2026-07-09 07:45:25,686 - INFO - Training for 10 epochs on cpu
+2026-07-09 07:45:25,686 - INFO - Total steps: 20, Warmup: 2
+2026-07-09 07:45:25,686 - INFO - ============================================================
+
+2026-07-09 07:45:30,273 - ERROR - 
+❌ Error during training: Number of classes, 6, does not match size of target_names, 10. Try specifying the labels parameter
+2026-07-09 07:45:30,278 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 501, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 364, in main
+    test_acc, test_report, test_loss = evaluate(
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 173, in evaluate
+    report = classification_report(
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/sklearn/utils/_param_validation.py", line 216, in wrapper
+    return func(*args, **kwargs)
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/sklearn/metrics/_classification.py", line 2693, in classification_report
+    raise ValueError(
+ValueError: Number of classes, 6, does not match size of target_names, 10. Try specifying the labels parameter
+
+2026-07-09 07:46:52,285 - INFO - Using device: cpu
+2026-07-09 07:46:52,285 - INFO - ============================================================
+2026-07-09 07:46:52,285 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 07:46:52,285 - INFO - ============================================================
+2026-07-09 07:46:52,286 - INFO - Started at: 2026-07-09 07:46:52.286061
+2026-07-09 07:46:52,286 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-09 07:46:52,292 - INFO - Loaded 26 samples, 10 unique intents
+2026-07-09 07:46:52,294 - INFO - Intent distribution:
+intent
+open_app             9
+greeting             8
+empty_trash          2
+create_folder        1
+system_info          1
+list_processes       1
+search_web           1
+generate_document    1
+create_file          1
+os_command           1
+Name: count, dtype: int64
+2026-07-09 07:46:52,294 - INFO - Number of unique intents: 10
+2026-07-09 07:46:52,295 - INFO - Intents: ['create_file', 'create_folder', 'empty_trash', 'generate_document', 'greeting', 'list_processes', 'open_app', 'os_command', 'search_web', 'system_info']
+2026-07-09 07:46:52,296 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-09 07:46:52,296 - INFO - Some classes have < 2 samples, using simple split
+2026-07-09 07:46:52,299 - INFO - Train: 20 samples
+2026-07-09 07:46:52,301 - INFO - Test: 6 samples
+2026-07-09 07:46:52,301 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-09 07:46:54,873 - INFO - Loading model: distilbert-base-uncased (10 classes)
+2026-07-09 07:46:55,710 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-09 07:46:55,710 - INFO - 
+============================================================
+2026-07-09 07:46:55,710 - INFO - Training for 10 epochs on cpu
+2026-07-09 07:46:55,710 - INFO - Total steps: 20, Warmup: 2
+2026-07-09 07:46:55,710 - INFO - ============================================================
+
+2026-07-09 07:46:59,555 - INFO - Epoch 1/10 | Train Loss: 2.3267 | Train Acc: 10.00% | Test Loss: 2.3521 | Test Acc: 0.00%
+2026-07-09 07:47:05,481 - INFO - Epoch 2/10 | Train Loss: 2.3238 | Train Acc: 5.00% | Test Loss: 2.2989 | Test Acc: 0.00%
+2026-07-09 07:47:10,344 - INFO - Epoch 3/10 | Train Loss: 2.2881 | Train Acc: 5.00% | Test Loss: 2.2379 | Test Acc: 50.00%
+2026-07-09 07:47:14,918 - INFO -   -> Best model saved (accuracy: 50.00%)
+2026-07-09 07:47:20,261 - INFO - Epoch 4/10 | Train Loss: 2.1822 | Train Acc: 45.00% | Test Loss: 2.1917 | Test Acc: 66.67%
+2026-07-09 07:47:22,712 - INFO -   -> Best model saved (accuracy: 66.67%)
+2026-07-09 07:47:27,386 - INFO - Epoch 5/10 | Train Loss: 2.1418 | Train Acc: 75.00% | Test Loss: 2.1466 | Test Acc: 66.67%
+2026-07-09 07:47:32,303 - INFO - Epoch 6/10 | Train Loss: 2.0318 | Train Acc: 65.00% | Test Loss: 2.1021 | Test Acc: 66.67%
+2026-07-09 07:47:37,396 - INFO - Epoch 7/10 | Train Loss: 1.9533 | Train Acc: 70.00% | Test Loss: 2.0632 | Test Acc: 66.67%
+2026-07-09 07:47:42,053 - INFO - Epoch 8/10 | Train Loss: 2.0210 | Train Acc: 65.00% | Test Loss: 2.0338 | Test Acc: 66.67%
+2026-07-09 07:47:46,886 - INFO - Epoch 9/10 | Train Loss: 1.8802 | Train Acc: 70.00% | Test Loss: 2.0155 | Test Acc: 66.67%
+2026-07-09 07:47:51,619 - INFO - Epoch 10/10 | Train Loss: 1.9945 | Train Acc: 60.00% | Test Loss: 2.0075 | Test Acc: 66.67%
+2026-07-09 07:47:53,995 - INFO - 
+============================================================
+2026-07-09 07:47:53,996 - INFO - Final Evaluation
+2026-07-09 07:47:53,996 - INFO - ============================================================
+2026-07-09 07:47:54,172 - INFO - 
+Best Accuracy: 66.67%
+2026-07-09 07:47:54,172 - INFO - Final Accuracy: 66.67%
+2026-07-09 07:47:54,172 - INFO - 
+Classification Report:
+                precision    recall  f1-score   support
+
+   create_file     0.0000    0.0000    0.0000         1
+      greeting     1.0000    1.0000    1.0000         2
+list_processes     0.0000    0.0000    0.0000         1
+      open_app     0.5000    1.0000    0.6667         2
+
+      accuracy                         0.6667         6
+     macro avg     0.3750    0.5000    0.4167         6
+  weighted avg     0.5000    0.6667    0.5556         6
+
+2026-07-09 07:47:54,176 - INFO - 
+Confusion Matrix:
+[[0 0 0 1]
+ [0 2 0 0]
+ [0 0 0 1]
+ [0 0 0 2]]
+2026-07-09 07:47:54,177 - INFO - 
+Misclassified examples (2):
+2026-07-09 07:47:54,177 - INFO -   Text: 'list processes' -> True: list_processes, Pred: open_app
+2026-07-09 07:47:54,177 - INFO -   Text: 'create file named test.txt' -> True: create_file, Pred: open_app
+2026-07-09 07:47:54,179 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-09 07:47:54,179 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-09 07:47:54,179 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-09 07:47:54,179 - INFO - Training completed at: 2026-07-09 07:47:54.179664
+2026-07-09 07:47:54,179 - INFO - ============================================================
+2026-07-09 07:47:54,179 - INFO - ✅ Training complete!
+2026-07-09 07:52:42,414 - INFO - Using device: cpu
+2026-07-09 07:52:42,414 - INFO - ============================================================
+2026-07-09 07:52:42,414 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 07:52:42,414 - INFO - ============================================================
+2026-07-09 07:52:42,415 - INFO - Started at: 2026-07-09 07:52:42.415003
+2026-07-09 07:52:42,415 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-09 07:52:42,422 - INFO - Loaded 421 samples, 11 unique intents
+2026-07-09 07:52:42,423 - INFO - Intent distribution:
+intent
+open_app             125
+close_app             65
+generate_document     60
+os_command            48
+system_info           25
+greeting              20
+create_file           19
+empty_trash           18
+create_folder         18
+search_web            13
+list_processes        10
+Name: count, dtype: int64
+2026-07-09 07:52:42,424 - INFO - Number of unique intents: 11
+2026-07-09 07:52:42,424 - INFO - Intents: ['close_app', 'create_file', 'create_folder', 'empty_trash', 'generate_document', 'greeting', 'list_processes', 'open_app', 'os_command', 'search_web', 'system_info']
+2026-07-09 07:52:42,425 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-09 07:52:42,431 - INFO - Train: 336 samples
+2026-07-09 07:52:42,431 - INFO - Test: 85 samples
+2026-07-09 07:52:42,431 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-09 07:52:44,661 - INFO - Loading model: distilbert-base-uncased (11 classes)
+2026-07-09 07:52:45,517 - INFO - Total steps: 210, Warmup steps: 21
+2026-07-09 07:52:45,518 - INFO - Resuming from checkpoint: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/checkpoint.pt
+2026-07-09 07:52:46,457 - ERROR - 
+❌ Error during training: Error(s) in loading state_dict for DistilBertForSequenceClassification:
+	size mismatch for classifier.weight: copying a param with shape torch.Size([10, 768]) from checkpoint, the shape in current model is torch.Size([11, 768]).
+	size mismatch for classifier.bias: copying a param with shape torch.Size([10]) from checkpoint, the shape in current model is torch.Size([11]).
+2026-07-09 07:52:46,461 - ERROR - Traceback (most recent call last):
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 507, in <module>
+    main()
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/train_nlu.py", line 342, in main
+    model.load_state_dict(checkpoint["model_state"])
+  File "/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 2153, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for DistilBertForSequenceClassification:
+	size mismatch for classifier.weight: copying a param with shape torch.Size([10, 768]) from checkpoint, the shape in current model is torch.Size([11, 768]).
+	size mismatch for classifier.bias: copying a param with shape torch.Size([10]) from checkpoint, the shape in current model is torch.Size([11]).
+
+2026-07-09 07:54:40,370 - INFO - Using device: cpu
+2026-07-09 07:54:40,370 - INFO - ============================================================
+2026-07-09 07:54:40,370 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 07:54:40,370 - INFO - ============================================================
+2026-07-09 07:54:40,370 - INFO - Started at: 2026-07-09 07:54:40.370758
+2026-07-09 07:54:40,370 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-09 07:54:40,378 - INFO - Loaded 421 samples, 11 unique intents
+2026-07-09 07:54:40,379 - INFO - Intent distribution:
+intent
+open_app             125
+close_app             65
+generate_document     60
+os_command            48
+system_info           25
+greeting              20
+create_file           19
+empty_trash           18
+create_folder         18
+search_web            13
+list_processes        10
+Name: count, dtype: int64
+2026-07-09 07:54:40,379 - INFO - Number of unique intents: 11
+2026-07-09 07:54:40,379 - INFO - Intents: ['close_app', 'create_file', 'create_folder', 'empty_trash', 'generate_document', 'greeting', 'list_processes', 'open_app', 'os_command', 'search_web', 'system_info']
+2026-07-09 07:54:40,380 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-09 07:54:40,384 - INFO - Train: 336 samples
+2026-07-09 07:54:40,384 - INFO - Test: 85 samples
+2026-07-09 07:54:40,384 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-09 07:54:43,509 - INFO - Loading model: distilbert-base-uncased (11 classes)
+2026-07-09 07:54:44,381 - INFO - Total steps: 210, Warmup steps: 21
+2026-07-09 07:54:44,382 - INFO - 
+============================================================
+2026-07-09 07:54:44,382 - INFO - Training for 10 epochs on cpu
+2026-07-09 07:54:44,382 - INFO - Total steps: 210, Warmup: 21
+2026-07-09 07:54:44,382 - INFO - ============================================================
+
+2026-07-09 07:55:24,477 - INFO - Epoch 1/10 | Train Loss: 2.3498 | Train Acc: 21.43% | Test Loss: 2.2270 | Test Acc: 29.41%
+2026-07-09 07:55:27,681 - INFO -   -> Best model saved (accuracy: 29.41%)
+2026-07-09 07:56:21,562 - INFO - Epoch 2/10 | Train Loss: 1.9937 | Train Acc: 39.29% | Test Loss: 1.7115 | Test Acc: 43.53%
+2026-07-09 07:56:24,457 - INFO -   -> Best model saved (accuracy: 43.53%)
+2026-07-09 07:57:43,928 - INFO - Epoch 3/10 | Train Loss: 1.5080 | Train Acc: 57.14% | Test Loss: 1.2540 | Test Acc: 67.06%
+2026-07-09 07:57:47,365 - INFO -   -> Best model saved (accuracy: 67.06%)
+2026-07-09 07:58:31,187 - INFO - Epoch 4/10 | Train Loss: 1.1216 | Train Acc: 71.13% | Test Loss: 0.9316 | Test Acc: 78.82%
+2026-07-09 07:58:33,729 - INFO -   -> Best model saved (accuracy: 78.82%)
+2026-07-09 07:59:24,725 - INFO - Epoch 5/10 | Train Loss: 0.8584 | Train Acc: 82.44% | Test Loss: 0.7300 | Test Acc: 85.88%
+2026-07-09 07:59:27,948 - INFO -   -> Best model saved (accuracy: 85.88%)
+2026-07-09 08:00:13,950 - INFO - Epoch 6/10 | Train Loss: 0.6883 | Train Acc: 90.48% | Test Loss: 0.6034 | Test Acc: 87.06%
+2026-07-09 08:00:17,435 - INFO -   -> Best model saved (accuracy: 87.06%)

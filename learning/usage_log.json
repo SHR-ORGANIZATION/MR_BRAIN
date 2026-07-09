@@ -1,0 +1,722 @@
+[
+  {
+    "timestamp": "2026-07-08T14:00:40.805565",
+    "command": "hello",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello! \ud83d\udc4b How can I help you today?"
+  },
+  {
+    "timestamp": "2026-07-08T14:00:56.066351",
+    "command": "hep me please",
+    "intent": "greeting",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T14:01:18.287578",
+    "command": "i need your commands",
+    "intent": "greeting",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T14:02:02.300420",
+    "command": "write doc using microsoft work with HAMISI heaadig",
+    "intent": "create_file",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T14:42:16.509874",
+    "command": "write a document about AI",
+    "intent": "open_file",
+    "entity": "AI",
+    "success": false,
+    "response": "No files found matching that query. Try building an index first with 'index my files' or 'index my computer'."
+  },
+  {
+    "timestamp": "2026-07-08T14:42:55.781681",
+    "command": "write a document about AI and save as hamisi.docs",
+    "intent": "open_file",
+    "entity": "AI and save as hamisi.docs",
+    "success": false,
+    "response": "No files found matching that query. Try building an index first with 'index my files' or 'index my computer'."
+  },
+  {
+    "timestamp": "2026-07-08T14:46:52.961853",
+    "command": "write a document about AI and save as hamisi.docs",
+    "intent": "open_file",
+    "entity": "AI and save as hamisi.docs",
+    "success": false,
+    "response": "No files found matching that query. Try building an index first with 'index my files' or 'index my computer'."
+  },
+  {
+    "timestamp": "2026-07-08T14:56:05.099052",
+    "command": "write a document about AI and save as hamisi.docs",
+    "intent": "open_file",
+    "entity": "AI and save as hamisi.docs",
+    "success": false,
+    "response": "No files found matching that query. Try building an index first with 'index my files' or 'index my computer'."
+  },
+  {
+    "timestamp": "2026-07-08T14:56:09.485831",
+    "command": "write a document about AI and save as hamisi.docs",
+    "intent": "open_file",
+    "entity": "AI and save as hamisi.docs",
+    "success": false,
+    "response": "No files found matching that query. Try building an index first with 'index my files' or 'index my computer'."
+  },
+  {
+    "timestamp": "2026-07-08T14:56:13.529548",
+    "command": "write a document about AI and save as hamisi.docs",
+    "intent": "open_file",
+    "entity": "AI and save as hamisi.docs",
+    "success": false,
+    "response": "No files found matching that query. Try building an index first with 'index my files' or 'index my computer'."
+  },
+  {
+    "timestamp": "2026-07-08T16:05:42.781683",
+    "command": "realy?",
+    "intent": "greeting",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T16:06:05.566391",
+    "command": "wow",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hi! \u2728 Great to see you! How can I make your day easier?"
+  },
+  {
+    "timestamp": "2026-07-08T16:06:13.562465",
+    "command": "really",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello! \ud83c\udf89 I'm here and ready to assist. What would you like to do?"
+  },
+  {
+    "timestamp": "2026-07-08T16:06:25.277621",
+    "command": "realy",
+    "intent": "open_app",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T16:12:32.716016",
+    "command": "open corel draw",
+    "intent": "open_app",
+    "entity": "corel draw",
+    "success": false,
+    "response": "Could not find or open 'corel draw'. Make sure it's installed."
+  },
+  {
+    "timestamp": "2026-07-08T16:13:33.862987",
+    "command": "open coreldraw",
+    "intent": "open_app",
+    "entity": "coreldraw",
+    "success": false,
+    "response": "Could not find or open 'coreldraw'. Make sure it's installed."
+  },
+  {
+    "timestamp": "2026-07-08T16:14:03.245183",
+    "command": "open panda",
+    "intent": "open_app",
+    "entity": "panda",
+    "success": true,
+    "response": "Opened Panda"
+  },
+  {
+    "timestamp": "2026-07-08T16:14:36.927095",
+    "command": "open coreldraw",
+    "intent": "open_app",
+    "entity": "coreldraw",
+    "success": false,
+    "response": "Could not find or open 'coreldraw'. Make sure it's installed."
+  },
+  {
+    "timestamp": "2026-07-08T16:15:34.128490",
+    "command": "hel me to creaate Leo kabla hamjaondoka ofsini, nataka Schedule yake ya Training inayoeleza kila kitu mtakachofaya kwa muda mtakaoona unatosha kufanyiwa Training.",
+    "intent": "move_file",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T17:37:57.904074",
+    "command": "create professional training schedules!",
+    "intent": "create_folder",
+    "entity": "/Users/mac/Desktop/professional training schedules!",
+    "success": true,
+    "response": "Folder created at: /Users/mac/Desktop/professional training schedules!"
+  },
+  {
+    "timestamp": "2026-07-08T20:56:30.454665",
+    "command": "hello",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hey there! \ud83d\ude80 I'm ready to help you operate your computer more efficiently. What would you like to accomplish?"
+  },
+  {
+    "timestamp": "2026-07-08T20:56:42.869277",
+    "command": "are you goodd",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello! \ud83c\udf89 I'm AMAZON, your personal digital assistant. I can help you manage files, open apps, search your computer, and much more. What do you need?"
+  },
+  {
+    "timestamp": "2026-07-08T20:57:00.393308",
+    "command": "sleep my computer",
+    "intent": null,
+    "entity": null,
+    "success": false,
+    "response": "No module named 'psutil'"
+  },
+  {
+    "timestamp": "2026-07-08T21:01:07.047938",
+    "command": "rganize my desktop",
+    "intent": "open_app",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T21:01:19.157606",
+    "command": "organize my desktop",
+    "intent": "create_folder",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T21:02:19.954317",
+    "command": "find duplicate photos",
+    "intent": "search_file",
+    "entity": "duplicate photos",
+    "success": false,
+    "response": "Couldn't find any file matching 'duplicate photos'. Try checking the name or location."
+  },
+  {
+    "timestamp": "2026-07-08T21:04:33.329725",
+    "command": "show my computer info",
+    "intent": "system_info",
+    "entity": null,
+    "success": true,
+    "response": "**System Information**\n\n**Operating System:** Darwin 24.6.0 (Version: Darwin Kernel Version 24.6.0: Wed Mar 25 21:34:19 PDT 2026; root:xnu-11417.140.69.709.8~3/RELEASE_X86_64)\n\n**Hardware:**\n  \u2022 CPU C"
+  },
+  {
+    "timestamp": "2026-07-08T21:04:51.482757",
+    "command": "sleep my  computter",
+    "intent": "sleep",
+    "entity": null,
+    "success": false,
+    "response": "I didn't quite understand that command. You can try:\n- 'create file [name]' or 'create folder [name]'\n- 'open chrome', 'open notepad', etc.\n- 'search for [topic]' or 'search web [topic]'\n- 'list proce"
+  },
+  {
+    "timestamp": "2026-07-08T21:05:32.415785",
+    "command": "list processes",
+    "intent": "list_processes",
+    "entity": null,
+    "success": true,
+    "response": "Running Processes:\n1. Main.Py (PID: 97017)\n2. Opendirectoryd (PID: 138)\n3. Trustd (PID: 188)\n4. Main.Py (PID: 93342)\n5. Vpn (PID: 487)\n6. Control Center (PID: 519)\n7. Outlook (PID: 14748)\n8. Kav_Agent"
+  },
+  {
+    "timestamp": "2026-07-08T21:47:32.273238",
+    "command": "hi",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello!  I'm AMAZON, your desktop assistant. I've discovered 0 apps and 0 drives on your system. How can I help you today?"
+  },
+  {
+    "timestamp": "2026-07-08T21:47:42.634594",
+    "command": "sleep my mac",
+    "intent": "sleep",
+    "entity": null,
+    "success": false,
+    "response": "I didn't quite understand that command. You can try:\n- 'create file [name]' or 'create folder [name]'\n- 'open chrome', 'open notepad', etc.\n- 'search for [topic]' or 'search web [topic]'\n- 'list proce"
+  },
+  {
+    "timestamp": "2026-07-08T21:52:38.097328",
+    "command": "analyse \"\"\"\nVoice Input/Output Module for AMAZON AI\nAdds speech recognition (voice commands) and text-to-speech (voice responses) to the desktop assistant.\n\"\"\"\nimport threading\nimport queue\nimport time\nfrom pathlib import Path\n\ntry:\n    import pyttsx3\nexcept ImportError:\n    pyttsx3 = None\n\ntry:\n    import speech_recognition as sr\nexcept ImportError:\n    sr = None\n\n\nclass VoiceEngine:\n    \"\"\"Handles voice input (speech-to-text) and voice output (text-to-speech).\"\"\"\n\n    def __init__(self):\n        self.recognizer = sr.Recognizer() if sr else None\n        self.microphone = None\n        self.microphone_name = None\n        self.tts_engine = None\n        self.is_listening = False\n        self.is_speaking = False\n        self.voice_enabled = True\n        self.listening_callback = None\n        self.listening_callback_error = None\n        self.speaking_callback = None\n        self.language = \"en-US\"\n\n        if pyttsx3:\n            try:\n                self.tts_engine = pyttsx3.init()\n                self.tts_engine.setProperty(\"rate\", 160)\n                self.tts_engine.setProperty(\"volume\", 0.9)\n            except Exception:\n                self.tts_engine = None\n\n        self._select_microphone()\n\n    def set_language(self, lang):\n        self.language = lang or \"en-US\"\n\n    def _select_microphone(self):\n        if not sr:\n            return\n        try:\n            names = sr.Microphone.list_microphone_names()\n        except Exception as e:\n            print(\"Mic enumeration failed:\", e)\n            return\n        print(\"Microphones detected:\", len(names))\n        if not names:\n            print(\"No microphone available.\")\n            return\n        # Prefer realtek microphone array over virtual devices\n        preferred_keywords = [\n            \"microphone array\",\n            \"realtek\",\n            \"frontmic\",\n            \"array\",\n            \"airpods\",\n            \"headset\",\n        ]\n        excluded_keywords = [\n            \"itop\",\n            \"virtual\",\n        ]\n        chosen_index = None\n        for idx, name in enumerate(names):\n            low = name.lower()\n            if any(k in low for k in preferred_keywords) and not any(k in low for k in excluded_keywords):\n                chosen_index = idx\n                break\n        if chosen_index is None:\n            # fallback: first input-capable device\n            for idx, name in enumerate(names):\n                if \"output\" not in name.lower():\n                    chosen_index = idx\n                    break\n        if chosen_index is None:\n            chosen_index = 0\n        try:\n            self.microphone = sr.Microphone(device_index=chosen_index)\n            self.microphone_name = names[chosen_index]\n            print(f\"Selected microphone index {chosen_index}: {self.microphone_name}\")\n        except Exception as e:\n            print(f\"Failed to open microphone index {chosen_index}: {e}\")\n\n    def start_listening(self, on_result=None, on_error=None):\n        \"\"\"Start background listening thread.\"\"\"\n        if self.is_listening:\n            return\n        self.is_listening = True\n        self.listening_callback = on_result\n        self.listening_callback_error = on_error\n        t = threading.Thread(target=self._listen_loop, daemon=True)\n        t.start()\n        try:\n            self._play_beep()\n        except Exception:\n            pass\n\n    def stop_listening(self):\n        \"\"\"Stop listening.\"\"\"\n        self.is_listening = False\n        try:\n            if self._mic_active and hasattr(self, '_mic_source'):\n                pass\n        except Exception:\n            pass\n\n    def _listen_loop(self):\n        \"\"\"Background listening loop using speech_recognition.\"\"\"\n        if not sr or not self.microphone:\n            err = \"speech_recognition library not installed or microphone not available.\"\n            print(\"VOICE ERROR:\", err)\n            if self.listening_callback_error:\n                self.listening_callback_error(err)\n            self.is_listening = False\n            return\n\n        print(\"Voice thread started\")\n        try:\n            with self.microphone as source:\n                print(\"Microphone opened, adjusting ambient noise...\")\n                self.recognizer.adjust_for_ambient_noise(source, duration=1)\n                print(\"Ambient noise calibration done. Listening...\")\n                while self.is_listening:\n                    try:\n                        print(\"Waiting for speech...\")\n                        audio = self.recognizer.listen(source, timeout=3, phrase_time_limit=8)\n                        print(\"Audio captured\")\n                    except sr.WaitTimeoutError:\n                        print(\"Listen timeout: no speech detected\")\n                        continue\n                    try:\n                        print(\"Recognizing...\")\n                        text = self.recognizer.recognize_google(audio, language=self.language)\n                        print(\"Recognized:\", text)\n                        if text and self.listening_callback:\n                            self.listening_callback(text)\n                    except sr.UnknownValueError:\n                        print(\"Could not understand audio (UnknownValueError)\")\n                        if self.listening_callback_error:\n                            self.listening_callback_error(\"Could not understand audio\")\n                        continue\n                    except sr.RequestError as e:\n                        msg = f\"Google recognition error: {e}\"\n                        print(msg)\n                        if self.listening_callback_error:\n                            self.listening_callback_error(msg)\n                        time.sleep(0.5)\n                    except Exception as e:\n                        msg = f\"Recognition unexpected error: {e}\"\n                        print(\"VOICE ERROR:\", msg)\n                        if self.listening_callback_error:\n                            self.listening_callback_error(msg)\n                        time.sleep(0.5)\n        except Exception as e:\n            msg = f\"Microphone/open error: {e}\"\n            print(\"VOICE ERROR:\", msg)\n            if self.listening_callback_error:\n                self.listening_callback_error(msg)\n        finally:\n            print(\"Voice thread stopping\")\n            self.is_listening = False\n\n    def speak(self, text):\n        \"\"\"Speak text aloud using TTS.\"\"\"\n        if not self.voice_enabled:\n            return\n        if not self.tts_engine:\n            return\n        threading.Thread(target=self._speak_thread, args=(text,), daemon=True).start()\n\n    def _speak_thread(self, text):\n        \"\"\"Speak in background thread.\"\"\"\n        try:\n            self.is_speaking = True\n            if self.speaking_callback:\n                self.speaking_callback(True)\n            self.tts_engine.say(text)\n            self.tts_engine.runAndWait()\n        except Exception:\n            pass\n        finally:\n            self.is_speaking = False\n            if self.speaking_callback:\n                self.speaking_callback(False)\n\n    def stop_speaking(self):\n        \"\"\"Stop current speech.\"\"\"\n        try:\n            if self.tts_engine:\n                self.tts_engine.stop()\n        except Exception:\n            pass\n        self.is_speaking = False\n\n    def set_voice_enabled(self, enabled):\n        \"\"\"Enable or disable voice output.\"\"\"\n        self.voice_enabled = enabled\n\n    def is_voice_available(self):\n        \"\"\"Check if voice libraries are installed.\"\"\"\n        return pyttsx3 is not None and sr is not None\n\n\n# Singleton voice engine\n_voice_engine = None\n\n\ndef get_voice_engine():\n    \"\"\"Get or create the global voice engine.\"\"\"\n    global _voice_engine\n    if _voice_engine is None:\n        _voice_engine = VoiceEngine()\n    return _voice_engine",
+    "intent": "search_web",
+    "entity": "analyse \"\"\"\nvoice input/output module for amazon ai\nadds speech recognition (voice commands) and text-to-speech (voice responses) to the desktop assistant.\n\"\"\"\nimport threading\nimport queue\nimport time\nfrom pathlib import path\n\ntry:\n    import pyttsx3\nexcept importerror:\n    pyttsx3 = none\n\ntry:\n    import speech_recognition as sr\nexcept importerror:\n    sr = none\n\n\nclass voiceengine:\n    \"\"\"handles voice input (speech-to-text) and voice output (text-to-speech).\"\"\"\n\n    def __init__(self):\n        self.recognizer = sr.recognizer() if sr else none\n        self.microphone = none\n        self.microphone_name = none\n        self.tts_engine = none\n        self.is_listening = false\n        self.is_speaking = false\n        self.voice_enabled = true\n        self.listening_callback = none\n        self.listening_callback_error = none\n        self.speaking_callback = none\n        self.language = \"en-us\"\n\n        if pyttsx3:\n            try:\n                self.tts_engine = pyttsx3.init()\n                self.tts_engine.setproperty(\"rate\", 160)\n                self.tts_engine.setproperty(\"volume\", 0.9)\n            except exception:\n                self.tts_engine = none\n\n        self._select_microphone()\n\n    def set_language(self, lang):\n        self.language = lang or \"en-us\"\n\n    def _select_microphone(self):\n        if not sr:\n            return\n        try:\n            names = sr.microphone.list_microphone_names()\n        except exception as e:\n            print(\"mic enumeration failed:\", e)\n            return\n        print(\"microphones detected:\", len(names))\n        if not names:\n            print(\"no microphone available.\")\n            return\n        # prefer realtek microphone array over virtual devices\n        preferred_keywords = [\n            \"microphone array\",\n            \"realtek\",\n            \"frontmic\",\n            \"array\",\n            \"airpods\",\n            \"headset\",\n        ]\n        excluded_keywords = [\n            \"itop\",\n            \"virtual\",\n        ]\n        chosen_index = none\n        for idx, name in enumerate(names):\n            low = name.lower()\n            if any(k in low for k in preferred_keywords) and not any(k in low for k in excluded_keywords):\n                chosen_index = idx\n                break\n        if chosen_index is none:\n            # fallback: first input-capable device\n            for idx, name in enumerate(names):\n                if \"output\" not in name.lower():\n                    chosen_index = idx\n                    break\n        if chosen_index is none:\n            chosen_index = 0\n        try:\n            self.microphone = sr.microphone(device_index=chosen_index)\n            self.microphone_name = names[chosen_index]\n            print(f\"selected microphone index {chosen_index}: {self.microphone_name}\")\n        except exception as e:\n            print(f\"failed to open microphone index {chosen_index}: {e}\")\n\n    def start_listening(self, on_result=none, on_error=none):\n        \"\"\"start background listening thread.\"\"\"\n        if self.is_listening:\n            return\n        self.is_listening = true\n        self.listening_callback = on_result\n        self.listening_callback_error = on_error\n        t = threading.thread(target=self._listen_loop, daemon=true)\n        t.start()\n        try:\n            self._play_beep()\n        except exception:\n            pass\n\n    def stop_listening(self):\n        \"\"\"stop listening.\"\"\"\n        self.is_listening = false\n        try:\n            if self._mic_active and hasattr(self, '_mic_source'):\n                pass\n        except exception:\n            pass\n\n    def _listen_loop(self):\n        \"\"\"background listening loop using speech_recognition.\"\"\"\n        if not sr or not self.microphone:\n            err = \"speech_recognition library not installed or microphone not available.\"\n            print(\"voice error:\", err)\n            if self.listening_callback_error:\n                self.listening_callback_error(err)\n            self.is_listening = false\n            return\n\n        print(\"voice thread started\")\n        try:\n            with self.microphone as source:\n                print(\"microphone opened, adjusting ambient noise...\")\n                self.recognizer.adjust_for_ambient_noise(source, duration=1)\n                print(\"ambient noise calibration done. listening...\")\n                while self.is_listening:\n                    try:\n                        print(\"waiting for speech...\")\n                        audio = self.recognizer.listen(source, timeout=3, phrase_time_limit=8)\n                        print(\"audio captured\")\n                    except sr.waittimeouterror:\n                        print(\"listen timeout: no speech detected\")\n                        continue\n                    try:\n                        print(\"recognizing...\")\n                        text = self.recognizer.recognize_google(audio, language=self.language)\n                        print(\"recognized:\", text)\n                        if text and self.listening_callback:\n                            self.listening_callback(text)\n                    except sr.unknownvalueerror:\n                        print(\"could not understand audio (unknownvalueerror)\")\n                        if self.listening_callback_error:\n                            self.listening_callback_error(\"could not understand audio\")\n                        continue\n                    except sr.requesterror as e:\n                        msg = f\"google recognition error: {e}\"\n                        print(msg)\n                        if self.listening_callback_error:\n                            self.listening_callback_error(msg)\n                        time.sleep(0.5)\n                    except exception as e:\n                        msg = f\"recognition unexpected error: {e}\"\n                        print(\"voice error:\", msg)\n                        if self.listening_callback_error:\n                            self.listening_callback_error(msg)\n                        time.sleep(0.5)\n        except exception as e:\n            msg = f\"microphone/open error: {e}\"\n            print(\"voice error:\", msg)\n            if self.listening_callback_error:\n                self.listening_callback_error(msg)\n        finally:\n            print(\"voice thread stopping\")\n            self.is_listening = false\n\n    def speak(self, text):\n        \"\"\"speak text aloud using tts.\"\"\"\n        if not self.voice_enabled:\n            return\n        if not self.tts_engine:\n            return\n        threading.thread(target=self._speak_thread, args=(text,), daemon=true).start()\n\n    def _speak_thread(self, text):\n        \"\"\"speak in background thread.\"\"\"\n        try:\n            self.is_speaking = true\n            if self.speaking_callback:\n                self.speaking_callback(true)\n            self.tts_engine.say(text)\n            self.tts_engine.runandwait()\n        except exception:\n            pass\n        finally:\n            self.is_speaking = false\n            if self.speaking_callback:\n                self.speaking_callback(false)\n\n    def stop_speaking(self):\n        \"\"\"stop current speech.\"\"\"\n        try:\n            if self.tts_engine:\n                self.tts_engine.stop()\n        except exception:\n            pass\n        self.is_speaking = false\n\n    def set_voice_enabled(self, enabled):\n        \"\"\"enable or disable voice output.\"\"\"\n        self.voice_enabled = enabled\n\n    def is_voice_available(self):\n        \"\"\"check if voice libraries are installed.\"\"\"\n        return pyttsx3 is not none and sr is not none\n\n\n# singleton voice engine\n_voice_engine = none\n\n\ndef get_voice_engine():\n    \"\"\"get or create the global voice engine.\"\"\"\n    global _voice_engine\n    if _voice_engine is none:\n        _voice_engine = voiceengine()\n    return _voice_engine",
+    "success": true,
+    "response": "Searching Google for: analyse \"\"\"\nvoice input/output module for amazon ai\nadds speech recognition (voice commands) and text-to-speech (voice responses) to the desktop assistant.\n\"\"\"\nimport threading\ni"
+  },
+  {
+    "timestamp": "2026-07-08T21:54:29.125438",
+    "command": "search lukinet.co.tz",
+    "intent": "search_file",
+    "entity": "lukinet.co.tz",
+    "success": false,
+    "response": "Couldn't find any file matching 'lukinet.co.tz'. Try checking the name or location."
+  },
+  {
+    "timestamp": "2026-07-08T21:56:24.770154",
+    "command": "send email to hamisibnj95@gmail.com",
+    "intent": "move_file",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T21:58:37.713041",
+    "command": "browse www.lukinet.co.tz",
+    "intent": "search_file",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T21:58:58.921289",
+    "command": "open chrom and serach lukinet.co.tz",
+    "intent": "open_app",
+    "entity": "chrom and serach lukinet.co.tz",
+    "success": false,
+    "response": "Could not find or open 'chrom and serach lukinet.co.tz'. Make sure the app is installed in your Applications folder"
+  },
+  {
+    "timestamp": "2026-07-08T21:59:25.235452",
+    "command": "open chrome",
+    "intent": "open_app",
+    "entity": "chrome",
+    "success": true,
+    "response": "Opened Google Chrome"
+  },
+  {
+    "timestamp": "2026-07-08T22:01:24.147775",
+    "command": "\"Send email to john@example.com\" \u2192 Opens email composer",
+    "intent": "open_file",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T22:08:29.614938",
+    "command": "send email to hamisibnj955@gmail.com",
+    "intent": "read_file",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T22:09:27.714844",
+    "command": "\"Send email to john@example.com",
+    "intent": "move_file",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T22:12:17.456060",
+    "command": "empty my trash",
+    "intent": "empty_trash",
+    "entity": "trash",
+    "success": true,
+    "response": "Trash has been emptied successfully."
+  },
+  {
+    "timestamp": "2026-07-08T22:13:07.498133",
+    "command": "write invetatin leter for inbnj95",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:19:33.564542",
+    "command": "retrain model",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:20:06.638132",
+    "command": "retrain your self",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:20:32.578418",
+    "command": "all about your model",
+    "intent": "open_file",
+    "entity": "your model",
+    "success": false,
+    "response": "No files found matching 'your model'.\n\nTry:\n  - Use shorter keywords (e.g., 'azampay' instead of 'azampay document')\n  - Check if the file is on your Desktop, Documents, or Downloads\n  - Build a full "
+  },
+  {
+    "timestamp": "2026-07-08T22:21:09.375202",
+    "command": "are you sure??",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:21:33.182324",
+    "command": "yoou uderstand me?",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:26:33.678251",
+    "command": "retrain model",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:26:49.710492",
+    "command": "jifunze mwenyewe",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:27:06.710343",
+    "command": "unafahhamu lugha ngapi??",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:27:25.527136",
+    "command": "wewe ni nani??",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:27:44.413977",
+    "command": "what is your name??",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:28:08.970449",
+    "command": "can leaarn kiswahili",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:28:27.715574",
+    "command": "can you learn swahili?",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:28:48.930975",
+    "command": "you language is?",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:29:35.990806",
+    "command": "wewe ni amazo ai kwa sasa unatumia language moja tu na kiswahili kidogo",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:36:48.016102",
+    "command": "do you know me",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:37:10.068584",
+    "command": "what yo need to know",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:37:39.897255",
+    "command": "write invitation letter forr hamisi wedding",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:38:00.699458",
+    "command": "write invitation letter for hamisi",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T23:16:26.978809",
+    "command": "hello",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hey! \ud83c\udf1f I've scanned your computer and found 0 important folders. I'm here to make your work easier!"
+  },
+  {
+    "timestamp": "2026-07-08T23:17:16.032756",
+    "command": "empty my trash and let me comfirm",
+    "intent": "empty_trash",
+    "entity": "trash",
+    "success": true,
+    "response": "Trash has been emptied successfully."
+  },
+  {
+    "timestamp": "2026-07-08T23:17:41.094435",
+    "command": "open whatsapp",
+    "intent": "open_app",
+    "entity": "whatsapp",
+    "success": true,
+    "response": "Opened whatsapp in your browser"
+  },
+  {
+    "timestamp": "2026-07-08T23:18:00.002082",
+    "command": "open insta",
+    "intent": "open_app",
+    "entity": "insta",
+    "success": true,
+    "response": "Opened uninstall"
+  },
+  {
+    "timestamp": "2026-07-08T23:18:31.370389",
+    "command": "open insttagram",
+    "intent": "open_app",
+    "entity": "insttagram",
+    "success": false,
+    "response": "Could not find or open 'insttagram'. Make sure the app is installed in your Applications folder"
+  },
+  {
+    "timestamp": "2026-07-08T23:18:45.282046",
+    "command": "open instagram",
+    "intent": "open_app",
+    "entity": "instagram",
+    "success": true,
+    "response": "Opened instagram in your browser"
+  },
+  {
+    "timestamp": "2026-07-08T23:19:32.207758",
+    "command": "open appstore",
+    "intent": "open_app",
+    "entity": "appstore",
+    "success": false,
+    "response": "Could not find or open 'appstore'. Make sure the app is installed in your Applications folder"
+  },
+  {
+    "timestamp": "2026-07-08T23:19:41.747033",
+    "command": "open app store",
+    "intent": "open_app",
+    "entity": "app store",
+    "success": true,
+    "response": "Opened App Store"
+  },
+  {
+    "timestamp": "2026-07-08T23:20:09.118320",
+    "command": "open microsoft word",
+    "intent": "open_app",
+    "entity": "word",
+    "success": true,
+    "response": "Opened Microsoft Word"
+  },
+  {
+    "timestamp": "2026-07-08T23:20:23.419466",
+    "command": "open powerpoint",
+    "intent": "open_app",
+    "entity": "powerpoint",
+    "success": true,
+    "response": "Opened Microsoft PowerPoint"
+  },
+  {
+    "timestamp": "2026-07-09T04:15:26.880931",
+    "command": "create excel doc",
+    "intent": null,
+    "entity": null,
+    "success": false,
+    "response": "'NoneType' object does not support item assignment"
+  },
+  {
+    "timestamp": "2026-07-09T04:15:57.932144",
+    "command": "create excel document",
+    "intent": null,
+    "entity": null,
+    "success": false,
+    "response": "'NoneType' object does not support item assignment"
+  },
+  {
+    "timestamp": "2026-07-09T04:16:37.534599",
+    "command": "create excel",
+    "intent": null,
+    "entity": null,
+    "success": false,
+    "response": "'NoneType' object does not support item assignment"
+  },
+  {
+    "timestamp": "2026-07-09T04:18:36.174581",
+    "command": "hello",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello!  I'm AMAZON, your desktop assistant. I've discovered 0 apps and 0 drives on your system. How can I help you today?"
+  },
+  {
+    "timestamp": "2026-07-09T04:19:10.688470",
+    "command": "write excel document",
+    "intent": null,
+    "entity": null,
+    "success": false,
+    "response": "'NoneType' object does not support item assignment"
+  },
+  {
+    "timestamp": "2026-07-09T04:20:32.525541",
+    "command": "ind azampay folder",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:20:42.056744",
+    "command": "find azampay folder",
+    "intent": null,
+    "entity": null,
+    "success": false,
+    "response": "cannot import name 'search_applications' from 'automation.app_tasks' (/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/automation/app_tasks.py)"
+  },
+  {
+    "timestamp": "2026-07-09T04:22:23.943813",
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:24:57.597455",
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:25:08.545948",
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:26:55.507661",
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:28:04.565146",
+    "command": "reate word document about AI",
+    "intent": "open_file",
+    "entity": "AI",
+    "success": false,
+    "response": "No files found matching 'AI'.\n\nTry:\n  - Use shorter keywords (e.g., 'azampay' instead of 'azampay document')\n  - Check if the file is on your Desktop, Documents, or Downloads\n  - Build a full index wi"
+  },
+  {
+    "timestamp": "2026-07-09T04:28:19.951802",
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:29:13.357531",
+    "command": "open youtube",
+    "intent": "open_app",
+    "entity": "youtube",
+    "success": true,
+    "response": "Opened youtube in your browser"
+  },
+  {
+    "timestamp": "2026-07-09T04:30:16.258851",
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:30:42.408849",
+    "command": "make excel sheet about budget",
+    "intent": "generate_document",
+    "entity": "budget",
+    "success": true,
+    "response": "Excel spreadsheet created: /Users/mac/Desktop/budget.xlsx"
+  },
+  {
+    "timestamp": "2026-07-09T04:31:02.603373",
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:32:44.168391",
+    "command": "create file named test.txt",
+    "intent": "create_file",
+    "entity": "/Users/mac/Desktop/test.txt",
+    "success": true,
+    "response": "File created at: /Users/mac/Desktop/test.txt"
+  },
+  {
+    "timestamp": "2026-07-09T04:34:51.144355",
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:36:25.869907",
+    "command": "Creates Word document about AI",
+    "intent": "open_file",
+    "entity": "AI",
+    "success": false,
+    "response": "No files found matching 'AI'.\n\nTry:\n  - Use shorter keywords (e.g., 'azampay' instead of 'azampay document')\n  - Check if the file is on your Desktop, Documents, or Downloads\n  - Build a full index wi"
+  }
+]

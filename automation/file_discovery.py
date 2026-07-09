@@ -1,5 +1,5 @@
 """
-NOVA AI - File Discovery Intelligence (Type A: Metadata Search)
+AMAZON AI - File Discovery Intelligence (Type A: Metadata Search)
 Finds files based on filename patterns, extensions, dates, and locations.
 No AI/embeddings — pure filesystem intelligence.
 """
@@ -349,53 +349,77 @@ def resolve_discovery(discovery_type, query=None):
                 computer_results = search_files_semantic(q, limit=10)
         except Exception:
             pass
-        # Fallback: search ALL drives recursively if index is missing
+        # Fallback: search filesystem if index is missing or no results
         if not computer_results:
             try:
-                from system.environment_scanner import get_scanner
                 from pathlib import Path
                 from datetime import datetime
                 
-                scanner = get_scanner()
-                drives = scanner.discover_drives()
                 q_lower = q.lower()
-                q_words = set(q_lower.split())
+                q_words = [w for w in q_lower.split() if len(w) >= 2]  # Filter short words
                 
-                # Search ALL drives with fuzzy matching
-                for drive in drives:
-                    if len(computer_results) >= 10:
-                        break
-                    try:
+                # Search in common user directories first (faster)
+                search_dirs = [
+                    Path.home() / "Desktop",
+                    Path.home() / "Documents",
+                    Path.home() / "Downloads",
+                    Path.home() / "Pictures",
+                ]
+                
+                # Then search all drives if needed
+                try:
+                    from system.environment_scanner import get_scanner
+                    scanner = get_scanner()
+                    drives = scanner.discover_drives()
+                    for drive in drives:
                         drive_path = Path(drive)
-                        if not drive_path.exists() or not drive_path.is_dir():
-                            continue
-                        
-                        # Recursive search using rglob (limited depth for performance)
-                        max_items = 500  # Limit to avoid timeout
-                        items_checked = 0
-                        try:
-                            for item in drive_path.rglob("*"):
-                                if len(computer_results) >= 10 or items_checked >= max_items:
-                                    break
-                                items_checked += 1
-                                try:
-                                    if not item.exists():
-                                        continue
-                                    name_lower = item.name.lower()
-                                    # Exact match or all words match
-                                    if q_lower in name_lower or all(w in name_lower for w in q_words):
-                                        mtime = datetime.fromtimestamp(item.stat().st_mtime)
-                                        computer_results.append({
-                                            "name": item.name,
-                                            "path": str(item.resolve()),
-                                            "modified": mtime.strftime("%Y-%m-%d %H:%M"),
-                                            "drive": drive,
-                                            "type": "folder" if item.is_dir() else "file",
-                                        })
-                                except (PermissionError, OSError):
+                        if drive_path.exists() and drive_path not in search_dirs:
+                            search_dirs.append(drive_path)
+                except Exception:
+                    pass
+                
+                # Search with smart matching
+                max_results = 15
+                max_items_per_dir = 1000  # Limit per directory
+                
+                for search_dir in search_dirs:
+                    if len(computer_results) >= max_results:
+                        break
+                    if not search_dir.exists() or not search_dir.is_dir():
+                        continue
+                    
+                    items_checked = 0
+                    try:
+                        for item in search_dir.rglob("*"):
+                            if len(computer_results) >= max_results or items_checked >= max_items_per_dir:
+                                break
+                            items_checked += 1
+                            try:
+                                if not item.exists():
                                     continue
-                        except (PermissionError, OSError):
-                            pass
+                                name_lower = item.name.lower()
+                                # Smart matching: check if query is in name OR any word matches
+                                matches = False
+                                if q_lower in name_lower:
+                                    matches = True
+                                elif q_words:
+                                    # Check if all significant words are in the name
+                                    if all(w in name_lower for w in q_words):
+                                        matches = True
+                                    # Or if any word matches and it's a significant word (len >= 4)
+                                    elif any(w in name_lower for w in q_words if len(w) >= 4):
+                                        matches = True
+                                
+                                if matches:
+                                    mtime = datetime.fromtimestamp(item.stat().st_mtime)
+                                    computer_results.append({
+                                        "name": item.name,
+                                        "path": str(item.resolve()),
+                                        "modified": mtime.strftime("%Y-%m-%d %H:%M"),
+                                        "type": "folder" if item.is_dir() else "file",
+                                    })
+                            except (PermissionError, OSError):
+                                continue
                     except (PermissionError, OSError):
                         continue
             except Exception:
@@ -579,6 +603,6 @@ def resolve_discovery(discovery_type, query=None):
         except Exception:
             pass
         return {"status": "not_found", "item_type": "file",
-                "message": "No files found matching that query. Try building an index first with 'index my files' or 'index my computer'."}
+                "message": f"No files found matching '{query}'.\n\nTry:\n  - Use shorter keywords (e.g., 'azampay' instead of 'azampay document')\n  - Check if the file is on your Desktop, Documents, or Downloads\n  - Build a full index with 'index my computer' for better search"}
 
     return {"status": "not_found", "item_type": "file", "message": f"Unknown discovery type: {discovery_type}"}

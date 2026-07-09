@@ -1,16 +1,20 @@
 """
-Environment Discovery Engine for NOVA AI
+Environment Discovery Engine for AMAZON AI
 Automatically discovers drives, applications, folders, and builds a local knowledge base.
 """
 import os
 import sys
 import json
-import winreg
-import psutil
+import platform
 import subprocess
 from pathlib import Path
 from typing import Dict, List, Optional, Any
 from datetime import datetime
+
+# Windows-only imports
+if platform.system() == "Windows":
+    import winreg
+    import psutil
 
 # Cache file location
 CACHE_DIR = Path(__file__).resolve().parent.parent / "cache"
@@ -31,25 +35,32 @@ class EnvironmentScanner:
         """Discover all available drives on the system."""
         drives = []
         try:
-            partitions = psutil.disk_partitions(all=True)
-            for p in partitions:
-                drive = p.mountpoint.rstrip('\\')
-                if drive and drive not in drives:
-                    drives.append(drive)
+            if platform.system() == "Windows":
+                import psutil
+                partitions = psutil.disk_partitions(all=True)
+                for p in partitions:
+                    drive = p.mountpoint.rstrip('\\')
+                    if drive and drive not in drives:
+                        drives.append(drive)
+            else:
+                # macOS/Linux: use root and mounted volumes
+                drives.append("/")
+                volumes_path = Path("/Volumes")
+                if volumes_path.exists():
+                    for vol in volumes_path.iterdir():
+                        if vol.is_dir() and not vol.name.startswith("."):
+                            drives.append(str(vol))
         except Exception as e:
             print(f"[EnvironmentScanner] Error discovering drives: {e}")
-            # Fallback: check common drive letters
-            import string
-            for letter in string.ascii_uppercase:
-                drive = f"{letter}:\\"
-                if os.path.exists(drive):
-                    drives.append(drive)
         
         self.drives = sorted(drives)
         return self.drives
     
     def discover_apps_from_registry(self) -> Dict[str, Dict[str, Any]]:
         """Discover installed applications from Windows Registry."""
+        if platform.system() != "Windows":
+            return {}
+        
         apps = {}
         
         registry_paths = [
@@ -90,66 +101,91 @@ class EnvironmentScanner:
         return apps
     
     def discover_apps_from_start_menu(self) -> Dict[str, Dict[str, Any]]:
-        """Discover applications from Start Menu shortcuts."""
+        """Discover applications from Start Menu (Windows) or Applications folder (macOS)."""
         apps = {}
         
-        start_menu_paths = [
-            Path(os.environ.get("PROGRAMDATA", "C:\\ProgramData")) / "Microsoft\\Windows\\Start Menu\\Programs",
-            Path(os.environ.get("APPDATA", "")) / "Microsoft\\Windows\\Start Menu\\Programs",
-        ]
-        
-        for start_menu in start_menu_paths:
-            if not start_menu.exists():
-                continue
-            try:
-                for shortcut in start_menu.rglob("*.lnk"):
-                    try:
-                        name = shortcut.stem
-                        if name and name.strip():
-                            name_lower = name.lower().strip()
-                            apps[name_lower] = {
-                                "display_name": name.strip(),
-                                "install_location": str(shortcut.parent),
-                                "icon": str(shortcut),
-                                "source": "start_menu",
-                            }
-                    except Exception:
-                        pass
-            except Exception as e:
-                print(f"[EnvironmentScanner] Error scanning start menu: {e}")
+        if platform.system() == "Windows":
+            start_menu_paths = [
+                Path(os.environ.get("PROGRAMDATA", "C:\\ProgramData")) / "Microsoft\\Windows\\Start Menu\\Programs",
+                Path(os.environ.get("APPDATA", "")) / "Microsoft\\Windows\\Start Menu\\Programs",
+            ]
+            
+            for start_menu in start_menu_paths:
+                if not start_menu.exists():
+                    continue
+                try:
+                    for shortcut in start_menu.rglob("*.lnk"):
+                        try:
+                            name = shortcut.stem
+                            if name and name.strip():
+                                name_lower = name.lower().strip()
+                                apps[name_lower] = {
+                                    "display_name": name.strip(),
+                                    "install_location": str(shortcut.parent),
+                                    "icon": str(shortcut),
+                                    "source": "start_menu",
+                                }
+                        except Exception:
+                            pass
+                except Exception as e:
+                    print(f"[EnvironmentScanner] Error scanning start menu: {e}")
+        else:
+            # macOS: scan /Applications folder
+            apps_dir = Path("/Applications")
+            if apps_dir.exists():
+                try:
+                    for app_path in apps_dir.glob("*.app"):
+                        try:
+                            name = app_path.stem
+                            if name and name.strip():
+                                name_lower = name.lower().strip()
+                                apps[name_lower] = {
+                                    "display_name": name.strip(),
+                                    "install_location": str(app_path),
+                                    "icon": str(app_path / "Contents" / "Info.plist"),
+                                    "source": "applications",
+                                }
+                        except Exception:
+                            pass
+                except Exception as e:
+                    print(f"[EnvironmentScanner] Error scanning Applications folder: {e}")
         
         return apps
     
     def discover_apps_from_program_files(self) -> Dict[str, Dict[str, Any]]:
-        """Discover applications from Program Files directories."""
+        """Discover applications from Program Files (Windows) or /Applications (macOS)."""
         apps = {}
         
-        program_files_dirs = [
-            Path(os.environ.get("ProgramFiles", "C:\\Program Files")),
-            Path(os.environ.get("ProgramFiles(x86)", "C:\\Program Files (x86)")),
-        ]
-        
-        for pf_dir in program_files_dirs:
-            if not pf_dir.exists():
-                continue
-            try:
-                for item in pf_dir.iterdir():
-                    if item.is_dir():
-                        name = item.name
-                        if name and not name.startswith("."):
-                            name_lower = name.lower().strip()
-                            # Look for .exe files in the directory
-                            exe_files = list(item.glob("*.exe"))
-                            exe_path = str(exe_files[0]) if exe_files else ""
-                            
-                            apps[name_lower] = {
-                                "display_name": name.strip(),
-                                "install_location": str(item),
-                                "icon": exe_path,
-                                "source": "program_files",
-                            }
-            except Exception as e:
-                print(f"[EnvironmentScanner] Error scanning program files: {e}")
+        if platform.system() == "Windows":
+            program_files_dirs = [
+                Path(os.environ.get("ProgramFiles", "C:\\Program Files")),
+                Path(os.environ.get("ProgramFiles(x86)", "C:\\Program Files (x86)")),
+            ]
+            
+            for pf_dir in program_files_dirs:
+                if not pf_dir.exists():
+                    continue
+                try:
+                    for item in pf_dir.iterdir():
+                        if item.is_dir():
+                            name = item.name
+                            if name and not name.startswith("."):
+                                name_lower = name.lower().strip()
+                                # Look for .exe files in the directory
+                                exe_files = list(item.glob("*.exe"))
+                                exe_path = str(exe_files[0]) if exe_files else ""
+                                
+                                apps[name_lower] = {
+                                    "display_name": name.strip(),
+                                    "install_location": str(item),
+                                    "icon": exe_path,
+                                    "source": "program_files",
+                                }
+                except Exception as e:
+                    print(f"[EnvironmentScanner] Error scanning program files: {e}")
+        else:
+            # macOS: already handled in discover_apps_from_start_menu
+            pass
         
         return apps
     
@@ -451,7 +487,7 @@ def get_scanner() -> EnvironmentScanner:
 
 
 def initialize_environment(force_rescan: bool = False) -> Dict[str, Any]:
-    """Initialize the environment index. Call this at NOVA startup."""
+    """Initialize the environment index. Call this at AMAZON startup."""
     scanner = get_scanner()
     return scanner.build_environment_index(force_rescan=force_rescan)
 
@@ -514,7 +550,7 @@ def get_environment_stats() -> Dict[str, int]:
 if __name__ == "__main__":
     # Test the environment scanner
     print("=" * 60)
-    print("NOVA Environment Discovery Engine - Test")
+    print("AMAZON Environment Discovery Engine - Test")
     print("=" * 60)
     
     scanner = EnvironmentScanner()

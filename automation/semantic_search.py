@@ -1,5 +1,5 @@
 """
-NOVA AI - Semantic Search (Type B: Content-Based Discovery)
+AMAZON AI - Semantic Search (Type B: Content-Based Discovery)
 Finds files by understanding their content using embeddings + FAISS vector search.
 
 Model: all-MiniLM-L6-v2 (22M params, 384-dim vectors)

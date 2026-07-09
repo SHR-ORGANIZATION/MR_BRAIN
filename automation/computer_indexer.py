@@ -1,5 +1,5 @@
 """
-NOVA AI - Computer-Wide Indexer (Type C: Full Computer Discovery)
+AMAZON AI - Computer-Wide Indexer (Type C: Full Computer Discovery)
 Discovers all drives and folders, builds persistent SQLite index,
 supports semantic search across the entire computer.
 """
@@ -576,7 +576,7 @@ def get_index_stats() -> Dict:
 if __name__ == "__main__":
     # Test
     print("=" * 60)
-    print("NOVA Computer-Wide Indexer - Test")
+    print("AMAZON Computer-Wide Indexer - Test")
     print("=" * 60)
     
     indexer = ComputerIndexer()

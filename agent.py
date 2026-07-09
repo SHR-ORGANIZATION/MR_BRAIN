@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent
 if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
-from ml.nlu_model import NOVANLU
+from ml.nlu_model import AMAZONNLU
 from system.environment_scanner import initialize_environment, get_scanner
 
 DEFAULT_BASE_DIR = Path(os.path.expanduser("~")) / "Desktop"
@@ -39,20 +39,35 @@ LOCATION_DIRS = {
 
 INTENT_SYNONYMS = {
     # File creation
-    "create file": "create_file", "make file": "create_file",
+    "create file": "create_file", "makes file": "create_file",
     "new file": "create_file", "create text file": "create_file",
     "creat file": "create_file", "creat new file": "create_file",
+    "creates file": "create_file", "creating file": "create_file",
     # Folder creation
     "create folder": "create_folder", "make folder": "create_folder",
     "new folder": "create_folder", "creat folder": "create_folder",
     "create directory": "create_folder", "make directory": "create_folder",
     "create a folder": "create_folder", "create new folder": "create_folder",
+    "creates folder": "create_folder", "creating folder": "create_folder",
     # Delete file
     "delete file": "delete_file", "remove file": "delete_file",
     "erase file": "delete_file", "del file": "delete_file",
+    "kill file": "delete_file", "destroy file": "delete_file",
+    "wipe file": "delete_file", "trash file": "delete_file",
     # Delete folder
     "delete folder": "delete_folder", "remove folder": "delete_folder",
     "erase folder": "delete_folder", "del folder": "delete_folder",
+    "kill folder": "delete_folder", "destroy folder": "delete_folder",
+    "wipe folder": "delete_folder", "trash folder": "delete_folder",
+    # Empty trash
+    "empty trash": "empty_trash", "clear trash": "empty_trash",
+    "empty recycle bin": "empty_trash", "clear recycle bin": "empty_trash",
+    "empty the trash": "empty_trash", "clear the trash": "empty_trash",
+    "empty bin": "empty_trash", "clear bin": "empty_trash",
+    "delete trash": "empty_trash", "remove trash": "empty_trash",
+    "clean trash": "empty_trash", "clean bin": "empty_trash",
+    "purge trash": "empty_trash", "flush trash": "empty_trash",
+    "force delete trash": "empty_trash", "force empty trash": "empty_trash",
     # Rename
     "rename file": "rename_file", "rename folder": "rename_folder",
     "change name": "rename_file", "change file name": "rename_file",
@@ -75,6 +90,20 @@ INTENT_SYNONYMS = {
     "where is file": "search_file", "where is folder": "search_folder",
     "show me file": "search_file", "show me folder": "search_folder",
     "show file": "search_file", "show folder": "search_folder",
+    # Path/location queries (context-aware)
+    "give me path": "show_path", "show path": "show_path",
+    "where is it": "show_path", "show me path": "show_path",
+    "give me the path": "show_path", "show the path": "show_path",
+    "path for it": "show_path", "path of it": "show_path",
+    "where can i find it": "show_path", "show location": "show_path",
+    # Universal search (find anything)
+    "find": "find_anything", "look for": "find_anything",
+    "locate": "find_anything",
+    "find anything": "find_anything", "search anything": "find_anything",
+    "help me find": "find_anything", "help me to find": "find_anything",
+    "find any": "find_anything", "find any about": "find_anything",
+    "search for any": "find_anything", "look for any": "find_anything",
+    "find something": "find_anything", "search for something": "find_anything",
     # Web
     "search web": "search_web", "search for": "search_web",
     "google": "search_web", "search": "search_web",
@@ -82,10 +111,54 @@ INTENT_SYNONYMS = {
     # Documents
     "generate document": "generate_document", "create report": "generate_document",
     "generate report": "generate_document", "create document": "generate_document",
+    "creates document": "generate_document", "creating document": "generate_document",
     "create assignment": "generate_document", "make assignment": "generate_document",
     "generate assignment": "generate_document", "create research proposal": "generate_document",
     "make research proposal": "generate_document", "generate research proposal": "generate_document",
     "create a report": "generate_document", "make a report": "generate_document",
+    "write document": "generate_document", "write doc": "generate_document",
+    "write a document": "generate_document", "write a doc": "generate_document",
+    "write document about": "generate_document", "write a document about": "generate_document",
+    "write doc about": "generate_document", "write a doc about": "generate_document",
+    "create word document": "generate_document", "make word doc": "generate_document",
+    "creates word document": "generate_document", "creating word document": "generate_document",
+    "write word document": "generate_document", "generate word doc": "generate_document",
+    "create word document about": "generate_document", "make word doc about": "generate_document",
+    "creates word document about": "generate_document", "creating word doc about": "generate_document",
+    "write about": "generate_document", "generate about": "generate_document",
+    "create pdf": "generate_document", "make pdf": "generate_document",
+    "creates pdf": "generate_document", "creating pdf": "generate_document",
+    "write pdf": "generate_document", "generate pdf": "generate_document",
+    "create excel": "generate_document", "make excel": "generate_document",
+    "creates excel": "generate_document", "creating excel": "generate_document",
+    "write excel": "generate_document", "generate spreadsheet": "generate_document",
+    # Schedule / plan documents
+    "create schedule": "generate_document", "make schedule": "generate_document",
+    "generate schedule": "generate_document", "write schedule": "generate_document",
+    "training schedule": "generate_document", "work schedule": "generate_document",
+    "create plan": "generate_document", "make plan": "generate_document",
+    "generate plan": "generate_document", "write plan": "generate_document",
+    # Plural forms
+    "create schedules": "generate_document", "make schedules": "generate_document",
+    "generate schedules": "generate_document", "write schedules": "generate_document",
+    "training schedules": "generate_document", "work schedules": "generate_document",
+    "professional schedule": "generate_document", "professional schedules": "generate_document",
+    # Mixed language (Swahili/English) patterns
+    "nataka schedule": "generate_document", "nataka document": "generate_document",
+    "nataka report": "generate_document", "nataka assignment": "generate_document",
+    "nataka schedules": "generate_document", "taka schedule": "generate_document",
+    "taka ratiba": "generate_document", "taka document": "generate_document",
+    # Person name + document type patterns
+    "schedule for": "generate_document", "plan for": "generate_document",
+    "report for": "generate_document", "document for": "generate_document",
+    "schedules for": "generate_document", "training for": "generate_document",
+    # List commands / recommendations
+    "list commands": "list_commands", "show commands": "list_commands",
+    "all commands": "list_commands", "what can you do": "list_commands",
+    "your commands": "list_commands", "available commands": "list_commands",
+    "help": "list_commands", "command list": "list_commands",
+    "recommend": "list_commands", "suggestions": "list_commands",
+    "what do you support": "list_commands", "full list": "list_commands",
     # Apps (direct name triggers)
     "open chrome": "open_app", "close chrome": "close_app",
     "open notepad": "open_app", "close notepad": "close_app",
@@ -156,6 +229,43 @@ INTENT_SYNONYMS = {
     "which software is running": "list_processes",
     "show running software": "list_processes",
     "list running software": "list_processes",
+    # System Info
+    "system info": "system_info", "system information": "system_info",
+    "computer info": "system_info", "computer information": "system_info",
+    "show system": "system_info", "show computer": "system_info",
+    "my computer": "system_info", "about my computer": "system_info",
+    "show my computer": "system_info", "tell me about my computer": "system_info",
+    "specs": "system_info", "specifications": "system_info",
+    "hardware info": "system_info", "hardware information": "system_info",
+    "what are my specs": "system_info", "show my specs": "system_info",
+    "what is my computer": "system_info", "check my computer": "system_info",
+    "computer specs": "system_info", "pc info": "system_info",
+    "laptop info": "system_info", "machine info": "system_info",
+    # OS Commands (auto-learned)
+    "disk usage": "os_command", "disk space": "os_command",
+    "memory usage": "os_command", "ram usage": "os_command",
+    "cpu info": "os_command", "cpu usage": "os_command",
+    "network info": "os_command", "ip address": "os_command",
+    "wifi networks": "os_command", "wifi list": "os_command",
+    "running processes": "os_command", "top processes": "os_command",
+    "ping test": "os_command", "dns flush": "os_command",
+    "clear cache": "os_command", "disk cleanup": "os_command",
+    "installed apps": "os_command", "running apps": "os_command",
+    "installed applications": "os_command", "running applications": "os_command",
+    "list installed apps": "os_command", "list installed applications": "os_command",
+    "lists installed apps": "os_command", "lists installed applications": "os_command",
+    "listing installed apps": "os_command", "listing installed applications": "os_command",
+    "show installed apps": "os_command", "show installed applications": "os_command",
+    "show all apps": "os_command", "show all applications": "os_command",
+    "take screenshot": "os_command", "screenshot": "os_command",
+    "public ip": "os_command", "external ip": "os_command",
+    "open ports": "os_command", "port scan": "os_command",
+    "update system": "os_command", "system update": "os_command",
+    "check disk": "os_command", "repair disk": "os_command",
+    "show me disk usage": "os_command", "show memory": "os_command",
+    "show network": "os_command", "show cpu": "os_command",
+    "list processes": "os_command", "list all processes": "os_command",
+    "show processes": "os_command", "show running processes": "os_command",
     # Projects
     "create project": "create_project", "generate project": "create_project",
     "make project": "create_project",
@@ -177,6 +287,48 @@ INTENT_SYNONYMS = {
     "nakili": "copy_file", "hamisha": "move_file",
     "tafuta": "search_file", "tafutia": "search_file",
     "findi": "search_file", "fina": "create_folder",
+    # Email intents
+    "send email": "send_email", "send mail": "send_email",
+    "compose email": "send_email", "compose mail": "send_email",
+    "write email": "send_email", "write mail": "send_email",
+    "create email": "send_email", "new email": "send_email",
+    "email to": "send_email", "mail to": "send_email",
+    "send mail to": "send_email", "send email to": "send_email",
+    "open email": "open_email", "open gmail": "open_email",
+    "open outlook": "open_email", "open mail": "open_email",
+    "check email": "open_email", "check mail": "open_email",
+    "open my email": "open_email", "open my mail": "open_email",
+    # Model training intents
+    "retrain model": "retrain_model", "train model": "retrain_model",
+    "retrain": "retrain_model", "train ai": "retrain_model",
+    "update model": "retrain_model", "learn new commands": "retrain_model",
+    "improve model": "retrain_model", "retrain ai": "retrain_model",
+    "merge training data": "merge_training_data", "export learned data": "merge_training_data",
+    # Common typos for document generation
+    "write invetatin leter": "generate_document", "write invitation leter": "generate_document",
+    "write invetation letter": "generate_document", "write invtation letter": "generate_document",
+    "write invetatin": "generate_document", "write invitation": "generate_document",
+    "wrtie document": "generate_document", "wriet document": "generate_document",
+    "genrate document": "generate_document", "generat document": "generate_document",
+    "create docuemnt": "generate_document", "create documet": "generate_document",
+    "make docuemnt": "generate_document", "make documet": "generate_document",
+    "write docuemnt": "generate_document", "write documet": "generate_document",
+    "write reprot": "generate_document", "write repot": "generate_document",
+    "write asignment": "generate_document", "write assignemnt": "generate_document",
+    "write essy": "generate_document", "write esay": "generate_document",
+    "write artical": "generate_document", "write aritcle": "generate_document",
+    # Document analysis / summarization
+    "analyze document": "analyze_document", "analyse document": "analyze_document",
+    "summarize document": "analyze_document", "summarise document": "analyze_document",
+    "summary of": "analyze_document", "summarize": "analyze_document",
+    "key points": "analyze_document", "key points of": "analyze_document",
+    "extract key points": "analyze_document", "get key points": "analyze_document",
+    "analyze this": "analyze_document", "analyse this": "analyze_document",
+    "read and summarize": "analyze_document", "read and analyse": "analyze_document",
+    "document analysis": "analyze_document", "document summary": "analyze_document",
+    "what is this document about": "analyze_document", "explain this document": "analyze_document",
+    "give me summary": "analyze_document", "give summary": "analyze_document",
+    "brief summary": "analyze_document", "short summary": "analyze_document",
 }
 
 ACTION_WORDS = [
@@ -595,7 +747,7 @@ def smart_parse_command(command):
         if discovery in ("find_anywhere", "search_computer"):
             cmd_lower = original.lower()
             # Extract topic from "open folder with <topic>", "search my computer for <topic>", etc.
-            m = re.search(r'\b(?:open|find|search)\s+(?:the\s+)?(?:folder|project)\s+with\s+(.+?)(?:\s+folder|\s+file)?\s*$', cmd_lower)
+            m = re.search(r'\b(?:open|find|search)\s+(?:the\s+|any\s+)?(?:folder|project)\s+with\s+(.+?)(?:\s+folder|\s+file)?\s*$', cmd_lower)
             if m:
                 result["semantic_query"] = m.group(1).strip()
                 result["entity"] = result["semantic_query"]
@@ -604,6 +756,23 @@ def smart_parse_command(command):
                 if m:
                     result["semantic_query"] = m.group(1).strip()
                     result["entity"] = result["semantic_query"]
+            # Also try: "find any file about X", "find file about X", "search for X"
+            if not result.get("semantic_query"):
+                m = re.search(r'\b(?:find|search)\s+(?:any\s+)?(?:file|files|document|documents|folder|folders)\s+(?:about|on|for|named|called)\s+(.+?)\s*$', cmd_lower)
+                if m:
+                    result["semantic_query"] = m.group(1).strip()
+                    result["entity"] = result["semantic_query"]
+            # Fallback: extract everything after "find" or "search"
+            if not result.get("semantic_query"):
+                m = re.search(r'\b(?:find|search)\s+(?:any\s+|my\s+|the\s+)?(?:file|files|document|documents|folder|folders)?\s*(?:about|on|for)?\s*(.+?)\s*$', cmd_lower)
+                if m:
+                    query = m.group(1).strip()
+                    # Filter out common words that aren't part of the query
+                    stop_words = {'any', 'file', 'files', 'document', 'documents', 'folder', 'folders', 'about', 'on', 'for', 'my', 'the'}
+                    query_words = [w for w in query.split() if w.lower() not in stop_words]
+                    if query_words:
+                        result["semantic_query"] = ' '.join(query_words)
+                        result["entity"] = result["semantic_query"]
         # Return early for discovery - don't overwrite entity with app name
         # Step 1: Extract location context (in/from <location>)
         cleaned, base_dir = _extract_location_context(original)
@@ -612,14 +781,22 @@ def smart_parse_command(command):
         return result
 
     # Early check: semantic query patterns ("about AI", "discussing subnetting", etc.)
-    semantic_q = _detect_semantic_query(original)
-    if semantic_q:
-        result["discovery_type"] = "semantic"
-        result["semantic_query"] = semantic_q
-        # Return early for semantic discovery
-        cleaned, base_dir = _extract_location_context(original)
-        result["base_dir"] = base_dir
-        return result
+    # BUT skip if this is clearly a document generation command
+    _is_doc_gen = bool(re.search(r'\b(write|generate|create|make)\b.*\b(document|doc|report|assignment|proposal|essay|article|word|pdf|excel|schedule|schedules|plan|plans)\b', original, re.I))
+    if not _is_doc_gen:
+        # Also catch: "schedule for X", "plan for X", "training schedule", etc.
+        _is_doc_gen = bool(re.search(r'\b(schedule|schedules|plan|plans|ratiba)\b.*\b(for|ya|wa|kwa)\b', original, re.I))
+    if not _is_doc_gen:
+        _is_doc_gen = bool(re.search(r'\b(training|work|professional)\s+(schedule|schedules|plan|plans)\b', original, re.I))
+    if not _is_doc_gen:
+        semantic_q = _detect_semantic_query(original)
+        if semantic_q:
+            result["discovery_type"] = "semantic"
+            result["semantic_query"] = semantic_q
+            # Return early for semantic discovery
+            cleaned, base_dir = _extract_location_context(original)
+            result["base_dir"] = base_dir
+            return result
     
     # Step 1: Extract location context (in/from <location>)
     cleaned, base_dir = _extract_location_context(original)
@@ -700,6 +877,41 @@ def smart_parse_command(command):
     # Step 6: Handle search queries specially
     if intent in ("search_file", "search_folder", "search_web"):
         result["search_query"] = _extract_search_query_internal(original)
+
+    # Step 7: Special handling for document generation
+    if intent == "generate_document":
+        doc_cmd_lower = original.lower()
+        # Extract "save as" filename if present
+        save_as_match = re.search(r'\b(?:save\s+(?:as|it\s+as)|named?|called)\s+(.+?)$', doc_cmd_lower, re.I)
+        if save_as_match:
+            result["save_as"] = save_as_match.group(1).strip()
+            # Remove the save-as part from the entity
+            original_before_save = doc_cmd_lower[:save_as_match.start()].strip()
+            # Re-extract topic from the part before "save as"
+            topic_match = re.search(r'\b(?:about|on|regarding)\s+(.+?)$', original_before_save, re.I)
+            if topic_match:
+                result["entity"] = topic_match.group(1).strip()
+            else:
+                # Use whatever is left after removing action words
+                cleaned_save = re.sub(r'\b(write|generate|create|make)\b', '', original_before_save, flags=re.I).strip()
+                cleaned_save = re.sub(r'\b(document|doc|report|assignment|proposal|essay|article|word|pdf|excel)\b', '', cleaned_save, flags=re.I).strip()
+                cleaned_save = re.sub(r'\s+', ' ', cleaned_save).strip()
+                if cleaned_save:
+                    result["entity"] = cleaned_save
+        else:
+            # Extract topic from "about <topic>", "on <topic>", "regarding <topic>"
+            topic_match = re.search(r'\b(?:about|on|regarding)\s+(.+?)$', doc_cmd_lower, re.I)
+            if topic_match:
+                result["entity"] = topic_match.group(1).strip()
+            elif result.get("entity"):
+                # Clean up entity to just be the topic
+                entity = result["entity"]
+                entity = re.sub(r'\b(write|generate|create|make)\b', '', entity, flags=re.I).strip()
+                entity = re.sub(r'\b(document|doc|report|assignment|proposal|essay|article|word|pdf|excel)\b', '', entity, flags=re.I).strip()
+                entity = re.sub(r'\b(about|on|regarding)\b', '', entity, flags=re.I).strip()
+                entity = re.sub(r'\s+', ' ', entity).strip()
+                if entity:
+                    result["entity"] = entity
 
     return result
 
@@ -783,7 +995,7 @@ def resolve_location(hint, base_dir=None):
 # Known app names for intent detection (system apps + web apps + dev tools)
 KNOWN_APP_NAMES = {
     # System apps
-    "chrome", "notepad", "calculator", "paint", "vscode",
+    "chrome", "notepad", "calculator", "paint", "vscode", "vs code",
     "visual studio code", "word", "excel", "powerpoint", "powershell",
     "file explorer", "explorer", "task manager", "cmd", "command prompt",
     # Developer tools
@@ -800,15 +1012,34 @@ KNOWN_APP_NAMES = {
     # Communication / productivity
     "teams", "skype", "obs", "vlc", "winrar", "7zip",
     "steam", "epic games", "blender", "figma", "canva",
+    # Design & graphics apps
+    "corel draw", "coreldraw", "photoshop", "illustrator",
+    "indesign", "lightroom", "after effects", "premiere", "premiere pro",
+    "sketch", "affinity photo", "affinity designer", "affinity publisher",
+    # Productivity apps
+    "onenote", "publisher", "access", "visio", "project",
+    "notes", "reminders", "calendar", "maps", "photos",
+    "music", "podcasts", "tv", "app store",
+    "system preferences", "system settings",
+    "activity monitor", "disk utility", "time machine",
+    "siri", "facetime", "face time", "imessage", "messages",
+    "mail", "quicktime", "quicktime player",
+    "automator", "script editor", "console",
+    "keychain", "keychain access",
 }
 
 
 def _extract_app_name_internal(command):
     """Internal app name extraction."""
     command_lower = command.lower()
+    
+    # Check for multi-word app names first (longest match)
     for app in sorted(KNOWN_APP_NAMES, key=len, reverse=True):
         if app in command_lower:
-            return "vscode" if app == "visual studio code" else app
+            # Normalize app names
+            if app in ["vscode", "vs code", "visual studio code"]:
+                return "vscode"
+            return app
     return None
 
 
@@ -1028,16 +1259,168 @@ def _has_file_extension(text):
     return False
 
 
+def _natural_language_understand(command):
+    """Understand natural language commands and extract intent.
+    This is a fallback for when keyword matching fails."""
+    cmd = command.lower().strip()
+    
+    # Remove common filler phrases that don't change meaning
+    filler_phrases = [
+        r'\b(on|in|with|using)\s+(a\s+)?new\s+window\b',
+        r'\b(on|in|with|using)\s+(a\s+)?new\s+instance\b',
+        r'\b(on|in|with|using)\s+(a\s+)?separate\s+window\b',
+        r'\bplease\b', r'\bcan you\b', r'\bcould you\b',
+        r'\bi want to\b', r'\bi need to\b', r'\bi\'d like to\b',
+        r'\bwould you kindly\b', r'\bkindly\b',
+    ]
+    for phrase in filler_phrases:
+        cmd = re.sub(phrase, '', cmd, flags=re.I).strip()
+    
+    # Action verbs and their corresponding intents
+    ACTION_PATTERNS = {
+        # Document generation (check BEFORE file operations - more specific patterns first)
+        r'\b(write|writes|writing|generate|generates|generating|create|creates|creating|make|makes|making)\b.*\b(word document|word doc|pdf document|pdf file|excel sheet|excel file|spreadsheet)\b': 'generate_document',
+        r'\b(write|writes|writing|generate|generates|generating|create|creates|creating|make|makes|making)\b.*\b(word|pdf|excel)\b.*\b(document|doc|file)\b': 'generate_document',
+        r'\b(write|writes|writing|generate|generates|generating|create|creates|creating|make|makes|making)\b.*\b(document|doc|report|assignment|proposal|essay|article)\b.*\b(about|on|regarding)\b': 'generate_document',
+        r'\b(create|creates|creating|make|makes|making|generate|generates|generating)\b.*\b(word|pdf|excel|spreadsheet)\b.*\b(about|on|regarding)\b': 'generate_document',
+        
+        # File operations (less specific - after document generation)
+        r'\b(create|creates|creating|make|makes|making|generate|generates|generating|new)\b.*\b(file|txt)\b(?!.*\b(document|doc|report|assignment)\b)': 'create_file',
+        r'\b(create|creates|creating|make|makes|making|generate|generates|generating|new)\b.*\b(folder|directory)\b': 'create_folder',
+        r'\b(delete|remove|erase|destroy|wipe|trash)\b.*\b(file|document)\b': 'delete_file',
+        r'\b(delete|remove|erase|destroy|wipe|trash)\b.*\b(folder|directory)\b': 'delete_folder',
+        r'\b(copy|duplicate|clone|replicate)\b.*\b(file|document)\b': 'copy_file',
+        r'\b(copy|duplicate|clone|replicate)\b.*\b(folder|directory)\b': 'copy_folder',
+        r'\b(move|transfer|relocate|send)\b.*\b(file|document)\b': 'move_file',
+        r'\b(move|transfer|relocate|send)\b.*\b(folder|directory)\b': 'move_folder',
+        r'\b(rename|change name)\b.*\b(file|document)\b': 'rename_file',
+        r'\b(rename|change name)\b.*\b(folder|directory)\b': 'rename_folder',
+        r'\b(open|view|read|show)\b.*\b(file|document)\b': 'open_file',
+        r'\b(open|view|read|show)\b.*\b(folder|directory)\b': 'open_folder',
+        r'\b(find|search|locate|look for)\b.*\b(file|document)\b': 'search_file',
+        r'\b(find|search|locate|look for)\b.*\b(folder|directory)\b': 'search_folder',
+        
+        # App operations
+        r'\b(open|launch|start|run)\b.*\b(app|application|program|software)\b': 'open_app',
+        r'\b(close|quit|exit|kill|stop|terminate)\b.*\b(app|application|program|software)\b': 'close_app',
+        r'\b(list|show|what)\b.*\b(running|active|open)\b.*\b(app|application|program|process)\b': 'list_processes',
+        
+        # OS Commands (system info, disk, network, etc.)
+        r'\b(list|lists|listing|show|shows|showing|display|get)\b.*\b(installed|running|active)\b.*\b(app|application|program|process)\b': 'os_command',
+        r'\b(disk|memory|ram|cpu|network|wifi)\b.*\b(usage|info|information|space|statistics)\b': 'os_command',
+        r'\b(show|get|give me|display)\b.*\b(disk|memory|ram|cpu|network|wifi|ip|ports)\b': 'os_command',
+        r'\b(take|capture|screenshot)\b.*\b(screenshot|screen|capture)\b': 'os_command',
+        r'\b(clear|flush|clean)\b.*\b(dns|cache|temp)\b': 'os_command',
+        r'\b(update|upgrade)\b.*\b(system|packages|apps)\b': 'os_command',
+        r'\b(check|repair|verify)\b.*\b(disk|permissions|system)\b': 'os_command',
+        r'\b(ping|test|check)\b.*\b(internet|connection|network)\b': 'os_command',
+        r'\b(list|show|get)\b.*\b(ip address|public ip|external ip)\b': 'os_command',
+        r'\b(list|show|get)\b.*\b(open ports|listening ports)\b': 'os_command',
+        
+        # Trash operations
+        r'\b(empty|clear|clean)\b.*\b(trash|bin|recycle)\b': 'empty_trash',
+        
+        # System operations
+        r'\b(lock|lock screen)\b': 'lock_screen',
+        r'\b(shutdown|shut down|power off|turn off)\b': 'shutdown',
+        r'\b(restart|reboot)\b': 'restart',
+        r'\b(screenshot|screen capture|capture screen)\b': 'take_screenshot',
+        r'\b(volume up|increase volume|louder)\b': 'volume_up',
+        r'\b(volume down|decrease volume|quieter)\b': 'volume_down',
+        r'\b(mute|silence)\b': 'volume_mute',
+        r'\b(brightness up|brighter)\b': 'brightness_up',
+        r'\b(brightness down|dimmer)\b': 'brightness_down',
+        r'\b(sleep|hibernate)\b': 'sleep',
+        r'\b(logout|log out|sign out)\b': 'logout',
+    }
+    
+    # Check patterns
+    for pattern, intent in ACTION_PATTERNS.items():
+        if re.search(pattern, cmd):
+            return intent
+    
+    # Question patterns
+    if re.search(r'\b(what|which|where|when|how)\b', cmd):
+        if re.search(r'\b(running|active|open)\b', cmd):
+            return 'list_processes'
+        if re.search(r'\b(file|folder)\b', cmd):
+            return 'search_file'
+        if re.search(r'\b(app|application|program)\b', cmd):
+            return 'search_app'
+    
+    # If we can't understand, return None
+    return None
+
+
 def _keyword_intent_override(command):
     """Check if command matches a known keyword pattern and return the intent.
     Supports multi-word phrases AND single action words with type detection."""
     cmd_lower = command.lower()
+
+    # Early check for system info queries (before other checks)
+    _early_system_info = [
+        "show my computer", "show computer", "my computer", "computer info",
+        "system info", "computer specs", "my specs", "show specs",
+        "what is my computer", "check my computer", "about my computer",
+        "pc info", "laptop info", "machine info",
+    ]
+    for phrase in _early_system_info:
+        if phrase in cmd_lower:
+            return "system_info"
+
+    # Early check for troubleshooting queries
+    _early_troubleshoot = [
+        "computer is slow", "my computer is slow", "pc is slow",
+        "laptop is slow", "machine is slow",
+        "computer is lagging", "my computer is lagging",
+        "computer is freezing", "my computer is freezing",
+        "fix error", "fix this error", "resolve error",
+        "computer problem", "my computer problem",
+    ]
+    for phrase in _early_troubleshoot:
+        if phrase in cmd_lower:
+            return "troubleshoot"
+
+    # Early check for automation tasks
+    _early_automation = [
+        "organize my files", "organize my desktop", "organize my downloads",
+        "clean up my files", "cleanup my files",
+        "find duplicates", "find duplicate files", "find duplicate photos",
+        "sort my files", "arrange my files",
+    ]
+    for phrase in _early_automation:
+        if phrase in cmd_lower:
+            return "automation_task"
+
+    # Fuzzy matching for document generation with typos
+    _doc_gen_patterns = [
+        r'\b(write|wrtie|wriet|genrate|generat)\b.*\b(invitation|invetatin|invetation|invtation)\b.*\b(letter|leter)\b',
+        r'\b(write|wrtie|wriet)\b.*\b(invitation|invetatin|invetation)\b',
+        r'\b(write|wrtie|wriet|genrate|generat)\b.*\b(document|docuemnt|documet)\b',
+        r'\b(create|make)\b.*\b(document|docuemnt|documet)\b',
+        r'\b(write|wrtie)\b.*\b(report|reprot|repot)\b',
+        r'\b(write|wrtie)\b.*\b(assignment|asignment|assignemnt)\b',
+        r'\b(write|wrtie)\b.*\b(essay|essy|esay)\b',
+        r'\b(write|wrtie)\b.*\b(article|artical|aritcle)\b',
+    ]
+    for pattern in _doc_gen_patterns:
+        if re.search(pattern, cmd_lower):
+            return "generate_document"
 
     # Priority check: "open <app>" / "launch <app>" should always be open_app
     # unless the target has a file extension or contains "file"/"folder"
     for action in ["open ", "launch ", "start ", "fungua "]:
         if cmd_lower.startswith(action):
             target = cmd_lower[len(action):].strip()
+            # Remove trailing phrases that don't change intent
+            trailing_phrases = [
+                r'\s+(on|in|with|using)\s+(a\s+)?new\s+window.*$',
+                r'\s+(on|in|with|using)\s+(a\s+)?new\s+instance.*$',
+                r'\s+(on|in|with|using)\s+(a\s+)?separate\s+window.*$',
+                r'\s+please.*$',
+            ]
+            for phrase in trailing_phrases:
+                target = re.sub(phrase, '', target, flags=re.I).strip()
             # Remove filler words
             for filler in ["the", "app", "application", "program"]:
                 target = re.sub(r'\b' + filler + r'\b', '', target, flags=re.I).strip()
@@ -1071,6 +1454,49 @@ def _keyword_intent_override(command):
         elif keyword in cmd_lower:
             return intent
 
+    # Advanced intent classification for system info, troubleshooting, etc.
+    # System Information queries
+    _system_info_patterns = [
+        r'\b(system|computer|pc|laptop|machine)\s+(info|information|specs|specifications|details|status)\b',
+        r'\b(show|display|tell|what|check|get)\b.*\b(system|computer|pc|laptop|machine)\b',
+        r'\b(show|display|tell|what|check|get)\b.*\b(info|specs|specifications|ram|cpu|disk|storage|memory|processor)\b',
+        r'\b(what|which)\b.*\b(os|operating system|windows|macos|linux)\b.*\b(am|i|using|version)\b',
+        r'\b(how much|check|show)\b.*\b(ram|memory|storage|disk space|cpu)\b',
+        r'\b(my|the)\b.*\b(computer|pc|laptop|machine)\b.*\b(specs|specifications|info|information)\b',
+        r'\babout\s+(my|this|the)\b.*\b(computer|pc|laptop|machine)\b',
+        r'\bhardware\b.*\b(info|information|details|specs)\b',
+        r'\b(show|what|check)\b.*\b(drives|disks|volumes|partitions)\b',
+        r'\bcomputer\b',  # Simple "computer" alone
+        r'\bsystem\s+info\b',
+        r'\bmy\s+specs\b',
+    ]
+    for pattern in _system_info_patterns:
+        if re.search(pattern, cmd_lower):
+            return "system_info"
+
+    # Troubleshooting / diagnostic queries
+    _troubleshoot_patterns = [
+        r'\b(my|the)\s+(computer|pc|laptop|machine)\s+is\s+(slow|lagging|freezing|crashing|not working)\b',
+        r'\b(fix|resolve|solve|help with)\b.*\b(error|issue|problem|bug|crash)\b',
+        r'\b(why is|what is causing)\b.*\b(slow|lag|freeze|crash|error)\b',
+        r'\b(computer|pc|laptop)\s+(problems?|issues?|troubleshooting)\b',
+        r'\b(diagnose|diagnostic|check)\b.*\b(health|status|performance)\b',
+    ]
+    for pattern in _troubleshoot_patterns:
+        if re.search(pattern, cmd_lower):
+            return "troubleshoot"
+
+    # Automation / organization tasks
+    _automation_patterns = [
+        r'\b(organize|cleanup|clean up|tidy)\b.*\b(my|the)\b.*\b(files|folders|desktop|documents)\b',
+        r'\b(find|locate)\b.*\b(duplicate|duplicates|similar)\b.*\b(files|photos|images)\b',
+        r'\b(sort|arrange|categorize)\b.*\b(files|documents|photos|downloads)\b',
+        r'\b(automate|automatic)\b.*\b(task|work|process|backup)\b',
+    ]
+    for pattern in _automation_patterns:
+        if re.search(pattern, cmd_lower):
+            return "automation_task"
+
     # Single action word fallback — detect file vs folder from context
     ACTION_TYPE_MAP = {
         "copy": ("copy_file", "copy_folder"),
@@ -1085,72 +1511,57 @@ def _keyword_intent_override(command):
         "transfer": ("move_file", "move_folder"),
         "put": ("move_file", "move_folder"),
         "relocate": ("move_file", "move_folder"),
-        "send": ("move_file", "move_folder"),
         "rename": ("rename_file", "rename_folder"),
+        "change": ("rename_file", "rename_folder"),
+        "create": ("create_file", "create_folder"),
+        "make": ("create_file", "create_folder"),
+        "new": ("create_file", "create_folder"),
         "open": ("open_file", "open_folder"),
+        "show": ("open_file", "open_folder"),
         "find": ("search_file", "search_folder"),
+        "search": ("search_file", "search_folder"),
         "locate": ("search_file", "search_folder"),
-        "launch": ("open_app", None),
-        "start": ("open_app", None),
-        # Close/kill actions
-        "close": ("close_app", None),
-        "exit": ("close_app", None),
-        "quit": ("close_app", None),
-        "kill": ("close_app", None),
-        "stop": ("close_app", None),
-        # Swahili action words
-        "tengeneza": ("create_file", "create_folder"),
-        "futa": ("delete_file", "delete_folder"),
-        "nakili": ("copy_file", "copy_folder"),
-        "hamisha": ("move_file", "move_folder"),
-        "tafuta": ("search_file", "search_folder"),
-        "tafutia": ("search_file", "search_folder"),
-        "findi": ("search_file", "search_folder"),
-        "fungua": ("open_file", "open_folder"),
-        "funga": ("close_app", None),
+        "where": ("search_file", "search_folder"),
+        "read": ("read_file", "read_file"),
+        "edit": ("open_file", "open_file"),
+        "view": ("open_file", "open_file"),
+        "kill": ("close_app", "close_app"),
+        "quit": ("close_app", "close_app"),
+        "exit": ("close_app", "close_app"),
+        "stop": ("close_app", "close_app"),
+        "terminate": ("close_app", "close_app"),
+        "launch": ("open_app", "open_app"),
+        "start": ("open_app", "open_app"),
+        "run": ("open_app", "run_command"),
+        "empty": ("empty_trash", "empty_trash"),
+        "clear": ("empty_trash", "empty_trash"),
+        "clean": ("empty_trash", "empty_trash"),
     }
-
-    for word, (file_intent, folder_intent) in ACTION_TYPE_MAP.items():
-        if re.search(r'\b' + re.escape(word) + r'\b', cmd_lower):
-            if folder_intent:
-                # If the source/target has a file extension, it's ALWAYS a file operation
-                if _has_file_extension(cmd_lower):
-                    return file_intent
-                # For 'open'/'fungua': if the target matches a known app, return open_app
-                if word in ("open", "fungua", "launch", "start"):
-                    # Extract what comes after the action word
-                    action_pos = cmd_lower.find(word)
-                    target = cmd_lower[action_pos + len(word):].strip()
-                    # Remove filler words
-                    for filler in ["the", "app", "application", "program"]:
-                        target = re.sub(r'\b' + filler + r'\b', '', target, flags=re.I).strip()
-                    # Check if target matches a known app
-                    for app_name in KNOWN_APP_NAMES:
-                        if app_name in target:
-                            return "open_app"
-                    # If no file extension and no "file"/"folder" keyword,
-                    # trust the ML model — default to open_app
-                    if not _has_file_extension(target):
-                        after_open = cmd_lower[action_pos + len(word):]
-                        if "file" not in after_open and "folder" not in after_open and "directory" not in after_open:
-                            return "open_app"
-                # Determine type by which keyword appears FIRST after the action word
-                action_pos = cmd_lower.find(word)
-                after_action = cmd_lower[action_pos + len(word):]
-                file_pos = after_action.find("file")
-                folder_pos = after_action.find("folder")
-                dir_pos = after_action.find("directory")
-                if folder_pos >= 0 and (file_pos < 0 or folder_pos < file_pos):
-                    return folder_intent
-                if dir_pos >= 0 and (file_pos < 0 or dir_pos < file_pos):
-                    return folder_intent
-            return file_intent
-
-    return None
+    
+    # Extract action word from command
+    words = cmd_lower.split()
+    for word in words:
+        word_clean = re.sub(r'[^a-z]', '', word)
+        if word_clean in ACTION_TYPE_MAP:
+            file_intent, folder_intent = ACTION_TYPE_MAP[word_clean]
+            # Detect if it's a file or folder from context
+            if any(w in cmd_lower for w in ["folder", "directory", "dir"]):
+                return folder_intent
+            elif any(w in cmd_lower for w in ["file", "document", "doc", "txt", "pdf"]):
+                return file_intent
+            else:
+                # Default to file for most actions, folder for create/make
+                if word_clean in ["create", "make", "new"]:
+                    return folder_intent  # Default to folder for creation
+                return file_intent
+    
+    # Natural language understanding fallback
+    # Try to understand free-form text
+    return _natural_language_understand(cmd_lower)
 
 
 # Load DistilBERT NLU model
-nlu = NOVANLU()
+nlu = AMAZONNLU()
 
 
 # =====================================================================
@@ -1238,6 +1649,13 @@ def split_compound_commands(command):
         "tengeneza", "futa", "nakili", "hamisha", "fungua", "funga", "tafuta",
         "can you", "could you", "would you", "please",
     ]
+    
+    # Special case: "find and delete" or "find and remove" should NOT be split
+    # These are single operations: find the file, then delete it
+    cmd_lower = command.lower()
+    if re.match(r'^\s*find\s+.*\s+and\s+(delete|remove|erase)\s+', cmd_lower):
+        return [command]  # Don't split - treat as single command
+    
     separators = [" and then ", " and also ", " and ", " then ", ", then ", ", also ", ", "]
 
     parts = [command]
@@ -1266,6 +1684,251 @@ def split_compound_commands(command):
     return parts if len(parts) > 1 else [command]
 
 
+def _make_friendly_response(command, result):
+    """Make AI responses friendly and conversational like ChatGPT."""
+    import random
+    
+    message = result.get("message", "")
+    status = result.get("status", "")
+    intent = result.get("intent", "")
+    
+    cmd_lower = command.lower().strip()
+    
+    # --- CASUAL CONVERSATION HANDLING (before action results) ---
+    
+    # Greetings
+    greeting_words = ["hello", "hi ", "hi!", "hey", "howdy", "greetings", "good morning", 
+                      "good afternoon", "good evening", "what's up", "sup", "hola"]
+    if any(word in cmd_lower for word in greeting_words) or cmd_lower in ["hi", "hello", "hey"]:
+        greeting_responses = [
+            "Hello! 👋 How can I help you today?",
+            "Hi there! 😊 What can I do for you?",
+            "Hey! 🌟 Ready to help you with anything you need!",
+            "Hello! 🎉 I'm here and ready to assist. What would you like to do?",
+            "Hi! ✨ Great to see you! How can I make your day easier?",
+            "Hey there! 🚀 What can I help you accomplish today?",
+        ]
+        return random.choice(greeting_responses)
+    
+    # How are you / how do you feel
+    casual_phrases = ["how are you", "how do you feel", "how is it going", 
+                      "what's going on", "whats up", "how you doing", "how r u",
+                      "are you okay", "you good", "how have you been"]
+    if any(phrase in cmd_lower for phrase in casual_phrases):
+        casual_responses = [
+            "I'm doing great, thanks for asking! 😊 How can I help you today?",
+            "I'm wonderful! Ready to assist you with anything you need! 🌟",
+            "Feeling fantastic! 🚀 What can I do for you?",
+            "I'm excellent! Thanks for checking in. What would you like to work on? ✨",
+            "All systems running smoothly! 😄 How can I make your day easier?",
+        ]
+        return random.choice(casual_responses)
+    
+    # Thanks / appreciation
+    thanks_phrases = ["thank you", "thanks", "thank u", "thx", "appreciate it", 
+                      "much appreciated", "that's kind", "good job", "well done",
+                      "nice work", "great job", "awesome work"]
+    if any(phrase in cmd_lower for phrase in thanks_phrases):
+        thanks_responses = [
+            "You're welcome! 😊 Happy to help anytime!",
+            "Anytime! That's what I'm here for! 🌟",
+            "Glad I could help! Don't hesitate to ask if you need anything else! ✨",
+            "My pleasure! 🎉 I'm always here when you need me!",
+            "No problem at all! Keep up the great work! 🚀",
+        ]
+        return random.choice(thanks_responses)
+    
+    # Apologies
+    apology_phrases = ["sorry", "my bad", "apologies", "i apologize", "my mistake",
+                       "i was wrong", "forgive me"]
+    if any(phrase in cmd_lower for phrase in apology_phrases):
+        apology_responses = [
+            "No worries at all! 😊 I'm here to help whenever you're ready.",
+            "That's completely fine! No need to apologize. What can I help with? 🌟",
+            "It's all good! ✨ Let me know what you'd like to do next.",
+            "Don't worry about it! 🚀 I'm here whenever you need me.",
+        ]
+        return random.choice(apology_responses)
+    
+    # Name questions
+    name_phrases = ["your name", "who are you", "what are you", "what's your name",
+                    "what is your name", "tell me about yourself"]
+    if any(phrase in cmd_lower for phrase in name_phrases):
+        name_responses = [
+            "I'm AMAZON, your AI desktop assistant! 🤖 I'm here to help you manage files, open apps, search the web, generate documents, and much more! ✨",
+            "I'm AMAZON! 🌟 Your personal AI assistant powered by machine learning. I can help with files, apps, documents, web searches, and more!",
+            "My name is AMAZON!  I'm your smart desktop assistant. Think of me as your helpful companion for getting things done on your computer! ",
+        ]
+        return random.choice(name_responses)
+    
+    # Goodbye
+    goodbye_phrases = ["goodbye", "bye", "see you", "see ya", "good night", "goodnight",
+                       "take care", "catch you later", "talk later"]
+    if any(phrase in cmd_lower for phrase in goodbye_phrases):
+        goodbye_responses = [
+            "Goodbye! Have a wonderful day! Come back anytime you need help! 😊",
+            "See you later!  It was great helping you! Take care! ✨",
+            "Bye!  Don't hesitate to come back if you need anything! Have a great one! 🎉",
+            "Take care!  I'll be here whenever you need me! Goodbye! 👋",
+        ]
+        return random.choice(goodbye_responses)
+    
+    # Jokes / fun
+    joke_phrases = ["tell me a joke", "make me laugh", "say something funny", "joke"]
+    if any(phrase in cmd_lower for phrase in joke_phrases):
+        jokes = [
+            "Why do programmers prefer dark mode? Because light attracts bugs! 🐛😄",
+            "Why was the computer cold? It left its Windows open! 🪟😂",
+            "What's a computer's favorite snack? Microchips! 🍟😄",
+            "Why did the AI go to therapy? It had too many deep issues! 🤖😂",
+            "What do you call a computer that sings? A-Dell! 🎤😄",
+        ]
+        return random.choice(jokes)
+    
+    # Casual conversation / reactions ("really?", "wow", "okay", etc.)
+    casual_reaction_phrases = ["really", "seriously", "wow", "hmm", "hmmm",
+                               "okay", "ok ", "sure", "alright", "cool", "nice",
+                               "interesting", "i see", "got it", "understood", "makes sense",
+                               "that's cool", "that's great", "awesome", "amazing", "incredible",
+                               "unbelievable", "no way", "for real", "legit", "true", "facts",
+                               "yep", "yeah", "yup", "nope", "nah", "definitely", "absolutely",
+                               "of course", "why not", "sounds good", "perfect", "excellent"]
+    if any(phrase in cmd_lower for phrase in casual_reaction_phrases):
+        casual_reactions = [
+            "Yep! What else can I help you with?",
+            "Absolutely! Just let me know what you need!",
+            "That's right! I'm here whenever you need me!",
+            "Glad you think so! What would you like to do next?",
+            "I know, right? Is there anything else I can help with?",
+            "For sure! Just ask if you need anything!",
+            "Exactly! Feel free to ask me anything!",
+            "You got it! What's next on your list?",
+        ]
+        return random.choice(casual_reactions)
+    
+    # Short affirmations
+    if cmd_lower in ["yes", "yeah", "yep", "yup", "sure", "ok", "okay", "alright"]:
+        affirmations = [
+            "Great! What would you like me to do?",
+            "Awesome! Just tell me what you need!",
+            "Perfect! I'm ready when you are!",
+            "Sounds good! What's next?",
+        ]
+        return random.choice(affirmations)
+    
+    # Short negatives
+    if cmd_lower in ["no", "nope", "nah", "not really", "never mind", "forget it", "cancel"]:
+        negatives = [
+            "No problem! Let me know if you change your mind!",
+            "All good! I'm here whenever you need me!",
+            "Sure thing! Just ask if you need anything else!",
+            "Got it! I'll be here if you need help!",
+        ]
+        return random.choice(negatives)
+    
+    # --- ACTION RESULT HANDLING ---
+    
+    # Friendly conversational additions
+    friendly_closers = [
+        " Let me know if you need anything else!",
+        " Is there anything else I can help you with?",
+        " Feel free to ask if you need more help!",
+        " I'm here if you need anything else!",
+        " Just let me know if there's more I can do!",
+        " What else can I help you with today?",
+        " Need anything else? Just ask!",
+    ]
+    
+    # For document generation, keep message minimal (UI handles formatting)
+    if intent == "generate_document" and status == "success":
+        return message
+    
+    # For successful actions, add friendly tone
+    if status == "success":
+        friendly_openers = [
+            "Sure! ", "Of course! ", "Happy to help! ", "No problem! ",
+            "Absolutely! ", "You got it! ", "Done! ", "All set! ",
+            "Perfect! ", "Great! ", "Awesome! ",
+        ]
+        # Add friendly opener if message doesn't already start with one
+        if not any(message.lower().startswith(opener.lower()) for opener in friendly_openers):
+            opener = random.choice(friendly_openers)
+            message = opener + message[0].lower() + message[1:] if message else opener
+        
+        # Add friendly closer for some actions
+        if intent in ["open_app", "open_file", "open_folder", "create_file", "create_folder",
+                      "delete_file", "delete_folder", "empty_trash", "copy_file", "copy_folder",
+                      "move_file", "move_folder", "rename_file", "rename_folder"]:
+            if random.random() < 0.4:  # 40% chance to add friendly closer
+                message += random.choice(friendly_closers)
+    
+    # For failed actions, be empathetic
+    elif status == "failed":
+        empathetic_phrases = [
+            "I'm sorry, but ", "Oops! ", "Hmm, ", "Unfortunately, ",
+            "I wasn't able to do that. ", "Let me try to help - ",
+            "No worries, ", "That's okay, ",
+        ]
+        if not any(message.lower().startswith(phrase.lower()) for phrase in empathetic_phrases):
+            phrase = random.choice(empathetic_phrases)
+            message = phrase + message[0].lower() + message[1:] if message else phrase
+        
+        # Add helpful suggestion
+        if "don't know" in message.lower() or "not found" in message.lower():
+            message += " You can try rephrasing or check if the name is correct."
+        
+        # Add encouraging closer
+        if random.random() < 0.5:
+            message += " Don't worry, we can try again!"
+    
+    # For unknown commands, be conversational and friendly
+    elif intent == "unknown":
+        # Check if it might be a typo for document generation
+        cmd_lower_check = command.lower()
+        doc_typos = [
+            ("invetatin", "invitation"), ("invetation", "invitation"), ("invtation", "invitation"),
+            ("leter", "letter"), ("wrtie", "write"), ("wriet", "write"),
+            ("genrate", "generate"), ("generat", "generate"),
+            ("docuemnt", "document"), ("documet", "document"),
+            ("reprot", "report"), ("repot", "report"),
+            ("asignment", "assignment"), ("assignemnt", "assignment"),
+            ("essy", "essay"), ("esay", "essay"),
+            ("artical", "article"), ("aritcle", "article"),
+        ]
+            
+        detected_typos = []
+        for typo, correct in doc_typos:
+            if typo in cmd_lower_check:
+                detected_typos.append((typo, correct))
+            
+        if detected_typos:
+            # Suggest the corrected command
+            suggestions = []
+            for typo, correct in detected_typos[:3]:  # Show up to 3 corrections
+                suggestions.append(f"'{typo}' → '{correct}'")
+                
+            message = (
+                f"I think you might have some typos! I detected:\n"
+                f"  • {', '.join(suggestions)}\n\n"
+                f"Did you mean to generate a document? Try:\n"
+                f"  • \"write invitation letter\"\n"
+                f"  • \"create document\"\n"
+                f"  • \"generate report\"\n\n"
+                f"Or just tell me what you'd like to create! "
+            )
+        else:
+            conversational_responses = [
+                f"I'm not quite sure what you mean by '{command}'. Could you rephrase that? I'm here to help! 😊",
+                f"Hmm, I didn't quite catch that. Could you try saying it differently? I want to make sure I understand! ",
+                f"I'm still learning! I didn't understand '{command}'. Can you try again? I'm getting better every day! 🚀",
+                f"I'm not sure I understood that. Could you help me by rephrasing? I appreciate your patience! ✨",
+                f"That's a new one for me! Could you explain what you'd like me to do? I'm eager to learn! ",
+            ]
+            message = random.choice(conversational_responses)
+    
+    return message
+
+
 def process_command(command):
     """Main entry point: parse command, classify intent, route to handler.
     Supports compound commands (e.g. 'open X and create Y')."""
@@ -1273,6 +1936,80 @@ def process_command(command):
 
     if not command:
         return make_result(None, None, "failed", "Empty command")
+
+    # Auto-correct typos
+    try:
+        from system.typo_corrector import auto_correct
+        corrected_command, corrections = auto_correct(command)
+        if corrections:
+            # Store corrections for potential display
+            _last_corrections = corrections
+            command = corrected_command
+    except Exception:
+        pass  # Don't let typo correction errors affect command processing
+
+    # Special handling: "find and delete X" or "find and remove X"
+    # This is a single operation: search for the file, then delete it
+    cmd_lower = command.lower()
+    
+    # Pattern 1: "find and delete [entity]" or "find and remove [entity]"
+    find_delete_match = re.match(
+        r'^\s*find\s+and\s+(?:delete|remove|erase)\s+(.+?)\s*$',
+        cmd_lower
+    )
+    
+    # Pattern 2: "find [entity] and delete" or "find [entity] and remove"
+    if not find_delete_match:
+        find_delete_match = re.match(
+            r'^\s*find\s+(?:this\s+|the\s+|a\s+|an\s+|any\s+)?(.+?)\s+and\s+(?:delete|remove|erase)(?:\s+(?:this|the|it))?\s*$',
+            cmd_lower
+        )
+    
+    if find_delete_match:
+        # Extract the full filename/entity
+        entity = find_delete_match.group(1).strip()
+        # Clean up filler words but preserve the full name
+        entity = re.sub(r'\b(this|the|a|an|any)\b', '', entity, flags=re.I).strip()
+        entity = re.sub(r'\s+', ' ', entity).strip()
+        
+        if entity:
+            # Step 1: Search for the file
+            from automation.file_tasks import search_file
+            search_result = search_file(entity)
+            
+            if search_result.get("status") == "success":
+                # File found - get the path
+                found_path = search_result.get("details", {}).get("path") or search_result.get("path")
+                if found_path:
+                    # Step 2: Delete the found file
+                    from automation.file_tasks import delete_file
+                    delete_result = delete_file(found_path)
+                    
+                    if delete_result.get("status") == "success":
+                        return make_result(
+                            "delete_file", entity, "success",
+                            f"Found and deleted: {entity}\nFile removed: {found_path}",
+                            delete_result.get("details")
+                        )
+                    else:
+                        return make_result(
+                            "delete_file", entity, "failed",
+                            f"Found the file but couldn't delete it: {delete_result.get('message', '')}",
+                            delete_result.get("details")
+                        )
+                else:
+                    return make_result(
+                        "search_file", entity, "failed",
+                        f"Found '{entity}' but couldn't get the file path.",
+                        search_result.get("details")
+                    )
+            else:
+                return make_result(
+                    "search_file", entity, "failed",
+                    f"Couldn't find '{entity}' on your device. Try checking the name or location.",
+                    search_result.get("details")
+                )
+        return make_result(None, None, "failed", "What file would you like me to find and delete?")
 
     # Check for compound commands (e.g. "open X and create Y")
     sub_commands = split_compound_commands(command)
@@ -1326,6 +2063,10 @@ def process_command(command):
 
     result = _process_single_command(command)
 
+    # Handle None result
+    if result is None:
+        result = make_result(None, None, "failed", "Command processing failed. Please try again.")
+
     # Update entity memory for pronoun resolution
     # Track on any result with a valid entity (not just success — "already exists" still means correct entity)
     if result.get("entity"):
@@ -1333,6 +2074,38 @@ def process_command(command):
         _last_entity["intent"] = result.get("intent")
         if isinstance(result.get("details"), dict):
             _last_entity["path"] = result["details"].get("path")
+
+    # Auto-learning: Record interaction for future improvement
+    try:
+        from system.auto_learner import record_interaction
+        record_interaction(
+            command=command,
+            intent=result.get("intent", "unknown"),
+            entity=result.get("entity", ""),
+            success=result.get("status") == "success",
+            response=result.get("message", "")
+        )
+    except Exception:
+        pass  # Don't let learning errors affect command execution
+
+    # Make response friendly and conversational
+    if result and isinstance(result, dict):
+        result["message"] = _make_friendly_response(command, result)
+
+        # Add auto-suggestions for successful actions
+        if result.get("status") == "success" and result.get("intent") != "unknown":
+            try:
+                from system.conversation_manager import get_suggestions
+                intent = result.get("intent", "")
+                suggestions = get_suggestions(command, intent)
+                if suggestions:
+                    # Add first suggestion as a follow-up
+                    result["suggestions"] = suggestions
+                    result["message"] += "\n\n💡 **What's next?**\n"
+                    for i, suggestion in enumerate(suggestions[:3], 1):
+                        result["message"] += f"  {i}. {suggestion}\n"
+            except Exception:
+                pass  # Don't let suggestion errors affect response
 
     return result
 
@@ -1367,6 +2140,7 @@ def _handle_computer_index_command():
         total_drives = stats.get("total_drives", 0)
         total_size = stats.get("total_size_mb", 0)
         by_drive = stats.get("by_drive", {})
+        
         
         lines = [f"Computer index built successfully.", 
                  f"  - {total_files} files indexed across {total_drives} drives",
@@ -1406,6 +2180,7 @@ def _process_single_command(command):
     parsed = smart_parse_command(command)
     disc_type = parsed.get("discovery_type")
 
+    
     # If discovery type is present, override intent and route directly
     if disc_type:
         if disc_type == "pdfs_today":
@@ -1451,25 +2226,25 @@ def _process_single_command(command):
                            "find", "show", "locate", "read", "run", "launch", "close"}
     has_actionable_keyword = any(kw in cmd_lower for kw in ACTIONABLE_KEYWORDS)
 
+
     try:
         # ML prediction (DistilBERT)
         ml_intent, max_confidence = nlu.predict(command)
         print(f"NLU Predicted: {ml_intent} (confidence: {max_confidence:.2%})")
 
-        # Keyword overrides (fallback for low-confidence predictions)
+        # Keyword overrides (check FIRST - more reliable than ML for specific patterns)
         kw_intent = _keyword_intent_override(command)
 
-        # Confidence-based decision:
-        # - DistilBERT confident (>= 45%) → trust ML
-        # - DistilBERT uncertain (< 45%) + keyword match → use keyword
-        # - DistilBERT uncertain + no keyword → show "not sure"
-        if max_confidence >= 0.45:
-            intent = ml_intent
-            if kw_intent and kw_intent != ml_intent:
-                print(f"ML trusted ({ml_intent} {max_confidence:.0%}) over keyword ({kw_intent})")
-        elif kw_intent:
+        # Decision logic:
+        # - If keyword pattern matches → ALWAYS use keyword (most reliable)
+        # - If no keyword + ML confident (>= 45%) → trust ML
+        # - If no keyword + ML uncertain → show "not sure"
+        if kw_intent:
             intent = kw_intent
             print(f"Keyword override: {kw_intent} (ML: {ml_intent} {max_confidence:.0%})")
+        elif max_confidence >= 0.45:
+            intent = ml_intent
+            print(f"ML prediction: {ml_intent} ({max_confidence:.0%})")
         elif ml_intent == "unknown":
             # ML model thinks this is an unsupported command
             intent = ml_intent
@@ -1484,24 +2259,49 @@ def _process_single_command(command):
             if is_question:
                 return make_result(
                     "question", None, "unsupported",
-                    f"That sounds like a question! I'm a desktop automation assistant.\n"
-                    f"I can help you with:\n"
-                    f"- File/folder management (create, rename, delete, search)\n"
-                    f"- Opening apps and websites\n"
-                    f"- Document generation (Word, Excel, PDF)\n"
-                    f"- Web search and research\n"
-                    f"- Project scaffolding\n"
-                    f"Try rephrasing as a command, or type 'help' for all commands.",
+                    f"That sounds like a question! I'm here to help you with your computer. 😊\n\n"
+                    f"I can help you with things like:\n"
+                    f"• Creating, organizing, or finding files and folders\n"
+                    f"• Opening apps like Chrome, VS Code, or any app you have\n"
+                    f"• Searching the web or generating documents\n"
+                    f"• Managing your system (empty trash, lock screen, etc.)\n\n"
+                    f"Just tell me what you'd like to do, or type 'help' to see all my skills! ✨",
                 )
             else:
-                return make_result(
-                    ml_intent, None, "unsupported",
-                    f"I'm not sure I understood that (confidence: {max_confidence:.0%}). You can try:\n"
-                    f"- 'create file [name]' or 'create folder [name]'\n"
-                    f"- 'open chrome', 'open notepad', etc.\n"
-                    f"- 'search for [topic]' or 'search web [topic]'\n"
-                    f"- Type 'help' for a full list of commands.",
-                )
+                # Check if user is asking for help or commands
+                help_phrases = ["help", "need help", "can you help", "assist me", "what can you do",
+                               "your commands", "list commands", "show commands", "what commands",
+                               "how to use", "guide me", "what do you know", "i need your",
+                               "show me", "tell me what", "capabilities"]
+                if any(phrase in cmd_lower for phrase in help_phrases):
+                    return make_result(
+                        "help_request", None, "success",
+                        f"Of course! I'm here to help! 😊 Here's what I can do for you:\n\n"
+                        f"📁 **Files & Folders**\n"
+                        f"   • Create, rename, move, copy, or delete files and folders\n"
+                        f"   • Search for files or folders on your computer\n"
+                        f"   • Open files and folders\n\n"
+                        f"🚀 **Apps & System**\n"
+                        f"   • Open any app (Chrome, VS Code, Spotify, etc.)\n"
+                        f"   • Close apps\n"
+                        f"   • Empty trash, lock screen, take screenshots\n\n"
+                        f"🌐 **Web & Documents**\n"
+                        f"   • Search the web\n"
+                        f"   • Generate Word, Excel, or PDF documents\n"
+                        f"   • Open websites\n\n"
+                        f"Just tell me what you need in plain English, and I'll take care of it! 🎯",
+                    )
+                else:
+                    return make_result(
+                        ml_intent, None, "unsupported",
+                        f"I'm not quite sure what you mean, but I'm here to help! 😊\n\n"
+                        f"Could you try rephrasing that? For example:\n"
+                        f"• \"Create a file called report.txt\"\n"
+                        f"• \"Open Chrome\" or \"Launch VS Code\"\n"
+                        f"• \"Search for my photos\"\n"
+                        f"• \"Empty the trash\"\n\n"
+                        f"Or just tell me what you'd like to do, and I'll figure it out! 🚀",
+                    )
 
         # At this point we have a valid intent, route it!
         return route_intent(
