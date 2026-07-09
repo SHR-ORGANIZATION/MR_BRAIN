@@ -130,6 +130,7 @@ class VoiceUIController:
 
     def _handle_voice_result(self, text):
         """Process recognized speech."""
+        print(f"[VOICE_UI] Voice result: {text[:50] if text else 'empty'}")
         if not text:
             self.stop_listening()
             return
@@ -137,6 +138,13 @@ class VoiceUIController:
         # Mark that this input came from voice (so response will be spoken)
         if hasattr(self.app, 'voice_input_mode'):
             self.app.voice_input_mode = True
+            print(f"[VOICE_UI] Set voice_input_mode = True")
+        
+        # Always show the input area (never hide chat box)
+        if hasattr(self.app, '_show_input_area'):
+            self.app._show_input_area(True)
+        if hasattr(self.app, '_hide_welcome'):
+            self.app._hide_welcome()
         # Try to populate both possible active entries to avoid focus/lifecycle issues
         try:
             if hasattr(self.app, 'welcome_input') and self.app.welcome_input and self.app.welcome_input.winfo_exists():
@@ -181,7 +189,19 @@ class VoiceUIController:
         """Handle voice recognition error."""
         print(f"Voice error: {error}")
         self.stop_listening()
-        self._show_status("Voice error")
+        
+        # Show descriptive error message
+        error_lower = str(error).lower()
+        if "could not understand" in error_lower:
+            self._show_status("Didn't catch that — try again")
+        elif "microphone" in error_lower:
+            self._show_status("Microphone not available")
+        elif "google" in error_lower or "request" in error_lower:
+            self._show_status("Voice: network error")
+        elif "timeout" in error_lower:
+            self._show_status("Voice: no speech detected")
+        else:
+            self._show_status("Voice error — try again")
 
     def _update_button_state(self):
         """Update microphone button appearance."""

@@ -983,6 +983,22 @@ def _handle_list_commands(intent, command, parsed):
     )
 
 
+def _handle_amazon_chat(intent, command, parsed):
+    """Handle AMAZON CHAT intent - route general questions/prompts to the LLM."""
+    try:
+        from ai_assistant.core.amazon_chat import handle_amazon_chat_prompt
+        return handle_amazon_chat_prompt(command)
+    except ImportError:
+        return make_result(
+            "amazon_chat", None, "success",
+            "AMAZON CHAT is not available. Please install Ollama to enable conversational AI mode.\n\n"
+            "   **Quick setup:**\n"
+            "   1. Install Ollama: https://ollama.com\n"
+            "   2. Run: `ollama pull llama3.2`\n"
+            "   3. Restart AMAZON AI"
+        )
+
+
 def _handle_unknown(intent, command, parsed):
     """Handle unknown intent - check for follow-up responses first."""
     # Check if this is a follow-up response to a pending question
@@ -1254,7 +1270,7 @@ def _handle_automation_task(intent, command, parsed):
     return make_result(intent, None, "success", message)
 
 
-def _handle_send_email(command, parsed):
+def _handle_send_email(intent, command, parsed):
     """Handle send_email intent - compose and send email."""
     try:
         from ai_assistant.tools import EmailTool
@@ -1294,7 +1310,7 @@ def _handle_send_email(command, parsed):
         return make_result("send_email", None, "error", f"❌ Email error: {str(e)}")
 
 
-def _handle_open_email(command, parsed):
+def _handle_open_email(intent, command, parsed):
     """Handle open_email intent - open email client."""
     try:
         from ai_assistant.tools import EmailTool
@@ -1327,7 +1343,7 @@ def _handle_open_email(command, parsed):
         return make_result("open_email", None, "error", f"❌ Email error: {str(e)}")
 
 
-def _handle_retrain_model(command, parsed):
+def _handle_retrain_model(intent, command, parsed):
     """Handle retrain_model intent - retrain the NLU model."""
     try:
         from system.auto_learner import force_retrain, get_learning_report
@@ -1354,7 +1370,7 @@ def _handle_retrain_model(command, parsed):
         return make_result("retrain_model", None, "error", f"❌ Retrain error: {str(e)}")
 
 
-def _handle_merge_training_data(command, parsed):
+def _handle_merge_training_data(intent, command, parsed):
     """Handle merge_training_data intent - merge learned patterns into dataset."""
     try:
         from system.auto_learner import merge_learned_patterns_to_dataset
@@ -1376,7 +1392,7 @@ def _handle_merge_training_data(command, parsed):
         return make_result("merge_training_data", None, "error", f"❌ Merge error: {str(e)}")
 
 
-def _handle_analyze_document(command, parsed):
+def _handle_analyze_document(intent, command, parsed):
     """Handle analyze_document intent - analyze and summarize documents."""
     try:
         from automation.document_analyzer import analyze_document
@@ -1774,6 +1790,8 @@ INTENT_HANDLERS = {
     "retrain_model": _handle_retrain_model,
     "merge_training_data": _handle_merge_training_data,
     "analyze_document": _handle_analyze_document,
+    "amazon_chat": _handle_amazon_chat,
+    "gpt_chat": _handle_amazon_chat,  # ML model backward compatibility
     "unknown": _handle_unknown,
 }
 

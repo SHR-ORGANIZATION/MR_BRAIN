@@ -456,11 +456,11 @@ def move_folder(source, destination, base_dir=None):
 
 
 def search_folder(query, root=None, max_results=50):
-    """Search for folders anywhere on the PC (cross-platform)."""
+    """Search for folders anywhere on the PC (cross-platform). Searches ALL drives."""
     import time
     matches = []
     start_time = time.time()
-    timeout = 8  # 8 second timeout for faster response
+    timeout = 12  # Increased timeout for comprehensive search
 
     # Build search directories in priority order
     search_dirs = []
@@ -469,16 +469,25 @@ def search_folder(query, root=None, max_results=50):
         if root_path.exists():
             search_dirs.append(root_path)
     else:
-        # Default: search from home directory
+        # Get ALL available drives first
+        all_drives = _get_available_drives()
+        
+        # Add volumes FIRST (external drives like MAC, OFFICE, etc.)
+        for drive in all_drives:
+            if drive == Path("/"):
+                continue  # Skip root filesystem
+            if drive.exists() and drive not in search_dirs:
+                search_dirs.append(drive)
+        
+        # Then add home directory
         home = Path.home()
         if home.exists():
             search_dirs.append(home)
+        
+        # Add common user dirs
         for d in COMMON_USER_DIRS:
             if d.exists() and d not in search_dirs:
                 search_dirs.append(d)
-        for drive in _get_available_drives():
-            if drive not in search_dirs and drive != Path("/"):
-                search_dirs.append(drive)
 
     try:
         for search_root in search_dirs:
@@ -501,10 +510,10 @@ def search_folder(query, root=None, max_results=50):
             if len(matches) >= max_results:
                 break
 
-        message = f"Found {len(matches)} folder(s) matching '{query}'"
-        return _build_result("Search Folder", root or str(Path.home()), "success", message, "Folder", extra=matches)
+        message = f"Found {len(matches)} folder(s) matching '{query}' across all drives"
+        return _build_result("Search Folder", root or "all drives", "success", message, "Folder", extra=matches)
     except Exception as e:
-        return _build_result("Search Folder", root or str(Path.home()), "failed", str(e), "Folder", extra=[])
+        return _build_result("Search Folder", root or "all drives", "failed", str(e), "Folder", extra=[])
 
 
 def open_folder(folder_name):
@@ -652,11 +661,11 @@ def copy_file(source, destination, base_dir=None):
 
 
 def search_file(query, root=None, max_results=50):
-    """Search for files anywhere on the PC (cross-platform)."""
+    """Search for files anywhere on the PC (cross-platform). Searches ALL drives."""
     import time
     matches = []
     start_time = time.time()
-    timeout = 8  # Reduced from 15 to 8 seconds for faster response
+    timeout = 12  # Increased timeout for comprehensive search
 
     # Build search directories in priority order
     search_dirs = []
@@ -665,7 +674,21 @@ def search_file(query, root=None, max_results=50):
         if root_path.exists():
             search_dirs.append(root_path)
     else:
-        # Default: search common user dirs first (faster)
+        # Get ALL available drives first (including volumes)
+        all_drives = _get_available_drives()
+        
+        # Add volumes FIRST (user's external drives like MAC, OFFICE, etc.)
+        for drive in all_drives:
+            drive_str = str(drive).lower()
+            # Skip cloud storage and system root for speed
+            if any(skip in drive_str for skip in ["onedrive", "icloud", "dropbox", "google drive"]):
+                continue
+            if drive == Path("/"):
+                continue  # Skip root filesystem (too slow, search volumes instead)
+            if drive.exists() and drive not in search_dirs:
+                search_dirs.append(drive)
+        
+        # Then add common user dirs (faster access)
         home = Path.home()
         common_dirs = [
             home / "Desktop",
@@ -674,23 +697,17 @@ def search_file(query, root=None, max_results=50):
             home / "Pictures",
         ]
         for d in common_dirs:
-            if d.exists():
+            if d.exists() and d not in search_dirs:
                 search_dirs.append(d)
-        # Then search home directory
+        
+        # Add home directory
         if home.exists() and home not in search_dirs:
             search_dirs.append(home)
-        # Then search other common dirs
+        
+        # Add other common dirs
         for d in COMMON_USER_DIRS:
             if d.exists() and d not in search_dirs:
                 search_dirs.append(d)
-        # On macOS/Linux, also search /Volumes and /mnt (but with lower priority)
-        for drive in _get_available_drives():
-            if drive not in search_dirs and drive != Path("/"):
-                # Skip cloud storage folders that might be slow
-                drive_str = str(drive).lower()
-                if any(skip in drive_str for skip in ["onedrive", "icloud", "dropbox", "google drive"]):
-                    continue  # Skip cloud storage for now
-                search_dirs.append(drive)
 
     try:
         for search_root in search_dirs:
@@ -717,13 +734,13 @@ def search_file(query, root=None, max_results=50):
                 break
 
         if matches:
-            message = f"Found {len(matches)} file(s) matching '{query}'"
-            return _build_result("Search File", root or str(Path.home()), "success", message, "File", extra=matches)
+            message = f"Found {len(matches)} file(s) matching '{query}' across all drives"
+            return _build_result("Search File", root or "all drives", "success", message, "File", extra=matches)
         else:
-            return _build_result("Search File", root or str(Path.home()), "failed",
-                                f"Couldn't find any file matching '{query}'. Try checking the name or location.", "File", extra=[])
+            return _build_result("Search File", root or "all drives", "failed",
+                                f"Couldn't find any file matching '{query}' on any drive. Try checking the name or location.", "File", extra=[])
     except Exception as e:
-        return _build_result("Search File", root or str(Path.home()), "failed", str(e), "File", extra=[])
+        return _build_result("Search File", root or "all drives", "failed", str(e), "File", extra=[])
 
 
 def open_file(file_name):

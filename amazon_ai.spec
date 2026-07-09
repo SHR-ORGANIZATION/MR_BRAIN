@@ -96,7 +96,7 @@ a = Analysis(
     runtime_hooks=[],
     excludes=[
         'matplotlib', 'scipy', 'IPython', 'notebook',
-        'pytest', 'unittest', 'setuptools', 'pip',
+        'pytest', 'setuptools', 'pip',
     ],
     win_no_prefer_redirects=False,
     win_private_assemblies=False,

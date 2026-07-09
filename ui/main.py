@@ -1706,12 +1706,15 @@ class AMAZONAI:
         self._refresh_scroll_region()
         
         # Speak the response ONLY if voice input was used AND voice is enabled
+        print(f"[VOICE] voice_input_mode={self.voice_input_mode}, voice_enabled={self.voice_enabled}")
         if self.voice_ui and self.voice_enabled and self.voice_input_mode:
             try:
                 print(f"[VOICE] Speaking response...")
                 self.voice_ui.speak_response(response)
             except Exception as e:
                 print(f"[VOICE] Error speaking: {e}")
+        else:
+            print(f"[VOICE] Not speaking - voice_ui={self.voice_ui is not None}, enabled={self.voice_enabled}, mode={self.voice_input_mode}")
         
         # Reset voice input mode after each command
         self.voice_input_mode = False

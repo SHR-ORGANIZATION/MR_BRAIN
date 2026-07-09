@@ -193,15 +193,29 @@ class VoiceEngine:
         threading.Thread(target=self._speak_thread, args=(text,), daemon=True).start()
 
     def _speak_thread(self, text):
-        """Speak in background thread."""
+        """Speak in background thread with macOS safety."""
         try:
             self.is_speaking = True
             if self.speaking_callback:
                 self.speaking_callback(True)
-            self.tts_engine.say(text)
-            self.tts_engine.runAndWait()
-        except Exception:
-            pass
+            
+            import platform
+            if platform.system() == "Darwin":
+                # macOS: pyttsx3.runAndWait() is unsafe in background threads.
+                # Use NSSpeechSynthesizer via osascript for reliable TTS.
+                import subprocess
+                # Escape text for AppleScript
+                escaped = text.replace('\\', '\\\\').replace('"', '\\"')
+                subprocess.run(
+                    ["osascript", "-e", f'say "{escaped}"'],
+                    timeout=30,
+                    capture_output=True
+                )
+            else:
+                self.tts_engine.say(text)
+                self.tts_engine.runAndWait()
+        except Exception as e:
+            print(f"TTS speak error: {e}")
         finally:
             self.is_speaking = False
             if self.speaking_callback:
@@ -210,8 +224,15 @@ class VoiceEngine:
     def stop_speaking(self):
         """Stop current speech."""
         try:
-            if self.tts_engine:
-                self.tts_engine.stop()
+            import platform
+            if platform.system() == "Darwin":
+                # Kill any running osascript/say processes
+                import subprocess
+                subprocess.run(["killall", "say"], capture_output=True, timeout=2)
+                subprocess.run(["killall", "osascript"], capture_output=True, timeout=2)
+            else:
+                if self.tts_engine:
+                    self.tts_engine.stop()
         except Exception:
             pass
         self.is_speaking = False

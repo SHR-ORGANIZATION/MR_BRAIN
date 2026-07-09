@@ -19,6 +19,13 @@ if str(BASE_DIR) not in sys.path:
 from ml.nlu_model import AMAZONNLU
 from system.environment_scanner import initialize_environment, get_scanner
 
+# AMAZON CHAT handler for general questions and conversations
+try:
+    from ai_assistant.core.amazon_chat import is_amazon_chat_prompt, handle_amazon_chat_prompt
+    AMAZON_CHAT_AVAILABLE = True
+except ImportError:
+    AMAZON_CHAT_AVAILABLE = False
+
 DEFAULT_BASE_DIR = Path(os.path.expanduser("~")) / "Desktop"
 
 # Initialize environment knowledge base at startup
@@ -32,6 +39,25 @@ LOCATION_DIRS = {
     "music": Path(os.path.expanduser("~")) / "Music",
     "videos": Path(os.path.expanduser("~")) / "Videos",
 }
+
+# Dynamically add all mounted drives/volumes to LOCATION_DIRS
+try:
+    from automation.file_discovery import get_all_drives
+    for drive_path in get_all_drives():
+        drive_name = drive_path.name.lower() if drive_path.name else ""
+        if not drive_name:
+            # Root filesystem — use OS-specific name
+            import platform as _plat
+            if _plat.system() == "Darwin":
+                drive_name = "macintosh hd"
+            elif _plat.system() == "Windows":
+                drive_name = str(drive_path).rstrip("\\").lower()
+            else:
+                drive_name = "root"
+        if drive_name and drive_name not in LOCATION_DIRS:
+            LOCATION_DIRS[drive_name] = drive_path
+except Exception:
+    pass
 
 # =====================================================================
 #  SYNONYM & KEYWORD TABLES
@@ -1700,14 +1726,26 @@ def _make_friendly_response(command, result):
     status = result.get("status", "")
     intent = result.get("intent", "")
     
+    # Pass through AMAZON CHAT responses without modification — they're already well-formed
+    if intent == "amazon_chat":
+        return message
+    
     cmd_lower = command.lower().strip()
     
     # --- CASUAL CONVERSATION HANDLING (before action results) ---
     
-    # Greetings
+    # Greetings — route to LLM for natural AMAZON CHAT responses when available
     greeting_words = ["hello", "hi ", "hi!", "hey", "howdy", "greetings", "good morning", 
                       "good afternoon", "good evening", "what's up", "sup", "hola"]
     if any(word in cmd_lower for word in greeting_words) or cmd_lower in ["hi", "hello", "hey"]:
+        if AMAZON_CHAT_AVAILABLE:
+            try:
+                from ai_assistant.core.amazon_chat import get_llm_response
+                llm_response = get_llm_response(command)
+                if llm_response and llm_response.strip():
+                    return llm_response
+            except Exception:
+                pass
         greeting_responses = [
             "Hello! 👋 How can I help you today?",
             "Hi there! 😊 What can I do for you?",
@@ -1718,11 +1756,19 @@ def _make_friendly_response(command, result):
         ]
         return random.choice(greeting_responses)
     
-    # How are you / how do you feel
+    # How are you / how do you feel — route to LLM when available
     casual_phrases = ["how are you", "how do you feel", "how is it going", 
                       "what's going on", "whats up", "how you doing", "how r u",
                       "are you okay", "you good", "how have you been"]
     if any(phrase in cmd_lower for phrase in casual_phrases):
+        if AMAZON_CHAT_AVAILABLE:
+            try:
+                from ai_assistant.core.amazon_chat import get_llm_response
+                llm_response = get_llm_response(command)
+                if llm_response and llm_response.strip():
+                    return llm_response
+            except Exception:
+                pass
         casual_responses = [
             "I'm doing great, thanks for asking! 😊 How can I help you today?",
             "I'm wonderful! Ready to assist you with anything you need! 🌟",
@@ -2266,6 +2312,10 @@ def _process_single_command(command):
             print(f"ML prediction: {ml_intent} ({max_confidence:.0%})")
         elif ml_intent == "unknown":
             # ML model thinks this is an unsupported command
+            # Route to AMAZON CHAT for intelligent conversation
+            if AMAZON_CHAT_AVAILABLE and is_amazon_chat_prompt(command):
+                print(f"Routing to AMAZON CHAT (unknown intent, looks like a prompt/question)")
+                return handle_amazon_chat_prompt(command)
             intent = ml_intent
         else:
             # Low confidence + no keyword fallback
@@ -2276,6 +2326,10 @@ def _process_single_command(command):
                         is_question = True
                         break
             if is_question:
+                # Route questions to AMAZON CHAT for intelligent answers
+                if AMAZON_CHAT_AVAILABLE:
+                    print(f"Routing question to AMAZON CHAT")
+                    return handle_amazon_chat_prompt(command)
                 return make_result(
                     "question", None, "unsupported",
                     f"That sounds like a question! I'm here to help you with your computer. 😊\n\n"
@@ -2311,6 +2365,10 @@ def _process_single_command(command):
                         f"Just tell me what you need in plain English, and I'll take care of it! 🎯",
                     )
                 else:
+                    # Route unrecognized prompts to AMAZON CHAT
+                    if AMAZON_CHAT_AVAILABLE and is_amazon_chat_prompt(command):
+                        print(f"Routing unrecognized prompt to AMAZON CHAT")
+                        return handle_amazon_chat_prompt(command)
                     return make_result(
                         ml_intent, None, "unsupported",
                         f"I'm not quite sure what you mean, but I'm here to help! 😊\n\n"

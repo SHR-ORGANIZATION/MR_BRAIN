@@ -33,13 +33,21 @@ _INDEXED_EXTENSIONS = {
     ".zip", ".rar", ".7z", ".tar", ".gz",
 }
 
-# System folders to skip during scanning
+# System folders to skip during scanning (cross-platform)
 _SKIP_DIRS = {
+    # Common
     "__pycache__", ".git", "node_modules", ".vscode", ".idea",
     "venv", "env", ".venv", "temp", "tmp", "tmp2",
+    # Windows
     "Windows", "ProgramData", "Program Files", "Program Files (x86)",
     "$Recycle.Bin", "System Volume Information",
     "AppData", "Roaming", "Local", "LocalLow",
+    "$Windows.~BT", "$Windows.~WS", "Recovery",
+    # macOS
+    "System", "Library", "Private", "Cores", "opt", "usr",
+    ".Trashes", ".fseventsd", ".Spotlight-V100",
+    # Linux
+    "proc", "sys", "dev", "run", "snap", "lost+found",
 }
 
 # Max file size to index (100MB)
