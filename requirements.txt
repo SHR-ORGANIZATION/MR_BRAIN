@@ -18,3 +18,10 @@ numpy>=1.21.0     # For embeddings and vector operations
 # NLU Model 
 torch>=1.9.0              # PyTorch - required for DistilBERT model
 transformers>=4.20.0      # HuggingFace Transformers - for DistilBERT
+
+# Installer / Packaging
+pyinstaller>=6.0          # Build native installers for macOS/Windows
+
+# Voice Features
+pyttsx3>=2.90             # Text-to-speech
+SpeechRecognition>=3.10.0 # Speech-to-text

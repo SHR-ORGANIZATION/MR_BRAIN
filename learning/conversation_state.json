@@ -1,54 +1,5 @@
 {
   "history": [],
-  "pending": [
-    {
-      "id": "2026-07-09T08:20:38.901572",
-      "question": "What's next?",
-      "options": [
-        "Would you like me to open it after creating?",
-        "Should I save it on Desktop or Documents?",
-        "Do you want to add content to it?"
-      ],
-      "context": {
-        "intent": "create_folder",
-        "command": "create folder named hb"
-      },
-      "asked_at": "2026-07-09T08:20:38.901582",
-      "answered": false,
-      "answer": null
-    },
-    {
-      "id": "2026-07-09T08:21:14.208826",
-      "question": "What's next?",
-      "options": [
-        "Would you like me to filter by file type?",
-        "Should I search in a specific location?",
-        "Do you want me to sort by date?"
-      ],
-      "context": {
-        "intent": "search_folder",
-        "command": "find folder named hb"
-      },
-      "asked_at": "2026-07-09T08:21:14.208835",
-      "answered": false,
-      "answer": null
-    },
-    {
-      "id": "2026-07-09T09:22:13.029747",
-      "question": "What's next?",
-      "options": [
-        "Would you like me to open it after creating?",
-        "Should I save it on Desktop or Documents?",
-        "Do you want to add content to it?"
-      ],
-      "context": {
-        "intent": "create_folder",
-        "command": "Create react project myapp"
-      },
-      "asked_at": "2026-07-09T09:22:13.029756",
-      "answered": false,
-      "answer": null
-    }
-  ],
-  "updated_at": "2026-07-09T09:22:13.029815"
+  "pending": [],
+  "updated_at": "2026-07-09T10:59:06.864140"
 }

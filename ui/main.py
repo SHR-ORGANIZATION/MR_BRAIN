@@ -386,8 +386,9 @@ class AMAZONAI:
         self.logo_welcome = _load_logo("nova_logo_140.png", 100)
         self.logo_header = _load_logo("nova_logo_36.png", 30)
 
-        # Voice feature toggle (off by default; user can enable from settings/integration)
-        self.voice_enabled = False
+        # Voice feature toggle
+        self.voice_enabled = True  # Voice enabled by default (ChatGPT-style)
+        self.voice_input_mode = False  # Track if current input is from voice
 
         # Pre-load action icons (supersampled for smooth edges)
         ic = "#8e8ea0"
@@ -1120,7 +1121,7 @@ class AMAZONAI:
 
         # Switch to active chat mode: hide welcome, show bottom input
         self._hide_welcome()
-        self._show_input_area(True)
+        self._show_input_area(True)  # Always show input area in chat mode
 
         # Put command into the bottom entry for consistency
         self.command_entry.delete("1.0", "end")
@@ -1703,6 +1704,17 @@ class AMAZONAI:
         self._add_msg_to_session("ai", response)
         self._render_ai_message(response)
         self._refresh_scroll_region()
+        
+        # Speak the response ONLY if voice input was used AND voice is enabled
+        if self.voice_ui and self.voice_enabled and self.voice_input_mode:
+            try:
+                print(f"[VOICE] Speaking response...")
+                self.voice_ui.speak_response(response)
+            except Exception as e:
+                print(f"[VOICE] Error speaking: {e}")
+        
+        # Reset voice input mode after each command
+        self.voice_input_mode = False
         
         # Auto-focus input after response
         try:

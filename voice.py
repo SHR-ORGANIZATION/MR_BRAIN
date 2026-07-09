@@ -37,9 +37,21 @@ class VoiceEngine:
         if pyttsx3:
             try:
                 self.tts_engine = pyttsx3.init()
-                self.tts_engine.setProperty("rate", 160)
-                self.tts_engine.setProperty("volume", 0.9)
-            except Exception:
+                self.tts_engine.setProperty("rate", 175)  # Slightly faster, more natural
+                self.tts_engine.setProperty("volume", 1.0)  # Full volume
+                
+                # Try to set a better voice on macOS
+                import platform
+                if platform.system() == "Darwin":
+                    voices = self.tts_engine.getProperty('voices')
+                    # Prefer female voices for more natural sound
+                    for voice in voices:
+                        if 'female' in voice.name.lower() or 'samantha' in voice.name.lower() or 'victoria' in voice.name.lower():
+                            self.tts_engine.setProperty('voice', voice.id)
+                            print(f"Selected voice: {voice.name}")
+                            break
+            except Exception as e:
+                print(f"TTS init warning: {e}")
                 self.tts_engine = None
 
         self._select_microphone()

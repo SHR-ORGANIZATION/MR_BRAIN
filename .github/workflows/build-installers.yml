@@ -1,0 +1,206 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# AMAZON AI - Cross-Platform Installer Builder (GitHub Actions)
+# ──────────────────────────────────────────────────────────────────────────────
+# Builds native installers for macOS (.app + .dmg) and Windows (.exe)
+#
+# Triggers:
+#   - On push to 'main' branch
+#   - On version tags (v1.0.0, etc.)
+#   - Manual trigger (workflow_dispatch)
+#
+# Output:
+#   - dist/AMAZON_AI_macOS.dmg    (macOS installer)
+#   - dist/AMAZON_AI_Windows.exe  (Windows standalone)
+#
+# Uploads installers as GitHub Release assets on tagged pushes.
+# ──────────────────────────────────────────────────────────────────────────────
+
+name: Build Installers
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      include_model:
+        description: 'Include ML model (~1GB) in installer?'
+        required: true
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+# Cancel in-progress builds when a new push arrives
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHON_VERSION: '3.10'
+  APP_NAME: 'AMAZON AI'
+
+jobs:
+  # ─── macOS Build ────────────────────────────────────────────────────────────
+  build-macos:
+    name: Build macOS Installer
+    runs-on: macos-13   # macOS 13 (Ventura) - stable for PyInstaller
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Download ML model from Release (if not in repo)
+        if: github.event.inputs.include_model != 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Check if model files exist; if not, download from latest release
+          if [ ! -f "ml/nlu_model/model.safetensors" ]; then
+            echo "Model files not in repo. Downloading from latest release..."
+            gh release download latest \
+              --pattern "ml_model_essentials.zip" \
+              --dir /tmp/ \
+              --clobber 2>/dev/null || echo "No release asset found - building without model"
+            if [ -f "/tmp/ml_model_essentials.zip" ]; then
+              unzip -o /tmp/ml_model_essentials.zip -d .
+            fi
+          fi
+
+      - name: Build .app bundle
+        run: |
+          python build_installer.py --no-clean
+
+      - name: Create DMG installer
+        run: |
+          python installer/build_dmg.py
+
+      - name: Upload macOS artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: AMAZON_AI_macOS
+          path: |
+            dist/AMAZON AI.app
+            dist/AMAZON_AI_Installer.dmg
+          retention-days: 30
+
+      - name: Upload to Release (on tag)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/AMAZON_AI_Installer.dmg
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # ─── Windows Build ──────────────────────────────────────────────────────────
+  build-windows:
+    name: Build Windows Installer
+    runs-on: windows-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Download ML model from Release (if not in repo)
+        if: github.event.inputs.include_model != 'false'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ ! -f "ml/nlu_model/model.safetensors" ]; then
+            echo "Model files not in repo. Downloading from latest release..."
+            gh release download latest \
+              --pattern "ml_model_essentials.zip" \
+              --dir /tmp/ \
+              --clobber 2>/dev/null || echo "No release asset found - building without model"
+            if [ -f "/tmp/ml_model_essentials.zip" ]; then
+              unzip -o /tmp/ml_model_essentials.zip -d .
+            fi
+          fi
+
+      - name: Build Windows .exe
+        run: |
+          python build_installer.py --no-clean
+
+      - name: Upload Windows artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: AMAZON_AI_Windows
+          path: |
+            dist/AMAZON AI.exe
+            dist/AMAZON AI/
+          retention-days: 30
+
+      - name: Upload to Release (on tag)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/AMAZON AI.exe
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # ─── Summary Job ────────────────────────────────────────────────────────────
+  build-summary:
+    name: Build Summary
+    needs: [build-macos, build-windows]
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+      - name: Check build results
+        run: |
+          echo "═══════════════════════════════════════"
+          echo "  AMAZON AI - Build Summary"
+          echo "═══════════════════════════════════════"
+          echo ""
+          echo "  macOS build:   ${{ needs.build-macos.result }}"
+          echo "  Windows build: ${{ needs.build-windows.result }}"
+          echo ""
+          echo "  Trigger: ${{ github.event_name }}"
+          echo "  Branch:  ${{ github.ref_name }}"
+          echo "  Commit:  ${{ github.sha }}"
+          echo ""
+          if [ "${{ needs.build-macos.result }}" = "success" ] && \
+             [ "${{ needs.build-windows.result }}" = "success" ]; then
+            echo "  ✓ All builds passed!"
+          else
+            echo "  ✗ Some builds failed - check logs above"
+            exit 1
+          fi

@@ -1,49 +1,261 @@
 {
   "sessions": [
     {
-      "session_id": "94cb7859",
-      "title": "Create react project myapp",
+      "session_id": "4c0a4360",
+      "title": "Yes",
       "messages": [
         {
           "role": "user",
-          "content": "Create react project myapp",
-          "timestamp": "09:22 AM"
+          "content": "yes",
+          "timestamp": "10:59 AM"
         },
         {
           "role": "ai",
-          "content": "📁 Folder Created\n\n**Item:** /Users/mac/Desktop/react project myapp",
-          "timestamp": "09:22 AM"
+          "content": "✅ Follow Up\n\n**Item:** yes",
+          "timestamp": "10:59 AM"
+        },
+        {
+          "role": "user",
+          "content": "are you there?",
+          "timestamp": "10:59 AM"
+        },
+        {
+          "role": "ai",
+          "content": "That's a new one for me! Could you explain what you'd like me to do? I'm eager to learn! ",
+          "timestamp": "10:59 AM"
+        },
+        {
+          "role": "user",
+          "content": "what is your name?",
+          "timestamp": "11:00 AM"
+        },
+        {
+          "role": "ai",
+          "content": "I'm AMAZON! 🌟 Your personal AI assistant powered by machine learning. I can help with files, apps, documents, web searches, and more!",
+          "timestamp": "11:00 AM"
+        },
+        {
+          "role": "user",
+          "content": "hi there",
+          "timestamp": "11:01 AM"
+        },
+        {
+          "role": "ai",
+          "content": "Hi there! 😊 What can I do for you?",
+          "timestamp": "11:01 AM"
+        },
+        {
+          "role": "user",
+          "content": "open",
+          "timestamp": "11:02 AM"
+        },
+        {
+          "role": "ai",
+          "content": "❌ **Task Failed**\n\nUnfortunately, which file would you like to open?",
+          "timestamp": "11:02 AM"
+        },
+        {
+          "role": "user",
+          "content": "open Google",
+          "timestamp": "11:02 AM"
+        },
+        {
+          "role": "ai",
+          "content": "🚀 Application Opened\n\n**Item:** google\n\n**Path:** https://www.google.com",
+          "timestamp": "11:02 AM"
+        },
+        {
+          "role": "user",
+          "content": "what is your",
+          "timestamp": "11:02 AM"
+        },
+        {
+          "role": "ai",
+          "content": "That's a new one for me! Could you explain what you'd like me to do? I'm eager to learn! ",
+          "timestamp": "11:02 AM"
+        },
+        {
+          "role": "user",
+          "content": "what is your name",
+          "timestamp": "11:03 AM"
+        },
+        {
+          "role": "ai",
+          "content": "I'm AMAZON, your AI desktop assistant! 🤖 I'm here to help you manage files, open apps, search the web, generate documents, and much more! ✨",
+          "timestamp": "11:03 AM"
+        },
+        {
+          "role": "user",
+          "content": "hello Amazon",
+          "timestamp": "11:04 AM"
+        },
+        {
+          "role": "ai",
+          "content": "Hi! ✨ Great to see you! How can I make your day easier?",
+          "timestamp": "11:04 AM"
+        },
+        {
+          "role": "user",
+          "content": "open Google",
+          "timestamp": "11:05 AM"
+        },
+        {
+          "role": "ai",
+          "content": "🚀 Application Opened\n\n**Item:** google\n\n**Path:** https://www.google.com",
+          "timestamp": "11:05 AM"
+        },
+        {
+          "role": "user",
+          "content": "what is your name",
+          "timestamp": "11:05 AM"
+        },
+        {
+          "role": "ai",
+          "content": "I'm AMAZON! 🌟 Your personal AI assistant powered by machine learning. I can help with files, apps, documents, web searches, and more!",
+          "timestamp": "11:05 AM"
+        },
+        {
+          "role": "user",
+          "content": "open folder shakira",
+          "timestamp": "11:17 AM"
+        },
+        {
+          "role": "ai",
+          "content": " Folder Opened\n\n**Item:** Cline",
+          "timestamp": "11:17 AM"
         }
       ],
-      "created_at": "2026-07-09T09:21:54.625483"
+      "created_at": "2026-07-09T10:45:54.218518"
     },
     {
-      "session_id": "39b31eb5",
-      "title": "Create react project myapp",
+      "session_id": "e603c5b5",
+      "title": "Hello Amazon",
       "messages": [
         {
           "role": "user",
-          "content": "Create react project myapp",
-          "timestamp": "09:28 AM"
+          "content": "hello Amazon",
+          "timestamp": "11:19 AM"
         },
         {
           "role": "ai",
-          "content": "❌ **Task Failed**\n\nLet me try to help - folder already exists at: /Users/mac/Desktop/react project myapp",
-          "timestamp": "09:28 AM"
+          "content": "Hi there! 😊 What can I do for you?",
+          "timestamp": "11:19 AM"
         },
         {
           "role": "user",
-          "content": "list installed apps",
-          "timestamp": "09:32 AM"
+          "content": "open Chrome",
+          "timestamp": "11:19 AM"
         },
         {
           "role": "ai",
-          "content": "✅ Os Command\n\nGreat! 📱 **Installed Applications** (32 found):\n\n1. Android Studio\n2. App For Canon Printer\n3. Audacity\n4. CapCut\n5. Devin\n6. Google Chrome\n7. Google Chrome\n8. Kaspersky Anti-Virus For Mac\n9. Kaspersky Password Manager For Mac\n10. Kaspersky Secure Connection\n11. Microsoft Excel\n12. Microsoft Excel\n13. Microsoft OneNote\n14. Microsoft Outlook\n15. Microsoft Outlook\n16. Microsoft PowerPoint\n17. Microsoft PowerPoint\n18. Microsoft Word\n19. Microsoft Word\n20. Muse Hub\n21. OneDrive\n22. PDF Expert\n23. Panda\n24. Postman\n25. Safari\n26. Smart Printer App\n27. SuperDuper!\n28. TeamViewer\n29. Turbo VPN\n30. WhatsApp\n31. Wondershare Filmora Mac\n32. wpsoffice",
-          "timestamp": "09:32 AM"
+          "content": "🚀 Application Opened\n\n**Item:** chrome",
+          "timestamp": "11:19 AM"
+        },
+        {
+          "role": "ai",
+          "content": "❌ **Task Failed**\n\nCommand timed out. Please try again.",
+          "timestamp": "11:19 AM"
         }
       ],
-      "created_at": "2026-07-09T09:23:31.807212"
+      "created_at": "2026-07-09T11:18:55.336172"
+    },
+    {
+      "session_id": "7b0d2150",
+      "title": "Hello",
+      "messages": [
+        {
+          "role": "user",
+          "content": "hello",
+          "timestamp": "11:27 AM"
+        },
+        {
+          "role": "ai",
+          "content": "Hello! 👋 How can I help you today?",
+          "timestamp": "11:27 AM"
+        },
+        {
+          "role": "user",
+          "content": "open finder",
+          "timestamp": "11:28 AM"
+        },
+        {
+          "role": "ai",
+          "content": "🚀 Application Opened\n\n**Item:** finder",
+          "timestamp": "11:28 AM"
+        },
+        {
+          "role": "user",
+          "content": "hello Amazon",
+          "timestamp": "11:32 AM"
+        },
+        {
+          "role": "ai",
+          "content": "Hello! 🎉 I'm here and ready to assist. What would you like to do?",
+          "timestamp": "11:32 AM"
+        },
+        {
+          "role": "user",
+          "content": "open CorelDRAW",
+          "timestamp": "11:32 AM"
+        },
+        {
+          "role": "ai",
+          "content": "❌ **Task Failed**\n\nNo worries, could not find or open 'coreldraw'. Try using the full name: 'CorelDRAW' Make sure the app is installed in your Applications folder Don't worry, we can try again!",
+          "timestamp": "11:32 AM"
+        },
+        {
+          "role": "user",
+          "content": "open WhatsApp",
+          "timestamp": "11:32 AM"
+        },
+        {
+          "role": "ai",
+          "content": "🚀 Application Opened\n\n**Item:** whatsapp\n\n**Path:** https://web.whatsapp.com",
+          "timestamp": "11:32 AM"
+        },
+        {
+          "role": "user",
+          "content": "Azam pay",
+          "timestamp": "11:33 AM"
+        },
+        {
+          "role": "ai",
+          "content": "I'm not quite sure what you mean by 'Azam pay'. Could you rephrase that? I'm here to help! 😊",
+          "timestamp": "11:33 AM"
+        },
+        {
+          "role": "user",
+          "content": "Azam pay",
+          "timestamp": "11:33 AM"
+        },
+        {
+          "role": "ai",
+          "content": "That's a new one for me! Could you explain what you'd like me to do? I'm eager to learn! ",
+          "timestamp": "11:33 AM"
+        },
+        {
+          "role": "user",
+          "content": "technical department",
+          "timestamp": "11:33 AM"
+        },
+        {
+          "role": "ai",
+          "content": "I'm not quite sure what you mean by 'technical department'. Could you rephrase that? I'm here to help! 😊",
+          "timestamp": "11:33 AM"
+        },
+        {
+          "role": "user",
+          "content": "hello Amazon",
+          "timestamp": "11:35 AM"
+        },
+        {
+          "role": "ai",
+          "content": "Hey there! 🚀 What can I help you accomplish today?",
+          "timestamp": "11:35 AM"
+        }
+      ],
+      "created_at": "2026-07-09T11:27:12.148984"
     }
   ],
-  "active_session_id": "39b31eb5"
+  "active_session_id": "7b0d2150"
 }

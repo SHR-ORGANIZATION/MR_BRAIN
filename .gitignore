@@ -6,11 +6,10 @@ __pycache__/
 *.pyc
 
 # AI models (large files)
-ml/nlu_model/
-*.pt
-*.pth
-*.safetensors
-*.onnx
+ml/nlu_model/*.pt
+ml/nlu_model/*.pth
+ml/nlu_model/*.safetensors
+ml/nlu_model/*.onnx
 
 # Cache files
 cache/
@@ -18,3 +17,15 @@ cache/
 # Database files
 *.db
 database/chat_sessions.json
+
+# Build artifacts (PyInstaller output)
+dist/
+build/
+*.spec.bak
+
+# macOS
+.DS_Store
+*.dmg
+
+# Windows installer output
+installer/*.exe

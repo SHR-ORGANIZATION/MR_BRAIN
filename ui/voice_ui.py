@@ -133,6 +133,10 @@ class VoiceUIController:
         if not text:
             self.stop_listening()
             return
+        
+        # Mark that this input came from voice (so response will be spoken)
+        if hasattr(self.app, 'voice_input_mode'):
+            self.app.voice_input_mode = True
         # Try to populate both possible active entries to avoid focus/lifecycle issues
         try:
             if hasattr(self.app, 'welcome_input') and self.app.welcome_input and self.app.welcome_input.winfo_exists():
@@ -194,26 +198,44 @@ class VoiceUIController:
             self.status_label.configure(text=text)
 
     def speak_response(self, text):
-        """Speak AI response (non-blocking)."""
+        """Speak AI response (non-blocking) with cleaned text."""
+        print(f"[VOICE_UI] speak_response called, voice_available: {self.voice_engine.is_voice_available()}")
         if not self.voice_engine.is_voice_available():
+            print("[VOICE_UI] Voice not available, returning")
             return
+        
+        # Clean text for natural speech - remove markdown, emojis, code blocks
+        import re
+        clean_text = text
+        # Remove markdown bold/italic
+        clean_text = re.sub(r'\*\*(.+?)\*\*', r'\1', clean_text)
+        clean_text = re.sub(r'\*(.+?)\*', r'\1', clean_text)
+        # Remove code blocks
+        clean_text = re.sub(r'`(.+?)`', r'\1', clean_text)
+        # Remove emojis (keep text readable)
+        clean_text = re.sub(r'[\U0001F300-\U0001F9FF\U00002702-\U000027B0\U000024C2-\U0001F251]+', '', clean_text)
+        # Remove bullet points and special chars
+        clean_text = re.sub(r'[•\-]\s*', '', clean_text)
+        # Remove extra whitespace
+        clean_text = re.sub(r'\s+', ' ', clean_text).strip()
+        
+        # Limit length for speech (first 500 chars)
+        if len(clean_text) > 500:
+            clean_text = clean_text[:500] + "..."
+        
+        if not clean_text:
+            print("[VOICE_UI] Clean text is empty, returning")
+            return
+        
+        print(f"[VOICE_UI] Speaking: {clean_text[:100]}...")
         root = self.app.app if hasattr(self.app, 'app') else self.app
 
+        def on_speak_start(speaking):
+            try:
+                if self.status_label:
+                    self.status_label.configure(text="Speaking..." if speaking else "")
+            except Exception:
+                pass
+
         self.voice_engine.speaking_callback = on_speak_start
-        original_speak = self.voice_engine.speak
-
-        def speak_with_callback(t):
-            self.voice_engine.speaking_callback = on_speak_start
-            try:
-                if self.status_label:
-                    self.status_label.configure(text="Speaking...")
-            except Exception:
-                pass
-            original_speak(t)
-            try:
-                if self.status_label:
-                    self.status_label.configure(text="")
-            except Exception:
-                pass
-
-        speak_with_callback(text)
+        self.voice_engine.speak(clean_text)

@@ -798,5 +798,85 @@
     "entity": "Installed Apps",
     "success": true,
     "response": "Adobe Creative Cloud\nAdobe Media Encoder 2026\nAdobe Photoshop 2026\nAdobe Premiere Pro 2026\nAdobe XD\nAndroid Studio.app\nApp For Canon Printer.app\nAudacity.app\nCapCut.app\nDevin.app\nGoogle Chrome.app\nKas"
+  },
+  {
+    "timestamp": "2026-07-09T10:59:06.873094",
+    "command": "yes",
+    "intent": "follow_up",
+    "entity": "yes",
+    "success": true,
+    "response": "Great! Let me help you with that. What would you like me to do?"
+  },
+  {
+    "timestamp": "2026-07-09T10:59:41.694323",
+    "command": "are you there?",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T11:00:24.479017",
+    "command": "what is your name?",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T11:01:54.546381",
+    "command": "hi there",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T11:02:10.390239",
+    "command": "open",
+    "intent": "open_file",
+    "entity": null,
+    "success": false,
+    "response": "Which file would you like to open?"
+  },
+  {
+    "timestamp": "2026-07-09T11:02:32.506593",
+    "command": "open Google",
+    "intent": "open_app",
+    "entity": "google",
+    "success": true,
+    "response": "Opened google in your browser"
+  },
+  {
+    "timestamp": "2026-07-09T11:02:54.735645",
+    "command": "what is your",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T11:03:10.372563",
+    "command": "what is your name",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T11:04:43.850674",
+    "command": "hello Amazon",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T11:05:06.558705",
+    "command": "open Google",
+    "intent": "open_app",
+    "entity": "google",
+    "success": true,
+    "response": "Opened google in your browser"
   }
 ]

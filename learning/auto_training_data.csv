@@ -255,4 +255,7 @@ List processes,os_command
 create excel file,generate_document
 scan computer,system_info
 Installed Apps,os_command
-list installed apps,os_command
+yes,follow_up
+open Google,open_app
+open Google,open_app
+open finder,open_app

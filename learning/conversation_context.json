@@ -1,55 +1,5 @@
 [
   {
-    "command": "hello",
-    "intent": "greeting",
-    "timestamp": "2026-07-08T14:00:40.805577"
-  },
-  {
-    "command": "hep me please",
-    "intent": "greeting",
-    "timestamp": "2026-07-08T14:00:56.066360"
-  },
-  {
-    "command": "i need your commands",
-    "intent": "greeting",
-    "timestamp": "2026-07-08T14:01:18.287588"
-  },
-  {
-    "command": "write doc using microsoft work with HAMISI heaadig",
-    "intent": "create_file",
-    "timestamp": "2026-07-08T14:02:02.300429"
-  },
-  {
-    "command": "write a document about AI",
-    "intent": "open_file",
-    "timestamp": "2026-07-08T14:42:16.509882"
-  },
-  {
-    "command": "write a document about AI and save as hamisi.docs",
-    "intent": "open_file",
-    "timestamp": "2026-07-08T14:42:55.781689"
-  },
-  {
-    "command": "write a document about AI and save as hamisi.docs",
-    "intent": "open_file",
-    "timestamp": "2026-07-08T14:46:52.961862"
-  },
-  {
-    "command": "write a document about AI and save as hamisi.docs",
-    "intent": "open_file",
-    "timestamp": "2026-07-08T14:56:05.099059"
-  },
-  {
-    "command": "write a document about AI and save as hamisi.docs",
-    "intent": "open_file",
-    "timestamp": "2026-07-08T14:56:09.485839"
-  },
-  {
-    "command": "write a document about AI and save as hamisi.docs",
-    "intent": "open_file",
-    "timestamp": "2026-07-08T14:56:13.529555"
-  },
-  {
     "command": "realy?",
     "intent": "greeting",
     "timestamp": "2026-07-08T16:05:42.781698"
@@ -498,5 +448,55 @@
     "command": "Installed Apps",
     "intent": "os_command",
     "timestamp": "2026-07-09T08:12:24.779902"
+  },
+  {
+    "command": "yes",
+    "intent": "follow_up",
+    "timestamp": "2026-07-09T10:59:06.873110"
+  },
+  {
+    "command": "are you there?",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T10:59:41.694341"
+  },
+  {
+    "command": "what is your name?",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T11:00:24.479025"
+  },
+  {
+    "command": "hi there",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T11:01:54.546392"
+  },
+  {
+    "command": "open",
+    "intent": "open_file",
+    "timestamp": "2026-07-09T11:02:10.390252"
+  },
+  {
+    "command": "open Google",
+    "intent": "open_app",
+    "timestamp": "2026-07-09T11:02:32.506621"
+  },
+  {
+    "command": "what is your",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T11:02:54.735655"
+  },
+  {
+    "command": "what is your name",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T11:03:10.372575"
+  },
+  {
+    "command": "hello Amazon",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T11:04:43.850711"
+  },
+  {
+    "command": "open Google",
+    "intent": "open_app",
+    "timestamp": "2026-07-09T11:05:06.558764"
   }
 ]
