@@ -460,50 +460,72 @@ def search_folder(query, root=None, max_results=50):
     import time
     matches = []
     start_time = time.time()
-    timeout = 12  # Increased timeout for comprehensive search
+    timeout = 15
 
-    # Build search directories in priority order
+    # Directories to skip
+    _SKIP_DIRS = {
+        "node_modules", ".git", "__pycache__", ".venv", "venv", "env",
+        ".idea", ".vscode", "dist", "build", ".gradle", ".m2",
+        ".npm", ".cache", ".cargo", "target", "Pods",
+        ".Trash", ".fseventsd", ".Spotlight-V100",
+    }
+
+    def _should_skip(dir_path):
+        parts = dir_path.parts
+        for part in parts:
+            if part in _SKIP_DIRS:
+                return True
+            if part.startswith(".") and part not in {".git", ".github"}:
+                return True
+        return False
+
+    # Build search directories
     search_dirs = []
+    all_drives = _get_available_drives()
+
     if root:
         root_path = Path(root).expanduser()
         if root_path.exists():
             search_dirs.append(root_path)
     else:
-        # Get ALL available drives first
-        all_drives = _get_available_drives()
-        
-        # Add volumes FIRST (external drives like MAC, OFFICE, etc.)
+        # Volumes first
         for drive in all_drives:
             if drive == Path("/"):
-                continue  # Skip root filesystem
+                continue
             if drive.exists() and drive not in search_dirs:
                 search_dirs.append(drive)
-        
-        # Then add home directory
+        # Then home
         home = Path.home()
         if home.exists():
             search_dirs.append(home)
-        
-        # Add common user dirs
         for d in COMMON_USER_DIRS:
             if d.exists() and d not in search_dirs:
                 search_dirs.append(d)
 
+    query_lower = query.lower().strip()
+    max_per_dir = 5
+
     try:
         for search_root in search_dirs:
-            # Check timeout
             if time.time() - start_time > timeout:
                 break
+            dir_matches = 0
             try:
                 for item in search_root.rglob("*"):
-                    # Check timeout periodically
                     if time.time() - start_time > timeout:
                         break
-                    if item.is_dir() and query.lower() in item.name.lower():
+                    if not item.is_dir():
+                        continue
+                    if _should_skip(item) or _should_skip(item.parent):
+                        continue
+                    if query_lower in item.name.lower():
                         full_path = str(item.resolve())
                         if full_path not in matches:
                             matches.append(full_path)
+                            dir_matches += 1
                             if len(matches) >= max_results:
+                                break
+                            if dir_matches >= max_per_dir:
                                 break
             except PermissionError:
                 continue
@@ -665,36 +687,72 @@ def search_file(query, root=None, max_results=50):
     import time
     matches = []
     start_time = time.time()
-    timeout = 12  # Increased timeout for comprehensive search
+    timeout = 15  # Timeout for comprehensive search
+
+    # Directories to ALWAYS skip (dev artifacts, system, caches)
+    _SKIP_DIRS = {
+        "node_modules", ".git", "__pycache__", ".venv", "venv", "env",
+        ".idea", ".vscode", "dist", "build", ".gradle", ".m2",
+        ".npm", ".cache", ".cargo", "target", "Pods",
+        ".Trash", ".fseventsd", ".Spotlight-V100",
+    }
+
+    def _should_skip_dir(dir_path):
+        """Check if directory should be skipped entirely."""
+        parts = dir_path.parts
+        for part in parts:
+            if part in _SKIP_DIRS:
+                return True
+            if part.startswith(".") and part not in {".git", ".github"}:
+                return True
+        return False
+
+    def _get_drive_name(file_path, all_drives):
+        """Get which drive/volume a file belongs to."""
+        fp = str(file_path)
+        for drive in all_drives:
+            ds = str(drive)
+            if ds != "/" and fp.startswith(ds):
+                return drive.name or ds
+        # Must be on root/Macintosh HD
+        home = str(Path.home())
+        if fp.startswith(home):
+            return "Macintosh HD"
+        return "Macintosh HD"
 
     # Build search directories in priority order
     search_dirs = []
+    all_drives = _get_available_drives()
+
     if root:
         root_path = Path(root).expanduser()
         if root_path.exists():
             search_dirs.append(root_path)
     else:
-        # Get ALL available drives first (including volumes)
-        all_drives = _get_available_drives()
-        
         # Add volumes FIRST (user's external drives like MAC, OFFICE, etc.)
         for drive in all_drives:
             drive_str = str(drive).lower()
-            # Skip cloud storage and system root for speed
             if any(skip in drive_str for skip in ["onedrive", "icloud", "dropbox", "google drive"]):
                 continue
             if drive == Path("/"):
-                continue  # Skip root filesystem (too slow, search volumes instead)
+                continue  # Skip root filesystem
             if drive.exists() and drive not in search_dirs:
                 search_dirs.append(drive)
         
-        # Then add common user dirs (faster access)
+        # Then add common user dirs
         home = Path.home()
         common_dirs = [
             home / "Desktop",
             home / "Documents",
             home / "Downloads",
             home / "Pictures",
+            home / "Videos",
+            home / "Music",
+            home / "Movies",
+            home / "Recent",
+            home / "Applications",
+            home / "Library",
+            
         ]
         for d in common_dirs:
             if d.exists() and d not in search_dirs:
@@ -709,36 +767,54 @@ def search_file(query, root=None, max_results=50):
             if d.exists() and d not in search_dirs:
                 search_dirs.append(d)
 
+    query_lower = query.lower().strip()
+    max_per_dir = 5  # Limit results per search root to get diverse results
+
     try:
         for search_root in search_dirs:
-            # Check timeout
             if time.time() - start_time > timeout:
                 break
+            dir_matches = 0
             try:
                 for item in search_root.rglob("*"):
-                    # Check timeout periodically
                     if time.time() - start_time > timeout:
                         break
-                    if item.is_file() and query.lower() in item.name.lower():
+                    # Skip unwanted directories during traversal
+                    if item.is_dir():
+                        continue
+                    # Skip if parent path contains skip dirs
+                    if _should_skip_dir(item.parent):
+                        continue
+                    # Match query in filename
+                    if query_lower in item.name.lower():
                         full_path = str(item.resolve())
                         if full_path not in matches:
                             matches.append(full_path)
+                            dir_matches += 1
                             if len(matches) >= max_results:
                                 break
+                            if dir_matches >= max_per_dir:
+                                break  # Move to next search root
             except PermissionError:
                 continue
             except OSError:
-                # Skip directories that cause OS errors (like network drives)
                 continue
             if len(matches) >= max_results:
                 break
 
         if matches:
-            message = f"Found {len(matches)} file(s) matching '{query}' across all drives"
+            # Build message with drive info
+            drive_counts = {}
+            for m in matches:
+                dname = _get_drive_name(m, all_drives)
+                drive_counts[dname] = drive_counts.get(dname, 0) + 1
+            
+            drive_summary = ", ".join(f"{c} on {d}" for d, c in drive_counts.items())
+            message = f"Found {len(matches)} file(s) matching '{query}' — {drive_summary}"
             return _build_result("Search File", root or "all drives", "success", message, "File", extra=matches)
         else:
             return _build_result("Search File", root or "all drives", "failed",
-                                f"Couldn't find any file matching '{query}' on any drive. Try checking the name or location.", "File", extra=[])
+                                f"Couldn't find any file matching '{query}' on any drive.", "File", extra=[])
     except Exception as e:
         return _build_result("Search File", root or "all drives", "failed", str(e), "File", extra=[])
 
