@@ -1,32 +1,29 @@
 {
   "label_map": {
-    "close_app": 0,
-    "create_file": 1,
-    "create_folder": 2,
-    "empty_trash": 3,
-    "generate_document": 4,
-    "greeting": 5,
-    "list_processes": 6,
-    "open_app": 7,
-    "os_command": 8,
-    "search_web": 9,
-    "system_info": 10
+    "create_file": 0,
+    "create_folder": 1,
+    "empty_trash": 2,
+    "generate_document": 3,
+    "greeting": 4,
+    "list_processes": 5,
+    "open_app": 6,
+    "os_command": 7,
+    "search_web": 8,
+    "system_info": 9
   },
   "reverse_label_map": {
-    "0": "close_app",
-    "1": "create_file",
-    "2": "create_folder",
-    "3": "empty_trash",
-    "4": "generate_document",
-    "5": "greeting",
-    "6": "list_processes",
-    "7": "open_app",
-    "8": "os_command",
-    "9": "search_web",
-    "10": "system_info"
+    "0": "create_file",
+    "1": "create_folder",
+    "2": "empty_trash",
+    "3": "generate_document",
+    "4": "greeting",
+    "5": "list_processes",
+    "6": "open_app",
+    "7": "os_command",
+    "8": "search_web",
+    "9": "system_info"
   },
   "intents": [
-    "close_app",
     "create_file",
     "create_folder",
     "empty_trash",
@@ -38,6 +35,6 @@
     "search_web",
     "system_info"
   ],
-  "num_intents": 11,
-  "created_at": "2026-07-09T07:54:40.380476"
+  "num_intents": 10,
+  "created_at": "2026-07-09T08:42:42.324652"
 }

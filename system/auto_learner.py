@@ -135,6 +135,10 @@ class AutoLearner:
         if intent == "unknown":
             self._learn_from_unknown(command)
         
+        # Auto-add successful interactions to training dataset
+        if success and intent != "unknown":
+            self._add_to_training_data(command, intent)
+        
         # Auto-retrain when enough new data is collected
         if (self.stats["auto_retrain_enabled"] and 
             self.stats["new_samples_since_retrain"] >= AUTO_TRAIN_THRESHOLD):
@@ -238,6 +242,28 @@ class AutoLearner:
                     except Exception as e:
                         print(f"[AutoLearner] Error saving learned apps: {e}")
                 break
+    
+    def _add_to_training_data(self, command, intent):
+        """Auto-add successful interaction to training dataset."""
+        try:
+            training_file = LEARNING_DIR / "auto_training_data.csv"
+            
+            # Check if this command already exists in training data
+            if training_file.exists():
+                with open(training_file, "r", encoding="utf-8") as f:
+                    existing_content = f.read()
+                    # Check if command already exists (case-insensitive)
+                    if f"\n{command.lower()}," in existing_content.lower() or f"\n{command.lower()}\n" in existing_content.lower():
+                        return  # Already in training data
+            
+            # Add to training data
+            LEARNING_DIR.mkdir(parents=True, exist_ok=True)
+            with open(training_file, "a", encoding="utf-8") as f:
+                f.write(f"{command},{intent}\n")
+            
+            print(f"[AutoLearner] Added to training data: '{command}' -> {intent}")
+        except Exception as e:
+            print(f"[AutoLearner] Error adding to training data: {e}")
     
     def _auto_retrain(self):
         """Automatically retrain the NLU model with new data."""

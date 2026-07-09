@@ -718,5 +718,85 @@
     "entity": "AI",
     "success": false,
     "response": "No files found matching 'AI'.\n\nTry:\n  - Use shorter keywords (e.g., 'azampay' instead of 'azampay document')\n  - Check if the file is on your Desktop, Documents, or Downloads\n  - Build a full index wi"
+  },
+  {
+    "timestamp": "2026-07-09T07:37:14.411795",
+    "command": "lists installed applications",
+    "intent": "os_command",
+    "entity": "lists installed applications",
+    "success": true,
+    "response": "Adobe Creative Cloud\nAdobe Media Encoder 2026\nAdobe Photoshop 2026\nAdobe Premiere Pro 2026\nAdobe XD\nAndroid Studio.app\nApp For Canon Printer.app\nAudacity.app\nCapCut.app\nDevin.app\nGoogle Chrome.app\nKas"
+  },
+  {
+    "timestamp": "2026-07-09T07:37:38.788693",
+    "command": "list installed app",
+    "intent": "os_command",
+    "entity": "installed app",
+    "success": true,
+    "response": "Adobe Creative Cloud\nAdobe Media Encoder 2026\nAdobe Photoshop 2026\nAdobe Premiere Pro 2026\nAdobe XD\nAndroid Studio.app\nApp For Canon Printer.app\nAudacity.app\nCapCut.app\nDevin.app\nGoogle Chrome.app\nKas"
+  },
+  {
+    "timestamp": "2026-07-09T07:53:25.645900",
+    "command": "hello",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello!  I'm AMAZON, your desktop assistant. I've discovered 0 apps and 0 drives on your system. How can I help you today?"
+  },
+  {
+    "timestamp": "2026-07-09T07:53:41.032401",
+    "command": "list all app",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T07:57:48.161332",
+    "command": "Create folder Projects",
+    "intent": "create_folder",
+    "entity": "/Users/mac/Desktop/Projects",
+    "success": true,
+    "response": "Folder created at: /Users/mac/Desktop/Projects"
+  },
+  {
+    "timestamp": "2026-07-09T07:58:51.600822",
+    "command": "List processes",
+    "intent": "os_command",
+    "entity": "processes",
+    "success": true,
+    "response": "USER               PID  %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND\nmac              30101 526.1  7.0 37942760 2358816 s023  R+    7:54AM  19:50.68 /Library/Frameworks/Python.framew"
+  },
+  {
+    "timestamp": "2026-07-09T08:02:57.327617",
+    "command": "create excel file",
+    "intent": "generate_document",
+    "entity": "document",
+    "success": true,
+    "response": "Excel spreadsheet created: /Users/mac/Desktop/document.xlsx"
+  },
+  {
+    "timestamp": "2026-07-09T08:03:30.734381",
+    "command": "yes do number 1",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T08:06:03.301684",
+    "command": "scan computer",
+    "intent": "system_info",
+    "entity": null,
+    "success": true,
+    "response": "**System Information**\n\n**Operating System:** Darwin 24.6.0 (Version: Darwin Kernel Version 24.6.0: Wed Mar 25 21:34:19 PDT 2026; root:xnu-11417.140.69.709.8~3/RELEASE_X86_64)\n\n**Hardware:**\n  \u2022 CPU C"
+  },
+  {
+    "timestamp": "2026-07-09T08:12:24.779862",
+    "command": "Installed Apps",
+    "intent": "os_command",
+    "entity": "Installed Apps",
+    "success": true,
+    "response": "Adobe Creative Cloud\nAdobe Media Encoder 2026\nAdobe Photoshop 2026\nAdobe Premiere Pro 2026\nAdobe XD\nAndroid Studio.app\nApp For Canon Printer.app\nAudacity.app\nCapCut.app\nDevin.app\nGoogle Chrome.app\nKas"
   }
 ]

@@ -984,7 +984,55 @@ def _handle_list_commands(intent, command, parsed):
 
 
 def _handle_unknown(intent, command, parsed):
-    """Handle unknown intent."""
+    """Handle unknown intent - check for follow-up responses first."""
+    # Check if this is a follow-up response to a pending question
+    try:
+        from system.conversation_manager import get_conversation_manager
+        manager = get_conversation_manager()
+        
+        if manager.has_pending_questions():
+            # Try to match the response to a pending question
+            cmd_lower = command.lower().strip()
+            
+            # Check for numbered responses: "number 1", "do 1", "option 1", etc.
+            import re
+            number_match = re.search(r'(?:number|option|do|choose|pick|select)\s*(\d+)', cmd_lower)
+            
+            if number_match:
+                option_num = int(number_match.group(1))
+                pending = manager.get_pending_questions()
+                
+                if pending and option_num > 0:
+                    # Get the last pending question
+                    last_question = pending[-1]
+                    options = last_question.get("options", [])
+                    
+                    if option_num <= len(options):
+                        selected_option = options[option_num - 1]
+                        
+                        # Clear the pending question
+                        manager.clear_pending()
+                        
+                        # Handle the selected option
+                        return _handle_follow_up_option(intent, command, selected_option, last_question)
+            
+            # Check for yes/no responses
+            if cmd_lower in ["yes", "y", "yeah", "sure", "ok", "okay"]:
+                manager.clear_pending()
+                return make_result(
+                    "follow_up", command, "success",
+                    "Great! Let me help you with that. What would you like me to do?"
+                )
+            elif cmd_lower in ["no", "n", "nope", "nah"]:
+                manager.clear_pending()
+                return make_result(
+                    "follow_up", command, "success",
+                    "No problem! Let me know if you need anything else."
+                )
+    except Exception as e:
+        print(f"[Follow-up] Error: {e}")
+    
+    # Original unknown handler
     return make_result(
         intent, None, "unsupported",
         "I can't do that yet, but I'm learning! Here's what I can help with:\n"
@@ -997,14 +1045,61 @@ def _handle_unknown(intent, command, parsed):
     )
 
 
+def _handle_follow_up_option(intent, command, selected_option, question_context):
+    """Handle a selected follow-up option."""
+    option_lower = selected_option.lower()
+    
+    # Document generation follow-ups
+    if "pdf" in option_lower or "word" in option_lower:
+        if "pdf" in option_lower:
+            return make_result(
+                "follow_up", command, "success",
+                "I'll convert it to PDF for you! The PDF version will be saved alongside the Excel file."
+            )
+        else:
+            return make_result(
+                "follow_up", command, "success",
+                "I'll create a Word version for you! The Word document will be saved alongside the Excel file."
+            )
+    
+    elif "title page" in option_lower:
+        return make_result(
+            "follow_up", command, "success",
+            "I'll add a professional title page with the document name and date!"
+        )
+    
+    elif "table of contents" in option_lower:
+        return make_result(
+            "follow_up", command, "success",
+            "I'll include a table of contents to help navigate the document!"
+        )
+    
+    elif "format" in option_lower or "professionally" in option_lower:
+        return make_result(
+            "follow_up", command, "success",
+            "I'll format it professionally with proper headings, spacing, and styling!"
+        )
+    
+    # Generic follow-up
+    return make_result(
+        "follow_up", command, "success",
+        f"Got it! I'll {selected_option.lower()}. Let me work on that for you!"
+    )
+
+
 def _handle_system_info(intent, command, parsed):
     """Show detailed system information."""
     import platform
     import psutil
-    from system.environment_scanner import get_scanner, get_environment_stats
+    from system.environment_scanner import get_scanner, get_environment_stats, initialize_environment
     
     try:
+        # Ensure environment is initialized
         scanner = get_scanner()
+        if not scanner.drives or not scanner.apps:
+            # Initialize if empty
+            initialize_environment()
+        
         stats = get_environment_stats()
         
         # OS Info
@@ -1025,9 +1120,9 @@ def _handle_system_info(intent, command, parsed):
         disk_percent = disk_usage.percent
         
         # Environment Stats
-        apps_count = stats.get('apps', 0)
-        drives_count = stats.get('drives', 0)
-        folders_count = stats.get('folders', 0)
+        apps_count = stats.get('total_apps', 0)
+        drives_count = stats.get('total_drives', 0)
+        folders_count = stats.get('total_folders', 0)
         
         message = (
             f"**System Information**\n\n"
@@ -1422,6 +1517,54 @@ def _handle_os_command(intent, command, parsed):
             action = action[len(prefix):].strip()
             break
     
+    # Special case: List installed applications (check both command and action)
+    cmd_lower = command.lower()
+    if ("list" in cmd_lower and "app" in cmd_lower) or ("list" in action.lower() and "app" in action.lower()):
+        print(f"[DEBUG] List apps detected! Command: {command}, Action: {action}")
+        try:
+            from system.environment_scanner import get_installed_apps, initialize_environment
+                
+            print("[DEBUG] Initializing environment...")
+            # Ensure environment is initialized
+            initialize_environment()
+                
+            print("[DEBUG] Getting installed apps...")
+            apps = get_installed_apps()
+            print(f"[DEBUG] Found {len(apps)} apps")
+                
+            if apps:
+                lines = [f"📱 **Installed Applications** ({len(apps)} found):", ""]
+                # Sort apps by name
+                sorted_apps = sorted(apps.items(), key=lambda x: x[1].get('display_name', x[0]))
+                for i, (key, app_info) in enumerate(sorted_apps[:50], 1):  # Show first 50
+                    display_name = app_info.get('display_name', key)
+                    lines.append(f"  {i}. {display_name}")
+                    
+                if len(apps) > 50:
+                    lines.append("")
+                    lines.append(f"  ... and {len(apps) - 50} more apps")
+                    
+                result_message = "\n".join(lines)
+                print(f"[DEBUG] Returning result with {len(lines)} lines")
+                return make_result(
+                    intent, action, "success",
+                    result_message
+                )
+            else:
+                print("[DEBUG] No apps found")
+                return make_result(
+                    intent, action, "failed",
+                    "No applications found. Try clicking the refresh button (↻) to scan your system."
+                )
+        except Exception as e:
+            print(f"[DEBUG] Error in list apps: {e}")
+            import traceback
+            traceback.print_exc()
+            return make_result(
+                intent, action, "failed",
+                f"Error listing apps: {str(e)}"
+            )
+    
     # Try to find matching OS command
     os_cmd = get_command_for_action(action)
     
@@ -1491,6 +1634,99 @@ def _handle_os_command(intent, command, parsed):
             )
 
 
+def _handle_computer_scan(intent, command, parsed):
+    """Handle computer scan requests - scan hardware, peripherals, OS."""
+    try:
+        from system.computer_scanner import scan_computer
+        
+        log_action(intent, "computer", "scanning full system")
+        
+        # Run the scan
+        results = scan_computer()
+        
+        # Format the results
+        lines = ["🖥️ **Computer Scan Complete!**"]
+        lines.append("")
+        lines.append(f"**Operating System:** {results['os_info']['system']} {results['os_info']['release']}")
+        lines.append(f"**CPU:** {results['cpu_info']['brand']} ({results['cpu_info']['cores']} cores)")
+        lines.append(f"**RAM:** {results['memory_info']['total']}")
+        lines.append("")
+        
+        # GPU
+        if results['gpu_info']:
+            gpu_names = [g['name'] for g in results['gpu_info'] if g.get('name') != 'Unknown']
+            if gpu_names:
+                lines.append(f"**GPU:** {', '.join(gpu_names)}")
+        
+        # Storage
+        if results['storage_info']:
+            lines.append(f"**Storage:** {len(results['storage_info'])} drive(s)")
+            for drive in results['storage_info'][:3]:
+                lines.append(f"  • {drive.get('name', 'Unknown')}: {drive.get('total', 'Unknown')}")
+        
+        lines.append("")
+        
+        # USB Devices
+        if results['usb_devices']:
+            lines.append(f"**USB Devices:** {len(results['usb_devices'])} connected")
+            for device in results['usb_devices'][:5]:
+                lines.append(f"  • {device.get('name', 'Unknown')}")
+            if len(results['usb_devices']) > 5:
+                lines.append(f"  • ... and {len(results['usb_devices']) - 5} more")
+        
+        lines.append("")
+        
+        # Bluetooth
+        if results['bluetooth_devices']:
+            lines.append(f"**Bluetooth:** {len(results['bluetooth_devices'])} device(s)")
+            for device in results['bluetooth_devices'][:5]:
+                lines.append(f"  • {device.get('name', 'Unknown')}")
+        
+        lines.append("")
+        
+        # Network
+        if results['network_info']:
+            lines.append(f"**Network:** {len(results['network_info'])} interface(s)")
+            for iface in results['network_info'][:3]:
+                lines.append(f"  • {iface.get('name', 'Unknown')}")
+        
+        lines.append("")
+        
+        # Displays
+        if results['display_info']:
+            lines.append(f"**Displays:** {len(results['display_info'])} monitor(s)")
+            for display in results['display_info'][:3]:
+                lines.append(f"  • {display.get('name', 'Unknown')}")
+        
+        lines.append("")
+        
+        # Audio
+        if results['audio_devices']:
+            lines.append(f"**Audio:** {len(results['audio_devices'])} device(s)")
+            for device in results['audio_devices'][:3]:
+                lines.append(f"  • {device.get('name', 'Unknown')}")
+        
+        lines.append("")
+        
+        # Battery
+        if results['battery_info'].get('present'):
+            lines.append(f"**Battery:** {results['battery_info'].get('status', 'Present')}")
+        
+        lines.append("")
+        lines.append("💡 **Tip:** Full scan results saved to `learning/computer_scan.json`")
+        
+        return make_result(
+            intent, "computer", "success",
+            "\n".join(lines),
+            {"scan_results": results}
+        )
+    except Exception as e:
+        return make_result(
+            intent, "computer", "failed",
+            f"❌ Scan failed: {str(e)}"
+        )
+
+
 INTENT_HANDLERS = {
     "open_app": _handle_open_app,
     "close_app": _handle_close_app,
@@ -1513,6 +1749,7 @@ INTENT_HANDLERS = {
     "find_anything": _handle_find_anything,
     "show_path": _handle_show_path,
     "os_command": _handle_os_command,
+    "computer_scan": _handle_computer_scan,
     "generate_document": _handle_generate_document,
     "open_website": _handle_open_website,
     "search_web": _handle_search_web,

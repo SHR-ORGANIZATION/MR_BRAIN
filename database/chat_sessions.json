@@ -1,39 +1,126 @@
 {
   "sessions": [
     {
-      "session_id": "ce289d1a",
-      "title": "Create folder Projects",
+      "session_id": "db7797ab",
+      "title": "List installed apps",
       "messages": [
         {
           "role": "user",
-          "content": "Create folder Projects",
-          "timestamp": "07:57 AM"
+          "content": "list installed apps",
+          "timestamp": "08:35 AM"
         },
         {
           "role": "ai",
-          "content": "📁 Folder Created\n\n**Item:** /Users/mac/Desktop/Projects",
-          "timestamp": "07:57 AM"
+          "content": "✅ Os Command\n\n**Item:** installed apps",
+          "timestamp": "08:35 AM"
+        },
+        {
+          "role": "user",
+          "content": "list installed apps",
+          "timestamp": "08:36 AM"
+        },
+        {
+          "role": "ai",
+          "content": "✅ Os Command\n\n**Item:** installed apps",
+          "timestamp": "08:36 AM"
+        },
+        {
+          "role": "user",
+          "content": "list installed apps",
+          "timestamp": "08:37 AM"
+        },
+        {
+          "role": "ai",
+          "content": "✅ Os Command\n\n**Item:** installed apps",
+          "timestamp": "08:37 AM"
+        },
+        {
+          "role": "user",
+          "content": "list installed apps",
+          "timestamp": "08:38 AM"
+        },
+        {
+          "role": "ai",
+          "content": "✅ Os Command\n\n**Item:** installed apps",
+          "timestamp": "08:38 AM"
+        },
+        {
+          "role": "user",
+          "content": "list installed apps",
+          "timestamp": "08:38 AM"
+        },
+        {
+          "role": "ai",
+          "content": "✅ Os Command\n\n**Item:** installed apps",
+          "timestamp": "08:38 AM"
         }
       ],
-      "created_at": "2026-07-09T07:57:20.977436"
+      "created_at": "2026-07-09T08:35:18.811074"
     },
     {
-      "session_id": "62ea09f3",
-      "title": "List processes",
+      "session_id": "f5538e30",
+      "title": "Installed app",
       "messages": [
         {
           "role": "user",
-          "content": "List processes",
-          "timestamp": "07:58 AM"
+          "content": "installed app",
+          "timestamp": "08:39 AM"
         },
         {
           "role": "ai",
-          "content": "✅ Os Command\n\n**Item:** processes",
-          "timestamp": "07:58 AM"
+          "content": "I'm not quite sure what you mean by 'installed app'. Could you rephrase that? I'm here to help! 😊",
+          "timestamp": "08:39 AM"
+        },
+        {
+          "role": "user",
+          "content": "list installed apps",
+          "timestamp": "08:39 AM"
+        },
+        {
+          "role": "ai",
+          "content": "✅ Os Command\n\n**Item:** installed apps",
+          "timestamp": "08:39 AM"
+        },
+        {
+          "role": "user",
+          "content": "list installed application",
+          "timestamp": "08:40 AM"
+        },
+        {
+          "role": "ai",
+          "content": "✅ Os Command\n\n**Item:** installed application",
+          "timestamp": "08:40 AM"
         }
       ],
-      "created_at": "2026-07-09T07:58:36.920321"
+      "created_at": "2026-07-09T08:38:50.578137"
+    },
+    {
+      "session_id": "0d86085a",
+      "title": "List applications",
+      "messages": [
+        {
+          "role": "user",
+          "content": "list applications",
+          "timestamp": "08:42 AM"
+        },
+        {
+          "role": "ai",
+          "content": "Hmm, I didn't quite catch that. Could you try saying it differently? I want to make sure I understand! ",
+          "timestamp": "08:42 AM"
+        },
+        {
+          "role": "user",
+          "content": "list installed apps",
+          "timestamp": "08:42 AM"
+        },
+        {
+          "role": "ai",
+          "content": "✅ Os Command\n\n**Item:** installed apps",
+          "timestamp": "08:42 AM"
+        }
+      ],
+      "created_at": "2026-07-09T08:42:20.553457"
     }
   ],
-  "active_session_id": "62ea09f3"
+  "active_session_id": "0d86085a"
 }

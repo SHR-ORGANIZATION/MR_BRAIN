@@ -698,6 +698,16 @@ class AMAZONAI:
         )
         upgrade_btn.pack(side="left", padx=(0, 8))
 
+        # Refresh button (circular arrow icon)
+        refresh_btn = ctk.CTkButton(
+            self.header_right, text="\u21bb", width=36, height=36,
+            font=("Segoe UI", 18), fg_color="transparent",
+            hover_color="#f0f0f0", text_color=TEXT_SECONDARY,
+            corner_radius=8,
+            command=self._refresh_app
+        )
+        refresh_btn.pack(side="left", padx=(0, 4))
+
         # Settings button (gear icon)
         settings_btn = ctk.CTkButton(
             self.header_right, text="\u2699", width=36, height=36,
@@ -1762,6 +1772,27 @@ class AMAZONAI:
             "  - Language: English / Swahili\n"
             "  - Default Save: Desktop"
         )
+    
+    def _refresh_app(self):
+        """Refresh the app - reload environment and reset state."""
+        try:
+            # Reinitialize environment scanner
+            from system.environment_scanner import initialize_environment
+            initialize_environment(force_rescan=True)
+            
+            # Show success message
+            messagebox.showinfo(
+                "Refresh Complete",
+                "AMAZON has been refreshed!\n\n"
+                "  - Environment rescanned\n"
+                "  - Apps and drives updated\n"
+                "  - Ready for new commands"
+            )
+        except Exception as e:
+            messagebox.showerror(
+                "Refresh Error",
+                f"Failed to refresh: {str(e)}"
+            )
 
     # -----------------------------------------------------------------
     #  Safety Checks

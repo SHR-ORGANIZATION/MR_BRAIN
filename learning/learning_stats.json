@@ -1,19 +1,19 @@
 {
-  "total_commands": 90,
-  "successful_commands": 25,
+  "total_commands": 100,
+  "successful_commands": 33,
   "failed_commands": 38,
-  "unknown_commands": 27,
+  "unknown_commands": 29,
   "most_used_intents": [
     "open_app",
     "greeting",
     "open_file",
+    "os_command",
     "move_file",
+    "create_folder",
     "search_file",
     "create_file",
-    "create_folder",
-    "sleep",
-    "empty_trash",
-    "system_info"
+    "system_info",
+    "sleep"
   ],
   "most_used_entities": [
     "AI and save as hamisi.docs",
@@ -28,7 +28,7 @@
     "lukinet.co.tz"
   ],
   "learning_since": "2026-07-08T14:00:40.805720",
-  "last_retrain": "2026-07-09T04:26:55.571305",
+  "last_retrain": "2026-07-09T07:37:14.473955",
   "new_samples_since_retrain": 9,
   "auto_retrain_enabled": true
 }

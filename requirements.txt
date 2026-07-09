@@ -14,3 +14,7 @@ psutil>=5.9
 # AMAZON AI Platform - New dependencies
 requests>=2.28.0  # For Ollama HTTP API
 numpy>=1.21.0     # For embeddings and vector operations
+
+# NLU Model 
+torch>=1.9.0              # PyTorch - required for DistilBERT model
+transformers>=4.20.0      # HuggingFace Transformers - for DistilBERT

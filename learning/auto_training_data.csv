@@ -1,422 +1,258 @@
 command,intent
-hello,greeting
-hi,greeting
-hey,greeting
-good morning,greeting
-good afternoon,greeting
-good evening,greeting
-how are you,greeting
-what's up,greeting
-hey there,greeting
-hi amazon,greeting
-hello amazon,greeting
-good to see you,greeting
-nice to meet you,greeting
 wow,greeting
 really,greeting
-amazing,greeting
-cool,greeting
-great,greeting
-thanks,greeting
-thank you,greeting
-open chrome,open_app
-open firefox,open_app
-open safari,open_app
-open edge,open_app
-open whatsapp,open_app
-open telegram,open_app
-open discord,open_app
-open slack,open_app
-open zoom,open_app
-open spotify,open_app
-open vlc,open_app
-open itunes,open_app
-open app store,open_app
-open calculator,open_app
-open calendar,open_app
-open notes,open_app
-open reminders,open_app
-open photos,open_app
-open music,open_app
-open maps,open_app
-open mail,open_app
-open messages,open_app
-open facetime,open_app
-open quicktime,open_app
-open textedit,open_app
-open preview,open_app
-open terminal,open_app
-open finder,open_app
-open system preferences,open_app
-open activity monitor,open_app
-open disk utility,open_app
-open keychain,open_app
-open console,open_app
-open automator,open_app
-open script editor,open_app
-open dictionary,open_app
-open font book,open_app
-open image capture,open_app
-open migration assistant,open_app
-open time machine,open_app
-open voiceover utility,open_app
-open xcode,open_app
-open visual studio code,open_app
-open vscode,open_app
-open sublime text,open_app
-open atom,open_app
-open notepad,open_app
-open word,open_app
-open microsoft word,open_app
-open excel,open_app
-open microsoft excel,open_app
-open powerpoint,open_app
-open microsoft powerpoint,open_app
-open photoshop,open_app
-open illustrator,open_app
-open premiere,open_app
-open after effects,open_app
-open lightroom,open_app
-open indesign,open_app
-open sketch,open_app
-open figma,open_app
-open blender,open_app
-open maya,open_app
-open unity,open_app
-open unreal engine,open_app
-open steam,open_app
-open epic games,open_app
-open netflix,open_app
-open youtube,open_app
-open instagram,open_app
-open facebook,open_app
-open twitter,open_app
-open linkedin,open_app
-open reddit,open_app
-open tiktok,open_app
-open snapchat,open_app
-open pinterest,open_app
-open twitch,open_app
-open obs,open_app
-open zoom,open_app
-open teams,open_app
-open skype,open_app
-open webex,open_app
-open google meet,open_app
-open slack,open_app
-open microsoft teams,open_app
-launch chrome,open_app
-launch firefox,open_app
-launch safari,open_app
-launch whatsapp,open_app
-launch telegram,open_app
-launch discord,open_app
-launch spotify,open_app
-launch zoom,open_app
-launch xcode,open_app
-launch vscode,open_app
-launch word,open_app
-launch excel,open_app
-launch powerpoint,open_app
-start chrome,open_app
-start firefox,open_app
-start safari,open_app
-start whatsapp,open_app
-start telegram,open_app
-start discord,open_app
-start spotify,open_app
-start zoom,open_app
-start xcode,open_app
-start vscode,open_app
-start word,open_app
-start excel,open_app
-start powerpoint,open_app
-run chrome,open_app
-run firefox,open_app
-run safari,open_app
-run whatsapp,open_app
-run telegram,open_app
-run discord,open_app
-run spotify,open_app
-run zoom,open_app
-run xcode,open_app
-run vscode,open_app
-run word,open_app
-run excel,open_app
-run powerpoint,open_app
-close chrome,close_app
-close firefox,close_app
-close safari,close_app
-close whatsapp,close_app
-close telegram,close_app
-close discord,close_app
-close spotify,close_app
-close zoom,close_app
-close xcode,close_app
-close vscode,close_app
-close word,close_app
-close excel,close_app
-close powerpoint,close_app
-quit chrome,close_app
-quit firefox,close_app
-quit safari,close_app
-quit whatsapp,close_app
-quit telegram,close_app
-quit discord,close_app
-quit spotify,close_app
-quit zoom,close_app
-quit xcode,close_app
-quit vscode,close_app
-quit word,close_app
-quit excel,close_app
-quit powerpoint,close_app
-exit chrome,close_app
-exit firefox,close_app
-exit safari,close_app
-exit whatsapp,close_app
-exit telegram,close_app
-exit discord,close_app
-exit spotify,close_app
-exit zoom,close_app
-exit xcode,close_app
-exit vscode,close_app
-exit word,close_app
-exit excel,close_app
-exit powerpoint,close_app
-kill chrome,close_app
-kill firefox,close_app
-kill safari,close_app
-kill whatsapp,close_app
-kill telegram,close_app
-kill discord,close_app
-kill spotify,close_app
-kill zoom,close_app
-kill xcode,close_app
-kill vscode,close_app
-kill word,close_app
-kill excel,close_app
-kill powerpoint,close_app
-stop chrome,close_app
-stop firefox,close_app
-stop safari,close_app
-stop whatsapp,close_app
-stop telegram,close_app
-stop discord,close_app
-stop spotify,close_app
-stop zoom,close_app
-stop xcode,close_app
-stop vscode,close_app
-stop word,close_app
-stop excel,close_app
-stop powerpoint,close_app
-empty trash,empty_trash
-clear trash,empty_trash
-clean trash,empty_trash
-empty bin,empty_trash
-clear bin,empty_trash
-clean bin,empty_trash
-empty recycle bin,empty_trash
-clear recycle bin,empty_trash
-clean recycle bin,empty_trash
-delete all trash,empty_trash
-remove all trash,empty_trash
-erase all trash,empty_trash
-empty my trash,empty_trash
-clear my trash,empty_trash
-clean my trash,empty_trash
-empty the trash,empty_trash
-clear the trash,empty_trash
-clean the trash,empty_trash
+open panda,open_app
+create professional training schedules!,create_folder
+hello,greeting
+are you goodd,greeting
 show my computer info,system_info
-show computer info,system_info
-show system info,system_info
-show system information,system_info
-show computer information,system_info
-computer info,system_info
-computer information,system_info
-system info,system_info
-system information,system_info
-my computer,system_info
-about my computer,system_info
-show my computer,system_info
-tell me about my computer,system_info
-specs,system_info
-specifications,system_info
-hardware info,system_info
-hardware information,system_info
-what are my specs,system_info
-show my specs,system_info
-what is my computer,system_info
-check my computer,system_info
-computer specs,system_info
-pc info,system_info
-laptop info,system_info
-machine info,system_info
-disk usage,os_command
-disk space,os_command
-memory usage,os_command
-ram usage,os_command
-cpu info,os_command
-cpu usage,os_command
-network info,os_command
-ip address,os_command
-wifi networks,os_command
-wifi list,os_command
-running processes,os_command
-top processes,os_command
-ping test,os_command
-dns flush,os_command
-clear cache,os_command
-disk cleanup,os_command
-installed apps,os_command
-running apps,os_command
-installed applications,os_command
-running applications,os_command
-list installed apps,os_command
-list installed applications,os_command
-lists installed apps,os_command
-lists installed applications,os_command
-listing installed apps,os_command
-listing installed applications,os_command
-show installed apps,os_command
-show installed applications,os_command
-show all apps,os_command
-show all applications,os_command
-take screenshot,os_command
-screenshot,os_command
-public ip,os_command
-external ip,os_command
-open ports,os_command
-port scan,os_command
-update system,os_command
-system update,os_command
-check disk,os_command
-repair disk,os_command
-show me disk usage,os_command
-show memory,os_command
-show network,os_command
-show cpu,os_command
-list processes,os_command
-list all processes,os_command
-show processes,os_command
-show running processes,os_command
-list running processes,list_processes
-show running processes,list_processes
-running processes,list_processes
-active processes,list_processes
-open processes,list_processes
-process list,list_processes
-processes,list_processes
-what processes are running,list_processes
-show me processes,list_processes
-list all running processes,list_processes
-search google,search_web
-search web,search_web
-google search,search_web
-bing search,search_web
-search online,search_web
-look up,search_web
-find online,search_web
-search for,search_web
-google it,search_web
-bing it,search_web
-search the web,search_web
-search internet,search_web
-web search,search_web
-create folder named Projects,create_folder
-create folder named Documents,create_folder
-create folder named Downloads,create_folder
-create folder named Desktop,create_folder
-create folder named Work,create_folder
-create folder named Personal,create_folder
-create folder named Photos,create_folder
-create folder named Videos,create_folder
-create folder named Music,create_folder
-create folder named Archive,create_folder
-create new folder,create_folder
-make new folder,create_folder
-new folder,create_folder
-create directory,create_folder
-make directory,create_folder
-new directory,create_folder
-create folder,create_folder
-make folder,create_folder
-create file named test.txt,create_file
-create file named notes.txt,create_file
-create file named readme.md,create_file
-create file named script.py,create_file
-create file named index.html,create_file
-create file named style.css,create_file
-create file named app.js,create_file
-create file named data.json,create_file
-create file named config.yaml,create_file
-create file named settings.ini,create_file
-create new file,create_file
-make new file,create_file
-new file,create_file
-create document,create_file
-make document,create_file
-new document,create_file
-create text file,create_file
-make text file,create_file
-new text file,create_file
+list processes,list_processes
+hi,greeting
+"analyse """"""
+Voice Input/Output Module for AMAZON AI
+Adds speech recognition (voice commands) and text-to-speech (voice responses) to the desktop assistant.
+""""""
+import threading
+import queue
+import time
+from pathlib import Path
+
+try:
+    import pyttsx3
+except ImportError:
+    pyttsx3 = None
+
+try:
+    import speech_recognition as sr
+except ImportError:
+    sr = None
+
+
+class VoiceEngine:
+    """"""Handles voice input (speech-to-text) and voice output (text-to-speech).""""""
+
+    def __init__(self):
+        self.recognizer = sr.Recognizer() if sr else None
+        self.microphone = None
+        self.microphone_name = None
+        self.tts_engine = None
+        self.is_listening = False
+        self.is_speaking = False
+        self.voice_enabled = True
+        self.listening_callback = None
+        self.listening_callback_error = None
+        self.speaking_callback = None
+        self.language = ""en-US""
+
+        if pyttsx3:
+            try:
+                self.tts_engine = pyttsx3.init()
+                self.tts_engine.setProperty(""rate"", 160)
+                self.tts_engine.setProperty(""volume"", 0.9)
+            except Exception:
+                self.tts_engine = None
+
+        self._select_microphone()
+
+    def set_language(self, lang):
+        self.language = lang or ""en-US""
+
+    def _select_microphone(self):
+        if not sr:
+            return
+        try:
+            names = sr.Microphone.list_microphone_names()
+        except Exception as e:
+            print(""Mic enumeration failed:"", e)
+            return
+        print(""Microphones detected:"", len(names))
+        if not names:
+            print(""No microphone available."")
+            return
+        # Prefer realtek microphone array over virtual devices
+        preferred_keywords = [
+            ""microphone array"",
+            ""realtek"",
+            ""frontmic"",
+            ""array"",
+            ""airpods"",
+            ""headset"",
+        ]
+        excluded_keywords = [
+            ""itop"",
+            ""virtual"",
+        ]
+        chosen_index = None
+        for idx, name in enumerate(names):
+            low = name.lower()
+            if any(k in low for k in preferred_keywords) and not any(k in low for k in excluded_keywords):
+                chosen_index = idx
+                break
+        if chosen_index is None:
+            # fallback: first input-capable device
+            for idx, name in enumerate(names):
+                if ""output"" not in name.lower():
+                    chosen_index = idx
+                    break
+        if chosen_index is None:
+            chosen_index = 0
+        try:
+            self.microphone = sr.Microphone(device_index=chosen_index)
+            self.microphone_name = names[chosen_index]
+            print(f""Selected microphone index {chosen_index}: {self.microphone_name}"")
+        except Exception as e:
+            print(f""Failed to open microphone index {chosen_index}: {e}"")
+
+    def start_listening(self, on_result=None, on_error=None):
+        """"""Start background listening thread.""""""
+        if self.is_listening:
+            return
+        self.is_listening = True
+        self.listening_callback = on_result
+        self.listening_callback_error = on_error
+        t = threading.Thread(target=self._listen_loop, daemon=True)
+        t.start()
+        try:
+            self._play_beep()
+        except Exception:
+            pass
+
+    def stop_listening(self):
+        """"""Stop listening.""""""
+        self.is_listening = False
+        try:
+            if self._mic_active and hasattr(self, '_mic_source'):
+                pass
+        except Exception:
+            pass
+
+    def _listen_loop(self):
+        """"""Background listening loop using speech_recognition.""""""
+        if not sr or not self.microphone:
+            err = ""speech_recognition library not installed or microphone not available.""
+            print(""VOICE ERROR:"", err)
+            if self.listening_callback_error:
+                self.listening_callback_error(err)
+            self.is_listening = False
+            return
+
+        print(""Voice thread started"")
+        try:
+            with self.microphone as source:
+                print(""Microphone opened, adjusting ambient noise..."")
+                self.recognizer.adjust_for_ambient_noise(source, duration=1)
+                print(""Ambient noise calibration done. Listening..."")
+                while self.is_listening:
+                    try:
+                        print(""Waiting for speech..."")
+                        audio = self.recognizer.listen(source, timeout=3, phrase_time_limit=8)
+                        print(""Audio captured"")
+                    except sr.WaitTimeoutError:
+                        print(""Listen timeout: no speech detected"")
+                        continue
+                    try:
+                        print(""Recognizing..."")
+                        text = self.recognizer.recognize_google(audio, language=self.language)
+                        print(""Recognized:"", text)
+                        if text and self.listening_callback:
+                            self.listening_callback(text)
+                    except sr.UnknownValueError:
+                        print(""Could not understand audio (UnknownValueError)"")
+                        if self.listening_callback_error:
+                            self.listening_callback_error(""Could not understand audio"")
+                        continue
+                    except sr.RequestError as e:
+                        msg = f""Google recognition error: {e}""
+                        print(msg)
+                        if self.listening_callback_error:
+                            self.listening_callback_error(msg)
+                        time.sleep(0.5)
+                    except Exception as e:
+                        msg = f""Recognition unexpected error: {e}""
+                        print(""VOICE ERROR:"", msg)
+                        if self.listening_callback_error:
+                            self.listening_callback_error(msg)
+                        time.sleep(0.5)
+        except Exception as e:
+            msg = f""Microphone/open error: {e}""
+            print(""VOICE ERROR:"", msg)
+            if self.listening_callback_error:
+                self.listening_callback_error(msg)
+        finally:
+            print(""Voice thread stopping"")
+            self.is_listening = False
+
+    def speak(self, text):
+        """"""Speak text aloud using TTS.""""""
+        if not self.voice_enabled:
+            return
+        if not self.tts_engine:
+            return
+        threading.Thread(target=self._speak_thread, args=(text,), daemon=True).start()
+
+    def _speak_thread(self, text):
+        """"""Speak in background thread.""""""
+        try:
+            self.is_speaking = True
+            if self.speaking_callback:
+                self.speaking_callback(True)
+            self.tts_engine.say(text)
+            self.tts_engine.runAndWait()
+        except Exception:
+            pass
+        finally:
+            self.is_speaking = False
+            if self.speaking_callback:
+                self.speaking_callback(False)
+
+    def stop_speaking(self):
+        """"""Stop current speech.""""""
+        try:
+            if self.tts_engine:
+                self.tts_engine.stop()
+        except Exception:
+            pass
+        self.is_speaking = False
+
+    def set_voice_enabled(self, enabled):
+        """"""Enable or disable voice output.""""""
+        self.voice_enabled = enabled
+
+    def is_voice_available(self):
+        """"""Check if voice libraries are installed.""""""
+        return pyttsx3 is not None and sr is not None
+
+
+# Singleton voice engine
+_voice_engine = None
+
+
+def get_voice_engine():
+    """"""Get or create the global voice engine.""""""
+    global _voice_engine
+    if _voice_engine is None:
+        _voice_engine = VoiceEngine()
+    return _voice_engine",search_web
+open chrome,open_app
+empty my trash,empty_trash
+hello,greeting
+empty my trash and let me comfirm,empty_trash
+open whatsapp,open_app
+open insta,open_app
+open instagram,open_app
+open app store,open_app
+open microsoft word,open_app
+open powerpoint,open_app
+hello,greeting
+open youtube,open_app
 make excel sheet about budget,generate_document
-make excel sheet about expenses,generate_document
-make excel sheet about income,generate_document
-make excel sheet about sales,generate_document
-make excel sheet about revenue,generate_document
-make excel sheet about profit,generate_document
-make excel sheet about losses,generate_document
-make excel sheet about inventory,generate_document
-make excel sheet about products,generate_document
-make excel sheet about customers,generate_document
-create excel sheet about budget,generate_document
-create excel sheet about expenses,generate_document
-create excel sheet about income,generate_document
-create excel sheet about sales,generate_document
-create excel sheet about revenue,generate_document
-create word document about AI,generate_document
-create word document about machine learning,generate_document
-create word document about python,generate_document
-create word document about javascript,generate_document
-create word document about web development,generate_document
-create word document about mobile apps,generate_document
-create word document about cloud computing,generate_document
-create word document about cybersecurity,generate_document
-create word document about data science,generate_document
-create word document about blockchain,generate_document
-write document about AI,generate_document
-write document about machine learning,generate_document
-write document about python,generate_document
-write document about javascript,generate_document
-write document about web development,generate_document
-generate document about AI,generate_document
-generate document about machine learning,generate_document
-generate document about python,generate_document
-generate document about javascript,generate_document
-generate document about web development,generate_document
-make pdf about AI,generate_document
-make pdf about machine learning,generate_document
-make pdf about python,generate_document
-make pdf about javascript,generate_document
-make pdf about web development,generate_document
-create pdf about AI,generate_document
-create pdf about machine learning,generate_document
-create pdf about python,generate_document
-create pdf about javascript,generate_document
-create pdf about web development,generate_document
-write word document about AI,generate_document
-write word document about machine learning,generate_document
-write word document about python,generate_document
-write word document about javascript,generate_document
-write word document about web development,generate_document
-write pdf about AI,generate_document
-write pdf about machine learning,generate_document
-write pdf about python,generate_document
-write pdf about javascript,generate_document
-write pdf about web development,generate_document
-write excel about budget,generate_document
-write excel about expenses,generate_document
-write excel about income,generate_document
-write excel about sales,generate_document
-write excel about revenue,generate_document
+create file named test.txt,create_file
+lists installed applications,os_command
+list installed app,os_command
+hello,greeting
+Create folder Projects,create_folder
+List processes,os_command
+create excel file,generate_document
+scan computer,system_info
+Installed Apps,os_command
+list installed apps,os_command

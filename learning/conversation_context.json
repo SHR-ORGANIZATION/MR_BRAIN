@@ -448,5 +448,55 @@
     "command": "Creates Word document about AI",
     "intent": "open_file",
     "timestamp": "2026-07-09T04:36:25.869918"
+  },
+  {
+    "command": "lists installed applications",
+    "intent": "os_command",
+    "timestamp": "2026-07-09T07:37:14.411815"
+  },
+  {
+    "command": "list installed app",
+    "intent": "os_command",
+    "timestamp": "2026-07-09T07:37:38.788714"
+  },
+  {
+    "command": "hello",
+    "intent": "greeting",
+    "timestamp": "2026-07-09T07:53:25.645909"
+  },
+  {
+    "command": "list all app",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T07:53:41.032409"
+  },
+  {
+    "command": "Create folder Projects",
+    "intent": "create_folder",
+    "timestamp": "2026-07-09T07:57:48.161344"
+  },
+  {
+    "command": "List processes",
+    "intent": "os_command",
+    "timestamp": "2026-07-09T07:58:51.600845"
+  },
+  {
+    "command": "create excel file",
+    "intent": "generate_document",
+    "timestamp": "2026-07-09T08:02:57.327626"
+  },
+  {
+    "command": "yes do number 1",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T08:03:30.734394"
+  },
+  {
+    "command": "scan computer",
+    "intent": "system_info",
+    "timestamp": "2026-07-09T08:06:03.301699"
+  },
+  {
+    "command": "Installed Apps",
+    "intent": "os_command",
+    "timestamp": "2026-07-09T08:12:24.779902"
   }
 ]

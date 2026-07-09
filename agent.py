@@ -266,6 +266,14 @@ INTENT_SYNONYMS = {
     "show network": "os_command", "show cpu": "os_command",
     "list processes": "os_command", "list all processes": "os_command",
     "show processes": "os_command", "show running processes": "os_command",
+    # Computer scan commands
+    "scan computer": "computer_scan", "scan my computer": "computer_scan",
+    "scan system": "computer_scan", "scan my system": "computer_scan",
+    "hardware scan": "computer_scan", "hardware info": "computer_scan",
+    "system scan": "computer_scan", "full scan": "computer_scan",
+    "scan hardware": "computer_scan", "scan peripherals": "computer_scan",
+    "usb devices": "computer_scan", "bluetooth devices": "computer_scan",
+    "connected devices": "computer_scan", "all devices": "computer_scan",
     # Projects
     "create project": "create_project", "generate project": "create_project",
     "make project": "create_project",
@@ -2104,6 +2112,17 @@ def process_command(command):
                     result["message"] += "\n\n💡 **What's next?**\n"
                     for i, suggestion in enumerate(suggestions[:3], 1):
                         result["message"] += f"  {i}. {suggestion}\n"
+                    
+                    # Store as pending question for follow-up handling
+                    try:
+                        from system.conversation_manager import ask_follow_up
+                        ask_follow_up(
+                            "What's next?",
+                            options=suggestions[:3],
+                            context={"intent": intent, "command": command}
+                        )
+                    except Exception:
+                        pass  # Don't let suggestion errors affect response
             except Exception:
                 pass  # Don't let suggestion errors affect response
 
