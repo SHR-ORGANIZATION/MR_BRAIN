@@ -25,3 +25,7 @@ pyinstaller>=6.0          # Build native installers for macOS/Windows
 # Voice Features
 pyttsx3>=2.90             # Text-to-speech
 SpeechRecognition>=3.10.0 # Speech-to-text
+PyAudio>=0.2.11           # Audio input for microphone
+
+# Document Analysis
+pdfplumber>=0.7.0         # Advanced PDF text extraction and analysis
