@@ -134,6 +134,26 @@
           "role": "ai",
           "content": "✅ Find Anything\n\n**Item:** azampay\n\n**Files Found:**\n  • /Users/mac/Documents/AMA/AMA.png\n  • /Users/mac/Documents/epharmacy/node_modules/resolve/test/precedence/aaa.js\n  • /Users/mac/Documents/epharmacy/node_modules/restructure/test/LazyArray.js\n  • /Users/mac/Documents/epharmacy/node_modules/restructure/src/LazyArray.js\n  • /Users/mac/Documents/epharmacy/node_modules/@mui/x-date-pickers/legacy/AdapterDayjs/AdapterDayjs.js",
           "timestamp": "03:50 PM"
+        },
+        {
+          "role": "user",
+          "content": "find azampay folder\n-> To get full AMAZON CHAT like GPT responses, you need Ollama running:\n     1. Download from ollama.com\n    2. Run in terminal: ollama pull llama3.2\n    3. ollama serve\n-> To get full AMAZON CHAT like GPT responses, you need Ollama running:\n     1. Download from ollama.com\n    2. Run in terminal: ollama pull llama3.2\n    3. ollama serve\n-> To get full AMAZON CHAT like GPT responses, you need Ollama running:\n     1. Download from ollama.com\n    2. Run in terminal: ollama pull llama3.2\n    3. ollama serve\n-> To get full AMAZON CHAT like GPT responses, you need Ollama running:\n     1. Download from ollama.com\n    2. Run in terminal: ollama pull llama3.2\n    3. ollama serve\n-> To get full AMAZON CHAT like GPT responses, you need Ollama running:\n     1. Download from ollama.com\n    2. Run in terminal: ollama pull llama3.2\n    3. ollama serve",
+          "timestamp": "03:55 PM"
+        },
+        {
+          "role": "ai",
+          "content": "✅ Find Anything\n\n**Item:** azampay -> To get full AMAZON CHAT like GPT responses, you need Ollama running: 1. Download .com 2. Run in terminal: ollama pull llama3.2 3. ollama serve -> To get full AMAZON CHAT like GPT responses, you need Ollama running: 1. Download from ollama.com 2. Run in terminal: ollama pull llama3.2 3. ollama serve -> To get full AMAZON CHAT like GPT responses, you need Ollama running: 1. Download from ollama.com 2. Run in terminal: ollama pull llama3.2 3. ollama serve -> To get full AMAZON CHAT like GPT responses, you need Ollama running: 1. Download from ollama.com 2. Run in terminal: ollama pull llama3.2 3. ollama serve -> To get full AMAZON CHAT like GPT responses, you need Ollama running: 1. Download from ollama.com 2. Run in terminal: ollama pull llama3.2 3. ollama serve\n\n**Files Found:**\n  • /Users/mac/Documents/epharmacy/database/migrations/2024_10_03_124431_drop_unit_buying_price_from_purchase_order_items_table.php\n  • /Users/mac/Documents/epharmacy/database/migrations/2024_10_03_093656_drop_paid_amount_from_expenses_table.php\n  • /Users/mac/Documents/epharmacy/node_modules/@types/react/jsx-dev-runtime.d.ts\n  • /Users/mac/Documents/epharmacy/node_modules/@types/react/jsx-runtime.d.ts\n  • /Users/mac/Documents/epharmacy/node_modules/laravel-vite-plugin/dist/dev-server-index.html",
+          "timestamp": "03:55 PM"
+        },
+        {
+          "role": "user",
+          "content": "find azampay folder was place it on OFFICE DRIVE",
+          "timestamp": "03:56 PM"
+        },
+        {
+          "role": "ai",
+          "content": "✅ Find Anything\n\n**Item:** azampay was place it DRIVE\n\n**Files Found:**\n  • /Users/mac/Documents/epharmacy/node_modules/react-transition-group/esm/ReplaceTransition.js\n  • /Users/mac/Documents/epharmacy/node_modules/react-transition-group/cjs/ReplaceTransition.js\n  • /Users/mac/Documents/epharmacy/node_modules/loose-envify/replace.js\n  • /Users/mac/Documents/epharmacy/node_modules/@popperjs/core/dist/esm/utils/getOppositeVariationPlacement.js\n  • /Users/mac/Documents/epharmacy/node_modules/@popperjs/core/dist/esm/utils/getOppositePlacement.js",
+          "timestamp": "03:56 PM"
         }
       ],
       "created_at": "2026-07-09T15:48:41.364422"
