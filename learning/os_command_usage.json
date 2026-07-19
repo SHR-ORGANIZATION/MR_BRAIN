@@ -1,0 +1,26 @@
+{
+  "lists installed applications": {
+    "command": "ls /Applications",
+    "times_used": 1,
+    "success_count": 1,
+    "last_used": "2026-07-09T07:37:14.405691"
+  },
+  "installed app": {
+    "command": "ls /Applications",
+    "times_used": 3,
+    "success_count": 3,
+    "last_used": "2026-07-09T08:33:07.216904"
+  },
+  "processes": {
+    "command": "ps aux | head -20",
+    "times_used": 2,
+    "success_count": 2,
+    "last_used": "2026-07-14T16:58:40.376526"
+  },
+  "installed apps": {
+    "command": "ls /Applications",
+    "times_used": 6,
+    "success_count": 6,
+    "last_used": "2026-07-09T08:38:23.334214"
+  }
+}

@@ -13,7 +13,7 @@ from automation.app_tasks import open_application
 initialize_environment()
 
 print("=" * 60)
-print("Testing NOVA Environment Integration")
+print("Testing AMAZON Environment Integration")
 print("=" * 60)
 
 # Check scanner is initialized

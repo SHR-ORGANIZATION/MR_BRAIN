@@ -1,0 +1,11 @@
+{
+  "model_name": "distilbert-base-uncased",
+  "num_labels": 27,
+  "max_length": 64,
+  "batch_size": 16,
+  "epochs": 8,
+  "learning_rate": 2e-05,
+  "best_accuracy": 0.9234042553191489,
+  "device": "cpu",
+  "dataset_size": 1174
+}

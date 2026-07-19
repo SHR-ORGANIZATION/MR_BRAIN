@@ -1,0 +1,34 @@
+{
+  "total_commands": 280,
+  "successful_commands": 105,
+  "failed_commands": 44,
+  "unknown_commands": 131,
+  "most_used_intents": [
+    "greeting",
+    "open_app",
+    "amazon_chat",
+    "open_file",
+    "search_web",
+    "create_folder",
+    "os_command",
+    "search_file",
+    "empty_trash",
+    "find_anything"
+  ],
+  "most_used_entities": [
+    "AI and save as hamisi.docs",
+    "chrome",
+    "google",
+    "trash",
+    "AI",
+    "coreldraw",
+    "processes",
+    "create nice research about famisly then save it as pdf",
+    "create your self no need to use web search for now",
+    "azampay"
+  ],
+  "learning_since": "2026-07-08T14:00:40.805720",
+  "last_retrain": "2026-07-14T17:04:51.399379",
+  "new_samples_since_retrain": 1,
+  "auto_retrain_enabled": true
+}

@@ -1,0 +1,502 @@
+[
+  {
+    "command": "I'm Josh Shakira",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T22:27:30.265648"
+  },
+  {
+    "command": "hello",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T22:27:46.482394"
+  },
+  {
+    "command": "Amazon",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T22:28:19.422776"
+  },
+  {
+    "command": "are you there",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T22:31:24.544791"
+  },
+  {
+    "command": "and type Shakira Raj",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T22:34:10.648132"
+  },
+  {
+    "command": "will Chrome",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T22:34:36.065048"
+  },
+  {
+    "command": "Google",
+    "intent": "search_web",
+    "timestamp": "2026-07-09T22:34:50.190069"
+  },
+  {
+    "command": "hello Amazon how",
+    "intent": "amazon_chat",
+    "timestamp": "2026-07-09T22:45:58.263442"
+  },
+  {
+    "command": "hello Amazon how are you",
+    "intent": "amazon_chat",
+    "timestamp": "2026-07-09T22:46:14.583597"
+  },
+  {
+    "command": "what's on camera",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T22:58:42.538309"
+  },
+  {
+    "command": "agriculture",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T23:01:33.542978"
+  },
+  {
+    "command": "I'm not sure I understand",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T23:01:40.948881"
+  },
+  {
+    "command": "Amazon",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T23:01:54.905853"
+  },
+  {
+    "command": "hello Amazon",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T23:45:49.292303"
+  },
+  {
+    "command": "hello",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T23:47:49.402568"
+  },
+  {
+    "command": "hello",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T23:49:31.591658"
+  },
+  {
+    "command": "hello Amazon",
+    "intent": "unknown",
+    "timestamp": "2026-07-10T00:01:24.254428"
+  },
+  {
+    "command": "all",
+    "intent": "unknown",
+    "timestamp": "2026-07-10T00:02:50.849325"
+  },
+  {
+    "command": "Amazon I love",
+    "intent": "unknown",
+    "timestamp": "2026-07-10T00:04:43.549445"
+  },
+  {
+    "command": "hello",
+    "intent": "unknown",
+    "timestamp": "2026-07-10T00:10:06.331042"
+  },
+  {
+    "command": "spell Lucifer",
+    "intent": "unknown",
+    "timestamp": "2026-07-11T14:53:21.600094"
+  },
+  {
+    "command": "Amazon",
+    "intent": "unknown",
+    "timestamp": "2026-07-11T14:54:44.528969"
+  },
+  {
+    "command": "Daniel",
+    "intent": "unknown",
+    "timestamp": "2026-07-11T14:55:18.350677"
+  },
+  {
+    "command": "Daniel",
+    "intent": "unknown",
+    "timestamp": "2026-07-11T14:55:18.969421"
+  },
+  {
+    "command": "Amazon are you good",
+    "intent": "unknown",
+    "timestamp": "2026-07-11T14:55:34.900713"
+  },
+  {
+    "command": "Amazon open",
+    "intent": "open_file",
+    "timestamp": "2026-07-11T14:56:33.216969"
+  },
+  {
+    "command": "open Chrome open Chrome",
+    "intent": "open_app",
+    "timestamp": "2026-07-11T14:56:58.451669"
+  },
+  {
+    "command": "Amazon create folder inside it create another folder inside",
+    "intent": "create_folder",
+    "timestamp": "2026-07-11T14:59:00.094478"
+  },
+  {
+    "command": "Amazon create folder inside it creates another folder inside it find a fold",
+    "intent": "create_folder",
+    "timestamp": "2026-07-11T14:59:01.883493"
+  },
+  {
+    "command": "I'm a critical network it",
+    "intent": "find_anything",
+    "timestamp": "2026-07-11T14:59:35.305397"
+  },
+  {
+    "command": "hi there",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T12:36:28.424162"
+  },
+  {
+    "command": "hi there",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T12:37:51.747734"
+  },
+  {
+    "command": "open",
+    "intent": "open_file",
+    "timestamp": "2026-07-14T12:38:34.507393"
+  },
+  {
+    "command": "open Google Chrome",
+    "intent": "open_app",
+    "timestamp": "2026-07-14T12:38:49.942396"
+  },
+  {
+    "command": "are you good",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T12:39:19.888132"
+  },
+  {
+    "command": "undur Azhar",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T12:40:50.138290"
+  },
+  {
+    "command": "unamfaham AZA",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T12:45:40.829119"
+  },
+  {
+    "command": "UNAMFAHAMU AZA",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T12:45:56.625269"
+  },
+  {
+    "command": "Amazon mumbo VIP",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:13:42.830935"
+  },
+  {
+    "command": "Amazon number VP",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:13:58.304927"
+  },
+  {
+    "command": "kiswahili",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:14:16.461662"
+  },
+  {
+    "command": "Una fahamu kiswahili",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:14:32.705205"
+  },
+  {
+    "command": "open Google Chrome and browse lukinet",
+    "intent": "open_app",
+    "timestamp": "2026-07-14T13:15:55.488509"
+  },
+  {
+    "command": "open Google Chrome search in Google for looking",
+    "intent": "open_app",
+    "timestamp": "2026-07-14T13:17:42.004616"
+  },
+  {
+    "command": "so where",
+    "intent": "search_file",
+    "timestamp": "2026-07-14T13:17:59.936098"
+  },
+  {
+    "command": "tanzen",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:18:17.984399"
+  },
+  {
+    "command": "Tanzania",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:18:33.789040"
+  },
+  {
+    "command": "train your model",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:19:02.309479"
+  },
+  {
+    "command": "I'm here to help",
+    "intent": "list_commands",
+    "timestamp": "2026-07-14T13:19:21.168186"
+  },
+  {
+    "command": "sitaki",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:19:43.195065"
+  },
+  {
+    "command": "habari",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:21:38.277674"
+  },
+  {
+    "command": "hello",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:22:54.649802"
+  },
+  {
+    "command": "Maria",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:23:57.342913"
+  },
+  {
+    "command": "habari",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:24:21.127861"
+  },
+  {
+    "command": "hello",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:25:17.697176"
+  },
+  {
+    "command": "hello now",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:26:20.551836"
+  },
+  {
+    "command": "America network",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:26:38.018259"
+  },
+  {
+    "command": "hi there",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:27:40.315367"
+  },
+  {
+    "command": "are you",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:29:36.964814"
+  },
+  {
+    "command": "can I see",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:31:32.177982"
+  },
+  {
+    "command": "hello MB",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T13:41:26.556499"
+  },
+  {
+    "command": "mambo",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T13:42:22.146684"
+  },
+  {
+    "command": "are you good",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:42:37.762079"
+  },
+  {
+    "command": "my farm VIP",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:43:30.226434"
+  },
+  {
+    "command": "barako",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:43:52.425127"
+  },
+  {
+    "command": "almost i see network issue(using fall back if available)",
+    "intent": "amazon_chat",
+    "timestamp": "2026-07-14T13:49:18.986385"
+  },
+  {
+    "command": "hello buddy",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T13:49:49.083099"
+  },
+  {
+    "command": "fungua Google Chrome",
+    "intent": "open_app",
+    "timestamp": "2026-07-14T13:50:50.594793"
+  },
+  {
+    "command": "hello",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T13:52:26.815108"
+  },
+  {
+    "command": "VIP halik",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:52:40.760077"
+  },
+  {
+    "command": "VP hali yako",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:52:52.973319"
+  },
+  {
+    "command": "vipi hali yako",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T13:52:55.080807"
+  },
+  {
+    "command": "vivi hali yako",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:54:17.956628"
+  },
+  {
+    "command": "VP halal",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:54:33.611162"
+  },
+  {
+    "command": "hali yako",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:54:48.932405"
+  },
+  {
+    "command": "American",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:55:05.532100"
+  },
+  {
+    "command": "mambo vipi",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T13:55:21.201818"
+  },
+  {
+    "command": "nisaidie pesa",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:58:13.250935"
+  },
+  {
+    "command": "nisaidie pesa",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T14:09:47.863294"
+  },
+  {
+    "command": "nisaidie pesa",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T14:15:57.831485"
+  },
+  {
+    "command": "30",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T15:12:13.105434"
+  },
+  {
+    "command": "niaje",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T15:12:45.308432"
+  },
+  {
+    "command": "niaje?",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T15:13:02.341803"
+  },
+  {
+    "command": "mambo vipi",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T15:14:00.402676"
+  },
+  {
+    "command": "uhaligani?",
+    "intent": "amazon_chat",
+    "timestamp": "2026-07-14T15:14:21.657438"
+  },
+  {
+    "command": "uhaligani?",
+    "intent": "amazon_chat",
+    "timestamp": "2026-07-14T15:14:28.736942"
+  },
+  {
+    "command": "Niaje wewe udugu",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T15:14:59.759625"
+  },
+  {
+    "command": "Niaje wewe udugu",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T15:15:14.665209"
+  },
+  {
+    "command": "mambo vipi mwanetu",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T15:15:58.148433"
+  },
+  {
+    "command": "mambo vipi mwanetu",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T15:16:08.672076"
+  },
+  {
+    "command": "List processes",
+    "intent": "os_command",
+    "timestamp": "2026-07-14T16:58:40.382204"
+  },
+  {
+    "command": "hello amaon",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T16:59:11.155747"
+  },
+  {
+    "command": "are you good",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T16:59:26.970691"
+  },
+  {
+    "command": "hello amazon",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T16:59:44.133414"
+  },
+  {
+    "command": "habari",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T16:59:52.970994"
+  },
+  {
+    "command": "at 72",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T17:00:04.388600"
+  },
+  {
+    "command": "niandikie barua kisha save kwnye desktop",
+    "intent": "amazon_chat",
+    "timestamp": "2026-07-14T17:02:17.857966"
+  },
+  {
+    "command": "niandikie barua kisha save kwnye desktop",
+    "intent": "amazon_chat",
+    "timestamp": "2026-07-14T17:03:04.649708"
+  },
+  {
+    "command": "nisaidie kufanya wewe",
+    "intent": "amazon_chat",
+    "timestamp": "2026-07-14T17:04:51.276563"
+  },
+  {
+    "command": "empty trash",
+    "intent": "empty_trash",
+    "timestamp": "2026-07-14T17:04:56.695915"
+  }
+]

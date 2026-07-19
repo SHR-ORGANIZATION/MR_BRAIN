@@ -1,3 +1,11 @@
+Sawa, nimeongeza data nyingi zaidi na kukupa dataset **kamili** yenye kila kitu. Nimeongeza:
+
+1. **`empty_trash`** - Amri za kutupa taka
+2. **Amri za OS mahususi** (Windows na macOS)
+3. **Amri za Swahili** za ziada
+4. **Variations** nyingi za kila intent
+
+```csv
 command,intent
 open chrome,open_app
 launch chrome,open_app
@@ -45,6 +53,17 @@ launch visual studio code,open_app
 open the calculator app,open_app
 start up paint,open_app
 run the notepad application,open_app
+open finder,open_app
+launch finder,open_app
+open terminal,open_app
+launch terminal,open_app
+open spotlight,open_app
+open system preferences,open_app
+open settings,open_app
+open control panel,open_app
+open activity monitor,open_app
+open disk utility,open_app
+open terminal app,open_app
 close chrome,close_app
 exit chrome,close_app
 terminate chrome,close_app
@@ -68,6 +87,18 @@ shut down vscode,close_app
 close the chrome browser,close_app
 exit the application word,close_app
 terminate notepad process,close_app
+kill app,close_app
+force quit chrome,close_app
+force close notepad,close_app
+stop chrome,close_app
+quit vscode,close_app
+end task chrome,close_app
+close application,close_app
+exit program,close_app
+terminate program,close_app
+pkill chrome,close_app
+killall chrome,close_app
+taskkill /f /im chrome.exe,close_app
 create folder school,create_folder
 make folder school,create_folder
 create directory school,create_folder
@@ -88,6 +119,16 @@ build a new directory called archive,create_folder
 make directory called music,create_folder
 create a new folder movies,create_folder
 new folder called documents,create_folder
+mkdir school,create_folder
+md project,create_folder
+mkdir test,create_folder
+create directory,create_folder
+new directory,create_folder
+make directory,create_folder
+tengeneza kabrasha,create_folder
+tengeneza folder,create_folder
+fanya folder,create_folder
+unda kabrasha,create_folder
 delete folder school,delete_folder
 remove folder school,delete_folder
 delete directory school,delete_folder
@@ -106,6 +147,14 @@ eliminate directory cache,delete_folder
 remove the folder called old_backup,delete_folder
 delete the directory named temp_files,delete_folder
 erase folder scratch,delete_folder
+rmdir school,delete_folder
+rd project,delete_folder
+rm -rf test,delete_folder
+del folder,delete_folder
+futa kabrasha,delete_folder
+futa folder,delete_folder
+ondoa kabrasha,delete_folder
+futa directory,delete_folder
 create file notes.txt,create_file
 make file notes.txt,create_file
 generate file notes.txt,create_file
@@ -126,6 +175,14 @@ make a blank file output.txt,create_file
 generate a new file log.txt,create_file
 create a text file called diary.txt,create_file
 make new file summary.txt,create_file
+touch notes.txt,create_file
+echo > file.txt,create_file
+type nul > file.txt,create_file
+new item file.txt,create_file
+tengeneza faili,create_file
+unda faili,create_file
+fanya faili,create_file
+create document,create_file
 delete file notes.txt,delete_file
 remove file notes.txt,delete_file
 erase file notes.txt,delete_file
@@ -144,6 +201,14 @@ destroy file outdated.docx,delete_file
 eliminate file cache.tmp,delete_file
 remove the file called old_report.pdf,delete_file
 delete the document named draft.txt,delete_file
+del notes.txt,delete_file
+rm report.docx,delete_file
+erase file,delete_file
+remove file,delete_file
+futa faili,delete_file
+ondoa faili,delete_file
+delete document,delete_file
+trash file,delete_file
 rename file notes.txt to readme.txt,rename_file
 change file name report.docx to final_report.docx,rename_file
 rename file old.txt to new.txt,rename_file
@@ -159,6 +224,13 @@ change file name readme.md to documentation.md,rename_file
 rename file old_data.csv to new_data.csv,rename_file
 rename file image.png to logo.png,rename_file
 change file name from style.css to theme.css,rename_file
+mv notes.txt readme.txt,rename_file
+ren old.txt new.txt,rename_file
+change file name,rename_file
+rename this file,rename_file
+rename document,rename_file
+badilisha jina faili,rename_file
+badili jina la faili,rename_file
 rename folder projects to archive,rename_folder
 change folder name school to university,rename_folder
 rename folder old_data to backup_data,rename_folder
@@ -171,6 +243,13 @@ rename folder music to songs,rename_folder
 change folder name photos to pictures,rename_folder
 rename folder desktop_backup to backup,rename_folder
 change name of folder drafts to completed,rename_folder
+mv projects archive,rename_folder
+ren school university,rename_folder
+rename directory,rename_folder
+rename this folder,rename_folder
+change folder name,rename_folder
+badilisha jina la kabrasha,rename_folder
+badili jina la folder,rename_folder
 move file report.docx to documents,move_file
 transfer file notes.txt to backup,move_file
 move file data.csv to archive,move_file
@@ -186,6 +265,12 @@ move file log.txt to logs folder,move_file
 transform file image.png to assets,move_file
 move file script.py to src folder,move_file
 relocate file config.yaml to config folder,move_file
+mv notes.txt backup/,move_file
+move file, move_file
+transfer file, move_file
+relocate file, move_file
+hamisha faili,move_file
+sogeza faili,move_file
 move folder project to archive,move_folder
 transfer folder school to backup,move_folder
 move folder documents to external_drive,move_folder
@@ -198,6 +283,12 @@ move folder music to media_drive,move_folder
 transfer folder reports to archive_drive,move_folder
 relocate folder old_projects to storage,move_folder
 move folder cache to temp_drive,move_folder
+mv projects archive/,move_folder
+move folder, move_folder
+transfer folder, move_folder
+relocate folder, move_folder
+hamisha kabrasha,move_folder
+sogeza folder,move_folder
 copy file notes.txt to backup,copy_file
 duplicate file report.docx to desktop,copy_file
 copy file data.csv to documents,copy_file
@@ -213,6 +304,24 @@ duplicate file script.py to src folder,copy_file
 copy file image.png to assets folder,copy_file
 make a copy of log.txt in logs folder,copy_file
 duplicate file style.css to themes folder,copy_file
+cp notes.txt backup/,copy_file
+copy file, copy_file
+duplicate file, copy_file
+replicate file, copy_file
+nakili faili,copy_file
+copy document, copy_file
+copy folder work to backup,copy_folder
+duplicate the project folder,copy_folder
+make a copy of the archive folder,copy_folder
+copy that folder to my desktop,copy_folder
+clone the backup folder,copy_folder
+replicate the work folder,copy_folder
+cp -r work backup/,copy_folder
+copy folder, copy_folder
+duplicate folder, copy_folder
+replicate folder, copy_folder
+nakili kabrasha,copy_folder
+copy directory, copy_folder
 find report.pdf,search_file
 search file report.pdf,search_file
 locate report.pdf,search_file
@@ -233,6 +342,11 @@ find files named report on my computer,search_file
 locate the file script.py,search_file
 search for image files on my pc,search_file
 find where the file config.json is,search_file
+find file,search_file
+search file,search_file
+locate file,search_file
+tafuta faili,search_file
+look for file,search_file
 find folder projects,search_folder
 search directory school,search_folder
 locate folder backup,search_folder
@@ -248,6 +362,11 @@ locate directory named src,search_folder
 search for any folder named backup,search_folder
 find folder called photos,search_folder
 look for directory named logs,search_folder
+find folder,search_folder
+search folder,search_folder
+locate folder,search_folder
+tafuta kabrasha,search_folder
+look for directory,search_folder
 open file report.docx,open_file
 launch file notes.txt,open_file
 open file data.csv,open_file
@@ -263,6 +382,11 @@ launch document final_report.docx,open_file
 open up data.xlsx for me,open_file
 show me the file image.png,open_file
 open file called settings.json,open_file
+open document,open_file
+open file,open_file
+launch file,open_file
+fungua faili,open_file
+show file,open_file
 open folder documents,open_folder
 show folder downloads,open_folder
 open folder projects,open_folder
@@ -278,6 +402,11 @@ browse to folder desktop,open_folder
 open the directory called archive,open_folder
 show me folder reports,open_folder
 launch folder called backup,open_folder
+open folder,open_folder
+open directory,open_folder
+show folder,open_folder
+fungua kabrasha,open_folder
+browse folder,open_folder
 read file notes.txt,read_file
 show contents of report.docx,read_file
 read file config.json,read_file
@@ -293,6 +422,13 @@ display the content of file data.csv,read_file
 open and read the file log.txt,read_file
 show file contents of settings.json,read_file
 read the contents of the file report.txt,read_file
+read file,read_file
+show file contents,read_file
+display file,read_file
+soma faili,read_file
+cat file.txt,read_file
+type file.txt,read_file
+get file content,read_file
 generate document AI_Project_Proposal.docx,generate_document
 create report annual_summary.docx,generate_document
 generate report quarterly_review.pdf,generate_document
@@ -308,6 +444,22 @@ generate a pdf report about finances,generate_document
 create a word document about history.docx,generate_document
 generate a presentation about marketing.pptx,generate_document
 create an excel report about sales.xlsx,generate_document
+create schedule for Leo,generate_document
+make schedule for John,generate_document
+generate training schedule,generate_document
+create work schedule,generate_document
+make a plan for the project,generate_document
+generate Leo's training schedule,generate_document
+nataka schedule ya Leo,generate_document
+taka ratiba ya John,generate_document
+nataka document about AI,generate_document
+create Leo schedule before he leaves,generate_document
+generate document,generate_document
+create document,generate_document
+make document,generate_document
+tengeneza document,generate_document
+unda document,generate_document
+generate report,generate_document
 search python tutorial,search_web
 search angular documentation,search_web
 find laravel tutorial online,search_web
@@ -333,6 +485,11 @@ search for css grid layout guide,search_web
 find information about docker online,search_web
 search google for kubernetes guide,search_web
 look for git tutorial online,search_web
+search web,search_web
+google search,search_web
+look up online,search_web
+search internet,search_web
+tafuta mtandaoni,search_web
 open youtube,open_website
 open github,open_website
 open google,open_website
@@ -353,6 +510,10 @@ browse to github,open_website
 go to facebook.com,open_website
 visit chatgpt website,open_website
 open the website google,open_website
+open website,open_website
+go to website,open_website
+visit site,open_website
+fungua tovuti,open_website
 find app chrome,search_app
 search installed applications,search_app
 find notepad in my computer,search_app
@@ -368,6 +529,11 @@ search for installed software,search_app
 locate program notepad on my computer,search_app
 find application named vscode,search_app
 search my computer for installed apps,search_app
+find app,search_app
+search application,search_app
+locate program,search_app
+tafuta programu,search_app
+find software,search_app
 run command dir,run_command
 execute command ipconfig,run_command
 run command ping google.com,run_command
@@ -383,6 +549,11 @@ execute command time /t,run_command
 run command ver in terminal,run_command
 execute system command vol,run_command
 run command set in terminal,run_command
+run command,run_command
+execute command,run_command
+run terminal command,run_command
+run cmd,run_command
+tekelez amri,run_command
 show running processes,list_processes
 list active applications,list_processes
 show all running tasks,list_processes
@@ -398,6 +569,13 @@ list all open applications,list_processes
 show running services and processes,list_processes
 what apps are active right now,list_processes
 display all running programs,list_processes
+show processes,list_processes
+list tasks,list_processes
+show running apps,list_processes
+onyesha michakato,list_processes
+tasklist,list_processes
+ps aux,list_processes
+top,list_processes
 create angular project school,create_project
 create angular project tourism,create_project
 generate angular project school,create_project
@@ -431,6 +609,15 @@ scaffold a new angular app called admin,create_project
 create a new laravel project named store,create_project
 generate a node project called api_server,create_project
 make a new html website called portfolio,create_project
+ng new school,create_project
+laravel new ecommerce,create_project
+create-react-app myapp,create_project
+django-admin startproject blog,create_project
+vue create dashboard,create_project
+npm init,create_project
+create project,create_project
+generate project,create_project
+tengeneza mradi,create_project
 move file alpha.txt to beta,move_file
 move file source.py to target,move_file
 move file photo.jpg to gallery,move_file
@@ -698,8 +885,8 @@ habari,greeting
 mambo,greeting
 sasa,greeting
 vipi,greeting
-hello nova,greeting
-hi nova,greeting
+hello amazon,greeting
+hi amazon,greeting
 hey there,greeting
 hello there,greeting
 hi there,greeting
@@ -710,8 +897,8 @@ nice to meet you,greeting
 hello how are you,greeting
 hi how are you doing,greeting
 hey whats going on,greeting
-good morning nova,greeting
-good evening nova,greeting
+good morning amazon,greeting
+good evening amazon,greeting
 hello friend,greeting
 hey buddy,greeting
 yo,greeting
@@ -844,8 +1031,8 @@ visit stackoverflow,open_website
 open facebook for me,open_website
 hello there,greeting
 hey how are you,greeting
-good morning nova,greeting
-hi nova,greeting
+good morning amazon,greeting
+hi amazon,greeting
 hello assistant,greeting
 hey whats up,greeting
 habari yako,greeting
@@ -1012,7 +1199,7 @@ generate django project blog,create_project
 create a node project server,create_project
 scaffold a vue project dashboard,create_project
 hello there,greeting
-hey nova,greeting
+hey amazon,greeting
 hi how are you,greeting
 good morning,greeting
 hello my assistant,greeting
@@ -1111,3 +1298,216 @@ open folder from C drive,open_folder
 find folder on volume D,search_folder
 move folder to D drive,move_folder
 copy folder to external drive D,copy_folder
+empty trash,empty_trash
+clear trash,empty_trash
+empty the trash,empty_trash
+clear the trash,empty_trash
+empty recycle bin,empty_trash
+clear recycle bin,empty_trash
+empty my trash,empty_trash
+clean trash,empty_trash
+clean the trash bin,empty_trash
+delete trash,empty_trash
+remove trash,empty_trash
+purge trash,empty_trash
+flush trash,empty_trash
+empty bin,empty_trash
+clear bin,empty_trash
+delete all trash,empty_trash
+remove all trash,empty_trash
+clean out trash,empty_trash
+empty out the trash,empty_trash
+clear out the recycle bin,empty_trash
+please empty the trash,empty_trash
+can you empty the trash,empty_trash
+empty my trash bin,empty_trash
+clean my trash,empty_trash
+get rid of trash,empty_trash
+delete everything in trash,empty_trash
+remove everything from trash,empty_trash
+clear everything from trash,empty_trash
+empty the garbage,empty_trash
+take out the trash,empty_trash
+dump the trash,empty_trash
+dispose of trash,empty_trash
+throw away trash,empty_trash
+clean up trash,empty_trash
+clear recycle,empty_trash
+clean recycle bin,empty_trash
+empty garbage,empty_trash
+clear garbage,empty_trash
+tupa taka,empty_trash
+safisha taka,empty_trash
+futa taka,empty_trash
+ondoa taka,empty_trash
+kill file,delete_file
+destroy file,delete_file
+wipe file,delete_file
+trash file,delete_file
+kill the file,delete_file
+destroy the file,delete_file
+wipe out file,delete_file
+throw away file,delete_file
+get rid of file,delete_file
+remove the file please,delete_file
+delete this file for me,delete_file
+kill this file,delete_file
+destroy this document,delete_file
+wipe out this file,delete_file
+kill folder,delete_folder
+destroy folder,delete_folder
+wipe folder,delete_folder
+trash folder,delete_folder
+kill the folder,delete_folder
+destroy the folder,delete_folder
+wipe out folder,delete_folder
+throw away folder,delete_folder
+get rid of folder,delete_folder
+remove the folder please,delete_folder
+delete this folder for me,delete_folder
+kill this folder,delete_folder
+destroy this directory,delete_folder
+wipe out this folder,delete_folder
+open finder on mac,open_app
+open terminal on mac,open_app
+open activity monitor mac,open_app
+force quit on mac,close_app
+command q chrome,close_app
+cmd q vscode,close_app
+mkdir on mac,create_folder
+rmdir on mac,delete_folder
+touch on mac,create_file
+rm on mac,delete_file
+mv on mac,rename_file
+cp on mac,copy_file
+pwd,run_command
+ls,run_command
+ls -la,run_command
+cd desktop,run_command
+cd documents,run_command
+clear,run_command
+history,run_command
+echo hello,run_command
+whoami,run_command
+pwd on windows,run_command
+chdir,run_command
+dir /w,run_command
+taskkill,run_command
+shutdown,run_command
+shutdown /s,run_command
+shutdown /r,run_command
+log off,run_command
+logoff,run_command
+lock screen,unknown
+win + l,unknown
+ctrl + alt + del,unknown
+open taskbar,open_app
+open start menu,open_app
+open notification center,open_app
+open settings app,open_app
+open wifi settings,open_app
+open bluetooth settings,open_app
+open display settings,open_app
+open sound settings,open_app
+open printer settings,open_app
+open device manager,open_app
+open network settings,open_app
+open storage settings,open_app
+open recovery settings,open_app
+open about this mac,open_app
+open system report,open_app
+open disk utility mac,open_app
+open time machine,open_app
+open software update,open_app
+check for updates,unknown
+install updates,unknown
+restart now,unknown
+shut down now,unknown
+sleep computer,unknown
+hibernate,unknown
+wake computer,unknown
+screenshot full screen,unknown
+screenshot window,unknown
+screenshot area,unknown
+screen recording,unknown
+start screen recording,unknown
+stop screen recording,unknown
+take screenshot and save,unknown
+open snipping tool,open_app
+open screenshot folder,open_folder
+open downloads folder,open_folder
+open documents folder,open_folder
+open desktop folder,open_folder
+open pictures folder,open_folder
+open music folder,open_folder
+open videos folder,open_folder
+open home folder,open_folder
+open user folder,open_folder
+open root directory,open_folder
+open c drive,open_folder
+open d drive,open_folder
+open network drive,open_folder
+open shared folder,open_folder
+open onedrive,open_folder
+open google drive,open_folder
+open dropbox,open_folder
+open icloud drive,open_folder
+map network drive,unknown
+disconnect network drive,unknown
+eject usb,unknown
+safely remove hardware,unknown
+eject disk,unknown
+mount drive,unknown
+unmount drive,unknown
+format drive,unknown
+partition drive,unknown
+check disk health,unknown
+run chkdsk,run_command
+run diskpart,run_command
+run disk utility,run_command
+repair disk,unknown
+verify disk,unknown
+show disk space,unknown
+free up space,unknown
+clean up disk,unknown
+delete temporary files,delete_file
+clear cache,delete_file
+delete downloads,delete_file
+clear browser history,unknown
+clear cookies,unknown
+clear cache memory,unknown
+clear ram,unknown
+optimize system,unknown
+defragment drive,unknown
+optimize drive,unknown
+run antivirus,unknown
+scan for viruses,unknown
+run security scan,unknown
+check firewall,unknown
+enable firewall,unknown
+disable firewall,unknown
+enable wifi,unknown
+disable wifi,unknown
+enable bluetooth,unknown
+disable bluetooth,unknown
+connect to wifi,unknown
+disconnect wifi,unknown
+connect to vpn,unknown
+disconnect vpn,unknown
+show ip configuration,run_command
+show network adapters,run_command
+flush dns,run_command
+renew ip,run_command
+release ip,run_command
+tracert google.com,run_command
+nslookup google.com,run_command
+netstat -an,run_command
+ping 8.8.8.8,run_command
+test internet speed,unknown
+open network preferences,open_app
+open internet options,open_app
+open proxy settings,open_app
+open vpn settings,open_app
+open dns settings,open_app
+open hosts file,open_file
+edit hosts file,open_file

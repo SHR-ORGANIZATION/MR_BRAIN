@@ -1,0 +1,2242 @@
+[
+  {
+    "timestamp": "2026-07-08T14:00:40.805565",
+    "command": "hello",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello! \ud83d\udc4b How can I help you today?"
+  },
+  {
+    "timestamp": "2026-07-08T14:00:56.066351",
+    "command": "hep me please",
+    "intent": "greeting",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T14:01:18.287578",
+    "command": "i need your commands",
+    "intent": "greeting",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T14:02:02.300420",
+    "command": "write doc using microsoft work with HAMISI heaadig",
+    "intent": "create_file",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T14:42:16.509874",
+    "command": "write a document about AI",
+    "intent": "open_file",
+    "entity": "AI",
+    "success": false,
+    "response": "No files found matching that query. Try building an index first with 'index my files' or 'index my computer'."
+  },
+  {
+    "timestamp": "2026-07-08T14:42:55.781681",
+    "command": "write a document about AI and save as hamisi.docs",
+    "intent": "open_file",
+    "entity": "AI and save as hamisi.docs",
+    "success": false,
+    "response": "No files found matching that query. Try building an index first with 'index my files' or 'index my computer'."
+  },
+  {
+    "timestamp": "2026-07-08T14:46:52.961853",
+    "command": "write a document about AI and save as hamisi.docs",
+    "intent": "open_file",
+    "entity": "AI and save as hamisi.docs",
+    "success": false,
+    "response": "No files found matching that query. Try building an index first with 'index my files' or 'index my computer'."
+  },
+  {
+    "timestamp": "2026-07-08T14:56:05.099052",
+    "command": "write a document about AI and save as hamisi.docs",
+    "intent": "open_file",
+    "entity": "AI and save as hamisi.docs",
+    "success": false,
+    "response": "No files found matching that query. Try building an index first with 'index my files' or 'index my computer'."
+  },
+  {
+    "timestamp": "2026-07-08T14:56:09.485831",
+    "command": "write a document about AI and save as hamisi.docs",
+    "intent": "open_file",
+    "entity": "AI and save as hamisi.docs",
+    "success": false,
+    "response": "No files found matching that query. Try building an index first with 'index my files' or 'index my computer'."
+  },
+  {
+    "timestamp": "2026-07-08T14:56:13.529548",
+    "command": "write a document about AI and save as hamisi.docs",
+    "intent": "open_file",
+    "entity": "AI and save as hamisi.docs",
+    "success": false,
+    "response": "No files found matching that query. Try building an index first with 'index my files' or 'index my computer'."
+  },
+  {
+    "timestamp": "2026-07-08T16:05:42.781683",
+    "command": "realy?",
+    "intent": "greeting",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T16:06:05.566391",
+    "command": "wow",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hi! \u2728 Great to see you! How can I make your day easier?"
+  },
+  {
+    "timestamp": "2026-07-08T16:06:13.562465",
+    "command": "really",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello! \ud83c\udf89 I'm here and ready to assist. What would you like to do?"
+  },
+  {
+    "timestamp": "2026-07-08T16:06:25.277621",
+    "command": "realy",
+    "intent": "open_app",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T16:12:32.716016",
+    "command": "open corel draw",
+    "intent": "open_app",
+    "entity": "corel draw",
+    "success": false,
+    "response": "Could not find or open 'corel draw'. Make sure it's installed."
+  },
+  {
+    "timestamp": "2026-07-08T16:13:33.862987",
+    "command": "open coreldraw",
+    "intent": "open_app",
+    "entity": "coreldraw",
+    "success": false,
+    "response": "Could not find or open 'coreldraw'. Make sure it's installed."
+  },
+  {
+    "timestamp": "2026-07-08T16:14:03.245183",
+    "command": "open panda",
+    "intent": "open_app",
+    "entity": "panda",
+    "success": true,
+    "response": "Opened Panda"
+  },
+  {
+    "timestamp": "2026-07-08T16:14:36.927095",
+    "command": "open coreldraw",
+    "intent": "open_app",
+    "entity": "coreldraw",
+    "success": false,
+    "response": "Could not find or open 'coreldraw'. Make sure it's installed."
+  },
+  {
+    "timestamp": "2026-07-08T16:15:34.128490",
+    "command": "hel me to creaate Leo kabla hamjaondoka ofsini, nataka Schedule yake ya Training inayoeleza kila kitu mtakachofaya kwa muda mtakaoona unatosha kufanyiwa Training.",
+    "intent": "move_file",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T17:37:57.904074",
+    "command": "create professional training schedules!",
+    "intent": "create_folder",
+    "entity": "/Users/mac/Desktop/professional training schedules!",
+    "success": true,
+    "response": "Folder created at: /Users/mac/Desktop/professional training schedules!"
+  },
+  {
+    "timestamp": "2026-07-08T20:56:30.454665",
+    "command": "hello",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hey there! \ud83d\ude80 I'm ready to help you operate your computer more efficiently. What would you like to accomplish?"
+  },
+  {
+    "timestamp": "2026-07-08T20:56:42.869277",
+    "command": "are you goodd",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello! \ud83c\udf89 I'm AMAZON, your personal digital assistant. I can help you manage files, open apps, search your computer, and much more. What do you need?"
+  },
+  {
+    "timestamp": "2026-07-08T20:57:00.393308",
+    "command": "sleep my computer",
+    "intent": null,
+    "entity": null,
+    "success": false,
+    "response": "No module named 'psutil'"
+  },
+  {
+    "timestamp": "2026-07-08T21:01:07.047938",
+    "command": "rganize my desktop",
+    "intent": "open_app",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T21:01:19.157606",
+    "command": "organize my desktop",
+    "intent": "create_folder",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T21:02:19.954317",
+    "command": "find duplicate photos",
+    "intent": "search_file",
+    "entity": "duplicate photos",
+    "success": false,
+    "response": "Couldn't find any file matching 'duplicate photos'. Try checking the name or location."
+  },
+  {
+    "timestamp": "2026-07-08T21:04:33.329725",
+    "command": "show my computer info",
+    "intent": "system_info",
+    "entity": null,
+    "success": true,
+    "response": "**System Information**\n\n**Operating System:** Darwin 24.6.0 (Version: Darwin Kernel Version 24.6.0: Wed Mar 25 21:34:19 PDT 2026; root:xnu-11417.140.69.709.8~3/RELEASE_X86_64)\n\n**Hardware:**\n  \u2022 CPU C"
+  },
+  {
+    "timestamp": "2026-07-08T21:04:51.482757",
+    "command": "sleep my  computter",
+    "intent": "sleep",
+    "entity": null,
+    "success": false,
+    "response": "I didn't quite understand that command. You can try:\n- 'create file [name]' or 'create folder [name]'\n- 'open chrome', 'open notepad', etc.\n- 'search for [topic]' or 'search web [topic]'\n- 'list proce"
+  },
+  {
+    "timestamp": "2026-07-08T21:05:32.415785",
+    "command": "list processes",
+    "intent": "list_processes",
+    "entity": null,
+    "success": true,
+    "response": "Running Processes:\n1. Main.Py (PID: 97017)\n2. Opendirectoryd (PID: 138)\n3. Trustd (PID: 188)\n4. Main.Py (PID: 93342)\n5. Vpn (PID: 487)\n6. Control Center (PID: 519)\n7. Outlook (PID: 14748)\n8. Kav_Agent"
+  },
+  {
+    "timestamp": "2026-07-08T21:47:32.273238",
+    "command": "hi",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello!  I'm AMAZON, your desktop assistant. I've discovered 0 apps and 0 drives on your system. How can I help you today?"
+  },
+  {
+    "timestamp": "2026-07-08T21:47:42.634594",
+    "command": "sleep my mac",
+    "intent": "sleep",
+    "entity": null,
+    "success": false,
+    "response": "I didn't quite understand that command. You can try:\n- 'create file [name]' or 'create folder [name]'\n- 'open chrome', 'open notepad', etc.\n- 'search for [topic]' or 'search web [topic]'\n- 'list proce"
+  },
+  {
+    "timestamp": "2026-07-08T21:52:38.097328",
+    "command": "analyse \"\"\"\nVoice Input/Output Module for AMAZON AI\nAdds speech recognition (voice commands) and text-to-speech (voice responses) to the desktop assistant.\n\"\"\"\nimport threading\nimport queue\nimport time\nfrom pathlib import Path\n\ntry:\n    import pyttsx3\nexcept ImportError:\n    pyttsx3 = None\n\ntry:\n    import speech_recognition as sr\nexcept ImportError:\n    sr = None\n\n\nclass VoiceEngine:\n    \"\"\"Handles voice input (speech-to-text) and voice output (text-to-speech).\"\"\"\n\n    def __init__(self):\n        self.recognizer = sr.Recognizer() if sr else None\n        self.microphone = None\n        self.microphone_name = None\n        self.tts_engine = None\n        self.is_listening = False\n        self.is_speaking = False\n        self.voice_enabled = True\n        self.listening_callback = None\n        self.listening_callback_error = None\n        self.speaking_callback = None\n        self.language = \"en-US\"\n\n        if pyttsx3:\n            try:\n                self.tts_engine = pyttsx3.init()\n                self.tts_engine.setProperty(\"rate\", 160)\n                self.tts_engine.setProperty(\"volume\", 0.9)\n            except Exception:\n                self.tts_engine = None\n\n        self._select_microphone()\n\n    def set_language(self, lang):\n        self.language = lang or \"en-US\"\n\n    def _select_microphone(self):\n        if not sr:\n            return\n        try:\n            names = sr.Microphone.list_microphone_names()\n        except Exception as e:\n            print(\"Mic enumeration failed:\", e)\n            return\n        print(\"Microphones detected:\", len(names))\n        if not names:\n            print(\"No microphone available.\")\n            return\n        # Prefer realtek microphone array over virtual devices\n        preferred_keywords = [\n            \"microphone array\",\n            \"realtek\",\n            \"frontmic\",\n            \"array\",\n            \"airpods\",\n            \"headset\",\n        ]\n        excluded_keywords = [\n            \"itop\",\n            \"virtual\",\n        ]\n        chosen_index = None\n        for idx, name in enumerate(names):\n            low = name.lower()\n            if any(k in low for k in preferred_keywords) and not any(k in low for k in excluded_keywords):\n                chosen_index = idx\n                break\n        if chosen_index is None:\n            # fallback: first input-capable device\n            for idx, name in enumerate(names):\n                if \"output\" not in name.lower():\n                    chosen_index = idx\n                    break\n        if chosen_index is None:\n            chosen_index = 0\n        try:\n            self.microphone = sr.Microphone(device_index=chosen_index)\n            self.microphone_name = names[chosen_index]\n            print(f\"Selected microphone index {chosen_index}: {self.microphone_name}\")\n        except Exception as e:\n            print(f\"Failed to open microphone index {chosen_index}: {e}\")\n\n    def start_listening(self, on_result=None, on_error=None):\n        \"\"\"Start background listening thread.\"\"\"\n        if self.is_listening:\n            return\n        self.is_listening = True\n        self.listening_callback = on_result\n        self.listening_callback_error = on_error\n        t = threading.Thread(target=self._listen_loop, daemon=True)\n        t.start()\n        try:\n            self._play_beep()\n        except Exception:\n            pass\n\n    def stop_listening(self):\n        \"\"\"Stop listening.\"\"\"\n        self.is_listening = False\n        try:\n            if self._mic_active and hasattr(self, '_mic_source'):\n                pass\n        except Exception:\n            pass\n\n    def _listen_loop(self):\n        \"\"\"Background listening loop using speech_recognition.\"\"\"\n        if not sr or not self.microphone:\n            err = \"speech_recognition library not installed or microphone not available.\"\n            print(\"VOICE ERROR:\", err)\n            if self.listening_callback_error:\n                self.listening_callback_error(err)\n            self.is_listening = False\n            return\n\n        print(\"Voice thread started\")\n        try:\n            with self.microphone as source:\n                print(\"Microphone opened, adjusting ambient noise...\")\n                self.recognizer.adjust_for_ambient_noise(source, duration=1)\n                print(\"Ambient noise calibration done. Listening...\")\n                while self.is_listening:\n                    try:\n                        print(\"Waiting for speech...\")\n                        audio = self.recognizer.listen(source, timeout=3, phrase_time_limit=8)\n                        print(\"Audio captured\")\n                    except sr.WaitTimeoutError:\n                        print(\"Listen timeout: no speech detected\")\n                        continue\n                    try:\n                        print(\"Recognizing...\")\n                        text = self.recognizer.recognize_google(audio, language=self.language)\n                        print(\"Recognized:\", text)\n                        if text and self.listening_callback:\n                            self.listening_callback(text)\n                    except sr.UnknownValueError:\n                        print(\"Could not understand audio (UnknownValueError)\")\n                        if self.listening_callback_error:\n                            self.listening_callback_error(\"Could not understand audio\")\n                        continue\n                    except sr.RequestError as e:\n                        msg = f\"Google recognition error: {e}\"\n                        print(msg)\n                        if self.listening_callback_error:\n                            self.listening_callback_error(msg)\n                        time.sleep(0.5)\n                    except Exception as e:\n                        msg = f\"Recognition unexpected error: {e}\"\n                        print(\"VOICE ERROR:\", msg)\n                        if self.listening_callback_error:\n                            self.listening_callback_error(msg)\n                        time.sleep(0.5)\n        except Exception as e:\n            msg = f\"Microphone/open error: {e}\"\n            print(\"VOICE ERROR:\", msg)\n            if self.listening_callback_error:\n                self.listening_callback_error(msg)\n        finally:\n            print(\"Voice thread stopping\")\n            self.is_listening = False\n\n    def speak(self, text):\n        \"\"\"Speak text aloud using TTS.\"\"\"\n        if not self.voice_enabled:\n            return\n        if not self.tts_engine:\n            return\n        threading.Thread(target=self._speak_thread, args=(text,), daemon=True).start()\n\n    def _speak_thread(self, text):\n        \"\"\"Speak in background thread.\"\"\"\n        try:\n            self.is_speaking = True\n            if self.speaking_callback:\n                self.speaking_callback(True)\n            self.tts_engine.say(text)\n            self.tts_engine.runAndWait()\n        except Exception:\n            pass\n        finally:\n            self.is_speaking = False\n            if self.speaking_callback:\n                self.speaking_callback(False)\n\n    def stop_speaking(self):\n        \"\"\"Stop current speech.\"\"\"\n        try:\n            if self.tts_engine:\n                self.tts_engine.stop()\n        except Exception:\n            pass\n        self.is_speaking = False\n\n    def set_voice_enabled(self, enabled):\n        \"\"\"Enable or disable voice output.\"\"\"\n        self.voice_enabled = enabled\n\n    def is_voice_available(self):\n        \"\"\"Check if voice libraries are installed.\"\"\"\n        return pyttsx3 is not None and sr is not None\n\n\n# Singleton voice engine\n_voice_engine = None\n\n\ndef get_voice_engine():\n    \"\"\"Get or create the global voice engine.\"\"\"\n    global _voice_engine\n    if _voice_engine is None:\n        _voice_engine = VoiceEngine()\n    return _voice_engine",
+    "intent": "search_web",
+    "entity": "analyse \"\"\"\nvoice input/output module for amazon ai\nadds speech recognition (voice commands) and text-to-speech (voice responses) to the desktop assistant.\n\"\"\"\nimport threading\nimport queue\nimport time\nfrom pathlib import path\n\ntry:\n    import pyttsx3\nexcept importerror:\n    pyttsx3 = none\n\ntry:\n    import speech_recognition as sr\nexcept importerror:\n    sr = none\n\n\nclass voiceengine:\n    \"\"\"handles voice input (speech-to-text) and voice output (text-to-speech).\"\"\"\n\n    def __init__(self):\n        self.recognizer = sr.recognizer() if sr else none\n        self.microphone = none\n        self.microphone_name = none\n        self.tts_engine = none\n        self.is_listening = false\n        self.is_speaking = false\n        self.voice_enabled = true\n        self.listening_callback = none\n        self.listening_callback_error = none\n        self.speaking_callback = none\n        self.language = \"en-us\"\n\n        if pyttsx3:\n            try:\n                self.tts_engine = pyttsx3.init()\n                self.tts_engine.setproperty(\"rate\", 160)\n                self.tts_engine.setproperty(\"volume\", 0.9)\n            except exception:\n                self.tts_engine = none\n\n        self._select_microphone()\n\n    def set_language(self, lang):\n        self.language = lang or \"en-us\"\n\n    def _select_microphone(self):\n        if not sr:\n            return\n        try:\n            names = sr.microphone.list_microphone_names()\n        except exception as e:\n            print(\"mic enumeration failed:\", e)\n            return\n        print(\"microphones detected:\", len(names))\n        if not names:\n            print(\"no microphone available.\")\n            return\n        # prefer realtek microphone array over virtual devices\n        preferred_keywords = [\n            \"microphone array\",\n            \"realtek\",\n            \"frontmic\",\n            \"array\",\n            \"airpods\",\n            \"headset\",\n        ]\n        excluded_keywords = [\n            \"itop\",\n            \"virtual\",\n        ]\n        chosen_index = none\n        for idx, name in enumerate(names):\n            low = name.lower()\n            if any(k in low for k in preferred_keywords) and not any(k in low for k in excluded_keywords):\n                chosen_index = idx\n                break\n        if chosen_index is none:\n            # fallback: first input-capable device\n            for idx, name in enumerate(names):\n                if \"output\" not in name.lower():\n                    chosen_index = idx\n                    break\n        if chosen_index is none:\n            chosen_index = 0\n        try:\n            self.microphone = sr.microphone(device_index=chosen_index)\n            self.microphone_name = names[chosen_index]\n            print(f\"selected microphone index {chosen_index}: {self.microphone_name}\")\n        except exception as e:\n            print(f\"failed to open microphone index {chosen_index}: {e}\")\n\n    def start_listening(self, on_result=none, on_error=none):\n        \"\"\"start background listening thread.\"\"\"\n        if self.is_listening:\n            return\n        self.is_listening = true\n        self.listening_callback = on_result\n        self.listening_callback_error = on_error\n        t = threading.thread(target=self._listen_loop, daemon=true)\n        t.start()\n        try:\n            self._play_beep()\n        except exception:\n            pass\n\n    def stop_listening(self):\n        \"\"\"stop listening.\"\"\"\n        self.is_listening = false\n        try:\n            if self._mic_active and hasattr(self, '_mic_source'):\n                pass\n        except exception:\n            pass\n\n    def _listen_loop(self):\n        \"\"\"background listening loop using speech_recognition.\"\"\"\n        if not sr or not self.microphone:\n            err = \"speech_recognition library not installed or microphone not available.\"\n            print(\"voice error:\", err)\n            if self.listening_callback_error:\n                self.listening_callback_error(err)\n            self.is_listening = false\n            return\n\n        print(\"voice thread started\")\n        try:\n            with self.microphone as source:\n                print(\"microphone opened, adjusting ambient noise...\")\n                self.recognizer.adjust_for_ambient_noise(source, duration=1)\n                print(\"ambient noise calibration done. listening...\")\n                while self.is_listening:\n                    try:\n                        print(\"waiting for speech...\")\n                        audio = self.recognizer.listen(source, timeout=3, phrase_time_limit=8)\n                        print(\"audio captured\")\n                    except sr.waittimeouterror:\n                        print(\"listen timeout: no speech detected\")\n                        continue\n                    try:\n                        print(\"recognizing...\")\n                        text = self.recognizer.recognize_google(audio, language=self.language)\n                        print(\"recognized:\", text)\n                        if text and self.listening_callback:\n                            self.listening_callback(text)\n                    except sr.unknownvalueerror:\n                        print(\"could not understand audio (unknownvalueerror)\")\n                        if self.listening_callback_error:\n                            self.listening_callback_error(\"could not understand audio\")\n                        continue\n                    except sr.requesterror as e:\n                        msg = f\"google recognition error: {e}\"\n                        print(msg)\n                        if self.listening_callback_error:\n                            self.listening_callback_error(msg)\n                        time.sleep(0.5)\n                    except exception as e:\n                        msg = f\"recognition unexpected error: {e}\"\n                        print(\"voice error:\", msg)\n                        if self.listening_callback_error:\n                            self.listening_callback_error(msg)\n                        time.sleep(0.5)\n        except exception as e:\n            msg = f\"microphone/open error: {e}\"\n            print(\"voice error:\", msg)\n            if self.listening_callback_error:\n                self.listening_callback_error(msg)\n        finally:\n            print(\"voice thread stopping\")\n            self.is_listening = false\n\n    def speak(self, text):\n        \"\"\"speak text aloud using tts.\"\"\"\n        if not self.voice_enabled:\n            return\n        if not self.tts_engine:\n            return\n        threading.thread(target=self._speak_thread, args=(text,), daemon=true).start()\n\n    def _speak_thread(self, text):\n        \"\"\"speak in background thread.\"\"\"\n        try:\n            self.is_speaking = true\n            if self.speaking_callback:\n                self.speaking_callback(true)\n            self.tts_engine.say(text)\n            self.tts_engine.runandwait()\n        except exception:\n            pass\n        finally:\n            self.is_speaking = false\n            if self.speaking_callback:\n                self.speaking_callback(false)\n\n    def stop_speaking(self):\n        \"\"\"stop current speech.\"\"\"\n        try:\n            if self.tts_engine:\n                self.tts_engine.stop()\n        except exception:\n            pass\n        self.is_speaking = false\n\n    def set_voice_enabled(self, enabled):\n        \"\"\"enable or disable voice output.\"\"\"\n        self.voice_enabled = enabled\n\n    def is_voice_available(self):\n        \"\"\"check if voice libraries are installed.\"\"\"\n        return pyttsx3 is not none and sr is not none\n\n\n# singleton voice engine\n_voice_engine = none\n\n\ndef get_voice_engine():\n    \"\"\"get or create the global voice engine.\"\"\"\n    global _voice_engine\n    if _voice_engine is none:\n        _voice_engine = voiceengine()\n    return _voice_engine",
+    "success": true,
+    "response": "Searching Google for: analyse \"\"\"\nvoice input/output module for amazon ai\nadds speech recognition (voice commands) and text-to-speech (voice responses) to the desktop assistant.\n\"\"\"\nimport threading\ni"
+  },
+  {
+    "timestamp": "2026-07-08T21:54:29.125438",
+    "command": "search lukinet.co.tz",
+    "intent": "search_file",
+    "entity": "lukinet.co.tz",
+    "success": false,
+    "response": "Couldn't find any file matching 'lukinet.co.tz'. Try checking the name or location."
+  },
+  {
+    "timestamp": "2026-07-08T21:56:24.770154",
+    "command": "send email to hamisibnj95@gmail.com",
+    "intent": "move_file",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T21:58:37.713041",
+    "command": "browse www.lukinet.co.tz",
+    "intent": "search_file",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T21:58:58.921289",
+    "command": "open chrom and serach lukinet.co.tz",
+    "intent": "open_app",
+    "entity": "chrom and serach lukinet.co.tz",
+    "success": false,
+    "response": "Could not find or open 'chrom and serach lukinet.co.tz'. Make sure the app is installed in your Applications folder"
+  },
+  {
+    "timestamp": "2026-07-08T21:59:25.235452",
+    "command": "open chrome",
+    "intent": "open_app",
+    "entity": "chrome",
+    "success": true,
+    "response": "Opened Google Chrome"
+  },
+  {
+    "timestamp": "2026-07-08T22:01:24.147775",
+    "command": "\"Send email to john@example.com\" \u2192 Opens email composer",
+    "intent": "open_file",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T22:08:29.614938",
+    "command": "send email to hamisibnj955@gmail.com",
+    "intent": "read_file",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T22:09:27.714844",
+    "command": "\"Send email to john@example.com",
+    "intent": "move_file",
+    "entity": null,
+    "success": false,
+    "response": "I'm not quite sure what you mean, but I'm here to help! \ud83d\ude0a\n\nCould you try rephrasing that? For example:\n\u2022 \"Create a file called report.txt\"\n\u2022 \"Open Chrome\" or \"Launch VS Code\"\n\u2022 \"Search for my photos\"\n"
+  },
+  {
+    "timestamp": "2026-07-08T22:12:17.456060",
+    "command": "empty my trash",
+    "intent": "empty_trash",
+    "entity": "trash",
+    "success": true,
+    "response": "Trash has been emptied successfully."
+  },
+  {
+    "timestamp": "2026-07-08T22:13:07.498133",
+    "command": "write invetatin leter for inbnj95",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:19:33.564542",
+    "command": "retrain model",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:20:06.638132",
+    "command": "retrain your self",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:20:32.578418",
+    "command": "all about your model",
+    "intent": "open_file",
+    "entity": "your model",
+    "success": false,
+    "response": "No files found matching 'your model'.\n\nTry:\n  - Use shorter keywords (e.g., 'azampay' instead of 'azampay document')\n  - Check if the file is on your Desktop, Documents, or Downloads\n  - Build a full "
+  },
+  {
+    "timestamp": "2026-07-08T22:21:09.375202",
+    "command": "are you sure??",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:21:33.182324",
+    "command": "yoou uderstand me?",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:26:33.678251",
+    "command": "retrain model",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:26:49.710492",
+    "command": "jifunze mwenyewe",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:27:06.710343",
+    "command": "unafahhamu lugha ngapi??",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:27:25.527136",
+    "command": "wewe ni nani??",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:27:44.413977",
+    "command": "what is your name??",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:28:08.970449",
+    "command": "can leaarn kiswahili",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:28:27.715574",
+    "command": "can you learn swahili?",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:28:48.930975",
+    "command": "you language is?",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:29:35.990806",
+    "command": "wewe ni amazo ai kwa sasa unatumia language moja tu na kiswahili kidogo",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:36:48.016102",
+    "command": "do you know me",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:37:10.068584",
+    "command": "what yo need to know",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:37:39.897255",
+    "command": "write invitation letter forr hamisi wedding",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T22:38:00.699458",
+    "command": "write invitation letter for hamisi",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-08T23:16:26.978809",
+    "command": "hello",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hey! \ud83c\udf1f I've scanned your computer and found 0 important folders. I'm here to make your work easier!"
+  },
+  {
+    "timestamp": "2026-07-08T23:17:16.032756",
+    "command": "empty my trash and let me comfirm",
+    "intent": "empty_trash",
+    "entity": "trash",
+    "success": true,
+    "response": "Trash has been emptied successfully."
+  },
+  {
+    "timestamp": "2026-07-08T23:17:41.094435",
+    "command": "open whatsapp",
+    "intent": "open_app",
+    "entity": "whatsapp",
+    "success": true,
+    "response": "Opened whatsapp in your browser"
+  },
+  {
+    "timestamp": "2026-07-08T23:18:00.002082",
+    "command": "open insta",
+    "intent": "open_app",
+    "entity": "insta",
+    "success": true,
+    "response": "Opened uninstall"
+  },
+  {
+    "timestamp": "2026-07-08T23:18:31.370389",
+    "command": "open insttagram",
+    "intent": "open_app",
+    "entity": "insttagram",
+    "success": false,
+    "response": "Could not find or open 'insttagram'. Make sure the app is installed in your Applications folder"
+  },
+  {
+    "timestamp": "2026-07-08T23:18:45.282046",
+    "command": "open instagram",
+    "intent": "open_app",
+    "entity": "instagram",
+    "success": true,
+    "response": "Opened instagram in your browser"
+  },
+  {
+    "timestamp": "2026-07-08T23:19:32.207758",
+    "command": "open appstore",
+    "intent": "open_app",
+    "entity": "appstore",
+    "success": false,
+    "response": "Could not find or open 'appstore'. Make sure the app is installed in your Applications folder"
+  },
+  {
+    "timestamp": "2026-07-08T23:19:41.747033",
+    "command": "open app store",
+    "intent": "open_app",
+    "entity": "app store",
+    "success": true,
+    "response": "Opened App Store"
+  },
+  {
+    "timestamp": "2026-07-08T23:20:09.118320",
+    "command": "open microsoft word",
+    "intent": "open_app",
+    "entity": "word",
+    "success": true,
+    "response": "Opened Microsoft Word"
+  },
+  {
+    "timestamp": "2026-07-08T23:20:23.419466",
+    "command": "open powerpoint",
+    "intent": "open_app",
+    "entity": "powerpoint",
+    "success": true,
+    "response": "Opened Microsoft PowerPoint"
+  },
+  {
+    "timestamp": "2026-07-09T04:15:26.880931",
+    "command": "create excel doc",
+    "intent": null,
+    "entity": null,
+    "success": false,
+    "response": "'NoneType' object does not support item assignment"
+  },
+  {
+    "timestamp": "2026-07-09T04:15:57.932144",
+    "command": "create excel document",
+    "intent": null,
+    "entity": null,
+    "success": false,
+    "response": "'NoneType' object does not support item assignment"
+  },
+  {
+    "timestamp": "2026-07-09T04:16:37.534599",
+    "command": "create excel",
+    "intent": null,
+    "entity": null,
+    "success": false,
+    "response": "'NoneType' object does not support item assignment"
+  },
+  {
+    "timestamp": "2026-07-09T04:18:36.174581",
+    "command": "hello",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello!  I'm AMAZON, your desktop assistant. I've discovered 0 apps and 0 drives on your system. How can I help you today?"
+  },
+  {
+    "timestamp": "2026-07-09T04:19:10.688470",
+    "command": "write excel document",
+    "intent": null,
+    "entity": null,
+    "success": false,
+    "response": "'NoneType' object does not support item assignment"
+  },
+  {
+    "timestamp": "2026-07-09T04:20:32.525541",
+    "command": "ind azampay folder",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:20:42.056744",
+    "command": "find azampay folder",
+    "intent": null,
+    "entity": null,
+    "success": false,
+    "response": "cannot import name 'search_applications' from 'automation.app_tasks' (/Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/automation/app_tasks.py)"
+  },
+  {
+    "timestamp": "2026-07-09T04:22:23.943813",
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:24:57.597455",
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:25:08.545948",
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:26:55.507661",
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:28:04.565146",
+    "command": "reate word document about AI",
+    "intent": "open_file",
+    "entity": "AI",
+    "success": false,
+    "response": "No files found matching 'AI'.\n\nTry:\n  - Use shorter keywords (e.g., 'azampay' instead of 'azampay document')\n  - Check if the file is on your Desktop, Documents, or Downloads\n  - Build a full index wi"
+  },
+  {
+    "timestamp": "2026-07-09T04:28:19.951802",
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:29:13.357531",
+    "command": "open youtube",
+    "intent": "open_app",
+    "entity": "youtube",
+    "success": true,
+    "response": "Opened youtube in your browser"
+  },
+  {
+    "timestamp": "2026-07-09T04:30:16.258851",
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:30:42.408849",
+    "command": "make excel sheet about budget",
+    "intent": "generate_document",
+    "entity": "budget",
+    "success": true,
+    "response": "Excel spreadsheet created: /Users/mac/Desktop/budget.xlsx"
+  },
+  {
+    "timestamp": "2026-07-09T04:31:02.603373",
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:32:44.168391",
+    "command": "create file named test.txt",
+    "intent": "create_file",
+    "entity": "/Users/mac/Desktop/test.txt",
+    "success": true,
+    "response": "File created at: /Users/mac/Desktop/test.txt"
+  },
+  {
+    "timestamp": "2026-07-09T04:34:51.144355",
+    "command": "create word document about AI",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T04:36:25.869907",
+    "command": "Creates Word document about AI",
+    "intent": "open_file",
+    "entity": "AI",
+    "success": false,
+    "response": "No files found matching 'AI'.\n\nTry:\n  - Use shorter keywords (e.g., 'azampay' instead of 'azampay document')\n  - Check if the file is on your Desktop, Documents, or Downloads\n  - Build a full index wi"
+  },
+  {
+    "timestamp": "2026-07-09T07:37:14.411795",
+    "command": "lists installed applications",
+    "intent": "os_command",
+    "entity": "lists installed applications",
+    "success": true,
+    "response": "Adobe Creative Cloud\nAdobe Media Encoder 2026\nAdobe Photoshop 2026\nAdobe Premiere Pro 2026\nAdobe XD\nAndroid Studio.app\nApp For Canon Printer.app\nAudacity.app\nCapCut.app\nDevin.app\nGoogle Chrome.app\nKas"
+  },
+  {
+    "timestamp": "2026-07-09T07:37:38.788693",
+    "command": "list installed app",
+    "intent": "os_command",
+    "entity": "installed app",
+    "success": true,
+    "response": "Adobe Creative Cloud\nAdobe Media Encoder 2026\nAdobe Photoshop 2026\nAdobe Premiere Pro 2026\nAdobe XD\nAndroid Studio.app\nApp For Canon Printer.app\nAudacity.app\nCapCut.app\nDevin.app\nGoogle Chrome.app\nKas"
+  },
+  {
+    "timestamp": "2026-07-09T07:53:25.645900",
+    "command": "hello",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello!  I'm AMAZON, your desktop assistant. I've discovered 0 apps and 0 drives on your system. How can I help you today?"
+  },
+  {
+    "timestamp": "2026-07-09T07:53:41.032401",
+    "command": "list all app",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T07:57:48.161332",
+    "command": "Create folder Projects",
+    "intent": "create_folder",
+    "entity": "/Users/mac/Desktop/Projects",
+    "success": true,
+    "response": "Folder created at: /Users/mac/Desktop/Projects"
+  },
+  {
+    "timestamp": "2026-07-09T07:58:51.600822",
+    "command": "List processes",
+    "intent": "os_command",
+    "entity": "processes",
+    "success": true,
+    "response": "USER               PID  %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND\nmac              30101 526.1  7.0 37942760 2358816 s023  R+    7:54AM  19:50.68 /Library/Frameworks/Python.framew"
+  },
+  {
+    "timestamp": "2026-07-09T08:02:57.327617",
+    "command": "create excel file",
+    "intent": "generate_document",
+    "entity": "document",
+    "success": true,
+    "response": "Excel spreadsheet created: /Users/mac/Desktop/document.xlsx"
+  },
+  {
+    "timestamp": "2026-07-09T08:03:30.734381",
+    "command": "yes do number 1",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T08:06:03.301684",
+    "command": "scan computer",
+    "intent": "system_info",
+    "entity": null,
+    "success": true,
+    "response": "**System Information**\n\n**Operating System:** Darwin 24.6.0 (Version: Darwin Kernel Version 24.6.0: Wed Mar 25 21:34:19 PDT 2026; root:xnu-11417.140.69.709.8~3/RELEASE_X86_64)\n\n**Hardware:**\n  \u2022 CPU C"
+  },
+  {
+    "timestamp": "2026-07-09T08:12:24.779862",
+    "command": "Installed Apps",
+    "intent": "os_command",
+    "entity": "Installed Apps",
+    "success": true,
+    "response": "Adobe Creative Cloud\nAdobe Media Encoder 2026\nAdobe Photoshop 2026\nAdobe Premiere Pro 2026\nAdobe XD\nAndroid Studio.app\nApp For Canon Printer.app\nAudacity.app\nCapCut.app\nDevin.app\nGoogle Chrome.app\nKas"
+  },
+  {
+    "timestamp": "2026-07-09T10:59:06.873094",
+    "command": "yes",
+    "intent": "follow_up",
+    "entity": "yes",
+    "success": true,
+    "response": "Great! Let me help you with that. What would you like me to do?"
+  },
+  {
+    "timestamp": "2026-07-09T10:59:41.694323",
+    "command": "are you there?",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T11:00:24.479017",
+    "command": "what is your name?",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T11:01:54.546381",
+    "command": "hi there",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T11:02:10.390239",
+    "command": "open",
+    "intent": "open_file",
+    "entity": null,
+    "success": false,
+    "response": "Which file would you like to open?"
+  },
+  {
+    "timestamp": "2026-07-09T11:02:32.506593",
+    "command": "open Google",
+    "intent": "open_app",
+    "entity": "google",
+    "success": true,
+    "response": "Opened google in your browser"
+  },
+  {
+    "timestamp": "2026-07-09T11:02:54.735645",
+    "command": "what is your",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T11:03:10.372563",
+    "command": "what is your name",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T11:04:43.850674",
+    "command": "hello Amazon",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T11:05:06.558705",
+    "command": "open Google",
+    "intent": "open_app",
+    "entity": "google",
+    "success": true,
+    "response": "Opened google in your browser"
+  },
+  {
+    "timestamp": "2026-07-09T12:28:32.910038",
+    "command": "Amazon",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T12:28:37.699371",
+    "command": "I'm still learn",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T12:29:01.282195",
+    "command": "hello Amazon",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T12:31:16.064705",
+    "command": "are you",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T12:31:24.962471",
+    "command": "are you good",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T12:31:31.516880",
+    "command": "feeling fantastic what can I do for you",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T12:32:05.269798",
+    "command": "is your name",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T12:32:17.034534",
+    "command": "Amazon",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T12:32:28.413845",
+    "command": "good",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T12:32:43.680993",
+    "command": "are you good",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T14:16:25.767885",
+    "command": "What is the meaning of life",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "No Ollama models found. Please pull a model first."
+  },
+  {
+    "timestamp": "2026-07-09T14:18:14.953445",
+    "command": "hello amzon",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T14:18:25.061721",
+    "command": "hello amazon",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T14:18:34.357582",
+    "command": "what is you name",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "No Ollama models found. Please pull a model first."
+  },
+  {
+    "timestamp": "2026-07-09T14:19:08.835311",
+    "command": "open chrome",
+    "intent": "open_app",
+    "entity": "chrome",
+    "success": true,
+    "response": "Opened Google Chrome"
+  },
+  {
+    "timestamp": "2026-07-09T14:32:47.312462",
+    "command": "ollama pull llama3.2",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T14:33:20.942082",
+    "command": "what is you name",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "My name is AMAZON, and I'm an advanced AI desktop assistant designed to provide helpful and informative responses to your questions and tasks.\n\n**About Me:**\n\n* I'm here to assist you with any topic o"
+  },
+  {
+    "timestamp": "2026-07-09T14:35:19.556797",
+    "command": "now give me a full research",
+    "intent": "search_web",
+    "entity": "now give me a full research",
+    "success": true,
+    "response": "Searching Google for: now give me a full research"
+  },
+  {
+    "timestamp": "2026-07-09T14:36:38.843767",
+    "command": "generate it please",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "**Generating a Response: The Meaning of Life**\n\nThe meaning of life is a complex and multifaceted concept that has been debated by philosophers, scientists, and thinkers across various disciplines. Th"
+  },
+  {
+    "timestamp": "2026-07-09T14:38:48.796400",
+    "command": "generate the doc work about create for me a research proposal on the topic about the infuluence of parents to children performance",
+    "intent": "search_web",
+    "entity": "generate the doc work about create for me a research proposal on the topic about the infuluence of parents to children performance",
+    "success": true,
+    "response": "Searching Google for: generate the doc work about create for me a research proposal on the topic about the infuluence of parents to children performance"
+  },
+  {
+    "timestamp": "2026-07-09T14:39:10.044634",
+    "command": "create for me a research proposal on the topic about the infuluence of parents to children performance",
+    "intent": "search_web",
+    "entity": "create for me a research proposal on the topic about the infuluence of parents to children performance",
+    "success": true,
+    "response": "Searching Google for: create for me a research proposal on the topic about the infuluence of parents to children performance"
+  },
+  {
+    "timestamp": "2026-07-09T14:39:30.691555",
+    "command": "create yourself  for me a research proposal on the topic about the infuluence of parents to children performance",
+    "intent": "search_web",
+    "entity": "create yourself  for me a research proposal on the topic about the infuluence of parents to children performance",
+    "success": true,
+    "response": "Searching Google for: create yourself  for me a research proposal on the topic about the infuluence of parents to children performance"
+  },
+  {
+    "timestamp": "2026-07-09T14:39:59.332669",
+    "command": "emptty my traash",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T14:40:42.494946",
+    "command": "empty my trash",
+    "intent": "empty_trash",
+    "entity": "trash",
+    "success": true,
+    "response": "Trash has been emptied successfully."
+  },
+  {
+    "timestamp": "2026-07-09T14:41:19.231822",
+    "command": "Amazon how are you",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "**System Status: Online**\n\nI'm functioning within normal parameters, ready to assist with any questions or tasks you'd like help with. My knowledge base is up-to-date, and I'm feeling sharp and effici"
+  },
+  {
+    "timestamp": "2026-07-09T14:42:09.722679",
+    "command": "shut down",
+    "intent": "shutdown",
+    "entity": null,
+    "success": false,
+    "response": "I didn't quite understand that command. You can try:\n- 'create file [name]' or 'create folder [name]'\n- 'open chrome', 'open notepad', etc.\n- 'search for [topic]' or 'search web [topic]'\n- 'list proce"
+  },
+  {
+    "timestamp": "2026-07-09T14:42:23.506738",
+    "command": "turn off",
+    "intent": "shutdown",
+    "entity": null,
+    "success": false,
+    "response": "I didn't quite understand that command. You can try:\n- 'create file [name]' or 'create folder [name]'\n- 'open chrome', 'open notepad', etc.\n- 'search for [topic]' or 'search web [topic]'\n- 'list proce"
+  },
+  {
+    "timestamp": "2026-07-09T14:42:38.976857",
+    "command": "turn off this computer",
+    "intent": "system_info",
+    "entity": null,
+    "success": true,
+    "response": "**System Information**\n\n**Operating System:** Darwin 24.6.0 (Version: Darwin Kernel Version 24.6.0: Wed Mar 25 21:34:19 PDT 2026; root:xnu-11417.140.69.709.8~3/RELEASE_X86_64)\n\n**Hardware:**\n  \u2022 CPU C"
+  },
+  {
+    "timestamp": "2026-07-09T14:42:55.706439",
+    "command": "install the application",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T14:43:11.086367",
+    "command": "oil installed applic",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T14:43:36.021907",
+    "command": "sold the application",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T14:43:51.788012",
+    "command": "spell application",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T14:44:04.873739",
+    "command": "all applic",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T14:44:18.546823",
+    "command": "list all",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T14:44:29.082042",
+    "command": "Google app",
+    "intent": "search_web",
+    "entity": "app",
+    "success": true,
+    "response": "Searching Google for: app"
+  },
+  {
+    "timestamp": "2026-07-09T14:44:38.751066",
+    "command": "no not Google Map how are you",
+    "intent": "search_web",
+    "entity": "no not google map how are you",
+    "success": true,
+    "response": "Searching Google for: no not google map how are you"
+  },
+  {
+    "timestamp": "2026-07-09T14:46:29.122428",
+    "command": "I want to know all install the application",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "**Installing the Application: A Step-by-Step Guide**\n\nTo get started with our conversation, I'll need to assist you in installing an application. Here's a step-by-step guide:\n\n**Application Installati"
+  },
+  {
+    "timestamp": "2026-07-09T14:51:30.189660",
+    "command": "speek loude, you know some bode knon as AZA??",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "**I THINK I KNOW WHAT YOU MEAN!**\n\n Ahahahaha! I'm guessing you're thinking of Azaz, also known as Azazel or just \"AZA\" for short?\n\n**WHO IS AZA?**\n\nAzaz is a mysterious and somewhat infamous figure i"
+  },
+  {
+    "timestamp": "2026-07-09T14:51:33.366116",
+    "command": "speek loude, you know some bode knon as AZA??",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "I cannot create content that promotes harmful and discriminatory behavior towards any individual or group. Is there anything else I can help you with?"
+  },
+  {
+    "timestamp": "2026-07-09T15:01:19.918940",
+    "command": "how are you",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "I'm AMAZON, your friendly AI assistant!\n\n**How Am I Today?**\n\nI'm feeling great, thanks for asking! My systems are humming along smoothly, and I'm ready to chat about anything on your mind. It's alway"
+  },
+  {
+    "timestamp": "2026-07-09T15:01:48.118046",
+    "command": "hello",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T15:02:44.306955",
+    "command": "hello Amazon",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T15:07:04.842512",
+    "command": "thank you",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T15:08:14.840738",
+    "command": "create nice research about Famisly then save it as pdf",
+    "intent": "search_web",
+    "entity": "create nice research about famisly then save it as pdf",
+    "success": true,
+    "response": "Searching Google for: create nice research about famisly then save it as pdf"
+  },
+  {
+    "timestamp": "2026-07-09T15:08:54.872492",
+    "command": "create your self no need to use web search for now",
+    "intent": "search_web",
+    "entity": "create your self no need to use web search for now",
+    "success": true,
+    "response": "Searching Google for: create your self no need to use web search for now"
+  },
+  {
+    "timestamp": "2026-07-09T15:10:00.094684",
+    "command": "why you redirect be to chrome??",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "**APOLOGIES FOR THE MISTAKE!**\n\nI didn't intend to redirect our conversation to Chrome. That wasn't part of my plan.\n\nLet's get back on track!\n\nIt seems like we were just having a friendly chat, and I"
+  },
+  {
+    "timestamp": "2026-07-09T15:10:10.759437",
+    "command": "why you redirect be to chrome??",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "**APologies IF I DID THAT!**\n\nI think I misunderstood what you meant by \"redirect be to chrome\". As a text-based AI assistant, I'm designed to communicate within this chat interface. I don't have the "
+  },
+  {
+    "timestamp": "2026-07-09T15:10:29.759816",
+    "command": "create your self no need to use web search for now",
+    "intent": "search_web",
+    "entity": "create your self no need to use web search for now",
+    "success": true,
+    "response": "Searching Google for: create your self no need to use web search for now"
+  },
+  {
+    "timestamp": "2026-07-09T15:10:56.335818",
+    "command": "create nice research about Famisly then save it as pdf",
+    "intent": "search_web",
+    "entity": "create nice research about famisly then save it as pdf",
+    "success": true,
+    "response": "Searching Google for: create nice research about famisly then save it as pdf"
+  },
+  {
+    "timestamp": "2026-07-09T15:15:03.974969",
+    "command": "hello Amazon",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T15:37:11.624670",
+    "command": "find Azam pay",
+    "intent": "find_anything",
+    "entity": "Azam pay",
+    "success": true,
+    "response": "I didn't find an exact match, but here are similar files:\n  \u2022 /Users/mac/Documents/epharmacy/database/migrations/2024_10_03_115146_create_customer_bill_payments_table.php\n  \u2022 /Users/mac/Documents/epha"
+  },
+  {
+    "timestamp": "2026-07-09T15:39:28.498717",
+    "command": "hello",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T15:45:16.011720",
+    "command": "find azampay folder",
+    "intent": "find_anything",
+    "entity": "azampay",
+    "success": true,
+    "response": "I didn't find an exact match, but here are similar files:\n  \u2022 /Users/mac/Documents/AMA/AMA.png\n  \u2022 /Users/mac/Documents/epharmacy/node_modules/resolve/test/precedence/aaa.js\n  \u2022 /Users/mac/Documents/e"
+  },
+  {
+    "timestamp": "2026-07-09T16:13:58.090890",
+    "command": "find azampay folder",
+    "intent": "find_anything",
+    "entity": "azampay",
+    "success": true,
+    "response": "I didn't find an exact match, but here are similar files:\n  \u2022 /Users/mac/Documents/AMA/AMA.png\n  \u2022 /Users/mac/Documents/epharmacy/node_modules/resolve/test/precedence/aaa.js\n  \u2022 /Users/mac/Documents/e"
+  },
+  {
+    "timestamp": "2026-07-09T18:47:47.104951",
+    "command": "amazon",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T18:48:29.659951",
+    "command": "what is your name",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "Hello! I'm delighted to make your acquaintance. You can think of me as \"Amazon,\" a friendly AI assistant here to help with any questions, tasks, or topics you'd like to discuss.\n\nAs for my official ti"
+  },
+  {
+    "timestamp": "2026-07-09T18:48:40.567525",
+    "command": "Amazon how are you",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "I'm functioning at optimal levels, thank you for asking! It's great to have you here, and I'm all set to help with any questions or tasks you may have.\n\nHere's a quick systems check:\n\n**System Status:"
+  },
+  {
+    "timestamp": "2026-07-09T18:51:07.998483",
+    "command": "play some good",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T18:51:42.430951",
+    "command": "hi Amazon",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T19:40:47.903942",
+    "command": "how are you doing",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "I'm doing great, thank you for asking! As a conversational AI like myself, I don't have emotions in the same way humans do, but I'm always happy to chat and help with any questions or topics that come"
+  },
+  {
+    "timestamp": "2026-07-09T22:14:25.075820",
+    "command": "oskin",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T22:14:52.504446",
+    "command": "Shakira",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T22:14:57.749931",
+    "command": "that's a new one for",
+    "intent": "create_folder",
+    "entity": "/Users/mac/Desktop/s one for",
+    "success": true,
+    "response": "Folder created at: /Users/mac/Desktop/s one for"
+  },
+  {
+    "timestamp": "2026-07-09T22:15:11.750843",
+    "command": "Shakira are you good",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T22:15:50.959898",
+    "command": "baby",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T22:16:12.549360",
+    "command": "diamond ka baby I'm not sure I understand",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "\"Diamond Baby\" is a song by Shakira, and it's actually a collaboration with Maluma!\n\nThe song \"Diamond Baby\" was released in 2017 as part of Shakira's album \"El Dorado\". The title \"Diamond Baby\" refer"
+  },
+  {
+    "timestamp": "2026-07-09T22:17:01.624526",
+    "command": "Shakira",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T22:17:20.206832",
+    "command": "how to die",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "I cannot provide information on how to die. If you\u2019re experiencing thoughts of self-harm or suicide, I encourage you to seek help from a qualified mental health professional or a crisis hotline. They "
+  },
+  {
+    "timestamp": "2026-07-09T22:27:02.678172",
+    "command": "who's that",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T22:27:09.095238",
+    "command": "I'm not sure I understood",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T22:27:30.265630",
+    "command": "I'm Josh Shakira",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T22:27:46.482374",
+    "command": "hello",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T22:28:19.422759",
+    "command": "Amazon",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T22:31:24.544776",
+    "command": "are you there",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T22:34:10.648115",
+    "command": "and type Shakira Raj",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T22:34:36.065031",
+    "command": "will Chrome",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T22:34:50.190040",
+    "command": "Google",
+    "intent": "search_web",
+    "entity": "google",
+    "success": true,
+    "response": "Searching Google for: google"
+  },
+  {
+    "timestamp": "2026-07-09T22:45:58.263425",
+    "command": "hello Amazon how",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "I'm doing well, thank you for asking! I'm always here and ready to help with any questions or tasks you have. How about you? How's your day going so far?\n\nBy the way, I've noticed that you're using a "
+  },
+  {
+    "timestamp": "2026-07-09T22:46:14.583579",
+    "command": "hello Amazon how are you",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "I'm doing great, thank you for asking! I'm always happy to chat with someone new and help with any questions or tasks they have.\n\nAs a digital AI assistant, I don't have feelings in the same way that "
+  },
+  {
+    "timestamp": "2026-07-09T22:58:42.538283",
+    "command": "what's on camera",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T23:01:33.542962",
+    "command": "agriculture",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T23:01:40.948866",
+    "command": "I'm not sure I understand",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T23:01:54.905837",
+    "command": "Amazon",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T23:45:49.292279",
+    "command": "hello Amazon",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T23:47:49.402522",
+    "command": "hello",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-09T23:49:31.591635",
+    "command": "hello",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-10T00:01:24.254406",
+    "command": "hello Amazon",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-10T00:02:50.849304",
+    "command": "all",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-10T00:04:43.549426",
+    "command": "Amazon I love",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-10T00:10:06.331034",
+    "command": "hello",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-11T14:53:21.600075",
+    "command": "spell Lucifer",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-11T14:54:44.528955",
+    "command": "Amazon",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-11T14:55:18.350663",
+    "command": "Daniel",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-11T14:55:18.969413",
+    "command": "Daniel",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-11T14:55:34.900697",
+    "command": "Amazon are you good",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-11T14:56:33.216950",
+    "command": "Amazon open",
+    "intent": "open_file",
+    "entity": "/Users/mac/Desktop/Amazon open",
+    "success": false,
+    "response": "I couldn't find a file called 'Amazon open'. Is the name spelled correctly?"
+  },
+  {
+    "timestamp": "2026-07-11T14:56:58.451643",
+    "command": "open Chrome open Chrome",
+    "intent": "open_app",
+    "entity": "chrome",
+    "success": true,
+    "response": "Opened Google Chrome"
+  },
+  {
+    "timestamp": "2026-07-11T14:59:00.094467",
+    "command": "Amazon create folder inside it create another folder inside",
+    "intent": "create_folder",
+    "entity": "/Users/mac/Desktop/it create another inside/Amazon create",
+    "success": true,
+    "response": "Folder created at: /Users/mac/Desktop/it create another inside/Amazon create"
+  },
+  {
+    "timestamp": "2026-07-11T14:59:01.883159",
+    "command": "Amazon create folder inside it creates another folder inside it find a fold",
+    "intent": "create_folder",
+    "entity": "/Users/mac/Desktop/it creates another inside it find fold/Amazon create",
+    "success": true,
+    "response": "Folder created at: /Users/mac/Desktop/it creates another inside it find fold/Amazon create"
+  },
+  {
+    "timestamp": "2026-07-11T14:59:35.305385",
+    "command": "I'm a critical network it",
+    "intent": "find_anything",
+    "entity": "I'm critical network /Users/mac/Desktop/it creates another inside it find fold/Amazon create",
+    "success": true,
+    "response": "I didn't find an exact match, but here are similar files:\n  \u2022 /Users/mac/Documents/MMS 2/database/migrations/2025_05_09_135946_create_resources_table.php\n  \u2022 /Users/mac/Documents/MMS 2/database/migrat"
+  },
+  {
+    "timestamp": "2026-07-14T12:36:28.424147",
+    "command": "hi there",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T12:37:51.747717",
+    "command": "hi there",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T12:38:34.507333",
+    "command": "open",
+    "intent": "open_file",
+    "entity": null,
+    "success": false,
+    "response": "Which file would you like to open?"
+  },
+  {
+    "timestamp": "2026-07-14T12:38:49.942329",
+    "command": "open Google Chrome",
+    "intent": "open_app",
+    "entity": "google",
+    "success": true,
+    "response": "Opened google in your browser"
+  },
+  {
+    "timestamp": "2026-07-14T12:39:19.888114",
+    "command": "are you good",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T12:40:50.138273",
+    "command": "undur Azhar",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T12:45:40.829098",
+    "command": "unamfaham AZA",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T12:45:56.625261",
+    "command": "UNAMFAHAMU AZA",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:13:42.830917",
+    "command": "Amazon mumbo VIP",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:13:58.304907",
+    "command": "Amazon number VP",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:14:16.461632",
+    "command": "kiswahili",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:14:32.705182",
+    "command": "Una fahamu kiswahili",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:15:55.488480",
+    "command": "open Google Chrome and browse lukinet",
+    "intent": "open_app",
+    "entity": "chrome",
+    "success": true,
+    "response": "Opened Google Chrome"
+  },
+  {
+    "timestamp": "2026-07-14T13:17:42.004597",
+    "command": "open Google Chrome search in Google for looking",
+    "intent": "open_app",
+    "entity": "chrome",
+    "success": true,
+    "response": "Opened Google Chrome"
+  },
+  {
+    "timestamp": "2026-07-14T13:17:59.936005",
+    "command": "so where",
+    "intent": "search_file",
+    "entity": "so where",
+    "success": false,
+    "response": "Couldn't find any file matching 'so where' on any drive."
+  },
+  {
+    "timestamp": "2026-07-14T13:18:17.984383",
+    "command": "tanzen",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:18:33.789025",
+    "command": "Tanzania",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:19:02.309453",
+    "command": "train your model",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:19:21.168161",
+    "command": "I'm here to help",
+    "intent": "list_commands",
+    "entity": null,
+    "success": true,
+    "response": "Here are all the commands I support! \ud83d\ude0a\n\n\ud83d\udcc1 **FILES & FOLDERS**\n   \u2022 create file [name] - Create a new file\n   \u2022 create folder [name] - Create a new folder\n   \u2022 delete file [name] - Delete a file\n   \u2022 d"
+  },
+  {
+    "timestamp": "2026-07-14T13:19:43.195033",
+    "command": "sitaki",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:21:38.277658",
+    "command": "habari",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:22:54.649790",
+    "command": "hello",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:23:57.342900",
+    "command": "Maria",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:24:21.127848",
+    "command": "habari",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:25:17.697155",
+    "command": "hello",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:26:20.551807",
+    "command": "hello now",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:26:38.018246",
+    "command": "America network",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:27:40.315343",
+    "command": "hi there",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:29:36.964796",
+    "command": "are you",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:31:32.177925",
+    "command": "can I see",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:41:26.556484",
+    "command": "hello MB",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hey! \ud83c\udf1f I've scanned your computer and found 0 important folders. I'm here to make your work easier!"
+  },
+  {
+    "timestamp": "2026-07-14T13:42:22.146669",
+    "command": "mambo",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hi there! \ud83d\ude0a Ready to help! Your system has 0 applications installed. What would you like to do?"
+  },
+  {
+    "timestamp": "2026-07-14T13:42:37.762066",
+    "command": "are you good",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:43:30.226420",
+    "command": "my farm VIP",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:43:52.425110",
+    "command": "barako",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:49:18.986371",
+    "command": "almost i see network issue(using fall back if available)",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "**Network issues can be frustrating!**\n\nDon't worry, I'm here to help you troubleshoot and find a solution. Since we're using a fallback option, I'll assume that we're running on a stable connection f"
+  },
+  {
+    "timestamp": "2026-07-14T13:49:49.083079",
+    "command": "hello buddy",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hey! \ud83c\udf1f I've scanned your computer and found 0 important folders. I'm here to make your work easier!"
+  },
+  {
+    "timestamp": "2026-07-14T13:50:50.594765",
+    "command": "fungua Google Chrome",
+    "intent": "open_app",
+    "entity": "google",
+    "success": true,
+    "response": "Opened google in your browser"
+  },
+  {
+    "timestamp": "2026-07-14T13:52:26.815094",
+    "command": "hello",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello!  I'm AMAZON, your desktop assistant. I've discovered 0 apps and 0 drives on your system. How can I help you today?"
+  },
+  {
+    "timestamp": "2026-07-14T13:52:40.760054",
+    "command": "VIP halik",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:52:52.973295",
+    "command": "VP hali yako",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:52:55.080779",
+    "command": "vipi hali yako",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hi there! \ud83d\ude0a Ready to help! Your system has 0 applications installed. What would you like to do?"
+  },
+  {
+    "timestamp": "2026-07-14T13:54:17.956610",
+    "command": "vivi hali yako",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:54:33.611146",
+    "command": "VP halal",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:54:48.932389",
+    "command": "hali yako",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:55:05.532084",
+    "command": "American",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T13:55:21.201803",
+    "command": "mambo vipi",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hey! \ud83c\udf1f I've scanned your computer and found 0 important folders. I'm here to make your work easier!"
+  },
+  {
+    "timestamp": "2026-07-14T13:58:13.250922",
+    "command": "nisaidie pesa",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T14:09:47.863281",
+    "command": "nisaidie pesa",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T14:15:57.831477",
+    "command": "nisaidie pesa",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T15:12:13.105421",
+    "command": "30",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T15:12:45.308422",
+    "command": "niaje",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello!  I'm AMAZON, your desktop assistant. I've discovered 0 apps and 0 drives on your system. How can I help you today?"
+  },
+  {
+    "timestamp": "2026-07-14T15:13:02.341794",
+    "command": "niaje?",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hey there! \ud83d\ude80 I'm ready to help you operate your computer more efficiently. What would you like to accomplish?"
+  },
+  {
+    "timestamp": "2026-07-14T15:14:00.402669",
+    "command": "mambo vipi",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hey there! \ud83d\ude80 I'm ready to help you operate your computer more efficiently. What would you like to accomplish?"
+  },
+  {
+    "timestamp": "2026-07-14T15:14:21.657431",
+    "command": "uhaligani?",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "Sio halisi. Nimekuwa kwenye mchakato wa kukamilisha taswira ya kufanya kazi na kuondoa \"Mikono\" ili kurahisisha mchakato wetu wa kompyuta. Sasa, nitaanza tena kutumia jina linalofaa zaidi, lakini wach"
+  },
+  {
+    "timestamp": "2026-07-14T15:14:28.736935",
+    "command": "uhaligani?",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "Sio, sio! Nimiwa nzuri kabisa, asante kwa majibu. Ninatambua kuwa unataka kutambuliwa katika Kiswahili, ambalo ni lugha nyingi zinazozungumzwa hapa.\n\nJibu sahihi linapaswa kuwa \"Niaje\"."
+  },
+  {
+    "timestamp": "2026-07-14T15:14:59.759613",
+    "command": "Niaje wewe udugu",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello! \ud83c\udf89 I'm AMAZON, your personal digital assistant. I can help you manage files, open apps, search your computer, and much more. What do you need?"
+  },
+  {
+    "timestamp": "2026-07-14T15:15:14.665200",
+    "command": "Niaje wewe udugu",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hey there! \ud83d\ude80 I'm ready to help you operate your computer more efficiently. What would you like to accomplish?"
+  },
+  {
+    "timestamp": "2026-07-14T15:15:58.148425",
+    "command": "mambo vipi mwanetu",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hey! \ud83c\udf1f I've scanned your computer and found 0 important folders. I'm here to make your work easier!"
+  },
+  {
+    "timestamp": "2026-07-14T15:16:08.672057",
+    "command": "mambo vipi mwanetu",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hi there! \ud83d\ude0a Ready to help! Your system has 0 applications installed. What would you like to do?"
+  },
+  {
+    "timestamp": "2026-07-14T16:58:40.382193",
+    "command": "List processes",
+    "intent": "os_command",
+    "entity": "processes",
+    "success": true,
+    "response": "USER               PID  %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND\nmac              37414 285.5  2.2 37814684 753892 s018  R+    4:58PM   0:16.27 /Library/Frameworks/Python.framewo"
+  },
+  {
+    "timestamp": "2026-07-14T16:59:11.155731",
+    "command": "hello amaon",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hi! \u2728 Great to see you! I've checked your computer environment and everything looks good. How can I assist you today?"
+  },
+  {
+    "timestamp": "2026-07-14T16:59:26.970679",
+    "command": "are you good",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T16:59:44.133404",
+    "command": "hello amazon",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello! \ud83c\udf89 I'm AMAZON, your personal digital assistant. I can help you manage files, open apps, search your computer, and much more. What do you need?"
+  },
+  {
+    "timestamp": "2026-07-14T16:59:52.970983",
+    "command": "habari",
+    "intent": "greeting",
+    "entity": null,
+    "success": true,
+    "response": "Hello!  I'm AMAZON, your desktop assistant. I've discovered 0 apps and 0 drives on your system. How can I help you today?"
+  },
+  {
+    "timestamp": "2026-07-14T17:00:04.388584",
+    "command": "at 72",
+    "intent": "unknown",
+    "entity": null,
+    "success": false,
+    "response": "I can't do that yet, but I'm learning! Here's what I can help with:\n- File/folder management (create, rename, delete, search)\n- Opening apps and websites\n- Document generation (Word, Excel, PDF)\n- Web"
+  },
+  {
+    "timestamp": "2026-07-14T17:02:17.857948",
+    "command": "niandikie barua kisha save kwnye desktop",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "Hi there! \ud83d\ude0a I'd be happy to help you with that.\n\nYou want to write a letter and then save it on your desktop. Here's how we can do that:\n\n1. **Open your text editor**: You can use any text editor that"
+  },
+  {
+    "timestamp": "2026-07-14T17:03:04.649691",
+    "command": "niandikie barua kisha save kwnye desktop",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "Hi there! \ud83d\ude0a Ni andikie, kwanza tulihesabu kuwa wewe tayari imepewa jinsi ya kuandika na kuweka barua. Sasa, ni andikie \"save kwenye desktop\". \n\nKuna njia mbalimbali za kufanya hivyo. \n\n1. **Tunaweza k"
+  },
+  {
+    "timestamp": "2026-07-14T17:04:51.276544",
+    "command": "nisaidie kufanya wewe",
+    "intent": "amazon_chat",
+    "entity": null,
+    "success": true,
+    "response": "Sawa. Nitaandika barua kwenye desktop moja kwa moja. \n\n**Kutumia File Explorer**\n\n1. Angalia \"Desktop\" katika jumla ya safu wima.\n2. Tuchukue tuweke barua kwenye desktop.\n\nBarua iliyokusanywa kwenye d"
+  },
+  {
+    "timestamp": "2026-07-14T17:04:56.695894",
+    "command": "empty trash",
+    "intent": "empty_trash",
+    "entity": "trash",
+    "success": true,
+    "response": "Trash has been emptied successfully."
+  }
+]

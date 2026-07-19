@@ -340,11 +340,13 @@ class ThinkingIndicator:
         self.frame = ctk.CTkFrame(parent, fg_color="transparent")
         self.label = ctk.CTkLabel(
             self.frame, text="", font=FONT_AI,
-            text_color=TEXT_SECONDARY, justify="left", anchor="w"
+            text_color=TEXT_SECONDARY, justify="left", anchor="w",
+            wraplength=500
         )
-        self.label.pack()
+        self.label.pack(fill="x", expand=True)
         self._step = 0
         self._running = False
+        self._custom_message = None
 
     def start(self):
         self._running = True
@@ -353,11 +355,19 @@ class ThinkingIndicator:
     def stop(self):
         self._running = False
 
+    def update_message(self, message):
+        """Update the thinking message (e.g., 'Still thinking...')"""
+        self._custom_message = message
+
     def _animate(self):
         if not self._running:
             return
-        dots = "." * (self._step % 4)
-        self.label.configure(text=f"Thinking{dots}")
+        if self._custom_message:
+            dots = "." * (self._step % 4)
+            self.label.configure(text=f"{self._custom_message}{dots}")
+        else:
+            dots = "." * (self._step % 4)
+            self.label.configure(text=f"Thinking{dots}")
         self._step += 1
         self.frame.after(400, self._animate)
 
@@ -386,8 +396,9 @@ class AMAZONAI:
         self.logo_welcome = _load_logo("nova_logo_140.png", 100)
         self.logo_header = _load_logo("nova_logo_36.png", 30)
 
-        # Voice feature toggle (off by default; user can enable from settings/integration)
-        self.voice_enabled = False
+        # Voice feature toggle
+        self.voice_enabled = True  # Voice enabled by default (ChatGPT-style)
+        self.voice_input_mode = False  # Track if current input is from voice
 
         # Pre-load action icons (supersampled for smooth edges)
         ic = "#8e8ea0"
@@ -428,11 +439,8 @@ class AMAZONAI:
         self.app.after(200, lambda: self.app.attributes('-topmost', False))
         self.app.focus_force()
 
-        # Start with a new session if none exist
-        if not self.sessions:
-            self._new_chat()
-        else:
-            self._load_session(self.active_session_id or self.sessions[-1]["session_id"])
+        # Always start with a new chat screen
+        self._new_chat()
 
     # -----------------------------------------------------------------
     #  Session Persistence
@@ -477,6 +485,18 @@ class AMAZONAI:
         return None
 
     def _new_chat(self):
+        # Check if there's already an empty session - reuse it instead of creating new
+        empty_sessions = [s for s in self.sessions if not s.get("messages")]
+        if empty_sessions:
+            # Reuse the last empty session
+            self.active_session_id = empty_sessions[-1]["session_id"]
+            self._save_sessions()
+            self._refresh_sidebar()
+            self._clear_chat_display()
+            self._show_input_area(False)
+            self._show_welcome()
+            return
+        
         session = {
             "session_id": str(uuid.uuid4())[:8],
             "title": "New Chat",
@@ -490,6 +510,31 @@ class AMAZONAI:
         self._clear_chat_display()
         self._show_input_area(False)  # Hide bottom input on new chat
         self._show_welcome()
+
+    def _clear_all_history(self):
+        """Clear all chat history with confirmation."""
+        from tkinter import messagebox
+        
+        result = messagebox.askyesno(
+            "Clear History",
+            "Are you sure you want to clear all chat history?\n\nThis action cannot be undone.",
+            icon="warning"
+        )
+        
+        if result:
+            # Keep only one empty session for new chat
+            self.sessions = [{
+                "session_id": str(uuid.uuid4())[:8],
+                "title": "New Chat",
+                "messages": [],
+                "created_at": datetime.now().isoformat(),
+            }]
+            self.active_session_id = self.sessions[0]["session_id"]
+            self._save_sessions()
+            self._refresh_sidebar()
+            self._clear_chat_display()
+            self._show_input_area(False)
+            self._show_welcome()
 
     def _load_session(self, session_id):
         self.active_session_id = session_id
@@ -593,6 +638,16 @@ class AMAZONAI:
             text_color=SIDEBAR_MUTED
         ).pack(side="left")
 
+        # Clear History button (small, next to header)
+        clear_hist_btn = ctk.CTkButton(
+            hist_header, text="Clear", width=50, height=22,
+            font=("Segoe UI", 10), fg_color="transparent",
+            hover_color="#fee2e2", text_color="#dc2626",
+            corner_radius=6,
+            command=self._clear_all_history
+        )
+        clear_hist_btn.pack(side="right")
+
         # Sidebar footer (pinned to bottom)
         footer_frame = ctk.CTkFrame(self.sidebar, fg_color="transparent")
         footer_frame.pack(side="bottom", fill="x", padx=14, pady=(5, 14))
@@ -654,6 +709,16 @@ class AMAZONAI:
         )
         upgrade_btn.pack(side="left", padx=(0, 8))
 
+        # Refresh button (circular arrow icon)
+        refresh_btn = ctk.CTkButton(
+            self.header_right, text="\u21bb", width=36, height=36,
+            font=("Segoe UI", 18), fg_color="transparent",
+            hover_color="#f0f0f0", text_color=TEXT_SECONDARY,
+            corner_radius=8,
+            command=self._refresh_app
+        )
+        refresh_btn.pack(side="left", padx=(0, 4))
+
         # Settings button (gear icon)
         settings_btn = ctk.CTkButton(
             self.header_right, text="\u2699", width=36, height=36,
@@ -685,26 +750,53 @@ class AMAZONAI:
         self.msg_frame.grid_columnconfigure(0, weight=1)
 
         self.msg_row = 0
+        
+        # Click anywhere in chat area to focus input (will be connected after input is created)
+        self._chat_click_focus = None
 
         # ======================== INPUT AREA (bottom, for active chats) ========================
         self.input_outer = ctk.CTkFrame(self.main_frame, fg_color=MAIN_BG, corner_radius=0)
         self.input_outer.grid(row=2, column=0, sticky="ew", padx=0, pady=0)
 
         input_center = ctk.CTkFrame(self.input_outer, fg_color="transparent")
-        input_center.pack(fill="x", padx=80, pady=(8, 8))
+        input_center.pack(fill="x", padx=40, pady=(8, 6))
 
         entry_bg = ctk.CTkFrame(
-            input_center, fg_color=INPUT_BG, corner_radius=16,
-            border_width=1, border_color=INPUT_BORDER
+            input_center, fg_color=INPUT_BG, corner_radius=20,
+            border_width=2, border_color=INPUT_BORDER
         )
         entry_bg.pack(fill="x")
 
         self.command_entry = ctk.CTkTextbox(
             entry_bg, height=48, font=FONT_USER,
             fg_color=INPUT_BG, text_color=TEXT_PRIMARY,
-            border_width=0, corner_radius=16, wrap="word"
+            border_width=0, corner_radius=20, wrap="word"
         )
-        self.command_entry.pack(side="left", fill="both", expand=True, padx=(18, 0), pady=(6, 6))
+        self.command_entry.pack(side="left", fill="both", expand=True, padx=(16, 0), pady=(6, 6))
+        
+        # Ensure the input is always clickable and focused
+        self.command_entry.configure(state="normal")
+        
+        # Make the ENTIRE input area clickable - bind to all parent frames
+        def _focus_input(event=None):
+            self.command_entry.focus_set()
+        
+        # Store reference for chat area binding
+        self._chat_click_focus = _focus_input
+        
+        # Bind click to focus on all input area components
+        self.command_entry.bind("<Button-1>", _focus_input)
+        entry_bg.bind("<Button-1>", _focus_input)
+        input_center.bind("<Button-1>", _focus_input)
+        self.input_outer.bind("<Button-1>", _focus_input)
+        
+        # Bind to the main frame - clicking anywhere in bottom 200px focuses input
+        self.main_frame.bind("<Button-1>", lambda e: _focus_input() if e.y > self.main_frame.winfo_height() - 200 else None)
+        
+        # Bind chat area clicks to focus input (click anywhere in chat to type)
+        self.chat_container.bind("<Button-1>", _focus_input)
+        self.chat_scroll.bind("<Button-1>", _focus_input)
+        self.msg_frame.bind("<Button-1>", _focus_input)
 
         def on_enter(event):
             self._execute_command()
@@ -714,19 +806,21 @@ class AMAZONAI:
         self.command_entry.bind("<Shift-Return>", lambda e: None)
 
         self.send_btn = ctk.CTkButton(
-            entry_bg, text="\u2191", width=36, height=36,
+            entry_bg, text="\u2191", width=38, height=38,
             font=("Segoe UI", 18, "bold"),
             fg_color=ACCENT, hover_color=ACCENT_HOVER,
-            corner_radius=12,
+            corner_radius=14,
             command=self._execute_command,
         )
         self.send_btn.pack(side="right", padx=8, pady=6)
 
-        # Hint below input
-        ctk.CTkLabel(
+        # Hint below input - also clickable to focus
+        hint_label = ctk.CTkLabel(
             self.input_outer, text="Press Enter to send  |  Shift+Enter for new line  |  Type 'help' for commands",
             font=FONT_HINT, text_color=TEXT_SECONDARY
-        ).pack(pady=(0, 10))
+        )
+        hint_label.pack(pady=(0, 8))
+        hint_label.bind("<Button-1>", _focus_input)
 
         # Hide input area initially (welcome screen has its own input)
         self.input_outer.grid_remove()
@@ -819,6 +913,10 @@ class AMAZONAI:
     #  Welcome Screen (with fade-in animation + embedded input)
     # -----------------------------------------------------------------
     def _show_welcome(self):
+        # Configure msg_frame for grid layout
+        self.msg_frame.grid_rowconfigure(0, weight=1)
+        self.msg_frame.grid_columnconfigure(0, weight=1)
+        
         welcome = ctk.CTkFrame(self.msg_frame, fg_color="transparent")
         welcome.grid(row=0, column=0, sticky="nsew", pady=(60, 0))
         welcome.grid_columnconfigure(0, weight=1)
@@ -852,14 +950,73 @@ class AMAZONAI:
         
         # Environment discovery stats
         try:
-            stats = get_environment_stats()
-            stats_text = f"Discovered: {stats.get('total_drives', 0)} drives • {stats.get('total_apps', 0)} apps • {stats.get('total_folders', 0)} folders • {stats.get('total_projects', 0)} projects"
+            import platform
+            import psutil
+            
+            # Get system info
+            os_name = platform.system()
+            os_version = platform.version()
+            machine = platform.machine()
+            cpu_count = psutil.cpu_count()
+            ram = psutil.virtual_memory()
+            ram_gb = ram.total / (1024**3)
+            
+            # Create a nice computer profile card
+            profile_frame = ctk.CTkFrame(content, fg_color="#f7f7f8", corner_radius=12, border_width=1, border_color="#e5e5e5")
+            profile_frame.pack(pady=(0, 20), padx=40, fill="x")
+            
+            # Title
             ctk.CTkLabel(
-                content, text=stats_text,
-                font=("Segoe UI", 12), text_color=TEXT_SECONDARY
-            ).pack(pady=(0, 30))
+                profile_frame, text="💻 Computer Profile",
+                font=("Segoe UI", 14, "bold"), text_color=TEXT_PRIMARY
+            ).pack(anchor="w", padx=16, pady=(12, 8))
+            
+            # Profile details in a grid-like layout
+            details_frame = ctk.CTkFrame(profile_frame, fg_color="transparent")
+            details_frame.pack(fill="x", padx=16, pady=(0, 12))
+            
+            # Create profile items
+            profile_items = [
+                ("Device", f"{platform.node()} ({machine})"),
+                ("OS", f"{os_name} {os_version[:3] if len(os_version) > 3 else os_version}"),
+                ("CPU", f"{cpu_count} cores"),
+                ("RAM", f"{ram_gb:.0f} GB"),
+            ]
+            
+            for i, (label, value) in enumerate(profile_items):
+                row = i // 2
+                col = (i % 2) * 2
+                
+                # Label
+                ctk.CTkLabel(
+                    details_frame, text=f"{label}:",
+                    font=("Segoe UI", 12), text_color=TEXT_SECONDARY
+                ).grid(row=row, column=col, sticky="w", padx=(0, 8), pady=4)
+                
+                # Value
+                ctk.CTkLabel(
+                    details_frame, text=value,
+                    font=("Segoe UI", 12, "bold"), text_color=TEXT_PRIMARY
+                ).grid(row=row, column=col+1, sticky="w", padx=(0, 20), pady=4)
+            
+            # Environment stats
+            stats = get_environment_stats()
+            env_text = f"Discovered: {stats.get('total_drives', 0)} drives • {stats.get('total_apps', 0)} apps • {stats.get('total_folders', 0)} folders"
+            ctk.CTkLabel(
+                content, text=env_text,
+                font=("Segoe UI", 11), text_color=TEXT_SECONDARY
+            ).pack(pady=(0, 10))
         except Exception:
-            pass
+            # Fallback if system info fails
+            try:
+                stats = get_environment_stats()
+                stats_text = f"Discovered: {stats.get('total_drives', 0)} drives • {stats.get('total_apps', 0)} apps • {stats.get('total_folders', 0)} folders"
+                ctk.CTkLabel(
+                    content, text=stats_text,
+                    font=("Segoe UI", 12), text_color=TEXT_SECONDARY
+                ).pack(pady=(0, 30))
+            except Exception:
+                pass
 
         # -- Suggestion chips --
         chips_frame = ctk.CTkFrame(content, fg_color="transparent")
@@ -888,20 +1045,28 @@ class AMAZONAI:
 
         # -- Embedded input (centered, below chips) --
         input_container = ctk.CTkFrame(content, fg_color="transparent")
-        input_container.pack(fill="x", padx=40, pady=(0, 0))
+        input_container.pack(fill="x", padx=40, pady=(16, 0))
 
         entry_bg = ctk.CTkFrame(
-            input_container, fg_color=INPUT_BG, corner_radius=16,
-            border_width=1, border_color=INPUT_BORDER
+            input_container, fg_color=INPUT_BG, corner_radius=20,
+            border_width=2, border_color=INPUT_BORDER
         )
         entry_bg.pack(fill="x")
 
         self.welcome_input = ctk.CTkTextbox(
             entry_bg, height=48, font=FONT_USER,
             fg_color=INPUT_BG, text_color=TEXT_PRIMARY,
-            border_width=0, corner_radius=16, wrap="word"
+            border_width=0, corner_radius=20, wrap="word"
         )
-        self.welcome_input.pack(side="left", fill="both", expand=True, padx=(18, 0), pady=(6, 6))
+        self.welcome_input.pack(side="left", fill="both", expand=True, padx=(16, 0), pady=(6, 6))
+        
+        # Make the entire welcome input area clickable
+        def _focus_welcome(event=None):
+            self.welcome_input.focus_set()
+        
+        self.welcome_input.bind("<Button-1>", _focus_welcome)
+        entry_bg.bind("<Button-1>", _focus_welcome)
+        input_container.bind("<Button-1>", _focus_welcome)
 
         def on_welcome_enter(event):
             self._execute_command_from_welcome()
@@ -911,10 +1076,10 @@ class AMAZONAI:
         self.welcome_input.bind("<Shift-Return>", lambda e: None)
 
         welcome_send_btn = ctk.CTkButton(
-            entry_bg, text="\u2191", width=36, height=36,
+            entry_bg, text="\u2191", width=38, height=38,
             font=("Segoe UI", 18, "bold"),
             fg_color=ACCENT, hover_color=ACCENT_HOVER,
-            corner_radius=12,
+            corner_radius=14,
             command=self._execute_command_from_welcome,
         )
         welcome_send_btn.pack(side="right", padx=8, pady=6)
@@ -966,7 +1131,7 @@ class AMAZONAI:
 
         # Switch to active chat mode: hide welcome, show bottom input
         self._hide_welcome()
-        self._show_input_area(True)
+        self._show_input_area(True)  # Always show input area in chat mode
 
         # Put command into the bottom entry for consistency
         self.command_entry.delete("1.0", "end")
@@ -982,6 +1147,11 @@ class AMAZONAI:
         self.msg_row = 0
         self.welcome_widget = None
         self.welcome_input = None
+        # Reset grid configuration
+        for i in range(self.msg_frame.grid_size()[1]):
+            self.msg_frame.grid_rowconfigure(i, weight=0)
+        self.msg_frame.grid_rowconfigure(0, weight=1)
+        self.msg_frame.grid_columnconfigure(0, weight=1)
         self._refresh_scroll_region()
 
     def _refresh_scroll_region(self):
@@ -1005,13 +1175,13 @@ class AMAZONAI:
         self._hide_welcome()
 
         row_frame = ctk.CTkFrame(self.msg_frame, fg_color="transparent")
-        row_frame.grid(row=self.msg_row, column=0, sticky="ew", pady=(14, 0))
+        row_frame.grid(row=self.msg_row, column=0, sticky="ew", pady=(10, 0))
         row_frame.grid_columnconfigure(0, weight=1)
         self.msg_row += 1
 
         # Container for bubble + action icons
         right_frame = ctk.CTkFrame(row_frame, fg_color="transparent")
-        right_frame.grid(row=0, column=0, sticky="e", padx=(60, 28))
+        right_frame.grid(row=0, column=0, sticky="e", padx=(60, 24))
 
         # User bubble
         bubble = ctk.CTkFrame(right_frame, fg_color=ACCENT, corner_radius=18)
@@ -1021,11 +1191,11 @@ class AMAZONAI:
             bubble, text=text, font=FONT_USER,
             text_color="white", wraplength=520, justify="left"
         )
-        msg_lbl.pack(padx=22, pady=12)
+        msg_lbl.pack(padx=20, pady=10)
 
         # Icons row (below bubble, always visible)
         icons_frame = ctk.CTkFrame(right_frame, fg_color="transparent")
-        icons_frame.pack(anchor="e", pady=(4, 0))
+        icons_frame.pack(anchor="e", pady=(3, 0))
 
         copy_btn = ctk.CTkButton(
             icons_frame, image=self.icon_copy, text="", width=28, height=28,
@@ -1052,26 +1222,46 @@ class AMAZONAI:
             pass
 
     def _render_ai_message(self, text):
-        """AI message - left aligned plain text with proper icon buttons."""
+        """AI message - left aligned with bubble background and clickable paths."""
         row_frame = ctk.CTkFrame(self.msg_frame, fg_color="transparent")
-        row_frame.grid(row=self.msg_row, column=0, sticky="ew", pady=(14, 0))
+        row_frame.grid(row=self.msg_row, column=0, sticky="ew", pady=(10, 0))
         row_frame.grid_columnconfigure(0, weight=1)
         self.msg_row += 1
 
-        # Message text (plain, left-aligned)
-        msg_lbl = ctk.CTkLabel(
-            row_frame, text=text, font=FONT_AI,
-            text_color=TEXT_PRIMARY, wraplength=680, justify="left", anchor="w"
-        )
-        msg_lbl.grid(row=0, column=0, sticky="w", padx=(28, 60))
+        # Container for bubble + action icons (left-aligned)
+        left_frame = ctk.CTkFrame(row_frame, fg_color="transparent")
+        left_frame.grid(row=0, column=0, sticky="w", padx=(24, 60))
 
-        # Action buttons with icons
-        actions_frame = ctk.CTkFrame(row_frame, fg_color="transparent")
-        actions_frame.grid(row=1, column=0, sticky="w", padx=(24, 60), pady=(6, 0))
+        # AI bubble with light background
+        bubble = ctk.CTkFrame(left_frame, fg_color="#f4f4f5", corner_radius=18)
+        bubble.pack(anchor="w")
+
+        # Check if text contains paths and render with clickable links
+        if self._has_clickable_paths(text):
+            self._render_message_with_links(bubble, text)
+        else:
+            # Use textbox for selectable/copyable text
+            # Calculate proper height based on content
+            lines = text.count('\n') + 1
+            estimated_height = max(60, lines * 22 + 30)
+            
+            msg_textbox = ctk.CTkTextbox(
+                bubble, font=FONT_AI,
+                text_color=TEXT_PRIMARY, fg_color="transparent",
+                wrap="word", activate_scrollbars=False,
+                height=estimated_height
+            )
+            msg_textbox.insert("1.0", text)
+            msg_textbox.configure(state="disabled")  # Make read-only but selectable
+            msg_textbox.pack(padx=16, pady=12)
+
+        # Action buttons with icons - compact row
+        actions_frame = ctk.CTkFrame(left_frame, fg_color="transparent")
+        actions_frame.pack(pady=(4, 0))
 
         # Copy button
         copy_btn = ctk.CTkButton(
-            actions_frame, image=self.icon_copy, text="", width=32, height=32,
+            actions_frame, image=self.icon_copy, text="", width=30, height=30,
             fg_color="transparent", hover_color="#f0f0f0",
             corner_radius=6,
             command=lambda: self._copy_to_clipboard(text, copy_btn)
@@ -1081,7 +1271,7 @@ class AMAZONAI:
 
         # Thumbs up button
         like_btn = ctk.CTkButton(
-            actions_frame, image=self.icon_thumb_up, text="", width=32, height=32,
+            actions_frame, image=self.icon_thumb_up, text="", width=30, height=30,
             fg_color="transparent", hover_color="#f0f0f0",
             corner_radius=6,
             command=lambda: self._toggle_feedback(like_btn, dislike_btn, "like")
@@ -1091,7 +1281,7 @@ class AMAZONAI:
 
         # Thumbs down button
         dislike_btn = ctk.CTkButton(
-            actions_frame, image=self.icon_thumb_down, text="", width=32, height=32,
+            actions_frame, image=self.icon_thumb_down, text="", width=30, height=30,
             fg_color="transparent", hover_color="#f0f0f0",
             corner_radius=6,
             command=lambda: self._toggle_feedback(dislike_btn, like_btn, "dislike")
@@ -1101,7 +1291,7 @@ class AMAZONAI:
 
         # Share button
         share_btn = ctk.CTkButton(
-            actions_frame, image=self.icon_share, text="", width=32, height=32,
+            actions_frame, image=self.icon_share, text="", width=30, height=30,
             fg_color="transparent", hover_color="#f0f0f0",
             corner_radius=6,
             command=lambda: self._share_message(text)
@@ -1116,6 +1306,162 @@ class AMAZONAI:
             pass
 
         return row_frame
+
+    def _has_clickable_paths(self, text):
+        """Check if text contains file/folder paths."""
+        import re
+        # Match Unix paths (/Users/... including spaces) or Windows paths (C:\... including spaces)
+        path_pattern = r'(?:/(?:[^/\n]+/)*[^/\n]+)|(?:[A-Z]:\\(?:[^\\\n]+\\)*[^\\\n]+)'
+        return bool(re.search(path_pattern, text))
+
+    def _render_message_with_links(self, parent, text):
+        """Render a message with clickable file/folder paths and markdown support."""
+        import re
+        
+        # Pattern to match paths
+        path_pattern = r'((?:/(?:[^/\n]+/)*[^/\n]+)|(?:[A-Z]:\\(?:[^\\\n]+\\)*[^\\\n]+))'
+        
+        # Check if text has paths
+        has_paths = bool(re.search(path_pattern, text))
+        
+        if not has_paths:
+            # No paths - use simple textbox with wrapping
+            lines = text.count('\n') + 1
+            estimated_height = max(60, lines * 22 + 30)
+            
+            msg_textbox = ctk.CTkTextbox(
+                parent, font=FONT_AI,
+                text_color=TEXT_PRIMARY, fg_color="transparent",
+                wrap="word", activate_scrollbars=False,
+                height=estimated_height
+            )
+            msg_textbox.insert("1.0", text)
+            msg_textbox.configure(state="disabled")
+            msg_textbox.pack(fill="x", padx=16, pady=12)
+            return
+        
+        # Has paths - split and render with clickable links
+        # Create a single container frame for the entire message
+        container = ctk.CTkFrame(parent, fg_color="transparent")
+        container.pack(fill="x", padx=16, pady=12)
+        
+        # Split text into segments (text and paths)
+        parts = re.split(path_pattern, text)
+        
+        # Build the message with inline clickable paths
+        for part in parts:
+            if not part:
+                continue
+            if re.match(path_pattern, part):
+                # This is a path - make it clickable
+                path_lbl = ctk.CTkLabel(
+                    container, text=part, font=("Segoe UI", 14, "underline"),
+                    text_color="#10a37f", cursor="hand2",
+                    wraplength=500
+                )
+                path_lbl.pack(fill="x", anchor="w", pady=2)
+                path_lbl.bind("<Button-1>", lambda e, p=part: self._open_path(p))
+                _Tooltip.bind(path_lbl, f"Click to open: {part}")
+            else:
+                # Regular text - split by newlines and create labels with wrapping
+                lines = part.split('\n')
+                for line in lines:
+                    if line:
+                        # Check for markdown bold: **text**
+                        bold_pattern = r'\*\*(.+?)\*\*'
+                        if re.search(bold_pattern, line):
+                            # Split by bold markers and create mixed labels
+                            segments = re.split(bold_pattern, line)
+                            for i, segment in enumerate(segments):
+                                if not segment:
+                                    continue
+                                if i % 2 == 1:  # Bold segment
+                                    txt_lbl = ctk.CTkLabel(
+                                        container, text=segment, font=("Segoe UI", 14, "bold"),
+                                        text_color=TEXT_PRIMARY, anchor="w",
+                                        wraplength=500, justify="left"
+                                    )
+                                else:  # Regular segment
+                                    txt_lbl = ctk.CTkLabel(
+                                        container, text=segment, font=FONT_AI,
+                                        text_color=TEXT_PRIMARY, anchor="w",
+                                        wraplength=500, justify="left"
+                                    )
+                                txt_lbl.pack(fill="x", anchor="w", pady=1)
+                        else:
+                            txt_lbl = ctk.CTkLabel(
+                                container, text=line, font=FONT_AI,
+                                text_color=TEXT_PRIMARY, anchor="w",
+                                wraplength=500, justify="left"
+                            )
+                            txt_lbl.pack(fill="x", anchor="w", pady=1)
+
+    def _open_path(self, path):
+        """Open a file or folder path using the system's default handler."""
+        import subprocess
+        import platform
+        import re
+        from pathlib import Path
+        
+        raw_path = (path or "").strip()
+
+        # If click text contains extra content, keep only the absolute-path-looking part.
+        abs_match = re.search(r'(/[^\n]+|[A-Z]:\\[^\n]+)', raw_path)
+        if abs_match:
+            raw_path = abs_match.group(1)
+
+        path = raw_path.strip().strip("`\"' ")
+        # Remove common trailing punctuation from rendered lines
+        path = re.sub(r"[\]\)\}\.,;:!?]+$", "", path)
+
+        def _resolve_existing_path(candidate_text: str):
+            """Return best existing path from a candidate string (handles trailing extra words)."""
+            candidate_text = (candidate_text or "").strip()
+            if not candidate_text:
+                return None
+
+            p = Path(candidate_text).expanduser()
+            if p.exists():
+                return p
+
+            # Try shrinking token-by-token from the end for cases like
+            # '/Users/.../file name extra words'.
+            tokens = candidate_text.split()
+            for i in range(len(tokens) - 1, 0, -1):
+                maybe = " ".join(tokens[:i]).strip()
+                if not maybe:
+                    continue
+                pp = Path(maybe).expanduser()
+                if pp.exists():
+                    return pp
+            return None
+
+        path_obj = _resolve_existing_path(path)
+        
+        if not path_obj:
+            messagebox.showinfo("Path Not Found", f"The path does not exist:\n{path}")
+            return
+        
+        try:
+            current_os = platform.system()
+            if current_os == "Darwin":
+                if path_obj.is_file():
+                    # Reveal file in Finder (more reliable for extensionless files)
+                    subprocess.Popen(["open", "-R", str(path_obj)])
+                else:
+                    subprocess.Popen(["open", str(path_obj)])
+            elif current_os == "Windows":
+                if path_obj.is_file():
+                    subprocess.Popen(["explorer", "/select,", str(path_obj)])
+                else:
+                    os.startfile(str(path_obj))
+            else:
+                if path_obj.is_file():
+                    subprocess.Popen(["xdg-open", str(path_obj.parent)])
+                else:
+                    subprocess.Popen(["xdg-open", str(path_obj)])
+        except Exception as e:
+            messagebox.showerror("Error", f"Could not open path:\n{e}")
 
     def _copy_to_clipboard(self, text, btn):
         """Copy message text to clipboard"""
@@ -1273,6 +1619,11 @@ class AMAZONAI:
             self._thinking_card = None
             self._refresh_scroll_region()
 
+    def _update_thinking_message(self, message):
+        """Update the thinking indicator message (e.g., 'Still thinking...')"""
+        if self._thinking_indicator:
+            self._thinking_indicator.update_message(message)
+
     # -----------------------------------------------------------------
     #  Command Execution
     # -----------------------------------------------------------------
@@ -1302,8 +1653,17 @@ class AMAZONAI:
             self._show_help()
             return
 
+        # Check for sensitive commands (delete, remove, etc.) - show confirmation
+        if self.is_sensitive_command(command):
+            self._add_msg_to_session("user", command)
+            self._render_user_message(command)
+            self.command_entry.delete("1.0", "end")
+            self._show_confirmation_dialog(command)
+            return
+
         self.is_processing = True
         self.send_btn.configure(fg_color="#9ca3af", state="disabled")
+        self._timed_out = False  # Reset timeout flag for this command
 
         self._add_msg_to_session("user", command)
         self._render_user_message(command)
@@ -1312,30 +1672,205 @@ class AMAZONAI:
 
         def process():
             try:
-                time.sleep(0.4)
+                # Set up streaming progress callback for real-time LLM response display
+                try:
+                    from ai_assistant.models.llm_manager import get_llm_manager
+                    def _on_llm_token(partial_text):
+                        """Called from LLM thread with accumulated text as it streams."""
+                        try:
+                            # Show the latest portion of text in the thinking indicator
+                            display = partial_text[-200:] if len(partial_text) > 200 else partial_text
+                            self.app.after(0, lambda t=display: self._update_thinking_message(t))
+                        except Exception:
+                            pass
+                    get_llm_manager().set_progress_callback(_on_llm_token)
+                except Exception:
+                    pass
+
                 result = process_command(command)
+
+                # Clear the progress callback
+                try:
+                    from ai_assistant.models.llm_manager import get_llm_manager
+                    get_llm_manager().set_progress_callback(None)
+                except Exception:
+                    pass
+
+                # If timed out, discard the late response silently
+                if self._timed_out:
+                    print("Late response discarded (timeout already fired)")
+                    return
                 self.app.after(0, lambda: self._finish_execution(result, command))
             except Exception as err:
                 print(f"Command execution error: {err}")
+                # Clear the progress callback
+                try:
+                    from ai_assistant.models.llm_manager import get_llm_manager
+                    get_llm_manager().set_progress_callback(None)
+                except Exception:
+                    pass
+                if self._timed_out:
+                    return
                 error_result = {
                     "intent": "error", "entity": None, "status": "failed",
                     "message": str(err), "details": None, "task_id": 0,
                     "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                 }
                 self.app.after(0, lambda: self._finish_execution(error_result, command))
-
+        
         t = threading.Thread(target=process, daemon=True)
         t.start()
+        
+        # Show "still thinking" message after 15 seconds so user knows it's working
+        def thinking_update():
+            if self.is_processing:
+                self._update_thinking_message("Still thinking... This may take a moment.")
+        
+        self.app.after(15000, thinking_update)
+        
+        # Safety timeout - reset UI if command takes too long (120 seconds for LLM responses)
+        def safety_timeout():
+            if self.is_processing:
+                print("Warning: Command execution timed out, resetting UI")
+                self._timed_out = True  # Mark as timed out — late responses will be discarded
+                # Preserve voice_input_mode so speech still works when response arrives
+                saved_voice_mode = self.voice_input_mode
+                # Just reset UI state — don't show error message
+                self._remove_thinking()
+                self.is_processing = False
+                self.send_btn.configure(fg_color=ACCENT, state="normal")
+                try:
+                    self.command_entry.configure(state="normal")
+                    self.command_entry.focus_set()
+                except Exception:
+                    pass
+                self.voice_input_mode = saved_voice_mode
+        
+        self.app.after(120000, safety_timeout)  # 2 minutes for LLM responses
+
+    def _show_confirmation_dialog(self, command):
+        """Show confirmation dialog for sensitive commands like delete."""
+        details = self.get_confirmation_details(command)
+        
+        def on_confirm():
+            """User confirmed - proceed with the command."""
+            self.is_processing = True
+            self.send_btn.configure(fg_color="#9ca3af", state="disabled")
+            self._show_thinking()
+            
+            def process():
+                try:
+                    # Set up streaming progress callback
+                    try:
+                        from ai_assistant.models.llm_manager import get_llm_manager
+                        def _on_llm_token(partial_text):
+                            try:
+                                display = partial_text[-200:] if len(partial_text) > 200 else partial_text
+                                self.app.after(0, lambda t=display: self._update_thinking_message(t))
+                            except Exception:
+                                pass
+                        get_llm_manager().set_progress_callback(_on_llm_token)
+                    except Exception:
+                        pass
+
+                    result = process_command(command)
+
+                    try:
+                        from ai_assistant.models.llm_manager import get_llm_manager
+                        get_llm_manager().set_progress_callback(None)
+                    except Exception:
+                        pass
+
+                    self.app.after(0, lambda: self._finish_execution(result, command))
+                except Exception as err:
+                    print(f"Command execution error: {err}")
+                    try:
+                        from ai_assistant.models.llm_manager import get_llm_manager
+                        get_llm_manager().set_progress_callback(None)
+                    except Exception:
+                        pass
+                    error_result = {
+                        "intent": "error", "entity": None, "status": "failed",
+                        "message": str(err), "details": None, "task_id": 0,
+                        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    }
+                    self.app.after(0, lambda: self._finish_execution(error_result, command))
+            
+            t = threading.Thread(target=process, daemon=True)
+            t.start()
+        
+        def on_cancel():
+            """User cancelled - show cancellation message."""
+            # Reset processing state
+            self.is_processing = False
+            self.send_btn.configure(fg_color=ACCENT, state="normal")
+            
+            cancel_msg = f"Cancelled: '{command}' was not executed."
+            self._add_msg_to_session("ai", cancel_msg)
+            self._render_ai_message(cancel_msg)
+        
+        # Show the confirmation dialog
+        ConfirmationDialog(self.app, command, details, on_confirm, on_cancel)
 
     def _finish_execution(self, result, command):
+        """Finish command execution and reset UI state."""
         self._remove_thinking()
         self.is_processing = False
         self.send_btn.configure(fg_color=ACCENT, state="normal")
+        
+        # Ensure command entry is enabled and focused
+        try:
+            self.command_entry.configure(state="normal")
+            self.command_entry.focus_set()
+        except Exception:
+            pass
+        
+        # Force update to ensure UI is responsive
+        try:
+            self.app.update_idletasks()
+        except Exception:
+            pass
 
         response = self._format_response(result, command)
         self._add_msg_to_session("ai", response)
         self._render_ai_message(response)
         self._refresh_scroll_region()
+        
+        # Speak the response ONLY if voice toggle is ON and input was from voice
+        voice_ui_enabled = self.voice_ui.voice_enabled if self.voice_ui else False
+        print(f"[VOICE] voice_input_mode={self.voice_input_mode}, voice_enabled={voice_ui_enabled}")
+        if self.voice_ui and voice_ui_enabled and self.voice_input_mode:
+            try:
+                print(f"[VOICE] Speaking response...")
+                self.voice_ui.speak_response(response)
+            except Exception as e:
+                print(f"[VOICE] Error speaking: {e}")
+        else:
+            print(f"[VOICE] Not speaking - voice_ui={self.voice_ui is not None}, enabled={voice_ui_enabled}, mode={self.voice_input_mode}")
+        
+        # Reset voice input mode after each command
+        self.voice_input_mode = False
+        
+        # Auto-focus input after response
+        try:
+            self.app.after(100, lambda: self.command_entry.focus_set())
+        except Exception:
+            pass
+
+    def _force_reset_ui(self):
+        """Force reset UI state if it gets stuck."""
+        self.is_processing = False
+        self.send_btn.configure(fg_color=ACCENT, state="normal")
+        try:
+            self.command_entry.configure(state="normal")
+            self.command_entry.focus()
+        except Exception:
+            pass
+        self._remove_thinking()
+        try:
+            self.app.update_idletasks()
+        except Exception:
+            pass
 
     def _add_msg_to_session(self, role, content, timestamp=""):
         session = self._get_active_session()
@@ -1347,7 +1882,12 @@ class AMAZONAI:
             "role": role, "content": content, "timestamp": timestamp
         })
         if role == "user" and len([m for m in session["messages"] if m["role"] == "user"]) == 1:
-            session["title"] = content[:40] if len(content) > 40 else content
+            # Generate a friendly title from the first message
+            title = content.strip()[:50] if len(content) > 50 else content.strip()
+            # Capitalize first letter
+            if title:
+                title = title[0].upper() + title[1:] if len(title) > 1 else title.upper()
+            session["title"] = title
         self._save_sessions()
         self._refresh_sidebar()
 
@@ -1379,32 +1919,102 @@ class AMAZONAI:
             "  - Language: English / Swahili\n"
             "  - Default Save: Desktop"
         )
+    
+    def _refresh_app(self):
+        """Refresh the app - reload environment and reset state."""
+        try:
+            # Reinitialize environment scanner
+            from system.environment_scanner import initialize_environment
+            initialize_environment(force_rescan=True)
+            
+            # Show success message
+            messagebox.showinfo(
+                "Refresh Complete",
+                "AMAZON has been refreshed!\n\n"
+                "  - Environment rescanned\n"
+                "  - Apps and drives updated\n"
+                "  - Ready for new commands"
+            )
+        except Exception as e:
+            messagebox.showerror(
+                "Refresh Error",
+                f"Failed to refresh: {str(e)}"
+            )
 
     # -----------------------------------------------------------------
     #  Safety Checks
     # -----------------------------------------------------------------
     def is_sensitive_command(self, command):
-        sensitive = [
-            "delete", "remove", "erase", "format", "overwrite",
-            "destroy", "clear", "drop", "shutdown", "restart",
+        """Check if command requires confirmation before execution.
+        Only triggers on short, command-like text — not on long questions,
+        pasted content, or conversational prompts."""
+        cmd_lower = command.lower().strip()
+
+        # Skip long text — likely a question, pasted content, or conversation
+        # Real commands are short (e.g. "delete report.pdf")
+        if len(cmd_lower) > 80:
+            return False
+
+        # If it looks like a question, skip confirmation
+        if cmd_lower.endswith("?"):
+            return False
+        question_starters = [
+            "what", "who", "where", "when", "why", "how", "which",
+            "can you", "could you", "would you", "do you", "is it",
+            "tell me", "explain", "describe", "help me",
         ]
-        cmd_lower = command.lower()
+        if any(cmd_lower.startswith(s) for s in question_starters):
+            return False
+
+        sensitive = [
+            # Delete/remove actions
+            "delete", "remove", "erase", "destroy", "discard",
+            "wipe", "purge", "eliminate", "get rid of",
+            # System actions
+            "format", "overwrite", "clear", "drop",
+            "shutdown", "restart", "reboot", "log off", "log out",
+            # Trash/bin actions
+            "empty trash", "empty recycle", "empty bin",
+            "clear trash", "clear recycle", "clear bin",
+            "move to trash", "send to trash", "move to bin",
+        ]
         return any(w in cmd_lower for w in sensitive)
 
     def get_confirmation_details(self, command):
+        """Get specific warning message based on command type."""
         cmd_lower = command.lower()
-        if "delete" in cmd_lower or "remove" in cmd_lower or "erase" in cmd_lower:
-            return "This will permanently delete the item. This cannot be undone."
+        
+        # Delete/remove actions
+        if any(w in cmd_lower for w in ["delete", "remove", "erase", "destroy", "discard", "wipe", "purge", "eliminate", "get rid of"]):
+            # Check if it's a file or folder
+            if "folder" in cmd_lower or "directory" in cmd_lower:
+                return "This will permanently delete the folder and ALL its contents. This cannot be undone."
+            elif "file" in cmd_lower:
+                return "This will permanently delete the file. This cannot be undone."
+            else:
+                return "This will permanently delete the item. This cannot be undone."
+        
+        # Trash/bin actions
+        if any(w in cmd_lower for w in ["empty trash", "empty recycle", "empty bin", "clear trash", "clear recycle", "clear bin"]):
+            return "This will permanently delete ALL items in trash/bin. This cannot be undone."
+        
+        if any(w in cmd_lower for w in ["move to trash", "send to trash", "move to bin"]):
+            return "This will move the item to trash/bin."
+        
+        # System actions
         if "format" in cmd_lower:
-            return "This will format the drive. ALL DATA WILL BE LOST."
+            return "WARNING: This will format the drive. ALL DATA WILL BE LOST."
         if "overwrite" in cmd_lower:
-            return "This will overwrite existing files."
-        if "shutdown" in cmd_lower or "restart" in cmd_lower:
-            return "This will affect your computer's state."
-        return "This action may have irreversible effects."
+            return "This will overwrite existing files. Previous content will be lost."
+        if "shutdown" in cmd_lower or "restart" in cmd_lower or "reboot" in cmd_lower:
+            return "This will affect your computer's state. Make sure to save your work."
+        if "log off" in cmd_lower or "log out" in cmd_lower:
+            return "This will log you out of your session. Make sure to save your work."
+        
+        return "This action may have irreversible effects. Are you sure?"
 
     # -----------------------------------------------------------------
-    #  Response Formatting
+    #  Response Formatting (ChatGPT-style)
     # -----------------------------------------------------------------
     def _format_response(self, result, command=None):
         intent = result.get("intent") or "unknown"
@@ -1422,53 +2032,154 @@ class AMAZONAI:
         if intent == "compound":
             return message
 
+        # Status indicators
+        status_icons = {
+            "success": "✅",
+            "failed": "❌",
+            "processing": "⏳",
+        }
+        status_icon = status_icons.get(status, "️")
+
         if status == "success":
             action_map = {
-                "create_folder": "Created Folder",
-                "create_file": "Created File",
-                "delete_folder": "Deleted Folder",
-                "delete_file": "Deleted File",
-                "rename_file": "Renamed File",
-                "rename_folder": "Renamed Folder",
-                "move_file": "Moved File",
-                "move_folder": "Moved Folder",
-                "copy_file": "Copied File",
-                "open_file": "Opened File",
-                "open_folder": "Opened Folder",
-                "read_file": "Read File",
-                "open_website": "Opened Website",
-                "open_app": "Opened Application",
-                "close_app": "Closed Application",
-                "generate_document": "Generated Document",
-                "search_web": "Web Search",
-                "search_file": "File Search",
-                "search_folder": "Folder Search",
-                "search_app": "App Search",
-                "run_command": "Executed Command",
-                "list_processes": "Listed Processes",
-                "create_project": "Created Project",
-                "greeting": "Welcome",
+                "create_folder": "📁 Folder Created",
+                "create_file": "📄 File Created",
+                "delete_folder": "🗑️ Folder Deleted",
+                "delete_file": "🗑️ File Deleted",
+                "rename_file": "✏️ File Renamed",
+                "rename_folder": "️ Folder Renamed",
+                "move_file": "📦 File Moved",
+                "move_folder": "📦 Folder Moved",
+                "copy_file": "📋 File Copied",
+                "copy_folder": "📋 Folder Copied",
+                "open_file": "📂 File Opened",
+                "open_folder": " Folder Opened",
+                "read_file": "📖 File Read",
+                "open_website": "🌐 Website Opened",
+                "open_app": "🚀 Application Opened",
+                "close_app": "⏹️ Application Closed",
+                "generate_document": "📝 Document Generated",
+                "search_web": " Web Search Results",
+                "search_file": "🔍 File Search Results",
+                "search_folder": "🔍 Folder Search Results",
+                "search_app": "🔍 App Search Results",
+                "run_command": " Command Executed",
+                "list_processes": "📊 Running Processes",
+                "create_project": "🛠️ Project Created",
+                "greeting": " Welcome",
+                "system_info": " System Information",
+                "empty_trash": "️ Trash Emptied",
+                "analyze_document": "📊 Document Analyzed",
             }
-            action = action_map.get(intent, f"Executed {intent}")
+            action = action_map.get(intent, f"✅ {intent.replace('_', ' ').title()}")
+            
             if intent == "greeting":
                 lines.append(message)
-            else:
-                lines.append(f"{action}: {entity}" if entity else action)
-                lines.append(message)
-        else:
-            lines.append(message)
+            elif intent == "generate_document":
+                # For documents, show clean info from details
+                if isinstance(details, dict) and details.get("saved_path"):
+                    saved_path = details["saved_path"]
+                    topic = details.get("topic", entity)
+                    filename = Path(saved_path).name
+                    lines.append(f"{action}")
+                    lines.append("")
+                    lines.append(f"**Document:** {topic}")
+                    lines.append(f"**File:** {filename}")
+                    lines.append(f"**Location:** {Path(saved_path).parent}")
 
-        if isinstance(details, dict):
-            if details.get("path"):
-                lines.append(f"Path: {details['path']}")
+                    # Pretty source summary (avoid dumping raw dict/json)
+                    sources = details.get("sources") if isinstance(details, dict) else None
+                    if isinstance(sources, dict):
+                        refs = sources.get("references") or []
+                        ok_refs = [r for r in refs if isinstance(r, dict) and r.get("status") == "success"]
+                        lines.append("")
+                        lines.append("**Source Summary:**")
+                        lines.append(f"  • URLs provided: {len(refs)}")
+                        lines.append(f"  • Sources read: {len(ok_refs)}")
+                        for ref in ok_refs[:3]:
+                            title = ref.get("title") or ref.get("url") or "Source"
+                            lines.append(f"  • {title}")
+
+                    lines.append("")
+                    lines.append("✨ Document is ready. You can open it now from the path above.")
+                else:
+                    lines.append(f"{action}")
+                    if entity:
+                        lines.append(f"**Document:** {entity}")
+                    if message:
+                        lines.append("")
+                        lines.append(message)
+            elif intent in ("search_file", "search_folder"):
+                lines.append(f"{action}")
+                lines.append("")
+                if message:
+                    lines.append(message)
+            elif intent == "system_info":
+                # System info is already formatted in the handler
+                lines.append(message)
+            elif intent == "os_command":
+                # OS commands: show action and message directly
+                lines.append(f"{action}")
+                if message:
+                    lines.append("")
+                    lines.append(message)
+            else:
+                lines.append(f"{action}")
+                lines.append("")
+                if entity:
+                    lines.append(f"**Item:** {entity}")
+                if message and not message.startswith(("Sure", "Of course", "Happy", "No problem", "Absolutely", "You got", "Done", "All set", "Perfect", "Great", "Awesome")):
+                    lines.append("")
+                    lines.append(message)
+        else:
+            # Failed status
+            lines.append(f"{status_icon} **Task Failed**")
+            lines.append("")
+            lines.append(message)
+            # Add helpful suggestion
+            if "couldn't find" in message.lower() or "not found" in message.lower():
+                lines.append("")
+                lines.append("💡 **Tip:** Try checking the spelling or use 'find' to search for it.")
+
+        # Show file list if available (for ALL intents - find_anything, search_file, delete_file, etc.)
+        if isinstance(details, dict) and details.get("file_list"):
+            lines.append("")
+            lines.append("**Files Found:**")
+            for f in details["file_list"][:10]:
+                # Show full path without backticks so it becomes clickable
+                lines.append(f"  • {f}")
+
+        # Additional details
+        if isinstance(details, dict) and intent != "generate_document":
+            # Only add path if it's not already in the message - show without backticks for clickable
+            if details.get("path") and details["path"] not in message:
+                lines.append("")
+                lines.append(f"**Path:** {details['path']}")  # No backticks - makes it clickable
             if details.get("destination"):
-                lines.append(f"Destination: {details['destination']}")
+                lines.append(f"**Destination:** {details['destination']}")  # No backticks
+            # Handle nested details (like file_list) properly
             if details.get("details"):
-                lines.append(f"Details: {details['details']}")
+                nested = details["details"]
+                if isinstance(nested, dict):
+                    # If it has file_list, it's already handled above
+                    if not nested.get("file_list"):
+                        # Show other details nicely
+                        for key, value in nested.items():
+                            if key != "file_list":  # Skip file_list, already shown
+                                lines.append(f"**{key.title()}:** {value}")
+                elif isinstance(nested, list):
+                    lines.append("")
+                    lines.append("**Details:**")
+                    for item in nested[:10]:
+                        lines.append(f"  • {item}")
+                else:
+                    lines.append(f"**Details:** {nested}")
         elif isinstance(details, list):
-            lines.append(f"Items found: {len(details)}")
-            for item in details[:10]:
-                lines.append(f"  - {item}")
+            if details:
+                lines.append("")
+                lines.append(f"**Items Found:** {len(details)}")
+                for item in details[:10]:
+                    lines.append(f"  • {item}")
 
         return "\n".join(lines)
 
