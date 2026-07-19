@@ -26,6 +26,8 @@ pyinstaller>=6.0          # Build native installers for macOS/Windows
 pyttsx3>=2.90             # Text-to-speech
 SpeechRecognition>=3.10.0 # Speech-to-text
 PyAudio>=0.2.11           # Audio input for microphone
+pywin32>=300; platform_system == "Windows"  # COM init for Windows TTS (ignored on other OS)
+openai-whisper>=20240930  # Offline multilingual speech recognition (includes Swahili)
 
 # Document Analysis
 pdfplumber>=0.7.0         # Advanced PDF text extraction and analysis

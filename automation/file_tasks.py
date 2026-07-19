@@ -997,45 +997,103 @@ def read_file_contents(file_name, max_chars=3200):
 def empty_trash():
     """Empty the trash/recycle bin (cross-platform)."""
     current_os = platform.system()
+
+    def _clear_dir_contents(folder: Path):
+        """Best-effort remove all direct children of a folder."""
+        removed = 0
+        errors = []
+        try:
+            if not folder.exists() or not folder.is_dir():
+                return removed, errors
+            for item in folder.iterdir():
+                try:
+                    if item.is_dir() and not item.is_symlink():
+                        shutil.rmtree(item)
+                    else:
+                        item.unlink(missing_ok=True)
+                    removed += 1
+                except Exception as e:
+                    errors.append(f"{item}: {e}")
+        except Exception as e:
+            errors.append(f"{folder}: {e}")
+        return removed, errors
+
+    def _count_dir_items(folder: Path) -> int:
+        try:
+            if folder.exists() and folder.is_dir():
+                return sum(1 for _ in folder.iterdir())
+        except Exception:
+            pass
+        return 0
     
     try:
         if current_os == "Darwin":
-            # macOS: Use AppleScript with Finder (most reliable method)
-            # This uses the system's built-in trash emptying functionality
-            result = subprocess.run(
-                ["osascript", "-e", 
-                 'tell application "Finder" to empty the trash'],
-                capture_output=True, text=True, timeout=60
+            # macOS: Finder empty + verified manual cleanup (home + mounted volumes)
+            finder_errors = []
+            finder_scripts = [
+                'tell application "Finder" to empty',
+                'tell application "Finder" to empty the trash',
+            ]
+            for script in finder_scripts:
+                try:
+                    result = subprocess.run(
+                        ["osascript", "-e", script],
+                        capture_output=True, text=True, timeout=60
+                    )
+                    if result.returncode == 0:
+                        break
+                    err_text = (result.stderr or result.stdout or "unknown AppleScript error").strip()
+                    finder_errors.append(err_text)
+                except Exception as e:
+                    finder_errors.append(str(e))
+
+            trash_paths = [Path.home() / ".Trash"]
+
+            # Common Linux-compatible path (some mixed environments)
+            trash_paths.append(Path.home() / ".local/share/Trash/files")
+
+            # Per-volume trash folders on macOS external/internal mounted volumes
+            uid = str(os.getuid()) if hasattr(os, "getuid") else ""
+            volumes_root = Path("/Volumes")
+            if uid and volumes_root.exists():
+                try:
+                    for volume in volumes_root.iterdir():
+                        vol_trash = volume / ".Trashes" / uid
+                        if vol_trash.exists():
+                            trash_paths.append(vol_trash)
+                except Exception:
+                    pass
+
+            removed_total = 0
+            manual_errors = []
+            for tpath in trash_paths:
+                removed, errs = _clear_dir_contents(tpath)
+                removed_total += removed
+                manual_errors.extend(errs)
+
+            remaining = sum(_count_dir_items(tpath) for tpath in trash_paths)
+
+            if remaining == 0:
+                return _build_result(
+                    "Empty Trash", "", "success",
+                    "Trash has been emptied successfully.",
+                    "System",
+                    extra={"removed_items": removed_total}
+                )
+
+            reason_parts = []
+            if finder_errors:
+                reason_parts.append(f"Finder error: {finder_errors[-1]}")
+            if manual_errors:
+                reason_parts.append(f"Manual delete error: {manual_errors[-1]}")
+            reason = " | ".join(reason_parts) if reason_parts else "Some items are protected or in use."
+
+            return _build_result(
+                "Empty Trash", "", "failed",
+                f"Trash still has {remaining} item(s). {reason}",
+                "System",
+                extra={"removed_items": removed_total, "remaining_items": remaining}
             )
-            
-            if result.returncode == 0:
-                return _build_result("Empty Trash", "", "success",
-                                    "Trash has been emptied successfully.", "System")
-            
-            # Fallback: Try with admin privileges
-            result = subprocess.run(
-                ["osascript", "-e",
-                 'do shell script "rm -rf ~/.Trash/*" with administrator privileges'],
-                capture_output=True, text=True, timeout=60
-            )
-            
-            if result.returncode == 0:
-                return _build_result("Empty Trash", "", "success",
-                                    "Trash has been emptied successfully.", "System")
-            
-            # Last resort: Try direct rm without admin
-            trash_path = Path.home() / ".Trash"
-            subprocess.run(
-                f"rm -rf {trash_path}/* 2>/dev/null || true",
-                shell=True, capture_output=True, text=True, timeout=30
-            )
-            subprocess.run(
-                f"rm -rf {trash_path}/.* 2>/dev/null || true",
-                shell=True, capture_output=True, text=True, timeout=30
-            )
-            
-            return _build_result("Empty Trash", "", "success",
-                                "Trash empty command executed. Some protected items may need manual deletion via Finder.", "System")
         
         elif current_os == "Windows":
             # Windows: Use PowerShell to clear recycle bin

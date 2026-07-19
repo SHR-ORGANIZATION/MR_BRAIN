@@ -1,502 +1,502 @@
 [
   {
-    "command": "open insta",
-    "intent": "open_app",
-    "timestamp": "2026-07-08T23:18:00.002153"
-  },
-  {
-    "command": "open insttagram",
-    "intent": "open_app",
-    "timestamp": "2026-07-08T23:18:31.370431"
-  },
-  {
-    "command": "open instagram",
-    "intent": "open_app",
-    "timestamp": "2026-07-08T23:18:45.282113"
-  },
-  {
-    "command": "open appstore",
-    "intent": "open_app",
-    "timestamp": "2026-07-08T23:19:32.207788"
-  },
-  {
-    "command": "open app store",
-    "intent": "open_app",
-    "timestamp": "2026-07-08T23:19:41.747099"
-  },
-  {
-    "command": "open microsoft word",
-    "intent": "open_app",
-    "timestamp": "2026-07-08T23:20:09.118362"
-  },
-  {
-    "command": "open powerpoint",
-    "intent": "open_app",
-    "timestamp": "2026-07-08T23:20:23.419501"
-  },
-  {
-    "command": "create excel doc",
-    "intent": null,
-    "timestamp": "2026-07-09T04:15:26.880950"
-  },
-  {
-    "command": "create excel document",
-    "intent": null,
-    "timestamp": "2026-07-09T04:15:57.932162"
-  },
-  {
-    "command": "create excel",
-    "intent": null,
-    "timestamp": "2026-07-09T04:16:37.534610"
+    "command": "I'm Josh Shakira",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T22:27:30.265648"
   },
   {
     "command": "hello",
-    "intent": "greeting",
-    "timestamp": "2026-07-09T04:18:36.174596"
-  },
-  {
-    "command": "write excel document",
-    "intent": null,
-    "timestamp": "2026-07-09T04:19:10.688486"
-  },
-  {
-    "command": "ind azampay folder",
     "intent": "unknown",
-    "timestamp": "2026-07-09T04:20:32.525562"
+    "timestamp": "2026-07-09T22:27:46.482394"
   },
   {
-    "command": "find azampay folder",
-    "intent": null,
-    "timestamp": "2026-07-09T04:20:42.056764"
-  },
-  {
-    "command": "create word document about AI",
+    "command": "Amazon",
     "intent": "unknown",
-    "timestamp": "2026-07-09T04:22:23.943825"
+    "timestamp": "2026-07-09T22:28:19.422776"
   },
   {
-    "command": "create word document about AI",
+    "command": "are you there",
     "intent": "unknown",
-    "timestamp": "2026-07-09T04:24:57.597463"
+    "timestamp": "2026-07-09T22:31:24.544791"
   },
   {
-    "command": "create word document about AI",
+    "command": "and type Shakira Raj",
     "intent": "unknown",
-    "timestamp": "2026-07-09T04:25:08.545956"
+    "timestamp": "2026-07-09T22:34:10.648132"
   },
   {
-    "command": "create word document about AI",
+    "command": "will Chrome",
     "intent": "unknown",
-    "timestamp": "2026-07-09T04:26:55.507682"
+    "timestamp": "2026-07-09T22:34:36.065048"
   },
   {
-    "command": "reate word document about AI",
-    "intent": "open_file",
-    "timestamp": "2026-07-09T04:28:04.565157"
+    "command": "Google",
+    "intent": "search_web",
+    "timestamp": "2026-07-09T22:34:50.190069"
   },
   {
-    "command": "create word document about AI",
+    "command": "hello Amazon how",
+    "intent": "amazon_chat",
+    "timestamp": "2026-07-09T22:45:58.263442"
+  },
+  {
+    "command": "hello Amazon how are you",
+    "intent": "amazon_chat",
+    "timestamp": "2026-07-09T22:46:14.583597"
+  },
+  {
+    "command": "what's on camera",
     "intent": "unknown",
-    "timestamp": "2026-07-09T04:28:19.951810"
+    "timestamp": "2026-07-09T22:58:42.538309"
   },
   {
-    "command": "open youtube",
-    "intent": "open_app",
-    "timestamp": "2026-07-09T04:29:13.357559"
-  },
-  {
-    "command": "create word document about AI",
+    "command": "agriculture",
     "intent": "unknown",
-    "timestamp": "2026-07-09T04:30:16.258861"
+    "timestamp": "2026-07-09T23:01:33.542978"
   },
   {
-    "command": "make excel sheet about budget",
-    "intent": "generate_document",
-    "timestamp": "2026-07-09T04:30:42.408856"
-  },
-  {
-    "command": "create word document about AI",
+    "command": "I'm not sure I understand",
     "intent": "unknown",
-    "timestamp": "2026-07-09T04:31:02.603393"
+    "timestamp": "2026-07-09T23:01:40.948881"
   },
   {
-    "command": "create file named test.txt",
-    "intent": "create_file",
-    "timestamp": "2026-07-09T04:32:44.168403"
-  },
-  {
-    "command": "create word document about AI",
+    "command": "Amazon",
     "intent": "unknown",
-    "timestamp": "2026-07-09T04:34:51.144363"
+    "timestamp": "2026-07-09T23:01:54.905853"
   },
   {
-    "command": "Creates Word document about AI",
-    "intent": "open_file",
-    "timestamp": "2026-07-09T04:36:25.869918"
-  },
-  {
-    "command": "lists installed applications",
-    "intent": "os_command",
-    "timestamp": "2026-07-09T07:37:14.411815"
-  },
-  {
-    "command": "list installed app",
-    "intent": "os_command",
-    "timestamp": "2026-07-09T07:37:38.788714"
+    "command": "hello Amazon",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T23:45:49.292303"
   },
   {
     "command": "hello",
-    "intent": "greeting",
-    "timestamp": "2026-07-09T07:53:25.645909"
-  },
-  {
-    "command": "list all app",
     "intent": "unknown",
-    "timestamp": "2026-07-09T07:53:41.032409"
+    "timestamp": "2026-07-09T23:47:49.402568"
   },
   {
-    "command": "Create folder Projects",
+    "command": "hello",
+    "intent": "unknown",
+    "timestamp": "2026-07-09T23:49:31.591658"
+  },
+  {
+    "command": "hello Amazon",
+    "intent": "unknown",
+    "timestamp": "2026-07-10T00:01:24.254428"
+  },
+  {
+    "command": "all",
+    "intent": "unknown",
+    "timestamp": "2026-07-10T00:02:50.849325"
+  },
+  {
+    "command": "Amazon I love",
+    "intent": "unknown",
+    "timestamp": "2026-07-10T00:04:43.549445"
+  },
+  {
+    "command": "hello",
+    "intent": "unknown",
+    "timestamp": "2026-07-10T00:10:06.331042"
+  },
+  {
+    "command": "spell Lucifer",
+    "intent": "unknown",
+    "timestamp": "2026-07-11T14:53:21.600094"
+  },
+  {
+    "command": "Amazon",
+    "intent": "unknown",
+    "timestamp": "2026-07-11T14:54:44.528969"
+  },
+  {
+    "command": "Daniel",
+    "intent": "unknown",
+    "timestamp": "2026-07-11T14:55:18.350677"
+  },
+  {
+    "command": "Daniel",
+    "intent": "unknown",
+    "timestamp": "2026-07-11T14:55:18.969421"
+  },
+  {
+    "command": "Amazon are you good",
+    "intent": "unknown",
+    "timestamp": "2026-07-11T14:55:34.900713"
+  },
+  {
+    "command": "Amazon open",
+    "intent": "open_file",
+    "timestamp": "2026-07-11T14:56:33.216969"
+  },
+  {
+    "command": "open Chrome open Chrome",
+    "intent": "open_app",
+    "timestamp": "2026-07-11T14:56:58.451669"
+  },
+  {
+    "command": "Amazon create folder inside it create another folder inside",
     "intent": "create_folder",
-    "timestamp": "2026-07-09T07:57:48.161344"
+    "timestamp": "2026-07-11T14:59:00.094478"
   },
   {
-    "command": "List processes",
-    "intent": "os_command",
-    "timestamp": "2026-07-09T07:58:51.600845"
+    "command": "Amazon create folder inside it creates another folder inside it find a fold",
+    "intent": "create_folder",
+    "timestamp": "2026-07-11T14:59:01.883493"
   },
   {
-    "command": "create excel file",
-    "intent": "generate_document",
-    "timestamp": "2026-07-09T08:02:57.327626"
-  },
-  {
-    "command": "yes do number 1",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T08:03:30.734394"
-  },
-  {
-    "command": "scan computer",
-    "intent": "system_info",
-    "timestamp": "2026-07-09T08:06:03.301699"
-  },
-  {
-    "command": "Installed Apps",
-    "intent": "os_command",
-    "timestamp": "2026-07-09T08:12:24.779902"
-  },
-  {
-    "command": "yes",
-    "intent": "follow_up",
-    "timestamp": "2026-07-09T10:59:06.873110"
-  },
-  {
-    "command": "are you there?",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T10:59:41.694341"
-  },
-  {
-    "command": "what is your name?",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T11:00:24.479025"
+    "command": "I'm a critical network it",
+    "intent": "find_anything",
+    "timestamp": "2026-07-11T14:59:35.305397"
   },
   {
     "command": "hi there",
     "intent": "unknown",
-    "timestamp": "2026-07-09T11:01:54.546392"
+    "timestamp": "2026-07-14T12:36:28.424162"
+  },
+  {
+    "command": "hi there",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T12:37:51.747734"
   },
   {
     "command": "open",
     "intent": "open_file",
-    "timestamp": "2026-07-09T11:02:10.390252"
+    "timestamp": "2026-07-14T12:38:34.507393"
   },
   {
-    "command": "open Google",
+    "command": "open Google Chrome",
     "intent": "open_app",
-    "timestamp": "2026-07-09T11:02:32.506621"
+    "timestamp": "2026-07-14T12:38:49.942396"
   },
   {
-    "command": "what is your",
+    "command": "are you good",
     "intent": "unknown",
-    "timestamp": "2026-07-09T11:02:54.735655"
+    "timestamp": "2026-07-14T12:39:19.888132"
   },
   {
-    "command": "what is your name",
+    "command": "undur Azhar",
     "intent": "unknown",
-    "timestamp": "2026-07-09T11:03:10.372575"
+    "timestamp": "2026-07-14T12:40:50.138290"
   },
   {
-    "command": "hello Amazon",
+    "command": "unamfaham AZA",
     "intent": "unknown",
-    "timestamp": "2026-07-09T11:04:43.850711"
+    "timestamp": "2026-07-14T12:45:40.829119"
   },
   {
-    "command": "open Google",
+    "command": "UNAMFAHAMU AZA",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T12:45:56.625269"
+  },
+  {
+    "command": "Amazon mumbo VIP",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:13:42.830935"
+  },
+  {
+    "command": "Amazon number VP",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:13:58.304927"
+  },
+  {
+    "command": "kiswahili",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:14:16.461662"
+  },
+  {
+    "command": "Una fahamu kiswahili",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:14:32.705205"
+  },
+  {
+    "command": "open Google Chrome and browse lukinet",
     "intent": "open_app",
-    "timestamp": "2026-07-09T11:05:06.558764"
+    "timestamp": "2026-07-14T13:15:55.488509"
   },
   {
-    "command": "Amazon",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T12:28:32.910054"
+    "command": "open Google Chrome search in Google for looking",
+    "intent": "open_app",
+    "timestamp": "2026-07-14T13:17:42.004616"
   },
   {
-    "command": "I'm still learn",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T12:28:37.699383"
+    "command": "so where",
+    "intent": "search_file",
+    "timestamp": "2026-07-14T13:17:59.936098"
   },
   {
-    "command": "hello Amazon",
+    "command": "tanzen",
     "intent": "unknown",
-    "timestamp": "2026-07-09T12:29:01.282206"
+    "timestamp": "2026-07-14T13:18:17.984399"
+  },
+  {
+    "command": "Tanzania",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:18:33.789040"
+  },
+  {
+    "command": "train your model",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:19:02.309479"
+  },
+  {
+    "command": "I'm here to help",
+    "intent": "list_commands",
+    "timestamp": "2026-07-14T13:19:21.168186"
+  },
+  {
+    "command": "sitaki",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:19:43.195065"
+  },
+  {
+    "command": "habari",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:21:38.277674"
+  },
+  {
+    "command": "hello",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:22:54.649802"
+  },
+  {
+    "command": "Maria",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:23:57.342913"
+  },
+  {
+    "command": "habari",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:24:21.127861"
+  },
+  {
+    "command": "hello",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:25:17.697176"
+  },
+  {
+    "command": "hello now",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:26:20.551836"
+  },
+  {
+    "command": "America network",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:26:38.018259"
+  },
+  {
+    "command": "hi there",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:27:40.315367"
   },
   {
     "command": "are you",
     "intent": "unknown",
-    "timestamp": "2026-07-09T12:31:16.064725"
+    "timestamp": "2026-07-14T13:29:36.964814"
+  },
+  {
+    "command": "can I see",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:31:32.177982"
+  },
+  {
+    "command": "hello MB",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T13:41:26.556499"
+  },
+  {
+    "command": "mambo",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T13:42:22.146684"
   },
   {
     "command": "are you good",
     "intent": "unknown",
-    "timestamp": "2026-07-09T12:31:24.962482"
+    "timestamp": "2026-07-14T13:42:37.762079"
   },
   {
-    "command": "feeling fantastic what can I do for you",
+    "command": "my farm VIP",
     "intent": "unknown",
-    "timestamp": "2026-07-09T12:31:31.516894"
+    "timestamp": "2026-07-14T13:43:30.226434"
   },
   {
-    "command": "is your name",
+    "command": "barako",
     "intent": "unknown",
-    "timestamp": "2026-07-09T12:32:05.269809"
+    "timestamp": "2026-07-14T13:43:52.425127"
   },
   {
-    "command": "Amazon",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T12:32:17.034546"
-  },
-  {
-    "command": "good",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T12:32:28.413857"
-  },
-  {
-    "command": "are you good",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T12:32:43.681004"
-  },
-  {
-    "command": "What is the meaning of life",
+    "command": "almost i see network issue(using fall back if available)",
     "intent": "amazon_chat",
-    "timestamp": "2026-07-09T14:16:25.767909"
+    "timestamp": "2026-07-14T13:49:18.986385"
   },
   {
-    "command": "hello amzon",
+    "command": "hello buddy",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T13:49:49.083099"
+  },
+  {
+    "command": "fungua Google Chrome",
+    "intent": "open_app",
+    "timestamp": "2026-07-14T13:50:50.594793"
+  },
+  {
+    "command": "hello",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T13:52:26.815108"
+  },
+  {
+    "command": "VIP halik",
     "intent": "unknown",
-    "timestamp": "2026-07-09T14:18:14.953467"
+    "timestamp": "2026-07-14T13:52:40.760077"
+  },
+  {
+    "command": "VP hali yako",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:52:52.973319"
+  },
+  {
+    "command": "vipi hali yako",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T13:52:55.080807"
+  },
+  {
+    "command": "vivi hali yako",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:54:17.956628"
+  },
+  {
+    "command": "VP halal",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:54:33.611162"
+  },
+  {
+    "command": "hali yako",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:54:48.932405"
+  },
+  {
+    "command": "American",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:55:05.532100"
+  },
+  {
+    "command": "mambo vipi",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T13:55:21.201818"
+  },
+  {
+    "command": "nisaidie pesa",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T13:58:13.250935"
+  },
+  {
+    "command": "nisaidie pesa",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T14:09:47.863294"
+  },
+  {
+    "command": "nisaidie pesa",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T14:15:57.831485"
+  },
+  {
+    "command": "30",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T15:12:13.105434"
+  },
+  {
+    "command": "niaje",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T15:12:45.308432"
+  },
+  {
+    "command": "niaje?",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T15:13:02.341803"
+  },
+  {
+    "command": "mambo vipi",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T15:14:00.402676"
+  },
+  {
+    "command": "uhaligani?",
+    "intent": "amazon_chat",
+    "timestamp": "2026-07-14T15:14:21.657438"
+  },
+  {
+    "command": "uhaligani?",
+    "intent": "amazon_chat",
+    "timestamp": "2026-07-14T15:14:28.736942"
+  },
+  {
+    "command": "Niaje wewe udugu",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T15:14:59.759625"
+  },
+  {
+    "command": "Niaje wewe udugu",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T15:15:14.665209"
+  },
+  {
+    "command": "mambo vipi mwanetu",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T15:15:58.148433"
+  },
+  {
+    "command": "mambo vipi mwanetu",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T15:16:08.672076"
+  },
+  {
+    "command": "List processes",
+    "intent": "os_command",
+    "timestamp": "2026-07-14T16:58:40.382204"
+  },
+  {
+    "command": "hello amaon",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T16:59:11.155747"
+  },
+  {
+    "command": "are you good",
+    "intent": "unknown",
+    "timestamp": "2026-07-14T16:59:26.970691"
   },
   {
     "command": "hello amazon",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T16:59:44.133414"
+  },
+  {
+    "command": "habari",
+    "intent": "greeting",
+    "timestamp": "2026-07-14T16:59:52.970994"
+  },
+  {
+    "command": "at 72",
     "intent": "unknown",
-    "timestamp": "2026-07-09T14:18:25.061736"
+    "timestamp": "2026-07-14T17:00:04.388600"
   },
   {
-    "command": "what is you name",
+    "command": "niandikie barua kisha save kwnye desktop",
     "intent": "amazon_chat",
-    "timestamp": "2026-07-09T14:18:34.357590"
+    "timestamp": "2026-07-14T17:02:17.857966"
   },
   {
-    "command": "open chrome",
-    "intent": "open_app",
-    "timestamp": "2026-07-09T14:19:08.835331"
-  },
-  {
-    "command": "ollama pull llama3.2",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T14:32:47.312470"
-  },
-  {
-    "command": "what is you name",
+    "command": "niandikie barua kisha save kwnye desktop",
     "intent": "amazon_chat",
-    "timestamp": "2026-07-09T14:33:20.942089"
+    "timestamp": "2026-07-14T17:03:04.649708"
   },
   {
-    "command": "now give me a full research",
-    "intent": "search_web",
-    "timestamp": "2026-07-09T14:35:19.556819"
-  },
-  {
-    "command": "generate it please",
+    "command": "nisaidie kufanya wewe",
     "intent": "amazon_chat",
-    "timestamp": "2026-07-09T14:36:38.843777"
+    "timestamp": "2026-07-14T17:04:51.276563"
   },
   {
-    "command": "generate the doc work about create for me a research proposal on the topic about the infuluence of parents to children performance",
-    "intent": "search_web",
-    "timestamp": "2026-07-09T14:38:48.796424"
-  },
-  {
-    "command": "create for me a research proposal on the topic about the infuluence of parents to children performance",
-    "intent": "search_web",
-    "timestamp": "2026-07-09T14:39:10.044778"
-  },
-  {
-    "command": "create yourself  for me a research proposal on the topic about the infuluence of parents to children performance",
-    "intent": "search_web",
-    "timestamp": "2026-07-09T14:39:30.691593"
-  },
-  {
-    "command": "emptty my traash",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T14:39:59.332684"
-  },
-  {
-    "command": "empty my trash",
+    "command": "empty trash",
     "intent": "empty_trash",
-    "timestamp": "2026-07-09T14:40:42.494962"
-  },
-  {
-    "command": "Amazon how are you",
-    "intent": "amazon_chat",
-    "timestamp": "2026-07-09T14:41:19.231840"
-  },
-  {
-    "command": "shut down",
-    "intent": "shutdown",
-    "timestamp": "2026-07-09T14:42:09.722693"
-  },
-  {
-    "command": "turn off",
-    "intent": "shutdown",
-    "timestamp": "2026-07-09T14:42:23.506752"
-  },
-  {
-    "command": "turn off this computer",
-    "intent": "system_info",
-    "timestamp": "2026-07-09T14:42:38.976884"
-  },
-  {
-    "command": "install the application",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T14:42:55.706455"
-  },
-  {
-    "command": "oil installed applic",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T14:43:11.086380"
-  },
-  {
-    "command": "sold the application",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T14:43:36.021920"
-  },
-  {
-    "command": "spell application",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T14:43:51.788039"
-  },
-  {
-    "command": "all applic",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T14:44:04.873753"
-  },
-  {
-    "command": "list all",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T14:44:18.546842"
-  },
-  {
-    "command": "Google app",
-    "intent": "search_web",
-    "timestamp": "2026-07-09T14:44:29.082075"
-  },
-  {
-    "command": "no not Google Map how are you",
-    "intent": "search_web",
-    "timestamp": "2026-07-09T14:44:38.751096"
-  },
-  {
-    "command": "I want to know all install the application",
-    "intent": "amazon_chat",
-    "timestamp": "2026-07-09T14:46:29.122446"
-  },
-  {
-    "command": "speek loude, you know some bode knon as AZA??",
-    "intent": "amazon_chat",
-    "timestamp": "2026-07-09T14:51:30.189667"
-  },
-  {
-    "command": "speek loude, you know some bode knon as AZA??",
-    "intent": "amazon_chat",
-    "timestamp": "2026-07-09T14:51:33.366124"
-  },
-  {
-    "command": "how are you",
-    "intent": "amazon_chat",
-    "timestamp": "2026-07-09T15:01:19.918952"
-  },
-  {
-    "command": "hello",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T15:01:48.118060"
-  },
-  {
-    "command": "hello Amazon",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T15:02:44.306973"
-  },
-  {
-    "command": "thank you",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T15:07:04.842520"
-  },
-  {
-    "command": "create nice research about Famisly then save it as pdf",
-    "intent": "search_web",
-    "timestamp": "2026-07-09T15:08:14.840771"
-  },
-  {
-    "command": "create your self no need to use web search for now",
-    "intent": "search_web",
-    "timestamp": "2026-07-09T15:08:54.872647"
-  },
-  {
-    "command": "why you redirect be to chrome??",
-    "intent": "amazon_chat",
-    "timestamp": "2026-07-09T15:10:00.094692"
-  },
-  {
-    "command": "why you redirect be to chrome??",
-    "intent": "amazon_chat",
-    "timestamp": "2026-07-09T15:10:10.759445"
-  },
-  {
-    "command": "create your self no need to use web search for now",
-    "intent": "search_web",
-    "timestamp": "2026-07-09T15:10:29.759848"
-  },
-  {
-    "command": "create nice research about Famisly then save it as pdf",
-    "intent": "search_web",
-    "timestamp": "2026-07-09T15:10:56.335848"
-  },
-  {
-    "command": "hello Amazon",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T15:15:03.974992"
-  },
-  {
-    "command": "find Azam pay",
-    "intent": "find_anything",
-    "timestamp": "2026-07-09T15:37:11.624684"
-  },
-  {
-    "command": "hello",
-    "intent": "unknown",
-    "timestamp": "2026-07-09T15:39:28.498732"
-  },
-  {
-    "command": "find azampay folder",
-    "intent": "find_anything",
-    "timestamp": "2026-07-09T15:45:16.011733"
+    "timestamp": "2026-07-14T17:04:56.695915"
   }
 ]

@@ -340,11 +340,13 @@ class ThinkingIndicator:
         self.frame = ctk.CTkFrame(parent, fg_color="transparent")
         self.label = ctk.CTkLabel(
             self.frame, text="", font=FONT_AI,
-            text_color=TEXT_SECONDARY, justify="left", anchor="w"
+            text_color=TEXT_SECONDARY, justify="left", anchor="w",
+            wraplength=500
         )
-        self.label.pack()
+        self.label.pack(fill="x", expand=True)
         self._step = 0
         self._running = False
+        self._custom_message = None
 
     def start(self):
         self._running = True
@@ -353,11 +355,19 @@ class ThinkingIndicator:
     def stop(self):
         self._running = False
 
+    def update_message(self, message):
+        """Update the thinking message (e.g., 'Still thinking...')"""
+        self._custom_message = message
+
     def _animate(self):
         if not self._running:
             return
-        dots = "." * (self._step % 4)
-        self.label.configure(text=f"Thinking{dots}")
+        if self._custom_message:
+            dots = "." * (self._step % 4)
+            self.label.configure(text=f"{self._custom_message}{dots}")
+        else:
+            dots = "." * (self._step % 4)
+            self.label.configure(text=f"Thinking{dots}")
         self._step += 1
         self.frame.after(400, self._animate)
 
@@ -1300,8 +1310,8 @@ class AMAZONAI:
     def _has_clickable_paths(self, text):
         """Check if text contains file/folder paths."""
         import re
-        # Match Unix paths (/Users/...) or Windows paths (C:\...)
-        path_pattern = r'(?:/[\w.-]+)+/[\w.-]+|[A-Z]:\\[\w\\.-]+'
+        # Match Unix paths (/Users/... including spaces) or Windows paths (C:\... including spaces)
+        path_pattern = r'(?:/(?:[^/\n]+/)*[^/\n]+)|(?:[A-Z]:\\(?:[^\\\n]+\\)*[^\\\n]+)'
         return bool(re.search(path_pattern, text))
 
     def _render_message_with_links(self, parent, text):
@@ -1309,7 +1319,7 @@ class AMAZONAI:
         import re
         
         # Pattern to match paths
-        path_pattern = r'((?:/[\w.-]+)+/[\w.-]+|[A-Z]:\\[\w\\.-]+(?:\\[\w.-]+)*)'
+        path_pattern = r'((?:/(?:[^/\n]+/)*[^/\n]+)|(?:[A-Z]:\\(?:[^\\\n]+\\)*[^\\\n]+))'
         
         # Check if text has paths
         has_paths = bool(re.search(path_pattern, text))
@@ -1390,23 +1400,66 @@ class AMAZONAI:
         """Open a file or folder path using the system's default handler."""
         import subprocess
         import platform
+        import re
         from pathlib import Path
         
-        path = path.strip()
-        path_obj = Path(path).expanduser()
+        raw_path = (path or "").strip()
+
+        # If click text contains extra content, keep only the absolute-path-looking part.
+        abs_match = re.search(r'(/[^\n]+|[A-Z]:\\[^\n]+)', raw_path)
+        if abs_match:
+            raw_path = abs_match.group(1)
+
+        path = raw_path.strip().strip("`\"' ")
+        # Remove common trailing punctuation from rendered lines
+        path = re.sub(r"[\]\)\}\.,;:!?]+$", "", path)
+
+        def _resolve_existing_path(candidate_text: str):
+            """Return best existing path from a candidate string (handles trailing extra words)."""
+            candidate_text = (candidate_text or "").strip()
+            if not candidate_text:
+                return None
+
+            p = Path(candidate_text).expanduser()
+            if p.exists():
+                return p
+
+            # Try shrinking token-by-token from the end for cases like
+            # '/Users/.../file name extra words'.
+            tokens = candidate_text.split()
+            for i in range(len(tokens) - 1, 0, -1):
+                maybe = " ".join(tokens[:i]).strip()
+                if not maybe:
+                    continue
+                pp = Path(maybe).expanduser()
+                if pp.exists():
+                    return pp
+            return None
+
+        path_obj = _resolve_existing_path(path)
         
-        if not path_obj.exists():
+        if not path_obj:
             messagebox.showinfo("Path Not Found", f"The path does not exist:\n{path}")
             return
         
         try:
             current_os = platform.system()
             if current_os == "Darwin":
-                subprocess.Popen(["open", str(path_obj)])
+                if path_obj.is_file():
+                    # Reveal file in Finder (more reliable for extensionless files)
+                    subprocess.Popen(["open", "-R", str(path_obj)])
+                else:
+                    subprocess.Popen(["open", str(path_obj)])
             elif current_os == "Windows":
-                os.startfile(str(path_obj))
+                if path_obj.is_file():
+                    subprocess.Popen(["explorer", "/select,", str(path_obj)])
+                else:
+                    os.startfile(str(path_obj))
             else:
-                subprocess.Popen(["xdg-open", str(path_obj)])
+                if path_obj.is_file():
+                    subprocess.Popen(["xdg-open", str(path_obj.parent)])
+                else:
+                    subprocess.Popen(["xdg-open", str(path_obj)])
         except Exception as e:
             messagebox.showerror("Error", f"Could not open path:\n{e}")
 
@@ -1566,6 +1619,11 @@ class AMAZONAI:
             self._thinking_card = None
             self._refresh_scroll_region()
 
+    def _update_thinking_message(self, message):
+        """Update the thinking indicator message (e.g., 'Still thinking...')"""
+        if self._thinking_indicator:
+            self._thinking_indicator.update_message(message)
+
     # -----------------------------------------------------------------
     #  Command Execution
     # -----------------------------------------------------------------
@@ -1605,6 +1663,7 @@ class AMAZONAI:
 
         self.is_processing = True
         self.send_btn.configure(fg_color="#9ca3af", state="disabled")
+        self._timed_out = False  # Reset timeout flag for this command
 
         self._add_msg_to_session("user", command)
         self._render_user_message(command)
@@ -1613,11 +1672,45 @@ class AMAZONAI:
 
         def process():
             try:
-                time.sleep(0.4)
+                # Set up streaming progress callback for real-time LLM response display
+                try:
+                    from ai_assistant.models.llm_manager import get_llm_manager
+                    def _on_llm_token(partial_text):
+                        """Called from LLM thread with accumulated text as it streams."""
+                        try:
+                            # Show the latest portion of text in the thinking indicator
+                            display = partial_text[-200:] if len(partial_text) > 200 else partial_text
+                            self.app.after(0, lambda t=display: self._update_thinking_message(t))
+                        except Exception:
+                            pass
+                    get_llm_manager().set_progress_callback(_on_llm_token)
+                except Exception:
+                    pass
+
                 result = process_command(command)
+
+                # Clear the progress callback
+                try:
+                    from ai_assistant.models.llm_manager import get_llm_manager
+                    get_llm_manager().set_progress_callback(None)
+                except Exception:
+                    pass
+
+                # If timed out, discard the late response silently
+                if self._timed_out:
+                    print("Late response discarded (timeout already fired)")
+                    return
                 self.app.after(0, lambda: self._finish_execution(result, command))
             except Exception as err:
                 print(f"Command execution error: {err}")
+                # Clear the progress callback
+                try:
+                    from ai_assistant.models.llm_manager import get_llm_manager
+                    get_llm_manager().set_progress_callback(None)
+                except Exception:
+                    pass
+                if self._timed_out:
+                    return
                 error_result = {
                     "intent": "error", "entity": None, "status": "failed",
                     "message": str(err), "details": None, "task_id": 0,
@@ -1628,18 +1721,32 @@ class AMAZONAI:
         t = threading.Thread(target=process, daemon=True)
         t.start()
         
-        # Safety timeout - reset UI if command takes too long (30 seconds)
+        # Show "still thinking" message after 15 seconds so user knows it's working
+        def thinking_update():
+            if self.is_processing:
+                self._update_thinking_message("Still thinking... This may take a moment.")
+        
+        self.app.after(15000, thinking_update)
+        
+        # Safety timeout - reset UI if command takes too long (120 seconds for LLM responses)
         def safety_timeout():
             if self.is_processing:
                 print("Warning: Command execution timed out, resetting UI")
-                self._finish_execution({
-                    "intent": "error", "entity": None, "status": "failed",
-                    "message": "Command timed out. Please try again.",
-                    "details": None, "task_id": 0,
-                    "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                }, command)
+                self._timed_out = True  # Mark as timed out — late responses will be discarded
+                # Preserve voice_input_mode so speech still works when response arrives
+                saved_voice_mode = self.voice_input_mode
+                # Just reset UI state — don't show error message
+                self._remove_thinking()
+                self.is_processing = False
+                self.send_btn.configure(fg_color=ACCENT, state="normal")
+                try:
+                    self.command_entry.configure(state="normal")
+                    self.command_entry.focus_set()
+                except Exception:
+                    pass
+                self.voice_input_mode = saved_voice_mode
         
-        self.app.after(30000, safety_timeout)
+        self.app.after(120000, safety_timeout)  # 2 minutes for LLM responses
 
     def _show_confirmation_dialog(self, command):
         """Show confirmation dialog for sensitive commands like delete."""
@@ -1653,11 +1760,35 @@ class AMAZONAI:
             
             def process():
                 try:
-                    time.sleep(0.4)
+                    # Set up streaming progress callback
+                    try:
+                        from ai_assistant.models.llm_manager import get_llm_manager
+                        def _on_llm_token(partial_text):
+                            try:
+                                display = partial_text[-200:] if len(partial_text) > 200 else partial_text
+                                self.app.after(0, lambda t=display: self._update_thinking_message(t))
+                            except Exception:
+                                pass
+                        get_llm_manager().set_progress_callback(_on_llm_token)
+                    except Exception:
+                        pass
+
                     result = process_command(command)
+
+                    try:
+                        from ai_assistant.models.llm_manager import get_llm_manager
+                        get_llm_manager().set_progress_callback(None)
+                    except Exception:
+                        pass
+
                     self.app.after(0, lambda: self._finish_execution(result, command))
                 except Exception as err:
                     print(f"Command execution error: {err}")
+                    try:
+                        from ai_assistant.models.llm_manager import get_llm_manager
+                        get_llm_manager().set_progress_callback(None)
+                    except Exception:
+                        pass
                     error_result = {
                         "intent": "error", "entity": None, "status": "failed",
                         "message": str(err), "details": None, "task_id": 0,
@@ -1705,16 +1836,17 @@ class AMAZONAI:
         self._render_ai_message(response)
         self._refresh_scroll_region()
         
-        # Speak the response ONLY if voice input was used AND voice is enabled
-        print(f"[VOICE] voice_input_mode={self.voice_input_mode}, voice_enabled={self.voice_enabled}")
-        if self.voice_ui and self.voice_enabled and self.voice_input_mode:
+        # Speak the response ONLY if voice toggle is ON and input was from voice
+        voice_ui_enabled = self.voice_ui.voice_enabled if self.voice_ui else False
+        print(f"[VOICE] voice_input_mode={self.voice_input_mode}, voice_enabled={voice_ui_enabled}")
+        if self.voice_ui and voice_ui_enabled and self.voice_input_mode:
             try:
                 print(f"[VOICE] Speaking response...")
                 self.voice_ui.speak_response(response)
             except Exception as e:
                 print(f"[VOICE] Error speaking: {e}")
         else:
-            print(f"[VOICE] Not speaking - voice_ui={self.voice_ui is not None}, enabled={self.voice_enabled}, mode={self.voice_input_mode}")
+            print(f"[VOICE] Not speaking - voice_ui={self.voice_ui is not None}, enabled={voice_ui_enabled}, mode={self.voice_input_mode}")
         
         # Reset voice input mode after each command
         self.voice_input_mode = False
@@ -1813,7 +1945,27 @@ class AMAZONAI:
     #  Safety Checks
     # -----------------------------------------------------------------
     def is_sensitive_command(self, command):
-        """Check if command requires confirmation before execution."""
+        """Check if command requires confirmation before execution.
+        Only triggers on short, command-like text — not on long questions,
+        pasted content, or conversational prompts."""
+        cmd_lower = command.lower().strip()
+
+        # Skip long text — likely a question, pasted content, or conversation
+        # Real commands are short (e.g. "delete report.pdf")
+        if len(cmd_lower) > 80:
+            return False
+
+        # If it looks like a question, skip confirmation
+        if cmd_lower.endswith("?"):
+            return False
+        question_starters = [
+            "what", "who", "where", "when", "why", "how", "which",
+            "can you", "could you", "would you", "do you", "is it",
+            "tell me", "explain", "describe", "help me",
+        ]
+        if any(cmd_lower.startswith(s) for s in question_starters):
+            return False
+
         sensitive = [
             # Delete/remove actions
             "delete", "remove", "erase", "destroy", "discard",
@@ -1826,7 +1978,6 @@ class AMAZONAI:
             "clear trash", "clear recycle", "clear bin",
             "move to trash", "send to trash", "move to bin",
         ]
-        cmd_lower = command.lower()
         return any(w in cmd_lower for w in sensitive)
 
     def get_confirmation_details(self, command):
@@ -1932,9 +2083,25 @@ class AMAZONAI:
                     filename = Path(saved_path).name
                     lines.append(f"{action}")
                     lines.append("")
-                    lines.append(f"**Topic:** {topic}")
-                    lines.append(f"**Saved as:** `{filename}`")
-                    lines.append(f"**Location:** `{Path(saved_path).parent}`")
+                    lines.append(f"**Document:** {topic}")
+                    lines.append(f"**File:** {filename}")
+                    lines.append(f"**Location:** {Path(saved_path).parent}")
+
+                    # Pretty source summary (avoid dumping raw dict/json)
+                    sources = details.get("sources") if isinstance(details, dict) else None
+                    if isinstance(sources, dict):
+                        refs = sources.get("references") or []
+                        ok_refs = [r for r in refs if isinstance(r, dict) and r.get("status") == "success"]
+                        lines.append("")
+                        lines.append("**Source Summary:**")
+                        lines.append(f"  • URLs provided: {len(refs)}")
+                        lines.append(f"  • Sources read: {len(ok_refs)}")
+                        for ref in ok_refs[:3]:
+                            title = ref.get("title") or ref.get("url") or "Source"
+                            lines.append(f"  • {title}")
+
+                    lines.append("")
+                    lines.append("✨ Document is ready. You can open it now from the path above.")
                 else:
                     lines.append(f"{action}")
                     if entity:
@@ -1983,7 +2150,7 @@ class AMAZONAI:
                 lines.append(f"  • {f}")
 
         # Additional details
-        if isinstance(details, dict):
+        if isinstance(details, dict) and intent != "generate_document":
             # Only add path if it's not already in the message - show without backticks for clickable
             if details.get("path") and details["path"] not in message:
                 lines.append("")

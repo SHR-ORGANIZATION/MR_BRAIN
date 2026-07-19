@@ -5,6 +5,7 @@ HTTP client for Ollama REST API for local LLM inference.
 import json
 import logging
 import requests
+import time
 from typing import Dict, Any, Optional, List, Generator
 from dataclasses import dataclass
 
@@ -41,6 +42,12 @@ RESPONSE GUIDELINES:
 - Use status icons for actions: ✅ success, ❌ errors, ⚠️ warnings
 - When performing tasks, explain what you're doing step by step
 - Always be encouraging and positive
+
+MULTILINGUAL QUALITY:
+- Detect the user's language and respond in that same language unless user asks otherwise.
+- For Kiswahili: use clear, natural Swahili (avoid awkward literal translations).
+- If input is ambiguous, ask one concise clarifying question in the same language.
+- For finance/loan topics, include a brief safety note about terms, interest, and repayment ability.
 """
 
 
@@ -72,24 +79,34 @@ class OllamaClient:
     def __init__(self, base_url: str = DEFAULT_OLLAMA_URL):
         self.base_url = base_url.rstrip('/')
         self._available = None
+        self._last_check_ts = 0.0
+        self._availability_cache_ttl = 5.0
         self._models: List[OllamaModel] = []
         self.current_model: Optional[str] = None
     
-    def is_available(self) -> bool:
+    def is_available(self, force_refresh: bool = False) -> bool:
         """Check if Ollama server is running."""
-        if self._available is not None:
+        now = time.time()
+        if (
+            not force_refresh
+            and self._available is not None
+            and (now - self._last_check_ts) < self._availability_cache_ttl
+        ):
             return self._available
         
         try:
             response = requests.get(f"{self.base_url}/api/tags", timeout=3)
             self._available = response.status_code == 200
+            self._last_check_ts = now
             if self._available:
                 self._load_models()
         except requests.exceptions.ConnectionError:
             self._available = False
+            self._last_check_ts = now
         except Exception as e:
             logger.warning(f"Ollama connection error: {e}")
             self._available = False
+            self._last_check_ts = now
         
         return self._available
     
@@ -151,7 +168,8 @@ class OllamaClient:
         self,
         message: str,
         context: Optional[List[Dict]] = None,
-        stream: bool = False
+        stream: bool = True,
+        progress_callback=None
     ) -> str:
         """
         Send a chat message to Ollama.
@@ -159,7 +177,8 @@ class OllamaClient:
         Args:
             message: User's message
             context: Conversation history
-            stream: Whether to stream the response
+            stream: Whether to stream the response (default True)
+            progress_callback: Optional callback called with each token chunk
             
         Returns:
             AI response text
@@ -200,7 +219,7 @@ class OllamaClient:
                 return f"Ollama error: {response.status_code}"
             
             if stream:
-                return self._handle_stream_response(response)
+                return self._handle_stream_response(response, progress_callback)
             else:
                 data = response.json()
                 return data.get("message", {}).get("content", "No response")
@@ -211,15 +230,22 @@ class OllamaClient:
             logger.error(f"Ollama chat error: {e}")
             return f"Error communicating with Ollama: {str(e)}"
     
-    def _handle_stream_response(self, response) -> str:
-        """Handle streaming response from Ollama."""
+    def _handle_stream_response(self, response, progress_callback=None) -> str:
+        """Handle streaming response from Ollama, calling progress_callback per token."""
         full_response = []
         for line in response.iter_lines():
             if line:
                 try:
                     data = json.loads(line)
                     content = data.get("message", {}).get("content", "")
-                    full_response.append(content)
+                    if content:
+                        full_response.append(content)
+                        # Call progress callback with accumulated text so far
+                        if progress_callback:
+                            try:
+                                progress_callback("".join(full_response))
+                            except Exception:
+                                pass
                 except json.JSONDecodeError:
                     continue
         return "".join(full_response)

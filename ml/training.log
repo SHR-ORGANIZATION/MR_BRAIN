@@ -5264,3 +5264,1603 @@ Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_mo
 2026-07-09 16:15:36,741 - INFO - Training completed at: 2026-07-09 16:15:36.741609
 2026-07-09 16:15:36,741 - INFO - ============================================================
 2026-07-09 16:15:36,741 - INFO - ✅ Training complete!
+2026-07-09 19:43:25,638 - INFO - Using device: cpu
+2026-07-09 19:43:25,638 - INFO - ============================================================
+2026-07-09 19:43:25,638 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 19:43:25,639 - INFO - ============================================================
+2026-07-09 19:43:25,639 - INFO - Started at: 2026-07-09 19:43:25.639129
+2026-07-09 19:43:25,639 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-09 19:43:25,646 - INFO - Loaded 45 samples, 12 unique intents
+2026-07-09 19:43:25,648 - INFO - Intent distribution:
+intent
+amazon_chat          14
+search_web           10
+open_app              4
+os_command            4
+find_anything         3
+generate_document     2
+create_folder         2
+system_info           2
+create_file           1
+greeting              1
+follow_up             1
+empty_trash           1
+Name: count, dtype: int64
+2026-07-09 19:43:25,648 - INFO - Number of unique intents: 12
+2026-07-09 19:43:25,648 - INFO - Intents: ['amazon_chat', 'create_file', 'create_folder', 'empty_trash', 'find_anything', 'follow_up', 'generate_document', 'greeting', 'open_app', 'os_command', 'search_web', 'system_info']
+2026-07-09 19:43:25,650 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-09 19:43:25,650 - INFO - Some classes have < 2 samples, using simple split
+2026-07-09 19:43:25,652 - INFO - Train: 36 samples
+2026-07-09 19:43:25,652 - INFO - Test: 9 samples
+2026-07-09 19:43:25,652 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-09 19:43:28,576 - INFO - Loading model: distilbert-base-uncased (12 classes)
+2026-07-09 19:43:29,496 - INFO - Total steps: 30, Warmup steps: 3
+2026-07-09 19:43:29,496 - INFO - 
+============================================================
+2026-07-09 19:43:29,497 - INFO - Training for 10 epochs on cpu
+2026-07-09 19:43:29,497 - INFO - Total steps: 30, Warmup: 3
+2026-07-09 19:43:29,497 - INFO - ============================================================
+
+2026-07-09 19:43:37,923 - INFO - Epoch 1/10 | Train Loss: 2.4574 | Train Acc: 2.78% | Test Loss: 2.4802 | Test Acc: 0.00%
+2026-07-09 19:43:51,452 - INFO - Epoch 2/10 | Train Loss: 2.4024 | Train Acc: 25.00% | Test Loss: 2.4384 | Test Acc: 33.33%
+2026-07-09 19:43:55,940 - INFO -   -> Best model saved (accuracy: 33.33%)
+2026-07-09 19:44:08,465 - INFO - Epoch 3/10 | Train Loss: 2.3754 | Train Acc: 41.67% | Test Loss: 2.3875 | Test Acc: 33.33%
+2026-07-09 19:44:19,926 - INFO - Epoch 4/10 | Train Loss: 2.2755 | Train Acc: 44.44% | Test Loss: 2.3285 | Test Acc: 33.33%
+2026-07-09 19:44:32,455 - INFO - Epoch 5/10 | Train Loss: 2.2417 | Train Acc: 47.22% | Test Loss: 2.2662 | Test Acc: 33.33%
+2026-07-09 19:44:43,570 - INFO - Epoch 6/10 | Train Loss: 2.1474 | Train Acc: 50.00% | Test Loss: 2.2248 | Test Acc: 33.33%
+2026-07-09 19:44:54,384 - INFO - Epoch 7/10 | Train Loss: 2.0091 | Train Acc: 50.00% | Test Loss: 2.1934 | Test Acc: 33.33%
+2026-07-09 19:45:03,749 - INFO - Epoch 8/10 | Train Loss: 2.0511 | Train Acc: 47.22% | Test Loss: 2.1695 | Test Acc: 33.33%
+2026-07-09 19:45:09,769 - INFO - Epoch 9/10 | Train Loss: 1.9885 | Train Acc: 47.22% | Test Loss: 2.1527 | Test Acc: 33.33%
+2026-07-09 19:45:15,518 - INFO - Epoch 10/10 | Train Loss: 2.0583 | Train Acc: 50.00% | Test Loss: 2.1457 | Test Acc: 33.33%
+2026-07-09 19:45:17,429 - INFO - 
+============================================================
+2026-07-09 19:45:17,429 - INFO - Final Evaluation
+2026-07-09 19:45:17,429 - INFO - ============================================================
+2026-07-09 19:45:17,741 - INFO - 
+Best Accuracy: 33.33%
+2026-07-09 19:45:17,742 - INFO - Final Accuracy: 33.33%
+2026-07-09 19:45:17,742 - INFO - 
+Classification Report:
+                   precision    recall  f1-score   support
+
+      amazon_chat     0.6000    1.0000    0.7500         3
+    find_anything     0.0000    0.0000    0.0000         1
+generate_document     0.0000    0.0000    0.0000         1
+         open_app     0.0000    0.0000    0.0000         1
+       os_command     0.0000    0.0000    0.0000         1
+       search_web     0.0000    0.0000    0.0000         1
+      system_info     0.0000    0.0000    0.0000         1
+
+         accuracy                         0.3333         9
+        macro avg     0.0857    0.1429    0.1071         9
+     weighted avg     0.2000    0.3333    0.2500         9
+
+2026-07-09 19:45:17,743 - INFO - 
+Confusion Matrix:
+[[3 0 0 0 0 0 0]
+ [1 0 0 0 0 0 0]
+ [0 0 0 0 0 1 0]
+ [0 0 0 0 0 1 0]
+ [0 0 0 0 0 1 0]
+ [1 0 0 0 0 0 0]
+ [0 0 0 0 0 1 0]]
+2026-07-09 19:45:17,743 - INFO - 
+Misclassified examples (6):
+2026-07-09 19:45:17,743 - INFO -   Text: 'find azampay folder' -> True: find_anything, Pred: amazon_chat
+2026-07-09 19:45:17,744 - INFO -   Text: 'turn off this computer' -> True: system_info, Pred: search_web
+2026-07-09 19:45:17,744 - INFO -   Text: 'Google app' -> True: search_web, Pred: amazon_chat
+2026-07-09 19:45:17,744 - INFO -   Text: 'list installed app' -> True: os_command, Pred: search_web
+2026-07-09 19:45:17,744 - INFO -   Text: 'open Google' -> True: open_app, Pred: search_web
+2026-07-09 19:45:17,744 - INFO -   Text: 'create excel file' -> True: generate_document, Pred: search_web
+2026-07-09 19:45:17,748 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-09 19:45:17,748 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-09 19:45:17,748 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-09 19:45:17,748 - INFO - Training completed at: 2026-07-09 19:45:17.748743
+2026-07-09 19:45:17,748 - INFO - ============================================================
+2026-07-09 19:45:17,748 - INFO - ✅ Training complete!
+2026-07-09 22:15:25,718 - INFO - Using device: cpu
+2026-07-09 22:15:25,719 - INFO - ============================================================
+2026-07-09 22:15:25,719 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 22:15:25,719 - INFO - ============================================================
+2026-07-09 22:15:25,719 - INFO - Started at: 2026-07-09 22:15:25.719270
+2026-07-09 22:15:25,719 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-09 22:15:25,746 - INFO - Loaded 45 samples, 12 unique intents
+2026-07-09 22:15:25,750 - INFO - Intent distribution:
+intent
+amazon_chat          14
+search_web           10
+open_app              4
+os_command            4
+find_anything         3
+generate_document     2
+create_folder         2
+system_info           2
+create_file           1
+greeting              1
+follow_up             1
+empty_trash           1
+Name: count, dtype: int64
+2026-07-09 22:15:25,751 - INFO - Number of unique intents: 12
+2026-07-09 22:15:25,751 - INFO - Intents: ['amazon_chat', 'create_file', 'create_folder', 'empty_trash', 'find_anything', 'follow_up', 'generate_document', 'greeting', 'open_app', 'os_command', 'search_web', 'system_info']
+2026-07-09 22:15:25,752 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-09 22:15:25,752 - INFO - Some classes have < 2 samples, using simple split
+2026-07-09 22:15:25,754 - INFO - Train: 36 samples
+2026-07-09 22:15:25,755 - INFO - Test: 9 samples
+2026-07-09 22:15:25,755 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-09 22:15:28,354 - INFO - Loading model: distilbert-base-uncased (12 classes)
+2026-07-09 22:15:29,420 - INFO - Total steps: 30, Warmup steps: 3
+2026-07-09 22:15:29,420 - INFO - 
+============================================================
+2026-07-09 22:15:29,421 - INFO - Training for 10 epochs on cpu
+2026-07-09 22:15:29,421 - INFO - Total steps: 30, Warmup: 3
+2026-07-09 22:15:29,421 - INFO - ============================================================
+
+2026-07-09 22:15:35,261 - INFO - Epoch 1/10 | Train Loss: 2.4570 | Train Acc: 2.78% | Test Loss: 2.4799 | Test Acc: 0.00%
+2026-07-09 22:15:41,075 - INFO - Epoch 2/10 | Train Loss: 2.4017 | Train Acc: 25.00% | Test Loss: 2.4367 | Test Acc: 33.33%
+2026-07-09 22:15:44,494 - INFO -   -> Best model saved (accuracy: 33.33%)
+2026-07-09 22:15:50,054 - INFO - Epoch 3/10 | Train Loss: 2.3733 | Train Acc: 41.67% | Test Loss: 2.3826 | Test Acc: 33.33%
+2026-07-09 22:15:55,673 - INFO - Epoch 4/10 | Train Loss: 2.2719 | Train Acc: 41.67% | Test Loss: 2.3224 | Test Acc: 33.33%
+2026-07-09 22:16:03,171 - INFO - Epoch 5/10 | Train Loss: 2.2386 | Train Acc: 47.22% | Test Loss: 2.2598 | Test Acc: 33.33%
+2026-07-09 22:16:12,536 - INFO - Epoch 6/10 | Train Loss: 2.1413 | Train Acc: 50.00% | Test Loss: 2.2182 | Test Acc: 33.33%
+2026-07-09 22:16:18,102 - INFO - Epoch 7/10 | Train Loss: 2.0019 | Train Acc: 50.00% | Test Loss: 2.1865 | Test Acc: 33.33%
+2026-07-09 22:16:23,447 - INFO - Epoch 8/10 | Train Loss: 2.0451 | Train Acc: 47.22% | Test Loss: 2.1624 | Test Acc: 33.33%
+2026-07-09 22:16:28,852 - INFO - Epoch 9/10 | Train Loss: 1.9825 | Train Acc: 47.22% | Test Loss: 2.1455 | Test Acc: 33.33%
+2026-07-09 22:16:34,036 - INFO - Epoch 10/10 | Train Loss: 2.0515 | Train Acc: 50.00% | Test Loss: 2.1385 | Test Acc: 33.33%
+2026-07-09 22:16:35,601 - INFO - 
+============================================================
+2026-07-09 22:16:35,601 - INFO - Final Evaluation
+2026-07-09 22:16:35,601 - INFO - ============================================================
+2026-07-09 22:16:35,807 - INFO - 
+Best Accuracy: 33.33%
+2026-07-09 22:16:35,807 - INFO - Final Accuracy: 33.33%
+2026-07-09 22:16:35,807 - INFO - 
+Classification Report:
+                   precision    recall  f1-score   support
+
+      amazon_chat     0.6000    1.0000    0.7500         3
+    find_anything     0.0000    0.0000    0.0000         1
+generate_document     0.0000    0.0000    0.0000         1
+         open_app     0.0000    0.0000    0.0000         1
+       os_command     0.0000    0.0000    0.0000         1
+       search_web     0.0000    0.0000    0.0000         1
+      system_info     0.0000    0.0000    0.0000         1
+
+         accuracy                         0.3333         9
+        macro avg     0.0857    0.1429    0.1071         9
+     weighted avg     0.2000    0.3333    0.2500         9
+
+2026-07-09 22:16:35,811 - INFO - 
+Confusion Matrix:
+[[3 0 0 0 0 0 0]
+ [1 0 0 0 0 0 0]
+ [0 0 0 0 0 1 0]
+ [0 0 0 0 0 1 0]
+ [0 0 0 0 0 1 0]
+ [1 0 0 0 0 0 0]
+ [0 0 0 0 0 1 0]]
+2026-07-09 22:16:35,811 - INFO - 
+Misclassified examples (6):
+2026-07-09 22:16:35,811 - INFO -   Text: 'find azampay folder' -> True: find_anything, Pred: amazon_chat
+2026-07-09 22:16:35,811 - INFO -   Text: 'turn off this computer' -> True: system_info, Pred: search_web
+2026-07-09 22:16:35,811 - INFO -   Text: 'Google app' -> True: search_web, Pred: amazon_chat
+2026-07-09 22:16:35,811 - INFO -   Text: 'list installed app' -> True: os_command, Pred: search_web
+2026-07-09 22:16:35,811 - INFO -   Text: 'open Google' -> True: open_app, Pred: search_web
+2026-07-09 22:16:35,811 - INFO -   Text: 'create excel file' -> True: generate_document, Pred: search_web
+2026-07-09 22:16:35,813 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-09 22:16:35,813 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-09 22:16:35,813 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-09 22:16:35,813 - INFO - Training completed at: 2026-07-09 22:16:35.813444
+2026-07-09 22:16:35,813 - INFO - ============================================================
+2026-07-09 22:16:35,813 - INFO - ✅ Training complete!
+2026-07-09 22:31:33,655 - INFO - Using device: cpu
+2026-07-09 22:31:33,655 - INFO - ============================================================
+2026-07-09 22:31:33,655 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 22:31:33,656 - INFO - ============================================================
+2026-07-09 22:31:33,656 - INFO - Started at: 2026-07-09 22:31:33.656144
+2026-07-09 22:31:33,656 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-09 22:31:33,661 - INFO - Loaded 46 samples, 12 unique intents
+2026-07-09 22:31:33,663 - INFO - Intent distribution:
+intent
+amazon_chat          16
+search_web           10
+os_command            4
+open_app              3
+find_anything         3
+generate_document     2
+create_folder         2
+system_info           2
+create_file           1
+greeting              1
+follow_up             1
+empty_trash           1
+Name: count, dtype: int64
+2026-07-09 22:31:33,663 - INFO - Number of unique intents: 12
+2026-07-09 22:31:33,663 - INFO - Intents: ['amazon_chat', 'create_file', 'create_folder', 'empty_trash', 'find_anything', 'follow_up', 'generate_document', 'greeting', 'open_app', 'os_command', 'search_web', 'system_info']
+2026-07-09 22:31:33,664 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-09 22:31:33,664 - INFO - Some classes have < 2 samples, using simple split
+2026-07-09 22:31:33,665 - INFO - Train: 36 samples
+2026-07-09 22:31:33,665 - INFO - Test: 10 samples
+2026-07-09 22:31:33,665 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-09 22:31:35,807 - INFO - Loading model: distilbert-base-uncased (12 classes)
+2026-07-09 22:31:36,593 - INFO - Total steps: 30, Warmup steps: 3
+2026-07-09 22:31:36,593 - INFO - 
+============================================================
+2026-07-09 22:31:36,593 - INFO - Training for 10 epochs on cpu
+2026-07-09 22:31:36,593 - INFO - Total steps: 30, Warmup: 3
+2026-07-09 22:31:36,593 - INFO - ============================================================
+
+2026-07-09 22:31:41,393 - INFO - Epoch 1/10 | Train Loss: 2.4997 | Train Acc: 0.00% | Test Loss: 2.4675 | Test Acc: 0.00%
+2026-07-09 22:31:47,283 - INFO - Epoch 2/10 | Train Loss: 2.4331 | Train Acc: 27.78% | Test Loss: 2.4247 | Test Acc: 20.00%
+2026-07-09 22:31:49,260 - INFO -   -> Best model saved (accuracy: 20.00%)
+2026-07-09 22:31:55,782 - INFO - Epoch 3/10 | Train Loss: 2.3046 | Train Acc: 52.78% | Test Loss: 2.3801 | Test Acc: 20.00%
+2026-07-09 22:32:02,438 - INFO - Epoch 4/10 | Train Loss: 2.3125 | Train Acc: 55.56% | Test Loss: 2.3325 | Test Acc: 20.00%
+2026-07-09 22:32:07,591 - INFO - Epoch 5/10 | Train Loss: 2.1769 | Train Acc: 55.56% | Test Loss: 2.2891 | Test Acc: 30.00%
+2026-07-09 22:32:09,353 - INFO -   -> Best model saved (accuracy: 30.00%)
+2026-07-09 22:32:14,673 - INFO - Epoch 6/10 | Train Loss: 2.1454 | Train Acc: 55.56% | Test Loss: 2.2534 | Test Acc: 30.00%
+2026-07-09 22:32:20,022 - INFO - Epoch 7/10 | Train Loss: 2.1100 | Train Acc: 50.00% | Test Loss: 2.2282 | Test Acc: 30.00%
+2026-07-09 22:32:25,440 - INFO - Epoch 8/10 | Train Loss: 1.9374 | Train Acc: 55.56% | Test Loss: 2.2099 | Test Acc: 30.00%
+2026-07-09 22:32:30,710 - INFO - Epoch 9/10 | Train Loss: 1.9369 | Train Acc: 55.56% | Test Loss: 2.1990 | Test Acc: 30.00%
+2026-07-09 22:32:39,594 - INFO - Epoch 10/10 | Train Loss: 1.8866 | Train Acc: 58.33% | Test Loss: 2.1946 | Test Acc: 30.00%
+2026-07-09 22:32:41,357 - INFO - 
+============================================================
+2026-07-09 22:32:41,357 - INFO - Final Evaluation
+2026-07-09 22:32:41,358 - INFO - ============================================================
+2026-07-09 22:32:41,693 - INFO - 
+Best Accuracy: 30.00%
+2026-07-09 22:32:41,693 - INFO - Final Accuracy: 30.00%
+2026-07-09 22:32:41,693 - INFO - 
+Classification Report:
+               precision    recall  f1-score   support
+
+  amazon_chat     0.2222    1.0000    0.3636         2
+find_anything     0.0000    0.0000    0.0000         1
+     greeting     0.0000    0.0000    0.0000         1
+     open_app     0.0000    0.0000    0.0000         1
+   os_command     0.0000    0.0000    0.0000         1
+   search_web     1.0000    0.3333    0.5000         3
+  system_info     0.0000    0.0000    0.0000         1
+
+     accuracy                         0.3000        10
+    macro avg     0.1746    0.1905    0.1234        10
+ weighted avg     0.3444    0.3000    0.2227        10
+
+2026-07-09 22:32:41,695 - INFO - 
+Confusion Matrix:
+[[2 0 0 0 0 0 0]
+ [1 0 0 0 0 0 0]
+ [1 0 0 0 0 0 0]
+ [1 0 0 0 0 0 0]
+ [1 0 0 0 0 0 0]
+ [2 0 0 0 0 1 0]
+ [1 0 0 0 0 0 0]]
+2026-07-09 22:32:41,695 - INFO - 
+Misclassified examples (7):
+2026-07-09 22:32:41,695 - INFO -   Text: 'find azampay folder' -> True: find_anything, Pred: amazon_chat
+2026-07-09 22:32:41,695 - INFO -   Text: 'Google app' -> True: search_web, Pred: amazon_chat
+2026-07-09 22:32:41,695 - INFO -   Text: 'no not Google Map how are you' -> True: search_web, Pred: amazon_chat
+2026-07-09 22:32:41,695 - INFO -   Text: 'hello' -> True: greeting, Pred: amazon_chat
+2026-07-09 22:32:41,695 - INFO -   Text: 'open Google' -> True: open_app, Pred: amazon_chat
+2026-07-09 22:32:41,695 - INFO -   Text: 'scan computer' -> True: system_info, Pred: amazon_chat
+2026-07-09 22:32:41,695 - INFO -   Text: 'list installed app' -> True: os_command, Pred: amazon_chat
+2026-07-09 22:32:41,697 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-09 22:32:41,697 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-09 22:32:41,697 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-09 22:32:41,697 - INFO - Training completed at: 2026-07-09 22:32:41.697410
+2026-07-09 22:32:41,697 - INFO - ============================================================
+2026-07-09 22:32:41,697 - INFO - ✅ Training complete!
+2026-07-09 23:46:02,456 - INFO - Using device: cpu
+2026-07-09 23:46:02,457 - INFO - ============================================================
+2026-07-09 23:46:02,457 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-09 23:46:02,457 - INFO - ============================================================
+2026-07-09 23:46:02,457 - INFO - Started at: 2026-07-09 23:46:02.457535
+2026-07-09 23:46:02,457 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-09 23:46:02,467 - INFO - Loaded 44 samples, 10 unique intents
+2026-07-09 23:46:02,469 - INFO - Intent distribution:
+intent
+amazon_chat          18
+search_web           11
+open_app              3
+find_anything         3
+create_folder         2
+os_command            2
+system_info           2
+generate_document     1
+follow_up             1
+empty_trash           1
+Name: count, dtype: int64
+2026-07-09 23:46:02,469 - INFO - Number of unique intents: 10
+2026-07-09 23:46:02,469 - INFO - Intents: ['amazon_chat', 'create_folder', 'empty_trash', 'find_anything', 'follow_up', 'generate_document', 'open_app', 'os_command', 'search_web', 'system_info']
+2026-07-09 23:46:02,471 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-09 23:46:02,471 - INFO - Some classes have < 2 samples, using simple split
+2026-07-09 23:46:02,473 - INFO - Train: 35 samples
+2026-07-09 23:46:02,473 - INFO - Test: 9 samples
+2026-07-09 23:46:02,473 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-09 23:46:04,797 - INFO - Loading model: distilbert-base-uncased (10 classes)
+2026-07-09 23:46:05,663 - INFO - Total steps: 30, Warmup steps: 3
+2026-07-09 23:46:05,664 - INFO - 
+============================================================
+2026-07-09 23:46:05,664 - INFO - Training for 10 epochs on cpu
+2026-07-09 23:46:05,664 - INFO - Total steps: 30, Warmup: 3
+2026-07-09 23:46:05,664 - INFO - ============================================================
+
+2026-07-09 23:46:16,542 - INFO - Epoch 1/10 | Train Loss: 2.3170 | Train Acc: 2.86% | Test Loss: 2.2569 | Test Acc: 0.00%
+2026-07-09 23:46:29,686 - INFO - Epoch 2/10 | Train Loss: 2.2621 | Train Acc: 14.29% | Test Loss: 2.1870 | Test Acc: 66.67%
+2026-07-09 23:46:33,063 - INFO -   -> Best model saved (accuracy: 66.67%)
+2026-07-09 23:46:39,987 - INFO - Epoch 3/10 | Train Loss: 2.2621 | Train Acc: 28.57% | Test Loss: 2.1157 | Test Acc: 66.67%
+2026-07-09 23:46:44,949 - INFO - Epoch 4/10 | Train Loss: 2.1267 | Train Acc: 40.00% | Test Loss: 2.0333 | Test Acc: 66.67%
+2026-07-09 23:46:49,765 - INFO - Epoch 5/10 | Train Loss: 2.0147 | Train Acc: 45.71% | Test Loss: 1.9269 | Test Acc: 66.67%
+2026-07-09 23:46:54,814 - INFO - Epoch 6/10 | Train Loss: 1.9180 | Train Acc: 42.86% | Test Loss: 1.8374 | Test Acc: 66.67%
+2026-07-09 23:47:00,282 - INFO - Epoch 7/10 | Train Loss: 1.8439 | Train Acc: 51.43% | Test Loss: 1.7668 | Test Acc: 66.67%
+2026-07-09 23:47:05,603 - INFO - Epoch 8/10 | Train Loss: 1.8470 | Train Acc: 48.57% | Test Loss: 1.7183 | Test Acc: 66.67%
+2026-07-09 23:47:14,093 - INFO - Epoch 9/10 | Train Loss: 1.8796 | Train Acc: 51.43% | Test Loss: 1.6928 | Test Acc: 66.67%
+2026-07-09 23:47:21,606 - INFO - Epoch 10/10 | Train Loss: 1.7392 | Train Acc: 51.43% | Test Loss: 1.6843 | Test Acc: 66.67%
+2026-07-09 23:47:24,350 - INFO - 
+============================================================
+2026-07-09 23:47:24,350 - INFO - Final Evaluation
+2026-07-09 23:47:24,351 - INFO - ============================================================
+2026-07-09 23:47:24,732 - INFO - 
+Best Accuracy: 66.67%
+2026-07-09 23:47:24,732 - INFO - Final Accuracy: 66.67%
+2026-07-09 23:47:24,733 - INFO - 
+Classification Report:
+               precision    recall  f1-score   support
+
+  amazon_chat     0.6667    1.0000    0.8000         6
+find_anything     0.0000    0.0000    0.0000         1
+   os_command     0.0000    0.0000    0.0000         1
+   search_web     0.0000    0.0000    0.0000         1
+
+     accuracy                         0.6667         9
+    macro avg     0.1667    0.2500    0.2000         9
+ weighted avg     0.4444    0.6667    0.5333         9
+
+2026-07-09 23:47:24,737 - INFO - 
+Confusion Matrix:
+[[6 0 0 0]
+ [1 0 0 0]
+ [1 0 0 0]
+ [1 0 0 0]]
+2026-07-09 23:47:24,737 - INFO - 
+Misclassified examples (3):
+2026-07-09 23:47:24,737 - INFO -   Text: 'find azampay folder' -> True: find_anything, Pred: amazon_chat
+2026-07-09 23:47:24,738 - INFO -   Text: 'Installed Apps' -> True: os_command, Pred: amazon_chat
+2026-07-09 23:47:24,738 - INFO -   Text: 'now give me a full research' -> True: search_web, Pred: amazon_chat
+2026-07-09 23:47:24,741 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-09 23:47:24,741 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-09 23:47:24,741 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-09 23:47:24,741 - INFO - Training completed at: 2026-07-09 23:47:24.741587
+2026-07-09 23:47:24,741 - INFO - ============================================================
+2026-07-09 23:47:24,741 - INFO - ✅ Training complete!
+2026-07-10 00:36:47,211 - INFO - Using device: cpu
+2026-07-10 00:36:47,212 - INFO - ============================================================
+2026-07-10 00:36:47,212 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-10 00:36:47,212 - INFO - ============================================================
+2026-07-10 00:36:47,212 - INFO - Started at: 2026-07-10 00:36:47.212743
+2026-07-10 00:36:47,212 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-10 00:36:47,219 - INFO - Loaded 39 samples, 7 unique intents
+2026-07-10 00:36:47,220 - INFO - Intent distribution:
+intent
+amazon_chat      19
+search_web       11
+open_app          3
+find_anything     3
+empty_trash       1
+system_info       1
+create_folder     1
+Name: count, dtype: int64
+2026-07-10 00:36:47,220 - INFO - Number of unique intents: 7
+2026-07-10 00:36:47,220 - INFO - Intents: ['amazon_chat', 'create_folder', 'empty_trash', 'find_anything', 'open_app', 'search_web', 'system_info']
+2026-07-10 00:36:47,221 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-10 00:36:47,221 - INFO - Some classes have < 2 samples, using simple split
+2026-07-10 00:36:47,222 - INFO - Train: 31 samples
+2026-07-10 00:36:47,222 - INFO - Test: 8 samples
+2026-07-10 00:36:47,222 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-10 00:36:49,625 - INFO - Loading model: distilbert-base-uncased (7 classes)
+2026-07-10 00:36:50,422 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-10 00:36:50,422 - INFO - 
+============================================================
+2026-07-10 00:36:50,422 - INFO - Training for 10 epochs on cpu
+2026-07-10 00:36:50,422 - INFO - Total steps: 20, Warmup: 2
+2026-07-10 00:36:50,422 - INFO - ============================================================
+
+2026-07-10 00:36:54,810 - INFO - Epoch 1/10 | Train Loss: 1.9442 | Train Acc: 3.23% | Test Loss: 1.9165 | Test Acc: 25.00%
+2026-07-10 00:36:57,603 - INFO -   -> Best model saved (accuracy: 25.00%)
+2026-07-10 00:37:03,567 - INFO - Epoch 2/10 | Train Loss: 1.8895 | Train Acc: 35.48% | Test Loss: 1.8891 | Test Acc: 50.00%
+2026-07-10 00:37:05,850 - INFO -   -> Best model saved (accuracy: 50.00%)
+2026-07-10 00:37:11,090 - INFO - Epoch 3/10 | Train Loss: 1.8448 | Train Acc: 45.16% | Test Loss: 1.8660 | Test Acc: 37.50%
+2026-07-10 00:37:16,648 - INFO - Epoch 4/10 | Train Loss: 1.7946 | Train Acc: 51.61% | Test Loss: 1.8421 | Test Acc: 37.50%
+2026-07-10 00:37:23,183 - INFO - Epoch 5/10 | Train Loss: 1.7611 | Train Acc: 51.61% | Test Loss: 1.8175 | Test Acc: 37.50%
+2026-07-10 00:37:25,415 - INFO - Early stopping at epoch 5 - no improvement in last 3 epochs
+2026-07-10 00:37:25,415 - INFO - 
+============================================================
+2026-07-10 00:37:25,415 - INFO - Final Evaluation
+2026-07-10 00:37:25,415 - INFO - ============================================================
+2026-07-10 00:37:25,640 - INFO - 
+Best Accuracy: 50.00%
+2026-07-10 00:37:25,641 - INFO - Final Accuracy: 37.50%
+2026-07-10 00:37:25,641 - INFO - 
+Classification Report:
+               precision    recall  f1-score   support
+
+  amazon_chat     0.3750    1.0000    0.5455         3
+find_anything     0.0000    0.0000    0.0000         2
+     open_app     0.0000    0.0000    0.0000         1
+   search_web     0.0000    0.0000    0.0000         1
+  system_info     0.0000    0.0000    0.0000         1
+
+     accuracy                         0.3750         8
+    macro avg     0.0750    0.2000    0.1091         8
+ weighted avg     0.1406    0.3750    0.2045         8
+
+2026-07-10 00:37:25,643 - INFO - 
+Confusion Matrix:
+[[3 0 0 0 0]
+ [2 0 0 0 0]
+ [1 0 0 0 0]
+ [1 0 0 0 0]
+ [1 0 0 0 0]]
+2026-07-10 00:37:25,643 - INFO - 
+Misclassified examples (5):
+2026-07-10 00:37:25,643 - INFO -   Text: 'open chrome' -> True: open_app, Pred: amazon_chat
+2026-07-10 00:37:25,643 - INFO -   Text: 'turn off this computer' -> True: system_info, Pred: amazon_chat
+2026-07-10 00:37:25,643 - INFO -   Text: 'find Azam pay' -> True: find_anything, Pred: amazon_chat
+2026-07-10 00:37:25,644 - INFO -   Text: 'now give me a full research' -> True: search_web, Pred: amazon_chat
+2026-07-10 00:37:25,644 - INFO -   Text: 'find azampay folder' -> True: find_anything, Pred: amazon_chat
+2026-07-10 00:37:25,646 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-10 00:37:25,646 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-10 00:37:25,646 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-10 00:37:25,646 - INFO - Training completed at: 2026-07-10 00:37:25.646678
+2026-07-10 00:37:25,646 - INFO - ============================================================
+2026-07-10 00:37:25,646 - INFO - ✅ Training complete!
+2026-07-10 07:33:17,954 - INFO - Using device: cpu
+2026-07-10 07:33:17,955 - INFO - ============================================================
+2026-07-10 07:33:17,955 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-10 07:33:17,956 - INFO - ============================================================
+2026-07-10 07:33:17,956 - INFO - Started at: 2026-07-10 07:33:17.956518
+2026-07-10 07:33:17,957 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-10 07:33:17,981 - INFO - Loaded 39 samples, 7 unique intents
+2026-07-10 07:33:17,985 - INFO - Intent distribution:
+intent
+amazon_chat      19
+search_web       11
+open_app          3
+find_anything     3
+empty_trash       1
+system_info       1
+create_folder     1
+Name: count, dtype: int64
+2026-07-10 07:33:17,986 - INFO - Number of unique intents: 7
+2026-07-10 07:33:17,986 - INFO - Intents: ['amazon_chat', 'create_folder', 'empty_trash', 'find_anything', 'open_app', 'search_web', 'system_info']
+2026-07-10 07:33:17,989 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-10 07:33:17,989 - INFO - Some classes have < 2 samples, using simple split
+2026-07-10 07:33:17,993 - INFO - Train: 31 samples
+2026-07-10 07:33:17,993 - INFO - Test: 8 samples
+2026-07-10 07:33:17,993 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-10 07:33:21,321 - INFO - Loading model: distilbert-base-uncased (7 classes)
+2026-07-10 07:33:22,451 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-10 07:33:22,451 - INFO - 
+============================================================
+2026-07-10 07:33:22,452 - INFO - Training for 10 epochs on cpu
+2026-07-10 07:33:22,452 - INFO - Total steps: 20, Warmup: 2
+2026-07-10 07:33:22,452 - INFO - ============================================================
+
+2026-07-11 14:55:31,473 - INFO - Using device: cpu
+2026-07-11 14:55:31,474 - INFO - ============================================================
+2026-07-11 14:55:31,474 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-11 14:55:31,474 - INFO - ============================================================
+2026-07-11 14:55:31,474 - INFO - Started at: 2026-07-11 14:55:31.474802
+2026-07-11 14:55:31,475 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-11 14:55:31,506 - INFO - Loaded 38 samples, 7 unique intents
+2026-07-11 14:55:31,509 - INFO - Intent distribution:
+intent
+amazon_chat      18
+search_web       11
+open_app          3
+find_anything     3
+empty_trash       1
+system_info       1
+create_folder     1
+Name: count, dtype: int64
+2026-07-11 14:55:31,509 - INFO - Number of unique intents: 7
+2026-07-11 14:55:31,509 - INFO - Intents: ['amazon_chat', 'create_folder', 'empty_trash', 'find_anything', 'open_app', 'search_web', 'system_info']
+2026-07-11 14:55:31,510 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-11 14:55:31,510 - INFO - Some classes have < 2 samples, using simple split
+2026-07-11 14:55:31,513 - INFO - Train: 30 samples
+2026-07-11 14:55:31,513 - INFO - Test: 8 samples
+2026-07-11 14:55:31,513 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-11 14:55:33,999 - INFO - Loading model: distilbert-base-uncased (7 classes)
+2026-07-11 14:55:35,029 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-11 14:55:35,030 - INFO - 
+============================================================
+2026-07-11 14:55:35,030 - INFO - Training for 10 epochs on cpu
+2026-07-11 14:55:35,030 - INFO - Total steps: 20, Warmup: 2
+2026-07-11 14:55:35,030 - INFO - ============================================================
+
+2026-07-11 14:55:40,092 - INFO - Epoch 1/10 | Train Loss: 1.9428 | Train Acc: 10.00% | Test Loss: 1.9169 | Test Acc: 25.00%
+2026-07-11 14:55:43,753 - INFO -   -> Best model saved (accuracy: 25.00%)
+2026-07-11 14:55:49,529 - INFO - Epoch 2/10 | Train Loss: 1.9280 | Train Acc: 13.33% | Test Loss: 1.8907 | Test Acc: 50.00%
+2026-07-11 14:55:51,798 - INFO -   -> Best model saved (accuracy: 50.00%)
+2026-07-11 14:55:56,925 - INFO - Epoch 3/10 | Train Loss: 1.8610 | Train Acc: 40.00% | Test Loss: 1.8686 | Test Acc: 37.50%
+2026-07-11 14:56:02,218 - INFO - Epoch 4/10 | Train Loss: 1.7824 | Train Acc: 60.00% | Test Loss: 1.8464 | Test Acc: 37.50%
+2026-07-11 14:56:07,428 - INFO - Epoch 5/10 | Train Loss: 1.7764 | Train Acc: 60.00% | Test Loss: 1.8230 | Test Acc: 37.50%
+2026-07-11 14:56:09,318 - INFO - Early stopping at epoch 5 - no improvement in last 3 epochs
+2026-07-11 14:56:09,319 - INFO - 
+============================================================
+2026-07-11 14:56:09,319 - INFO - Final Evaluation
+2026-07-11 14:56:09,319 - INFO - ============================================================
+2026-07-11 14:56:09,537 - INFO - 
+Best Accuracy: 50.00%
+2026-07-11 14:56:09,537 - INFO - Final Accuracy: 37.50%
+2026-07-11 14:56:09,537 - INFO - 
+Classification Report:
+               precision    recall  f1-score   support
+
+  amazon_chat     0.3750    1.0000    0.5455         3
+find_anything     0.0000    0.0000    0.0000         2
+     open_app     0.0000    0.0000    0.0000         1
+   search_web     0.0000    0.0000    0.0000         1
+  system_info     0.0000    0.0000    0.0000         1
+
+     accuracy                         0.3750         8
+    macro avg     0.0750    0.2000    0.1091         8
+ weighted avg     0.1406    0.3750    0.2045         8
+
+2026-07-11 14:56:09,540 - INFO - 
+Confusion Matrix:
+[[3 0 0 0 0]
+ [2 0 0 0 0]
+ [1 0 0 0 0]
+ [1 0 0 0 0]
+ [1 0 0 0 0]]
+2026-07-11 14:56:09,540 - INFO - 
+Misclassified examples (5):
+2026-07-11 14:56:09,540 - INFO -   Text: 'open chrome' -> True: open_app, Pred: amazon_chat
+2026-07-11 14:56:09,540 - INFO -   Text: 'turn off this computer' -> True: system_info, Pred: amazon_chat
+2026-07-11 14:56:09,541 - INFO -   Text: 'find Azam pay' -> True: find_anything, Pred: amazon_chat
+2026-07-11 14:56:09,541 - INFO -   Text: 'now give me a full research' -> True: search_web, Pred: amazon_chat
+2026-07-11 14:56:09,541 - INFO -   Text: 'find azampay folder' -> True: find_anything, Pred: amazon_chat
+2026-07-11 14:56:09,543 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-11 14:56:09,543 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-11 14:56:09,543 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-11 14:56:09,543 - INFO - Training completed at: 2026-07-11 14:56:09.543708
+2026-07-11 14:56:09,543 - INFO - ============================================================
+2026-07-11 14:56:09,543 - INFO - ✅ Training complete!
+2026-07-11 20:26:58,320 - INFO - Using device: cpu
+2026-07-11 20:26:58,320 - INFO - ============================================================
+2026-07-11 20:26:58,320 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-11 20:26:58,320 - INFO - ============================================================
+2026-07-11 20:26:58,320 - INFO - Started at: 2026-07-11 20:26:58.320848
+2026-07-11 20:26:58,320 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-11 20:26:58,347 - INFO - Loaded 40 samples, 7 unique intents
+2026-07-11 20:26:58,350 - INFO - Intent distribution:
+intent
+amazon_chat      18
+search_web       11
+find_anything     4
+create_folder     3
+open_app          2
+empty_trash       1
+system_info       1
+Name: count, dtype: int64
+2026-07-11 20:26:58,350 - INFO - Number of unique intents: 7
+2026-07-11 20:26:58,350 - INFO - Intents: ['amazon_chat', 'create_folder', 'empty_trash', 'find_anything', 'open_app', 'search_web', 'system_info']
+2026-07-11 20:26:58,351 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-11 20:26:58,351 - INFO - Some classes have < 2 samples, using simple split
+2026-07-11 20:26:58,354 - INFO - Train: 32 samples
+2026-07-11 20:26:58,354 - INFO - Test: 8 samples
+2026-07-11 20:26:58,354 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-11 20:27:00,709 - INFO - Loading model: distilbert-base-uncased (7 classes)
+2026-07-11 20:27:01,814 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-11 20:27:01,814 - INFO - 
+============================================================
+2026-07-11 20:27:01,814 - INFO - Training for 10 epochs on cpu
+2026-07-11 20:27:01,814 - INFO - Total steps: 20, Warmup: 2
+2026-07-11 20:27:01,814 - INFO - ============================================================
+
+2026-07-11 20:27:07,196 - INFO - Epoch 1/10 | Train Loss: 1.9298 | Train Acc: 15.62% | Test Loss: 1.9391 | Test Acc: 12.50%
+2026-07-11 20:27:10,537 - INFO -   -> Best model saved (accuracy: 12.50%)
+2026-07-11 20:27:15,581 - INFO - Epoch 2/10 | Train Loss: 1.9135 | Train Acc: 12.50% | Test Loss: 1.8916 | Test Acc: 12.50%
+2026-07-11 20:27:20,183 - INFO - Epoch 3/10 | Train Loss: 1.8651 | Train Acc: 31.25% | Test Loss: 1.8564 | Test Acc: 37.50%
+2026-07-11 20:27:22,432 - INFO -   -> Best model saved (accuracy: 37.50%)
+2026-07-11 20:27:28,571 - INFO - Epoch 4/10 | Train Loss: 1.8096 | Train Acc: 50.00% | Test Loss: 1.8227 | Test Acc: 37.50%
+2026-07-11 20:27:34,044 - INFO - Epoch 5/10 | Train Loss: 1.7828 | Train Acc: 46.88% | Test Loss: 1.7905 | Test Acc: 37.50%
+2026-07-11 20:27:38,501 - INFO - Epoch 6/10 | Train Loss: 1.7327 | Train Acc: 50.00% | Test Loss: 1.7586 | Test Acc: 37.50%
+2026-07-11 20:27:42,718 - INFO - Epoch 7/10 | Train Loss: 1.6889 | Train Acc: 50.00% | Test Loss: 1.7272 | Test Acc: 37.50%
+2026-07-11 20:27:47,815 - INFO - Epoch 8/10 | Train Loss: 1.6535 | Train Acc: 46.88% | Test Loss: 1.7023 | Test Acc: 37.50%
+2026-07-11 20:27:53,531 - INFO - Epoch 9/10 | Train Loss: 1.6160 | Train Acc: 46.88% | Test Loss: 1.6856 | Test Acc: 37.50%
+2026-07-11 20:27:58,298 - INFO - Epoch 10/10 | Train Loss: 1.5877 | Train Acc: 50.00% | Test Loss: 1.6784 | Test Acc: 37.50%
+2026-07-11 20:28:00,025 - INFO - 
+============================================================
+2026-07-11 20:28:00,025 - INFO - Final Evaluation
+2026-07-11 20:28:00,025 - INFO - ============================================================
+2026-07-11 20:28:00,266 - INFO - 
+Best Accuracy: 37.50%
+2026-07-11 20:28:00,282 - INFO - Final Accuracy: 37.50%
+2026-07-11 20:28:00,282 - INFO - 
+Classification Report:
+               precision    recall  f1-score   support
+
+  amazon_chat     0.3750    1.0000    0.5455         3
+create_folder     0.0000    0.0000    0.0000         1
+find_anything     0.0000    0.0000    0.0000         1
+   search_web     0.0000    0.0000    0.0000         3
+
+     accuracy                         0.3750         8
+    macro avg     0.0938    0.2500    0.1364         8
+ weighted avg     0.1406    0.3750    0.2045         8
+
+2026-07-11 20:28:00,286 - INFO - 
+Confusion Matrix:
+[[3 0 0 0]
+ [1 0 0 0]
+ [1 0 0 0]
+ [3 0 0 0]]
+2026-07-11 20:28:00,286 - INFO - 
+Misclassified examples (5):
+2026-07-11 20:28:00,286 - INFO -   Text: 'create your self no need to use web search for now' -> True: search_web, Pred: amazon_chat
+2026-07-11 20:28:00,286 - INFO -   Text: 'find azampay folder' -> True: find_anything, Pred: amazon_chat
+2026-07-11 20:28:00,287 - INFO -   Text: 'now give me a full research' -> True: search_web, Pred: amazon_chat
+2026-07-11 20:28:00,287 - INFO -   Text: 'Google app' -> True: search_web, Pred: amazon_chat
+2026-07-11 20:28:00,287 - INFO -   Text: 'Amazon create folder inside it create another folder inside' -> True: create_folder, Pred: amazon_chat
+2026-07-11 20:28:00,289 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-11 20:28:00,289 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-11 20:28:00,289 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-11 20:28:00,290 - INFO - Training completed at: 2026-07-11 20:28:00.290060
+2026-07-11 20:28:00,290 - INFO - ============================================================
+2026-07-11 20:28:00,290 - INFO - ✅ Training complete!
+2026-07-14 12:31:47,887 - INFO - Using device: cpu
+2026-07-14 12:31:47,887 - INFO - ============================================================
+2026-07-14 12:31:47,888 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-14 12:31:47,888 - INFO - ============================================================
+2026-07-14 12:31:47,888 - INFO - Started at: 2026-07-14 12:31:47.888282
+2026-07-14 12:31:47,888 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-14 12:31:47,894 - INFO - Loaded 41 samples, 8 unique intents
+2026-07-14 12:31:47,896 - INFO - Intent distribution:
+intent
+amazon_chat      18
+search_web       11
+find_anything     4
+create_folder     3
+open_app          2
+empty_trash       1
+system_info       1
+search_file       1
+Name: count, dtype: int64
+2026-07-14 12:31:47,897 - INFO - Number of unique intents: 8
+2026-07-14 12:31:47,897 - INFO - Intents: ['amazon_chat', 'create_folder', 'empty_trash', 'find_anything', 'open_app', 'search_file', 'search_web', 'system_info']
+2026-07-14 12:31:47,898 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-14 12:31:47,898 - INFO - Some classes have < 2 samples, using simple split
+2026-07-14 12:31:47,899 - INFO - Train: 32 samples
+2026-07-14 12:31:47,900 - INFO - Test: 9 samples
+2026-07-14 12:31:47,900 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-14 12:31:51,377 - INFO - Loading model: distilbert-base-uncased (8 classes)
+2026-07-14 12:31:52,263 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-14 12:31:52,263 - INFO - 
+============================================================
+2026-07-14 12:31:52,263 - INFO - Training for 10 epochs on cpu
+2026-07-14 12:31:52,263 - INFO - Total steps: 20, Warmup: 2
+2026-07-14 12:31:52,264 - INFO - ============================================================
+
+2026-07-14 12:31:57,843 - INFO - Epoch 1/10 | Train Loss: 2.1143 | Train Acc: 12.50% | Test Loss: 2.1150 | Test Acc: 33.33%
+2026-07-14 12:32:02,291 - INFO -   -> Best model saved (accuracy: 33.33%)
+2026-07-14 12:32:08,918 - INFO - Epoch 2/10 | Train Loss: 2.0614 | Train Acc: 6.25% | Test Loss: 2.0831 | Test Acc: 11.11%
+2026-07-14 12:32:14,510 - INFO - Epoch 3/10 | Train Loss: 1.9894 | Train Acc: 43.75% | Test Loss: 2.0482 | Test Acc: 11.11%
+2026-07-14 12:32:20,058 - INFO - Epoch 4/10 | Train Loss: 1.9183 | Train Acc: 56.25% | Test Loss: 2.0187 | Test Acc: 11.11%
+2026-07-14 12:32:26,069 - INFO - Epoch 5/10 | Train Loss: 1.8117 | Train Acc: 65.62% | Test Loss: 1.9836 | Test Acc: 11.11%
+2026-07-14 12:32:28,083 - INFO - Early stopping at epoch 5 - no improvement in last 3 epochs
+2026-07-14 12:32:28,083 - INFO - 
+============================================================
+2026-07-14 12:32:28,083 - INFO - Final Evaluation
+2026-07-14 12:32:28,083 - INFO - ============================================================
+2026-07-14 12:32:28,324 - INFO - 
+Best Accuracy: 33.33%
+2026-07-14 12:32:28,324 - INFO - Final Accuracy: 11.11%
+2026-07-14 12:32:28,324 - INFO - 
+Classification Report:
+               precision    recall  f1-score   support
+
+  amazon_chat     0.1111    1.0000    0.2000         1
+find_anything     0.0000    0.0000    0.0000         3
+  search_file     0.0000    0.0000    0.0000         1
+   search_web     0.0000    0.0000    0.0000         4
+
+     accuracy                         0.1111         9
+    macro avg     0.0278    0.2500    0.0500         9
+ weighted avg     0.0123    0.1111    0.0222         9
+
+2026-07-14 12:32:28,325 - INFO - 
+Confusion Matrix:
+[[1 0 0 0]
+ [3 0 0 0]
+ [1 0 0 0]
+ [4 0 0 0]]
+2026-07-14 12:32:28,325 - INFO - 
+Misclassified examples (8):
+2026-07-14 12:32:28,326 - INFO -   Text: 'find Azam pay' -> True: find_anything, Pred: amazon_chat
+2026-07-14 12:32:28,326 - INFO -   Text: 'no not Google Map how are you' -> True: search_web, Pred: amazon_chat
+2026-07-14 12:32:28,326 - INFO -   Text: 'create yourself  for me a research proposal on the topic about the infuluence of parents to children performance' -> True: search_web, Pred: amazon_chat
+2026-07-14 12:32:28,326 - INFO -   Text: 'find azampay folder' -> True: find_anything, Pred: amazon_chat
+2026-07-14 12:32:28,326 - INFO -   Text: 'now give me a full research' -> True: search_web, Pred: amazon_chat
+2026-07-14 12:32:28,326 - INFO -   Text: 'where' -> True: search_file, Pred: amazon_chat
+2026-07-14 12:32:28,326 - INFO -   Text: 'create your self no need to use web search for now' -> True: search_web, Pred: amazon_chat
+2026-07-14 12:32:28,326 - INFO -   Text: 'I'm a critical network it' -> True: find_anything, Pred: amazon_chat
+2026-07-14 12:32:28,329 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-14 12:32:28,329 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-14 12:32:28,330 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-14 12:32:28,330 - INFO - Training completed at: 2026-07-14 12:32:28.330258
+2026-07-14 12:32:28,330 - INFO - ============================================================
+2026-07-14 12:32:28,330 - INFO - ✅ Training complete!
+2026-07-14 12:39:05,135 - INFO - Using device: cpu
+2026-07-14 12:39:05,135 - INFO - ============================================================
+2026-07-14 12:39:05,136 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-14 12:39:05,136 - INFO - ============================================================
+2026-07-14 12:39:05,136 - INFO - Started at: 2026-07-14 12:39:05.136369
+2026-07-14 12:39:05,136 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-14 12:39:05,145 - INFO - Loaded 41 samples, 7 unique intents
+2026-07-14 12:39:05,146 - INFO - Intent distribution:
+intent
+amazon_chat      18
+search_web       11
+find_anything     4
+open_app          3
+create_folder     3
+empty_trash       1
+system_info       1
+Name: count, dtype: int64
+2026-07-14 12:39:05,146 - INFO - Number of unique intents: 7
+2026-07-14 12:39:05,146 - INFO - Intents: ['amazon_chat', 'create_folder', 'empty_trash', 'find_anything', 'open_app', 'search_web', 'system_info']
+2026-07-14 12:39:05,147 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-14 12:39:05,148 - INFO - Some classes have < 2 samples, using simple split
+2026-07-14 12:39:05,149 - INFO - Train: 32 samples
+2026-07-14 12:39:05,149 - INFO - Test: 9 samples
+2026-07-14 12:39:05,150 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-14 12:39:07,450 - INFO - Loading model: distilbert-base-uncased (7 classes)
+2026-07-14 12:39:08,277 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-14 12:39:08,277 - INFO - 
+============================================================
+2026-07-14 12:39:08,277 - INFO - Training for 10 epochs on cpu
+2026-07-14 12:39:08,277 - INFO - Total steps: 20, Warmup: 2
+2026-07-14 12:39:08,277 - INFO - ============================================================
+
+2026-07-14 12:39:16,392 - INFO - Epoch 1/10 | Train Loss: 1.9403 | Train Acc: 6.25% | Test Loss: 1.9110 | Test Acc: 33.33%
+2026-07-14 12:39:19,656 - INFO -   -> Best model saved (accuracy: 33.33%)
+2026-07-14 12:39:26,527 - INFO - Epoch 2/10 | Train Loss: 1.9194 | Train Acc: 15.62% | Test Loss: 1.8914 | Test Acc: 11.11%
+2026-07-14 12:39:33,072 - INFO - Epoch 3/10 | Train Loss: 1.8729 | Train Acc: 31.25% | Test Loss: 1.8792 | Test Acc: 11.11%
+2026-07-14 12:39:39,595 - INFO - Epoch 4/10 | Train Loss: 1.7966 | Train Acc: 59.38% | Test Loss: 1.8685 | Test Acc: 11.11%
+2026-07-14 12:39:45,300 - INFO - Epoch 5/10 | Train Loss: 1.7666 | Train Acc: 53.12% | Test Loss: 1.8579 | Test Acc: 11.11%
+2026-07-14 12:39:47,593 - INFO - Early stopping at epoch 5 - no improvement in last 3 epochs
+2026-07-14 12:39:47,593 - INFO - 
+============================================================
+2026-07-14 12:39:47,593 - INFO - Final Evaluation
+2026-07-14 12:39:47,593 - INFO - ============================================================
+2026-07-14 12:39:47,938 - INFO - 
+Best Accuracy: 33.33%
+2026-07-14 12:39:47,938 - INFO - Final Accuracy: 11.11%
+2026-07-14 12:39:47,938 - INFO - 
+Classification Report:
+               precision    recall  f1-score   support
+
+  amazon_chat     0.1111    1.0000    0.2000         1
+find_anything     0.0000    0.0000    0.0000         3
+     open_app     0.0000    0.0000    0.0000         1
+   search_web     0.0000    0.0000    0.0000         4
+
+     accuracy                         0.1111         9
+    macro avg     0.0278    0.2500    0.0500         9
+ weighted avg     0.0123    0.1111    0.0222         9
+
+2026-07-14 12:39:47,940 - INFO - 
+Confusion Matrix:
+[[1 0 0 0]
+ [3 0 0 0]
+ [1 0 0 0]
+ [4 0 0 0]]
+2026-07-14 12:39:47,940 - INFO - 
+Misclassified examples (8):
+2026-07-14 12:39:47,941 - INFO -   Text: 'find Azam pay' -> True: find_anything, Pred: amazon_chat
+2026-07-14 12:39:47,941 - INFO -   Text: 'no not Google Map how are you' -> True: search_web, Pred: amazon_chat
+2026-07-14 12:39:47,941 - INFO -   Text: 'create yourself  for me a research proposal on the topic about the infuluence of parents to children performance' -> True: search_web, Pred: amazon_chat
+2026-07-14 12:39:47,941 - INFO -   Text: 'find azampay folder' -> True: find_anything, Pred: amazon_chat
+2026-07-14 12:39:47,941 - INFO -   Text: 'now give me a full research' -> True: search_web, Pred: amazon_chat
+2026-07-14 12:39:47,941 - INFO -   Text: 'open Google Chrome' -> True: open_app, Pred: amazon_chat
+2026-07-14 12:39:47,941 - INFO -   Text: 'create your self no need to use web search for now' -> True: search_web, Pred: amazon_chat
+2026-07-14 12:39:47,942 - INFO -   Text: 'I'm a critical network it' -> True: find_anything, Pred: amazon_chat
+2026-07-14 12:39:47,944 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-14 12:39:47,944 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-14 12:39:47,944 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-14 12:39:47,944 - INFO - Training completed at: 2026-07-14 12:39:47.944511
+2026-07-14 12:39:47,944 - INFO - ============================================================
+2026-07-14 12:39:47,944 - INFO - ✅ Training complete!
+2026-07-14 12:46:19,429 - INFO - Using device: cpu
+2026-07-14 12:46:19,430 - INFO - ============================================================
+2026-07-14 12:46:19,431 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-14 12:46:19,431 - INFO - ============================================================
+2026-07-14 12:46:19,431 - INFO - Started at: 2026-07-14 12:46:19.431626
+2026-07-14 12:46:19,431 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-14 12:46:19,439 - INFO - Loaded 41 samples, 7 unique intents
+2026-07-14 12:46:19,441 - INFO - Intent distribution:
+intent
+amazon_chat      18
+search_web       11
+find_anything     4
+open_app          3
+create_folder     3
+empty_trash       1
+system_info       1
+Name: count, dtype: int64
+2026-07-14 12:46:19,442 - INFO - Number of unique intents: 7
+2026-07-14 12:46:19,442 - INFO - Intents: ['amazon_chat', 'create_folder', 'empty_trash', 'find_anything', 'open_app', 'search_web', 'system_info']
+2026-07-14 12:46:19,443 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-14 12:46:19,443 - INFO - Some classes have < 2 samples, using simple split
+2026-07-14 12:46:19,444 - INFO - Train: 32 samples
+2026-07-14 12:46:19,444 - INFO - Test: 9 samples
+2026-07-14 12:46:19,444 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-14 12:46:22,081 - INFO - Loading model: distilbert-base-uncased (7 classes)
+2026-07-14 12:46:23,130 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-14 12:46:23,131 - INFO - 
+============================================================
+2026-07-14 12:46:23,131 - INFO - Training for 10 epochs on cpu
+2026-07-14 12:46:23,131 - INFO - Total steps: 20, Warmup: 2
+2026-07-14 12:46:23,131 - INFO - ============================================================
+
+2026-07-14 12:46:30,275 - INFO - Epoch 1/10 | Train Loss: 1.9403 | Train Acc: 6.25% | Test Loss: 1.9110 | Test Acc: 33.33%
+2026-07-14 12:46:33,594 - INFO -   -> Best model saved (accuracy: 33.33%)
+2026-07-14 12:46:40,309 - INFO - Epoch 2/10 | Train Loss: 1.9194 | Train Acc: 15.62% | Test Loss: 1.8914 | Test Acc: 11.11%
+2026-07-14 12:46:46,348 - INFO - Epoch 3/10 | Train Loss: 1.8729 | Train Acc: 31.25% | Test Loss: 1.8792 | Test Acc: 11.11%
+2026-07-14 12:46:52,405 - INFO - Epoch 4/10 | Train Loss: 1.7966 | Train Acc: 59.38% | Test Loss: 1.8685 | Test Acc: 11.11%
+2026-07-14 12:46:57,892 - INFO - Epoch 5/10 | Train Loss: 1.7666 | Train Acc: 53.12% | Test Loss: 1.8579 | Test Acc: 11.11%
+2026-07-14 12:47:00,286 - INFO - Early stopping at epoch 5 - no improvement in last 3 epochs
+2026-07-14 12:47:00,289 - INFO - 
+============================================================
+2026-07-14 12:47:00,289 - INFO - Final Evaluation
+2026-07-14 12:47:00,289 - INFO - ============================================================
+2026-07-14 12:47:00,576 - INFO - 
+Best Accuracy: 33.33%
+2026-07-14 12:47:00,576 - INFO - Final Accuracy: 11.11%
+2026-07-14 12:47:00,576 - INFO - 
+Classification Report:
+               precision    recall  f1-score   support
+
+  amazon_chat     0.1111    1.0000    0.2000         1
+find_anything     0.0000    0.0000    0.0000         3
+     open_app     0.0000    0.0000    0.0000         1
+   search_web     0.0000    0.0000    0.0000         4
+
+     accuracy                         0.1111         9
+    macro avg     0.0278    0.2500    0.0500         9
+ weighted avg     0.0123    0.1111    0.0222         9
+
+2026-07-14 12:47:00,579 - INFO - 
+Confusion Matrix:
+[[1 0 0 0]
+ [3 0 0 0]
+ [1 0 0 0]
+ [4 0 0 0]]
+2026-07-14 12:47:00,579 - INFO - 
+Misclassified examples (8):
+2026-07-14 12:47:00,580 - INFO -   Text: 'find Azam pay' -> True: find_anything, Pred: amazon_chat
+2026-07-14 12:47:00,580 - INFO -   Text: 'no not Google Map how are you' -> True: search_web, Pred: amazon_chat
+2026-07-14 12:47:00,580 - INFO -   Text: 'create yourself  for me a research proposal on the topic about the infuluence of parents to children performance' -> True: search_web, Pred: amazon_chat
+2026-07-14 12:47:00,580 - INFO -   Text: 'find azampay folder' -> True: find_anything, Pred: amazon_chat
+2026-07-14 12:47:00,580 - INFO -   Text: 'now give me a full research' -> True: search_web, Pred: amazon_chat
+2026-07-14 12:47:00,580 - INFO -   Text: 'open Google Chrome' -> True: open_app, Pred: amazon_chat
+2026-07-14 12:47:00,580 - INFO -   Text: 'create your self no need to use web search for now' -> True: search_web, Pred: amazon_chat
+2026-07-14 12:47:00,580 - INFO -   Text: 'I'm a critical network it' -> True: find_anything, Pred: amazon_chat
+2026-07-14 12:47:00,582 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-14 12:47:00,582 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-14 12:47:00,582 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-14 12:47:00,582 - INFO - Training completed at: 2026-07-14 12:47:00.582784
+2026-07-14 12:47:00,582 - INFO - ============================================================
+2026-07-14 12:47:00,582 - INFO - ✅ Training complete!
+2026-07-14 13:13:55,360 - INFO - Using device: cpu
+2026-07-14 13:13:55,361 - INFO - ============================================================
+2026-07-14 13:13:55,361 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-14 13:13:55,361 - INFO - ============================================================
+2026-07-14 13:13:55,361 - INFO - Started at: 2026-07-14 13:13:55.361350
+2026-07-14 13:13:55,361 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-14 13:13:55,368 - INFO - Loaded 41 samples, 7 unique intents
+2026-07-14 13:13:55,369 - INFO - Intent distribution:
+intent
+amazon_chat      18
+search_web       11
+find_anything     4
+open_app          3
+create_folder     3
+empty_trash       1
+system_info       1
+Name: count, dtype: int64
+2026-07-14 13:13:55,369 - INFO - Number of unique intents: 7
+2026-07-14 13:13:55,369 - INFO - Intents: ['amazon_chat', 'create_folder', 'empty_trash', 'find_anything', 'open_app', 'search_web', 'system_info']
+2026-07-14 13:13:55,370 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-14 13:13:55,371 - INFO - Some classes have < 2 samples, using simple split
+2026-07-14 13:13:55,372 - INFO - Train: 32 samples
+2026-07-14 13:13:55,372 - INFO - Test: 9 samples
+2026-07-14 13:13:55,372 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-14 13:13:57,673 - INFO - Loading model: distilbert-base-uncased (7 classes)
+2026-07-14 13:13:58,581 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-14 13:13:58,581 - INFO - 
+============================================================
+2026-07-14 13:13:58,581 - INFO - Training for 10 epochs on cpu
+2026-07-14 13:13:58,581 - INFO - Total steps: 20, Warmup: 2
+2026-07-14 13:13:58,582 - INFO - ============================================================
+
+2026-07-14 13:14:05,124 - INFO - Epoch 1/10 | Train Loss: 1.9403 | Train Acc: 6.25% | Test Loss: 1.9110 | Test Acc: 33.33%
+2026-07-14 13:14:08,349 - INFO -   -> Best model saved (accuracy: 33.33%)
+2026-07-14 13:14:18,960 - INFO - Epoch 2/10 | Train Loss: 1.9194 | Train Acc: 15.62% | Test Loss: 1.8914 | Test Acc: 11.11%
+2026-07-14 13:14:27,562 - INFO - Epoch 3/10 | Train Loss: 1.8729 | Train Acc: 31.25% | Test Loss: 1.8792 | Test Acc: 11.11%
+2026-07-14 13:14:35,292 - INFO - Epoch 4/10 | Train Loss: 1.7966 | Train Acc: 59.38% | Test Loss: 1.8685 | Test Acc: 11.11%
+2026-07-14 13:14:42,269 - INFO - Epoch 5/10 | Train Loss: 1.7666 | Train Acc: 53.12% | Test Loss: 1.8579 | Test Acc: 11.11%
+2026-07-14 13:14:44,401 - INFO - Early stopping at epoch 5 - no improvement in last 3 epochs
+2026-07-14 13:14:44,401 - INFO - 
+============================================================
+2026-07-14 13:14:44,402 - INFO - Final Evaluation
+2026-07-14 13:14:44,402 - INFO - ============================================================
+2026-07-14 13:14:44,725 - INFO - 
+Best Accuracy: 33.33%
+2026-07-14 13:14:44,726 - INFO - Final Accuracy: 11.11%
+2026-07-14 13:14:44,726 - INFO - 
+Classification Report:
+               precision    recall  f1-score   support
+
+  amazon_chat     0.1111    1.0000    0.2000         1
+find_anything     0.0000    0.0000    0.0000         3
+     open_app     0.0000    0.0000    0.0000         1
+   search_web     0.0000    0.0000    0.0000         4
+
+     accuracy                         0.1111         9
+    macro avg     0.0278    0.2500    0.0500         9
+ weighted avg     0.0123    0.1111    0.0222         9
+
+2026-07-14 13:14:44,728 - INFO - 
+Confusion Matrix:
+[[1 0 0 0]
+ [3 0 0 0]
+ [1 0 0 0]
+ [4 0 0 0]]
+2026-07-14 13:14:44,729 - INFO - 
+Misclassified examples (8):
+2026-07-14 13:14:44,729 - INFO -   Text: 'find Azam pay' -> True: find_anything, Pred: amazon_chat
+2026-07-14 13:14:44,729 - INFO -   Text: 'no not Google Map how are you' -> True: search_web, Pred: amazon_chat
+2026-07-14 13:14:44,729 - INFO -   Text: 'create yourself  for me a research proposal on the topic about the infuluence of parents to children performance' -> True: search_web, Pred: amazon_chat
+2026-07-14 13:14:44,729 - INFO -   Text: 'find azampay folder' -> True: find_anything, Pred: amazon_chat
+2026-07-14 13:14:44,729 - INFO -   Text: 'now give me a full research' -> True: search_web, Pred: amazon_chat
+2026-07-14 13:14:44,730 - INFO -   Text: 'open Google Chrome' -> True: open_app, Pred: amazon_chat
+2026-07-14 13:14:44,730 - INFO -   Text: 'create your self no need to use web search for now' -> True: search_web, Pred: amazon_chat
+2026-07-14 13:14:44,730 - INFO -   Text: 'I'm a critical network it' -> True: find_anything, Pred: amazon_chat
+2026-07-14 13:14:44,732 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-14 13:14:44,732 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-14 13:14:44,732 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-14 13:14:44,732 - INFO - Training completed at: 2026-07-14 13:14:44.732957
+2026-07-14 13:14:44,733 - INFO - ============================================================
+2026-07-14 13:14:44,733 - INFO - ✅ Training complete!
+2026-07-14 13:19:35,031 - INFO - Using device: cpu
+2026-07-14 13:19:35,031 - INFO - ============================================================
+2026-07-14 13:19:35,031 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-14 13:19:35,032 - INFO - ============================================================
+2026-07-14 13:19:35,032 - INFO - Started at: 2026-07-14 13:19:35.032136
+2026-07-14 13:19:35,032 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-14 13:19:35,039 - INFO - Loaded 38 samples, 8 unique intents
+2026-07-14 13:19:35,040 - INFO - Intent distribution:
+intent
+amazon_chat      14
+search_web       10
+find_anything     4
+open_app          4
+create_folder     3
+empty_trash       1
+system_info       1
+list_commands     1
+Name: count, dtype: int64
+2026-07-14 13:19:35,040 - INFO - Number of unique intents: 8
+2026-07-14 13:19:35,040 - INFO - Intents: ['amazon_chat', 'create_folder', 'empty_trash', 'find_anything', 'list_commands', 'open_app', 'search_web', 'system_info']
+2026-07-14 13:19:35,041 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-14 13:19:35,041 - INFO - Some classes have < 2 samples, using simple split
+2026-07-14 13:19:35,042 - INFO - Train: 30 samples
+2026-07-14 13:19:35,042 - INFO - Test: 8 samples
+2026-07-14 13:19:35,043 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-14 13:19:37,630 - INFO - Loading model: distilbert-base-uncased (8 classes)
+2026-07-14 13:19:38,461 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-14 13:19:38,461 - INFO - 
+============================================================
+2026-07-14 13:19:38,461 - INFO - Training for 10 epochs on cpu
+2026-07-14 13:19:38,461 - INFO - Total steps: 20, Warmup: 2
+2026-07-14 13:19:38,461 - INFO - ============================================================
+
+2026-07-14 13:19:44,935 - INFO - Epoch 1/10 | Train Loss: 2.1104 | Train Acc: 0.00% | Test Loss: 2.1197 | Test Acc: 12.50%
+2026-07-14 13:19:48,849 - INFO -   -> Best model saved (accuracy: 12.50%)
+2026-07-14 13:19:55,725 - INFO - Epoch 2/10 | Train Loss: 2.0537 | Train Acc: 23.33% | Test Loss: 2.0748 | Test Acc: 25.00%
+2026-07-14 13:19:58,435 - INFO -   -> Best model saved (accuracy: 25.00%)
+2026-07-14 13:20:04,631 - INFO - Epoch 3/10 | Train Loss: 2.0025 | Train Acc: 43.33% | Test Loss: 2.0309 | Test Acc: 25.00%
+2026-07-14 13:20:10,978 - INFO - Epoch 4/10 | Train Loss: 1.9506 | Train Acc: 53.33% | Test Loss: 1.9834 | Test Acc: 37.50%
+2026-07-14 13:20:13,960 - INFO -   -> Best model saved (accuracy: 37.50%)
+2026-07-14 13:20:19,901 - INFO - Epoch 5/10 | Train Loss: 1.8751 | Train Acc: 60.00% | Test Loss: 1.9325 | Test Acc: 37.50%
+2026-07-14 13:20:25,730 - INFO - Epoch 6/10 | Train Loss: 1.8564 | Train Acc: 60.00% | Test Loss: 1.8923 | Test Acc: 37.50%
+2026-07-14 13:20:32,144 - INFO - Epoch 7/10 | Train Loss: 1.7820 | Train Acc: 60.00% | Test Loss: 1.8663 | Test Acc: 37.50%
+2026-07-14 13:20:39,726 - INFO - Epoch 8/10 | Train Loss: 1.7608 | Train Acc: 56.67% | Test Loss: 1.8468 | Test Acc: 37.50%
+2026-07-14 13:20:45,037 - INFO - Epoch 9/10 | Train Loss: 1.7166 | Train Acc: 60.00% | Test Loss: 1.8344 | Test Acc: 37.50%
+2026-07-14 13:20:50,849 - INFO - Epoch 10/10 | Train Loss: 1.6844 | Train Acc: 60.00% | Test Loss: 1.8290 | Test Acc: 37.50%
+2026-07-14 13:20:53,649 - INFO - 
+============================================================
+2026-07-14 13:20:53,649 - INFO - Final Evaluation
+2026-07-14 13:20:53,649 - INFO - ============================================================
+2026-07-14 13:20:53,948 - INFO - 
+Best Accuracy: 37.50%
+2026-07-14 13:20:53,949 - INFO - Final Accuracy: 37.50%
+2026-07-14 13:20:53,949 - INFO - 
+Classification Report:
+               precision    recall  f1-score   support
+
+  amazon_chat     0.2857    1.0000    0.4444         2
+find_anything     0.0000    0.0000    0.0000         1
+     open_app     0.0000    0.0000    0.0000         2
+   search_web     1.0000    0.3333    0.5000         3
+
+     accuracy                         0.3750         8
+    macro avg     0.3214    0.3333    0.2361         8
+ weighted avg     0.4464    0.3750    0.2986         8
+
+2026-07-14 13:20:53,951 - INFO - 
+Confusion Matrix:
+[[2 0 0 0]
+ [1 0 0 0]
+ [2 0 0 0]
+ [2 0 0 1]]
+2026-07-14 13:20:53,951 - INFO - 
+Misclassified examples (5):
+2026-07-14 13:20:53,951 - INFO -   Text: 'I'm a critical network it' -> True: find_anything, Pred: amazon_chat
+2026-07-14 13:20:53,951 - INFO -   Text: 'open Google Chrome search in Google for looking' -> True: open_app, Pred: amazon_chat
+2026-07-14 13:20:53,952 - INFO -   Text: 'open Chrome open Chrome' -> True: open_app, Pred: amazon_chat
+2026-07-14 13:20:53,952 - INFO -   Text: 'Google app' -> True: search_web, Pred: amazon_chat
+2026-07-14 13:20:53,952 - INFO -   Text: 'Google' -> True: search_web, Pred: amazon_chat
+2026-07-14 13:20:53,954 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-14 13:20:53,954 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-14 13:20:53,955 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-14 13:20:53,955 - INFO - Training completed at: 2026-07-14 13:20:53.955212
+2026-07-14 13:20:53,955 - INFO - ============================================================
+2026-07-14 13:20:53,955 - INFO - ✅ Training complete!
+2026-07-14 13:29:54,595 - INFO - Using device: cpu
+2026-07-14 13:29:54,596 - INFO - ============================================================
+2026-07-14 13:29:54,596 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-14 13:29:54,597 - INFO - ============================================================
+2026-07-14 13:29:54,597 - INFO - Started at: 2026-07-14 13:29:54.597243
+2026-07-14 13:29:54,597 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-14 13:29:54,609 - INFO - Loaded 32 samples, 6 unique intents
+2026-07-14 13:29:54,612 - INFO - Intent distribution:
+intent
+amazon_chat      13
+search_web        7
+find_anything     4
+open_app          4
+create_folder     3
+list_commands     1
+Name: count, dtype: int64
+2026-07-14 13:29:54,612 - INFO - Number of unique intents: 6
+2026-07-14 13:29:54,613 - INFO - Intents: ['amazon_chat', 'create_folder', 'find_anything', 'list_commands', 'open_app', 'search_web']
+2026-07-14 13:29:54,614 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-14 13:29:54,614 - INFO - Some classes have < 2 samples, using simple split
+2026-07-14 13:29:54,617 - INFO - Train: 25 samples
+2026-07-14 13:29:54,617 - INFO - Test: 7 samples
+2026-07-14 13:29:54,617 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-14 13:29:57,187 - INFO - Loading model: distilbert-base-uncased (6 classes)
+2026-07-14 13:29:58,088 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-14 13:29:58,089 - INFO - 
+============================================================
+2026-07-14 13:29:58,089 - INFO - Training for 10 epochs on cpu
+2026-07-14 13:29:58,089 - INFO - Total steps: 20, Warmup: 2
+2026-07-14 13:29:58,089 - INFO - ============================================================
+
+2026-07-14 13:30:06,506 - INFO - Epoch 1/10 | Train Loss: 1.8170 | Train Acc: 8.00% | Test Loss: 1.7736 | Test Acc: 0.00%
+2026-07-14 13:30:16,125 - INFO - Epoch 2/10 | Train Loss: 1.7949 | Train Acc: 24.00% | Test Loss: 1.7515 | Test Acc: 57.14%
+2026-07-14 13:30:20,463 - INFO -   -> Best model saved (accuracy: 57.14%)
+2026-07-14 13:30:30,500 - INFO - Epoch 3/10 | Train Loss: 1.7609 | Train Acc: 28.00% | Test Loss: 1.7322 | Test Acc: 57.14%
+2026-07-14 13:30:39,879 - INFO - Epoch 4/10 | Train Loss: 1.7236 | Train Acc: 44.00% | Test Loss: 1.7173 | Test Acc: 57.14%
+2026-07-14 13:30:49,742 - INFO - Epoch 5/10 | Train Loss: 1.6780 | Train Acc: 36.00% | Test Loss: 1.7046 | Test Acc: 57.14%
+2026-07-14 13:30:59,700 - INFO - Epoch 6/10 | Train Loss: 1.6749 | Train Acc: 40.00% | Test Loss: 1.6910 | Test Acc: 57.14%
+2026-07-14 13:31:12,038 - INFO - Epoch 7/10 | Train Loss: 1.6277 | Train Acc: 56.00% | Test Loss: 1.6747 | Test Acc: 57.14%
+2026-07-14 13:31:25,638 - INFO - Epoch 8/10 | Train Loss: 1.5915 | Train Acc: 44.00% | Test Loss: 1.6578 | Test Acc: 57.14%
+2026-07-14 13:31:37,463 - INFO - Epoch 9/10 | Train Loss: 1.5423 | Train Acc: 48.00% | Test Loss: 1.6475 | Test Acc: 57.14%
+2026-07-14 13:31:48,449 - INFO - Epoch 10/10 | Train Loss: 1.5606 | Train Acc: 56.00% | Test Loss: 1.6428 | Test Acc: 57.14%
+2026-07-14 13:31:51,330 - INFO - 
+============================================================
+2026-07-14 13:31:51,330 - INFO - Final Evaluation
+2026-07-14 13:31:51,330 - INFO - ============================================================
+2026-07-14 13:31:51,827 - INFO - 
+Best Accuracy: 57.14%
+2026-07-14 13:31:51,827 - INFO - Final Accuracy: 57.14%
+2026-07-14 13:31:51,828 - INFO - 
+Classification Report:
+              precision    recall  f1-score   support
+
+ amazon_chat     0.5714    1.0000    0.7273         4
+    open_app     0.0000    0.0000    0.0000         3
+
+    accuracy                         0.5714         7
+   macro avg     0.2857    0.5000    0.3636         7
+weighted avg     0.3265    0.5714    0.4156         7
+
+2026-07-14 13:31:51,831 - INFO - 
+Confusion Matrix:
+[[4 0]
+ [3 0]]
+2026-07-14 13:31:51,832 - INFO - 
+Misclassified examples (3):
+2026-07-14 13:31:51,832 - INFO -   Text: 'open Google Chrome and browse lukinet' -> True: open_app, Pred: amazon_chat
+2026-07-14 13:31:51,832 - INFO -   Text: 'open Chrome open Chrome' -> True: open_app, Pred: amazon_chat
+2026-07-14 13:31:51,832 - INFO -   Text: 'open Google Chrome search in Google for looking' -> True: open_app, Pred: amazon_chat
+2026-07-14 13:31:51,836 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-14 13:31:51,836 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-14 13:31:51,836 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-14 13:31:51,837 - INFO - Training completed at: 2026-07-14 13:31:51.837089
+2026-07-14 13:31:51,837 - INFO - ============================================================
+2026-07-14 13:31:51,837 - INFO - ✅ Training complete!
+2026-07-14 13:52:40,064 - INFO - Using device: cpu
+2026-07-14 13:52:40,065 - INFO - ============================================================
+2026-07-14 13:52:40,065 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-14 13:52:40,065 - INFO - ============================================================
+2026-07-14 13:52:40,065 - INFO - Started at: 2026-07-14 13:52:40.065504
+2026-07-14 13:52:40,065 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-14 13:52:40,072 - INFO - Loaded 33 samples, 7 unique intents
+2026-07-14 13:52:40,073 - INFO - Intent distribution:
+intent
+amazon_chat      11
+search_web        5
+open_app          5
+find_anything     4
+greeting          4
+create_folder     3
+list_commands     1
+Name: count, dtype: int64
+2026-07-14 13:52:40,073 - INFO - Number of unique intents: 7
+2026-07-14 13:52:40,073 - INFO - Intents: ['amazon_chat', 'create_folder', 'find_anything', 'greeting', 'list_commands', 'open_app', 'search_web']
+2026-07-14 13:52:40,074 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-14 13:52:40,075 - INFO - Some classes have < 2 samples, using simple split
+2026-07-14 13:52:40,076 - INFO - Train: 26 samples
+2026-07-14 13:52:40,076 - INFO - Test: 7 samples
+2026-07-14 13:52:40,077 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-14 13:52:49,615 - INFO - Loading model: distilbert-base-uncased (7 classes)
+2026-07-14 13:52:50,749 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-14 13:52:50,750 - INFO - 
+============================================================
+2026-07-14 13:52:50,750 - INFO - Training for 10 epochs on cpu
+2026-07-14 13:52:50,750 - INFO - Total steps: 20, Warmup: 2
+2026-07-14 13:52:50,750 - INFO - ============================================================
+
+2026-07-14 13:52:56,395 - INFO - Epoch 1/10 | Train Loss: 1.9543 | Train Acc: 23.08% | Test Loss: 1.9447 | Test Acc: 0.00%
+2026-07-14 13:53:05,644 - INFO - Epoch 2/10 | Train Loss: 1.9151 | Train Acc: 19.23% | Test Loss: 1.9317 | Test Acc: 0.00%
+2026-07-14 13:53:13,920 - INFO - Epoch 3/10 | Train Loss: 1.8727 | Train Acc: 30.77% | Test Loss: 1.9219 | Test Acc: 28.57%
+2026-07-14 13:53:17,699 - INFO -   -> Best model saved (accuracy: 28.57%)
+2026-07-14 13:53:26,145 - INFO - Epoch 4/10 | Train Loss: 1.8188 | Train Acc: 53.85% | Test Loss: 1.9163 | Test Acc: 28.57%
+2026-07-14 13:53:31,007 - INFO - Epoch 5/10 | Train Loss: 1.7658 | Train Acc: 61.54% | Test Loss: 1.9084 | Test Acc: 28.57%
+2026-07-14 13:53:36,116 - INFO - Epoch 6/10 | Train Loss: 1.7264 | Train Acc: 53.85% | Test Loss: 1.9024 | Test Acc: 28.57%
+2026-07-14 13:53:41,010 - INFO - Epoch 7/10 | Train Loss: 1.7166 | Train Acc: 53.85% | Test Loss: 1.8988 | Test Acc: 28.57%
+2026-07-14 13:53:45,733 - INFO - Epoch 8/10 | Train Loss: 1.6509 | Train Acc: 50.00% | Test Loss: 1.8976 | Test Acc: 28.57%
+2026-07-14 13:53:50,428 - INFO - Epoch 9/10 | Train Loss: 1.6254 | Train Acc: 50.00% | Test Loss: 1.8962 | Test Acc: 28.57%
+2026-07-14 13:53:55,284 - INFO - Epoch 10/10 | Train Loss: 1.6330 | Train Acc: 57.69% | Test Loss: 1.8954 | Test Acc: 28.57%
+2026-07-14 13:53:57,239 - INFO - 
+============================================================
+2026-07-14 13:53:57,239 - INFO - Final Evaluation
+2026-07-14 13:53:57,239 - INFO - ============================================================
+2026-07-14 13:53:57,409 - INFO - 
+Best Accuracy: 28.57%
+2026-07-14 13:53:57,409 - INFO - Final Accuracy: 28.57%
+2026-07-14 13:53:57,409 - INFO - 
+Classification Report:
+               precision    recall  f1-score   support
+
+  amazon_chat     0.2857    1.0000    0.4444         2
+find_anything     0.0000    0.0000    0.0000         2
+list_commands     0.0000    0.0000    0.0000         1
+     open_app     0.0000    0.0000    0.0000         2
+
+     accuracy                         0.2857         7
+    macro avg     0.0714    0.2500    0.1111         7
+ weighted avg     0.0816    0.2857    0.1270         7
+
+2026-07-14 13:53:57,411 - INFO - 
+Confusion Matrix:
+[[2 0 0 0]
+ [2 0 0 0]
+ [1 0 0 0]
+ [2 0 0 0]]
+2026-07-14 13:53:57,411 - INFO - 
+Misclassified examples (5):
+2026-07-14 13:53:57,411 - INFO -   Text: 'fungua Google Chrome' -> True: open_app, Pred: amazon_chat
+2026-07-14 13:53:57,411 - INFO -   Text: 'I'm here to help' -> True: list_commands, Pred: amazon_chat
+2026-07-14 13:53:57,411 - INFO -   Text: 'find azampay folder' -> True: find_anything, Pred: amazon_chat
+2026-07-14 13:53:57,411 - INFO -   Text: 'find azampay folder' -> True: find_anything, Pred: amazon_chat
+2026-07-14 13:53:57,411 - INFO -   Text: 'open Chrome open Chrome' -> True: open_app, Pred: amazon_chat
+2026-07-14 13:53:57,414 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-14 13:53:57,414 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-14 13:53:57,415 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-14 13:53:57,415 - INFO - Training completed at: 2026-07-14 13:53:57.415111
+2026-07-14 13:53:57,415 - INFO - ============================================================
+2026-07-14 13:53:57,415 - INFO - ✅ Training complete!
+2026-07-14 14:09:59,692 - INFO - Using device: cpu
+2026-07-14 14:09:59,693 - INFO - ============================================================
+2026-07-14 14:09:59,693 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-14 14:09:59,693 - INFO - ============================================================
+2026-07-14 14:09:59,693 - INFO - Started at: 2026-07-14 14:09:59.693592
+2026-07-14 14:09:59,693 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-14 14:09:59,699 - INFO - Loaded 28 samples, 7 unique intents
+2026-07-14 14:09:59,700 - INFO - Intent distribution:
+intent
+amazon_chat      8
+greeting         6
+open_app         5
+find_anything    4
+create_folder    3
+search_web       1
+list_commands    1
+Name: count, dtype: int64
+2026-07-14 14:09:59,701 - INFO - Number of unique intents: 7
+2026-07-14 14:09:59,701 - INFO - Intents: ['amazon_chat', 'create_folder', 'find_anything', 'greeting', 'list_commands', 'open_app', 'search_web']
+2026-07-14 14:09:59,702 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-14 14:09:59,702 - INFO - Some classes have < 2 samples, using simple split
+2026-07-14 14:09:59,703 - INFO - Train: 22 samples
+2026-07-14 14:09:59,703 - INFO - Test: 6 samples
+2026-07-14 14:09:59,703 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-14 14:10:02,436 - INFO - Loading model: distilbert-base-uncased (7 classes)
+2026-07-14 14:10:03,476 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-14 14:10:03,476 - INFO - 
+============================================================
+2026-07-14 14:10:03,476 - INFO - Training for 10 epochs on cpu
+2026-07-14 14:10:03,476 - INFO - Total steps: 20, Warmup: 2
+2026-07-14 14:10:03,476 - INFO - ============================================================
+
+2026-07-14 14:10:08,974 - INFO - Epoch 1/10 | Train Loss: 1.9247 | Train Acc: 18.18% | Test Loss: 1.9289 | Test Acc: 33.33%
+2026-07-14 14:10:13,070 - INFO -   -> Best model saved (accuracy: 33.33%)
+2026-07-14 14:10:18,935 - INFO - Epoch 2/10 | Train Loss: 1.9040 | Train Acc: 27.27% | Test Loss: 1.9178 | Test Acc: 33.33%
+2026-07-14 14:10:24,657 - INFO - Epoch 3/10 | Train Loss: 1.8762 | Train Acc: 31.82% | Test Loss: 1.9064 | Test Acc: 33.33%
+2026-07-14 14:10:30,857 - INFO - Epoch 4/10 | Train Loss: 1.8424 | Train Acc: 36.36% | Test Loss: 1.8934 | Test Acc: 50.00%
+2026-07-14 14:10:33,604 - INFO -   -> Best model saved (accuracy: 50.00%)
+2026-07-14 14:10:40,223 - INFO - Epoch 5/10 | Train Loss: 1.8182 | Train Acc: 45.45% | Test Loss: 1.8793 | Test Acc: 16.67%
+2026-07-14 14:10:46,769 - INFO - Epoch 6/10 | Train Loss: 1.8206 | Train Acc: 54.55% | Test Loss: 1.8628 | Test Acc: 16.67%
+2026-07-14 14:10:52,822 - INFO - Epoch 7/10 | Train Loss: 1.7395 | Train Acc: 40.91% | Test Loss: 1.8471 | Test Acc: 16.67%
+2026-07-14 14:10:54,960 - INFO - Early stopping at epoch 7 - no improvement in last 3 epochs
+2026-07-14 14:10:54,960 - INFO - 
+============================================================
+2026-07-14 14:10:54,960 - INFO - Final Evaluation
+2026-07-14 14:10:54,960 - INFO - ============================================================
+2026-07-14 14:10:55,353 - INFO - 
+Best Accuracy: 50.00%
+2026-07-14 14:10:55,353 - INFO - Final Accuracy: 16.67%
+2026-07-14 14:10:55,353 - INFO - 
+Classification Report:
+               precision    recall  f1-score   support
+
+  amazon_chat     0.1667    1.0000    0.2857         1
+find_anything     0.0000    0.0000    0.0000         1
+     greeting     0.0000    0.0000    0.0000         2
+     open_app     0.0000    0.0000    0.0000         1
+   search_web     0.0000    0.0000    0.0000         1
+
+     accuracy                         0.1667         6
+    macro avg     0.0333    0.2000    0.0571         6
+ weighted avg     0.0278    0.1667    0.0476         6
+
+2026-07-14 14:10:55,356 - INFO - 
+Confusion Matrix:
+[[1 0 0 0 0]
+ [1 0 0 0 0]
+ [2 0 0 0 0]
+ [1 0 0 0 0]
+ [1 0 0 0 0]]
+2026-07-14 14:10:55,356 - INFO - 
+Misclassified examples (5):
+2026-07-14 14:10:55,356 - INFO -   Text: 'Google' -> True: search_web, Pred: amazon_chat
+2026-07-14 14:10:55,356 - INFO -   Text: 'hello' -> True: greeting, Pred: amazon_chat
+2026-07-14 14:10:55,356 - INFO -   Text: 'mambo' -> True: greeting, Pred: amazon_chat
+2026-07-14 14:10:55,356 - INFO -   Text: 'find Azam pay' -> True: find_anything, Pred: amazon_chat
+2026-07-14 14:10:55,357 - INFO -   Text: 'open Chrome open Chrome' -> True: open_app, Pred: amazon_chat
+2026-07-14 14:10:55,360 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-14 14:10:55,360 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-14 14:10:55,360 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-14 14:10:55,360 - INFO - Training completed at: 2026-07-14 14:10:55.360760
+2026-07-14 14:10:55,360 - INFO - ============================================================
+2026-07-14 14:10:55,360 - INFO - ✅ Training complete!
+2026-07-14 15:16:12,885 - INFO - Using device: cpu
+2026-07-14 15:16:12,885 - INFO - ============================================================
+2026-07-14 15:16:12,885 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-14 15:16:12,885 - INFO - ============================================================
+2026-07-14 15:16:12,885 - INFO - Started at: 2026-07-14 15:16:12.885929
+2026-07-14 15:16:12,886 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-14 15:16:12,895 - INFO - Loaded 31 samples, 7 unique intents
+2026-07-14 15:16:12,896 - INFO - Intent distribution:
+intent
+greeting         12
+amazon_chat       8
+open_app          5
+create_folder     3
+search_web        1
+find_anything     1
+list_commands     1
+Name: count, dtype: int64
+2026-07-14 15:16:12,896 - INFO - Number of unique intents: 7
+2026-07-14 15:16:12,896 - INFO - Intents: ['amazon_chat', 'create_folder', 'find_anything', 'greeting', 'list_commands', 'open_app', 'search_web']
+2026-07-14 15:16:12,898 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-14 15:16:12,898 - INFO - Some classes have < 2 samples, using simple split
+2026-07-14 15:16:12,900 - INFO - Train: 24 samples
+2026-07-14 15:16:12,900 - INFO - Test: 7 samples
+2026-07-14 15:16:12,900 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-14 15:16:15,997 - INFO - Loading model: distilbert-base-uncased (7 classes)
+2026-07-14 15:16:16,840 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-14 15:16:16,841 - INFO - 
+============================================================
+2026-07-14 15:16:16,841 - INFO - Training for 10 epochs on cpu
+2026-07-14 15:16:16,841 - INFO - Total steps: 20, Warmup: 2
+2026-07-14 15:16:16,841 - INFO - ============================================================
+
+2026-07-14 15:16:23,303 - INFO - Epoch 1/10 | Train Loss: 1.9150 | Train Acc: 25.00% | Test Loss: 1.8938 | Test Acc: 42.86%
+2026-07-14 15:16:26,930 - INFO -   -> Best model saved (accuracy: 42.86%)
+2026-07-14 15:16:34,252 - INFO - Epoch 2/10 | Train Loss: 1.8857 | Train Acc: 25.00% | Test Loss: 1.8589 | Test Acc: 42.86%
+2026-07-14 15:16:41,470 - INFO - Epoch 3/10 | Train Loss: 1.8446 | Train Acc: 41.67% | Test Loss: 1.8250 | Test Acc: 42.86%
+2026-07-14 15:16:48,780 - INFO - Epoch 4/10 | Train Loss: 1.8039 | Train Acc: 41.67% | Test Loss: 1.7865 | Test Acc: 42.86%
+2026-07-14 15:16:55,303 - INFO - Epoch 5/10 | Train Loss: 1.7352 | Train Acc: 41.67% | Test Loss: 1.7510 | Test Acc: 42.86%
+2026-07-14 15:17:01,924 - INFO - Epoch 6/10 | Train Loss: 1.6715 | Train Acc: 41.67% | Test Loss: 1.7210 | Test Acc: 42.86%
+2026-07-14 15:17:08,463 - INFO - Epoch 7/10 | Train Loss: 1.6245 | Train Acc: 41.67% | Test Loss: 1.6947 | Test Acc: 42.86%
+2026-07-14 15:17:15,594 - INFO - Epoch 8/10 | Train Loss: 1.6285 | Train Acc: 37.50% | Test Loss: 1.6765 | Test Acc: 42.86%
+2026-07-14 15:17:22,086 - INFO - Epoch 9/10 | Train Loss: 1.5908 | Train Acc: 50.00% | Test Loss: 1.6662 | Test Acc: 42.86%
+2026-07-14 15:17:28,780 - INFO - Epoch 10/10 | Train Loss: 1.5091 | Train Acc: 41.67% | Test Loss: 1.6616 | Test Acc: 42.86%
+2026-07-14 15:17:31,108 - INFO - 
+============================================================
+2026-07-14 15:17:31,109 - INFO - Final Evaluation
+2026-07-14 15:17:31,109 - INFO - ============================================================
+2026-07-14 15:17:31,986 - INFO - 
+Best Accuracy: 42.86%
+2026-07-14 15:17:32,001 - INFO - Final Accuracy: 42.86%
+2026-07-14 15:17:32,009 - INFO - 
+Classification Report:
+               precision    recall  f1-score   support
+
+  amazon_chat     0.0000    0.0000    0.0000         2
+create_folder     0.0000    0.0000    0.0000         2
+     greeting     0.4286    1.0000    0.6000         3
+
+     accuracy                         0.4286         7
+    macro avg     0.1429    0.3333    0.2000         7
+ weighted avg     0.1837    0.4286    0.2571         7
+
+2026-07-14 15:17:32,012 - INFO - 
+Confusion Matrix:
+[[0 0 2]
+ [0 0 2]
+ [0 0 3]]
+2026-07-14 15:17:32,033 - INFO - 
+Misclassified examples (4):
+2026-07-14 15:17:32,037 - INFO -   Text: 'uhaligani?' -> True: amazon_chat, Pred: greeting
+2026-07-14 15:17:32,058 - INFO -   Text: 'almost i see network issue(using fall back if available)' -> True: amazon_chat, Pred: greeting
+2026-07-14 15:17:32,061 - INFO -   Text: 'Amazon create folder inside it create another folder inside' -> True: create_folder, Pred: greeting
+2026-07-14 15:17:32,083 - INFO -   Text: 'Amazon create folder inside it creates another folder inside it find a fold' -> True: create_folder, Pred: greeting
+2026-07-14 15:17:32,090 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-14 15:17:32,090 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-14 15:17:32,090 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-14 15:17:32,091 - INFO - Training completed at: 2026-07-14 15:17:32.091096
+2026-07-14 15:17:32,091 - INFO - ============================================================
+2026-07-14 15:17:32,091 - INFO - ✅ Training complete!
+2026-07-14 16:42:15,823 - INFO - Using device: cpu
+2026-07-14 16:42:15,823 - INFO - ============================================================
+2026-07-14 16:42:15,824 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-14 16:42:15,824 - INFO - ============================================================
+2026-07-14 16:42:15,824 - INFO - Started at: 2026-07-14 16:42:15.824267
+2026-07-14 16:42:15,824 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-14 16:42:15,835 - INFO - Loaded 35 samples, 7 unique intents
+2026-07-14 16:42:15,837 - INFO - Intent distribution:
+intent
+greeting         19
+amazon_chat       6
+open_app          5
+create_folder     2
+search_web        1
+find_anything     1
+list_commands     1
+Name: count, dtype: int64
+2026-07-14 16:42:15,838 - INFO - Number of unique intents: 7
+2026-07-14 16:42:15,838 - INFO - Intents: ['amazon_chat', 'create_folder', 'find_anything', 'greeting', 'list_commands', 'open_app', 'search_web']
+2026-07-14 16:42:15,840 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-14 16:42:15,840 - INFO - Some classes have < 2 samples, using simple split
+2026-07-14 16:42:15,842 - INFO - Train: 28 samples
+2026-07-14 16:42:15,842 - INFO - Test: 7 samples
+2026-07-14 16:42:15,842 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-14 16:42:18,238 - INFO - Loading model: distilbert-base-uncased (7 classes)
+2026-07-14 16:42:19,198 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-14 16:42:19,199 - INFO - 
+============================================================
+2026-07-14 16:42:19,199 - INFO - Training for 10 epochs on cpu
+2026-07-14 16:42:19,199 - INFO - Total steps: 20, Warmup: 2
+2026-07-14 16:42:19,199 - INFO - ============================================================
+
+2026-07-14 16:42:27,253 - INFO - Epoch 1/10 | Train Loss: 1.9086 | Train Acc: 46.43% | Test Loss: 1.8666 | Test Acc: 71.43%
+2026-07-14 16:42:31,479 - INFO -   -> Best model saved (accuracy: 71.43%)
+2026-07-14 16:42:39,855 - INFO - Epoch 2/10 | Train Loss: 1.8761 | Train Acc: 42.86% | Test Loss: 1.8128 | Test Acc: 71.43%
+2026-07-14 16:42:47,351 - INFO - Epoch 3/10 | Train Loss: 1.8350 | Train Acc: 50.00% | Test Loss: 1.7615 | Test Acc: 71.43%
+2026-07-14 16:42:54,488 - INFO - Epoch 4/10 | Train Loss: 1.7782 | Train Acc: 50.00% | Test Loss: 1.7069 | Test Acc: 71.43%
+2026-07-14 16:43:03,240 - INFO - Epoch 5/10 | Train Loss: 1.7098 | Train Acc: 50.00% | Test Loss: 1.6399 | Test Acc: 71.43%
+2026-07-14 16:43:07,974 - INFO - Epoch 6/10 | Train Loss: 1.6261 | Train Acc: 50.00% | Test Loss: 1.5737 | Test Acc: 71.43%
+2026-07-14 16:43:10,804 - INFO - 
+⚠️ Training interrupted by user. Checkpoint saved.
+2026-07-14 17:05:05,379 - INFO - Using device: cpu
+2026-07-14 17:05:05,379 - INFO - ============================================================
+2026-07-14 17:05:05,379 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-14 17:05:05,379 - INFO - ============================================================
+2026-07-14 17:05:05,380 - INFO - Started at: 2026-07-14 17:05:05.380017
+2026-07-14 17:05:05,380 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-14 17:05:05,391 - INFO - Loaded 36 samples, 9 unique intents
+2026-07-14 17:05:05,393 - INFO - Intent distribution:
+intent
+greeting         16
+amazon_chat       8
+open_app          5
+create_folder     2
+search_web        1
+find_anything     1
+list_commands     1
+os_command        1
+empty_trash       1
+Name: count, dtype: int64
+2026-07-14 17:05:05,394 - INFO - Number of unique intents: 9
+2026-07-14 17:05:05,394 - INFO - Intents: ['amazon_chat', 'create_folder', 'empty_trash', 'find_anything', 'greeting', 'list_commands', 'open_app', 'os_command', 'search_web']
+2026-07-14 17:05:05,396 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-14 17:05:05,396 - INFO - Some classes have < 2 samples, using simple split
+2026-07-14 17:05:05,398 - INFO - Train: 28 samples
+2026-07-14 17:05:05,398 - INFO - Test: 8 samples
+2026-07-14 17:05:05,398 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-14 17:05:08,805 - INFO - Loading model: distilbert-base-uncased (9 classes)
+2026-07-14 17:05:09,669 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-14 17:05:09,670 - INFO - 
+============================================================
+2026-07-14 17:05:09,670 - INFO - Training for 10 epochs on cpu
+2026-07-14 17:05:09,670 - INFO - Total steps: 20, Warmup: 2
+2026-07-14 17:05:09,670 - INFO - ============================================================
+
+2026-07-14 17:05:17,585 - INFO - Epoch 1/10 | Train Loss: 2.2135 | Train Acc: 3.57% | Test Loss: 2.1625 | Test Acc: 0.00%
+2026-07-14 17:05:26,836 - INFO - Epoch 2/10 | Train Loss: 2.1834 | Train Acc: 10.71% | Test Loss: 2.1249 | Test Acc: 25.00%
+2026-07-14 17:05:31,256 - INFO -   -> Best model saved (accuracy: 25.00%)
+2026-07-14 17:05:36,860 - INFO - Epoch 3/10 | Train Loss: 2.1466 | Train Acc: 25.00% | Test Loss: 2.0918 | Test Acc: 50.00%
+2026-07-14 17:05:39,301 - INFO -   -> Best model saved (accuracy: 50.00%)
+2026-07-14 17:05:43,850 - INFO - Epoch 4/10 | Train Loss: 2.1081 | Train Acc: 25.00% | Test Loss: 2.0606 | Test Acc: 62.50%
+2026-07-14 17:05:46,056 - INFO -   -> Best model saved (accuracy: 62.50%)
+2026-07-14 17:05:50,928 - INFO - Epoch 5/10 | Train Loss: 2.0320 | Train Acc: 67.86% | Test Loss: 2.0319 | Test Acc: 62.50%
+2026-07-14 17:05:55,531 - INFO - Epoch 6/10 | Train Loss: 2.0100 | Train Acc: 57.14% | Test Loss: 2.0088 | Test Acc: 62.50%
+2026-07-14 17:05:59,617 - INFO - Epoch 7/10 | Train Loss: 1.9826 | Train Acc: 53.57% | Test Loss: 1.9862 | Test Acc: 62.50%
+2026-07-14 17:06:03,649 - INFO - Epoch 8/10 | Train Loss: 1.9235 | Train Acc: 60.71% | Test Loss: 1.9676 | Test Acc: 62.50%
+2026-07-14 17:06:08,064 - INFO - Epoch 9/10 | Train Loss: 1.8860 | Train Acc: 53.57% | Test Loss: 1.9532 | Test Acc: 62.50%
+2026-07-14 17:06:12,635 - INFO - Epoch 10/10 | Train Loss: 1.8626 | Train Acc: 60.71% | Test Loss: 1.9468 | Test Acc: 62.50%
+2026-07-14 17:06:14,146 - INFO - 
+============================================================
+2026-07-14 17:06:14,146 - INFO - Final Evaluation
+2026-07-14 17:06:14,147 - INFO - ============================================================
+2026-07-14 17:06:14,310 - INFO - 
+Best Accuracy: 62.50%
+2026-07-14 17:06:14,310 - INFO - Final Accuracy: 62.50%
+2026-07-14 17:06:14,310 - INFO - 
+Classification Report:
+              precision    recall  f1-score   support
+
+ amazon_chat     0.2500    1.0000    0.4000         1
+ empty_trash     0.0000    0.0000    0.0000         1
+    greeting     1.0000    0.6667    0.8000         6
+
+    accuracy                         0.6250         8
+   macro avg     0.4167    0.5556    0.4000         8
+weighted avg     0.7812    0.6250    0.6500         8
+
+2026-07-14 17:06:14,311 - INFO - 
+Confusion Matrix:
+[[1 0 0]
+ [1 0 0]
+ [2 0 4]]
+2026-07-14 17:06:14,311 - INFO - 
+Misclassified examples (3):
+2026-07-14 17:06:14,311 - INFO -   Text: 'empty trash' -> True: empty_trash, Pred: amazon_chat
+2026-07-14 17:06:14,311 - INFO -   Text: 'hello amazon' -> True: greeting, Pred: amazon_chat
+2026-07-14 17:06:14,311 - INFO -   Text: 'hello' -> True: greeting, Pred: amazon_chat
+2026-07-14 17:06:14,314 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-14 17:06:14,314 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-14 17:06:14,314 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-14 17:06:14,314 - INFO - Training completed at: 2026-07-14 17:06:14.314984
+2026-07-14 17:06:14,315 - INFO - ============================================================
+2026-07-14 17:06:14,315 - INFO - ✅ Training complete!
+2026-07-14 17:14:14,442 - INFO - Using device: cpu
+2026-07-14 17:14:14,442 - INFO - ============================================================
+2026-07-14 17:14:14,442 - INFO - AMAZON AI - DistilBERT NLU Model Training
+2026-07-14 17:14:14,442 - INFO - ============================================================
+2026-07-14 17:14:14,442 - INFO - Started at: 2026-07-14 17:14:14.442665
+2026-07-14 17:14:14,442 - INFO - Loading dataset from: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/learning/auto_training_data.csv
+2026-07-14 17:14:14,448 - INFO - Loaded 39 samples, 9 unique intents
+2026-07-14 17:14:14,449 - INFO - Intent distribution:
+intent
+greeting         16
+amazon_chat       7
+open_app          5
+empty_trash       5
+create_folder     2
+find_anything     1
+list_commands     1
+os_command        1
+create_file       1
+Name: count, dtype: int64
+2026-07-14 17:14:14,449 - INFO - Number of unique intents: 9
+2026-07-14 17:14:14,449 - INFO - Intents: ['amazon_chat', 'create_file', 'create_folder', 'empty_trash', 'find_anything', 'greeting', 'list_commands', 'open_app', 'os_command']
+2026-07-14 17:14:14,450 - INFO - Label map saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/label_map.json
+2026-07-14 17:14:14,450 - INFO - Some classes have < 2 samples, using simple split
+2026-07-14 17:14:14,451 - INFO - Train: 31 samples
+2026-07-14 17:14:14,451 - INFO - Test: 8 samples
+2026-07-14 17:14:14,451 - INFO - Loading tokenizer: distilbert-base-uncased
+2026-07-14 17:14:17,587 - INFO - Loading model: distilbert-base-uncased (9 classes)
+2026-07-14 17:14:18,583 - INFO - Total steps: 20, Warmup steps: 2
+2026-07-14 17:14:18,583 - INFO - 
+============================================================
+2026-07-14 17:14:18,583 - INFO - Training for 10 epochs on cpu
+2026-07-14 17:14:18,583 - INFO - Total steps: 20, Warmup: 2
+2026-07-14 17:14:18,583 - INFO - ============================================================
+
+2026-07-14 17:14:22,107 - INFO - Epoch 1/10 | Train Loss: 2.1743 | Train Acc: 12.90% | Test Loss: 2.1507 | Test Acc: 12.50%
+2026-07-14 17:14:23,945 - INFO -   -> Best model saved (accuracy: 12.50%)
+2026-07-14 17:14:28,764 - INFO - Epoch 2/10 | Train Loss: 2.1717 | Train Acc: 22.58% | Test Loss: 2.1064 | Test Acc: 25.00%
+2026-07-14 17:14:30,504 - INFO -   -> Best model saved (accuracy: 25.00%)
+2026-07-14 17:14:34,685 - INFO - Epoch 3/10 | Train Loss: 2.1224 | Train Acc: 25.81% | Test Loss: 2.0705 | Test Acc: 12.50%
+2026-07-14 17:14:38,882 - INFO - Epoch 4/10 | Train Loss: 2.0824 | Train Acc: 29.03% | Test Loss: 2.0353 | Test Acc: 37.50%
+2026-07-14 17:14:40,851 - INFO -   -> Best model saved (accuracy: 37.50%)
+2026-07-14 17:14:45,138 - INFO - Epoch 5/10 | Train Loss: 2.0411 | Train Acc: 51.61% | Test Loss: 1.9998 | Test Acc: 50.00%
+2026-07-14 17:14:47,095 - INFO -   -> Best model saved (accuracy: 50.00%)
+2026-07-14 17:14:52,891 - INFO - Epoch 6/10 | Train Loss: 1.9924 | Train Acc: 58.06% | Test Loss: 1.9650 | Test Acc: 50.00%
+2026-07-14 17:14:57,351 - INFO - Epoch 7/10 | Train Loss: 1.9757 | Train Acc: 61.29% | Test Loss: 1.9394 | Test Acc: 50.00%
+2026-07-14 17:15:01,339 - INFO - Epoch 8/10 | Train Loss: 1.9288 | Train Acc: 64.52% | Test Loss: 1.9205 | Test Acc: 50.00%
+2026-07-14 17:15:05,280 - INFO - Epoch 9/10 | Train Loss: 1.8819 | Train Acc: 64.52% | Test Loss: 1.9075 | Test Acc: 50.00%
+2026-07-14 17:15:11,567 - INFO - Epoch 10/10 | Train Loss: 1.8774 | Train Acc: 61.29% | Test Loss: 1.9017 | Test Acc: 50.00%
+2026-07-14 17:15:13,400 - INFO - 
+============================================================
+2026-07-14 17:15:13,400 - INFO - Final Evaluation
+2026-07-14 17:15:13,400 - INFO - ============================================================
+2026-07-14 17:15:13,968 - INFO - 
+Best Accuracy: 50.00%
+2026-07-14 17:15:13,969 - INFO - Final Accuracy: 50.00%
+2026-07-14 17:15:13,969 - INFO - 
+Classification Report:
+              precision    recall  f1-score   support
+
+ amazon_chat     0.0000    0.0000    0.0000         2
+ empty_trash     1.0000    1.0000    1.0000         1
+    greeting     0.4286    1.0000    0.6000         3
+    open_app     0.0000    0.0000    0.0000         2
+
+    accuracy                         0.5000         8
+   macro avg     0.3571    0.5000    0.4000         8
+weighted avg     0.2857    0.5000    0.3500         8
+
+2026-07-14 17:15:13,971 - INFO - 
+Confusion Matrix:
+[[0 0 2 0]
+ [0 1 0 0]
+ [0 0 3 0]
+ [0 0 2 0]]
+2026-07-14 17:15:13,971 - INFO - 
+Misclassified examples (4):
+2026-07-14 17:15:13,971 - INFO -   Text: 'nisaidie kufanya wewe' -> True: amazon_chat, Pred: greeting
+2026-07-14 17:15:13,971 - INFO -   Text: 'open Google Chrome' -> True: open_app, Pred: greeting
+2026-07-14 17:15:13,971 - INFO -   Text: 'niandikie barua kisha save kwnye desktop' -> True: amazon_chat, Pred: greeting
+2026-07-14 17:15:13,971 - INFO -   Text: 'open Google Chrome search in Google for looking' -> True: open_app, Pred: greeting
+2026-07-14 17:15:13,973 - INFO - 
+Model saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model
+2026-07-14 17:15:13,974 - INFO - Config saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/amazon_config.json
+2026-07-14 17:15:13,974 - INFO - History saved to: /Applications/XAMPP/xamppfiles/htdocs/SHAKIRA/MR_BRAIN/ml/nlu_model/training_history.json
+2026-07-14 17:15:13,974 - INFO - Training completed at: 2026-07-14 17:15:13.974367
+2026-07-14 17:15:13,974 - INFO - ============================================================
+2026-07-14 17:15:13,974 - INFO - ✅ Training complete!

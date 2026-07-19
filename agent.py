@@ -546,6 +546,12 @@ def _detect_semantic_query(command):
         "find files related to networking" → "networking"
     """
     cmd = command.strip()
+
+    # Guard: document-generation research commands should not be treated
+    # as semantic file discovery (e.g., "create research about cocacola").
+    if re.search(r'\b(write|generate|create|make)\b.*\b(research|assignment|report|proposal|document|doc|essay|article|profile|blueprint|strategy|plan)\b', cmd, re.I):
+        return None
+
     for pattern in _SEMANTIC_PATTERNS:
         m = pattern.search(cmd)
         if m:
@@ -816,7 +822,7 @@ def smart_parse_command(command):
 
     # Early check: semantic query patterns ("about AI", "discussing subnetting", etc.)
     # BUT skip if this is clearly a document generation command
-    _is_doc_gen = bool(re.search(r'\b(write|generate|create|make)\b.*\b(document|doc|report|assignment|proposal|essay|article|word|pdf|excel|schedule|schedules|plan|plans)\b', original, re.I))
+    _is_doc_gen = bool(re.search(r'\b(write|generate|create|make)\b.*\b(document|doc|report|assignment|proposal|research|essay|article|word|pdf|excel|schedule|schedules|plan|plans|profile|blueprint|strategy)\b', original, re.I))
     if not _is_doc_gen:
         # Also catch: "schedule for X", "plan for X", "training schedule", etc.
         _is_doc_gen = bool(re.search(r'\b(schedule|schedules|plan|plans|ratiba)\b.*\b(for|ya|wa|kwa)\b', original, re.I))
@@ -911,6 +917,10 @@ def smart_parse_command(command):
     # Step 6: Handle search queries specially
     if intent in ("search_file", "search_folder", "search_web"):
         result["search_query"] = _extract_search_query_internal(original)
+    elif intent == "open_website":
+        site_target = _extract_website_target_internal(original)
+        if site_target:
+            result["entity"] = site_target
 
     # Step 7: Special handling for document generation
     if intent == "generate_document":
@@ -1029,7 +1039,7 @@ def resolve_location(hint, base_dir=None):
 # Known app names for intent detection (system apps + web apps + dev tools)
 KNOWN_APP_NAMES = {
     # System apps
-    "chrome", "notepad", "calculator", "paint", "vscode", "vs code",
+    "chrome", "google chrome", "chrome browser", "notepad", "calculator", "paint", "vscode", "vs code",
     "visual studio code", "word", "excel", "powerpoint", "powershell",
     "file explorer", "explorer", "task manager", "cmd", "command prompt",
     # Developer tools
@@ -1066,6 +1076,10 @@ KNOWN_APP_NAMES = {
 def _extract_app_name_internal(command):
     """Internal app name extraction."""
     command_lower = command.lower()
+
+    # Strong disambiguation for Chrome phrases
+    if "google chrome" in command_lower or "chrome browser" in command_lower:
+        return "chrome"
     
     # Check for multi-word app names first (longest match)
     for app in sorted(KNOWN_APP_NAMES, key=len, reverse=True):
@@ -1073,6 +1087,8 @@ def _extract_app_name_internal(command):
             # Normalize app names
             if app in ["vscode", "vs code", "visual studio code"]:
                 return "vscode"
+            if app in ["google chrome", "chrome browser"]:
+                return "chrome"
             return app
     return None
 
@@ -1106,6 +1122,34 @@ def _extract_search_query_internal(command):
         cmd_lower = re.sub(pattern, '', cmd_lower, flags=re.I).strip()
 
     return cmd_lower if cmd_lower else command.lower().strip()
+
+
+def _extract_website_target_internal(command):
+    """Extract website/domain target from natural-language web commands."""
+    text = (command or "").strip()
+    if not text:
+        return ""
+
+    lowered = text.lower().strip()
+    prefixes = [
+        "open website ", "visit website ", "go to ", "visit ", "open ",
+        "learn from ", "study from ", "jifunze kutoka ",
+    ]
+    for prefix in prefixes:
+        if lowered.startswith(prefix):
+            text = text[len(prefix):].strip()
+            break
+
+    # Capture URL/domain anywhere in the command.
+    match = re.search(
+        r'(https?://[^\s]+|www\.[^\s]+|\b(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(?:/[^\s]*)?)',
+        text,
+        flags=re.I,
+    )
+    if match:
+        return match.group(1).rstrip('.,!?;:')
+
+    return text.strip()
 
 
 def extract_app_name(command):
@@ -1172,7 +1216,12 @@ def extract_delete_file_name(command):
 def extract_entity(command):
     """Extract generic entity (for web search, open website, etc.)."""
     command = command.lower().strip()
-    prefixes = ["go to ", "visit ", "open ", "search for ", "search "]
+    prefixes = [
+        "open website ", "visit website ",
+        "go to ", "visit ", "open ",
+        "search for ", "search ",
+        "learn from ", "study from ", "jifunze kutoka ",
+    ]
     for prefix in prefixes:
         if command.startswith(prefix):
             return command[len(prefix):].strip()
@@ -1425,6 +1474,66 @@ def _keyword_intent_override(command):
     for phrase in _early_automation:
         if phrase in cmd_lower:
             return "automation_task"
+
+    # Early check for academic exam-design prompts (can be long instructions without action verbs)
+    if re.search(r'\b(exam|examination|assessment|question\s*paper|test)\b', cmd_lower):
+        if re.search(r'\b(design|draft|construct|prepare|set|intellectually rigorous|year\s*3|undergraduate|learning outcomes?|marking scheme|rubric|model answers?)\b', cmd_lower):
+            return "generate_document"
+    if re.search(r'\b(marking scheme|grading rubric|model answers?|examiner\'s notes|common mistakes)\b', cmd_lower):
+        return "generate_document"
+
+    # Early check for greetings (English + Swahili)
+    _early_greetings = [
+        "hello", "hi", "hey", "good morning", "good afternoon", "good evening",
+        "habari", "habari yako", "mambo", "vipi", "niaje", "hujambo", "shikamoo",
+    ]
+    def _has_greeting(text, greetings):
+        for g in greetings:
+            g = g.strip().lower()
+            if not g:
+                continue
+            if " " in g:
+                if re.search(rf'(?<!\w){re.escape(g)}(?!\w)', text):
+                    return True
+            else:
+                if re.search(rf'\b{re.escape(g)}\b', text):
+                    return True
+        return False
+
+    if _has_greeting(cmd_lower, _early_greetings):
+        return "greeting"
+
+    # Early check for conversational Swahili prompts -> AMAZON CHAT
+    _early_amazon_chat_sw = [
+        "nawezaje", "nisaidie", "naomba msaada", "nifafanulie", "nielezee",
+        "nifundishe", "naomba unisaidie", "naomba unielezee",
+    ]
+    if any(p in cmd_lower for p in _early_amazon_chat_sw):
+        # Keep explicit action commands in automation path
+        action_markers = ["fungua", "funga", "tengeneza", "futa", "hamisha", "nakili", "tafuta"]
+        if not any(a in cmd_lower for a in action_markers):
+            return "amazon_chat"
+
+    # Learning + document request in one sentence:
+    # "learn from <url> then create a doc about ..."
+    if re.search(r'\b(learn|study|jifunze)\s+(from|kutoka)\b', cmd_lower):
+        has_url = bool(re.search(r'(https?://|\bwww\.|\b(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,})', cmd_lower))
+        has_doc_request = bool(re.search(r'\b(create|make|generate|write)\b.*\b(doc|document|report|proposal|research|assignment|profile|blueprint|strategy|plan)\b', cmd_lower))
+        has_topic = bool(re.search(r'\b(about|on|regarding)\b', cmd_lower))
+        if has_doc_request or has_topic:
+            return "generate_document"
+        if has_url:
+            return "open_website"
+        return "search_web"
+
+    # Research document requests: "create research about X"
+    if re.search(r'\b(write|generate|create|make)\b.*\bresearch\b.*\b(about|on|regarding)\b', cmd_lower):
+        return "generate_document"
+
+    # Generic document requests: "create a nice doc about ...", "make document on ..."
+    if re.search(r'\b(write|generate|create|make|andaa|tengeneza)\b.*\b(doc|document|report|proposal|assignment|essay|article|profile|blueprint|strategy|plan|exam|test|paper|mtihani)\b', cmd_lower):
+        if not re.search(r'\b(file|folder|directory)\b', cmd_lower):
+            return "generate_document"
 
     # Fuzzy matching for document generation with typos
     _doc_gen_patterns = [
@@ -1687,6 +1796,18 @@ def split_compound_commands(command):
     # Special case: "find and delete" or "find and remove" should NOT be split
     # These are single operations: find the file, then delete it
     cmd_lower = command.lower()
+
+    # Special case: "learn from <url> then create/generate/write doc ..."
+    # Keep as one command so URL can be used as document source material.
+    if re.search(r'\b(learn|study|jifunze)\s+(from|kutoka)\b.*\b(then|and then|kisha|halafu)\b.*\b(create|make|generate|write)\b.*\b(doc|document|report|proposal|research|assignment|profile|blueprint|strategy|plan)\b', cmd_lower):
+        return [command]
+
+    # Special case: exam instructions with clauses like "... and a separate marking scheme ..."
+    # Keep as one command to avoid accidentally treating trailing clause as file/folder action.
+    if re.search(r'\b(exam|examination|assessment|question\s*paper|test)\b', cmd_lower) and \
+       re.search(r'\b(marking scheme|rubric|model answers?|examiner\'s notes|common mistakes)\b', cmd_lower):
+        return [command]
+
     if re.match(r'^\s*find\s+.*\s+and\s+(delete|remove|erase)\s+', cmd_lower):
         return [command]  # Don't split - treat as single command
     
@@ -1735,17 +1856,31 @@ def _make_friendly_response(command, result):
     # --- CASUAL CONVERSATION HANDLING (before action results) ---
     
     # Greetings — route to LLM for natural AMAZON CHAT responses when available
-    greeting_words = ["hello", "hi ", "hi!", "hey", "howdy", "greetings", "good morning", 
-                      "good afternoon", "good evening", "what's up", "sup", "hola"]
-    if any(word in cmd_lower for word in greeting_words) or cmd_lower in ["hi", "hello", "hey"]:
-        if AMAZON_CHAT_AVAILABLE:
-            try:
-                from ai_assistant.core.amazon_chat import get_llm_response
-                llm_response = get_llm_response(command)
-                if llm_response and llm_response.strip():
-                    return llm_response
-            except Exception:
-                pass
+    greeting_words = [
+        "hello", "hi ", "hi!", "hey", "howdy", "greetings", "good morning",
+        "good afternoon", "good evening", "what's up", "sup", "hola",
+        "habari", "habari yako", "mambo", "vipi", "niaje", "hujambo", "shikamoo",
+    ]
+    simple_greetings = {
+        "hi", "hello", "hey", "hola", "habari", "habari yako",
+        "mambo", "vipi", "niaje", "hujambo", "shikamoo",
+        "nisema habari", "mambo vipi",
+    }
+    def _contains_greeting_token(text, words):
+        for w in words:
+            t = w.strip().lower()
+            if not t:
+                continue
+            if " " in t:
+                if re.search(rf'(?<!\w){re.escape(t)}(?!\w)', text):
+                    return True
+            else:
+                if re.search(rf'\b{re.escape(t)}\b', text):
+                    return True
+        return False
+
+    is_greeting_message = _contains_greeting_token(cmd_lower, greeting_words) or cmd_lower in ["hi", "hello", "hey"]
+    if is_greeting_message and intent in {"greeting", "amazon_chat", "unknown", "question"}:
         greeting_responses = [
             "Hello! 👋 How can I help you today?",
             "Hi there! 😊 What can I do for you?",
@@ -1754,6 +1889,30 @@ def _make_friendly_response(command, result):
             "Hi! ✨ Great to see you! How can I make your day easier?",
             "Hey there! 🚀 What can I help you accomplish today?",
         ]
+        sw_greeting_responses = [
+            "Habari! 👋 Karibu — naweza kukusaidia nini leo?",
+            "Mambo! 😊 Nipo tayari kukusaidia.",
+            "Hujambo! ✨ Leo ungependa nikusaidie nini?",
+            "Niaje! 🚀 Niko hapa kukusaidia kazi zako.",
+        ]
+        sw_greeting_words = {"habari", "habari yako", "mambo", "vipi", "niaje", "hujambo", "shikamoo", "nisema habari", "mambo vipi"}
+
+        # If greeting is Swahili, keep response in Swahili consistently.
+        if any(w in cmd_lower for w in sw_greeting_words):
+            return random.choice(sw_greeting_responses)
+
+        # For short greetings, reply instantly without calling LLM.
+        if cmd_lower in simple_greetings:
+            return random.choice(greeting_responses)
+
+        if AMAZON_CHAT_AVAILABLE:
+            try:
+                from ai_assistant.core.amazon_chat import get_llm_response
+                llm_response = get_llm_response(command)
+                if llm_response and llm_response.strip():
+                    return llm_response
+            except Exception:
+                pass
         return random.choice(greeting_responses)
     
     # How are you / how do you feel — route to LLM when available

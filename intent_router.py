@@ -37,7 +37,7 @@ from automation.file_tasks import (
     search_folder,
     universal_search,
 )
-from automation.search_tasks import research_topic, search_applications
+from automation.search_tasks import collect_reference_material, research_topic, search_applications
 from automation.web_tasks import KNOWN_SITES, normalize, open_website
 
 
@@ -137,15 +137,63 @@ def _handle_close_app(intent, command, parsed):
 
 
 def _handle_create_folder(intent, command, parsed):
-    """Create a new folder."""
-    name = _resolve_path(parsed)
-    if name:
-        log_action(intent, name, "creating folder")
-        result = create_folder(name)
-        return make_result(intent, name, result.get("status", "failed"),
-                           result.get("message", ""), result)
-    return make_result(intent, None, "failed",
-                       "What should I name the folder? Try: 'create folder [name]'")
+    """Create a new folder with smart name and location parsing."""
+    import re
+    import platform
+    
+    # Extract folder name from command - look for patterns like:
+    # "create folder NAME", "name it as NAME", "called NAME", "named NAME"
+    folder_name = None
+    
+    # Try to extract name from patterns
+    name_patterns = [
+        r'(?:name\s+it\s+as|named?|called)\s+(.+?)(?:\s+on|\s+in|\s+at|$)',
+        r'create\s+folder\s+(.+?)(?:\s+on|\s+in|\s+at|$)',
+        r'make\s+(?:a\s+)?folder\s+(.+?)(?:\s+on|\s+in|\s+at|$)',
+    ]
+    
+    for pattern in name_patterns:
+        match = re.search(pattern, command, re.IGNORECASE)
+        if match:
+            folder_name = match.group(1).strip()
+            break
+    
+    # Fallback to parsed entity
+    if not folder_name:
+        folder_name = parsed.get("entity")
+    
+    # Extract drive letter from command (e.g., "disk drive d", "drive d", "on d:")
+    drive_letter = None
+    drive_patterns = [
+        r'(?:disk\s+)?drive\s+([a-z])\b',
+        r'\bon\s+([a-z]):',
+        r'\bin\s+([a-z]):',
+    ]
+    
+    for pattern in drive_patterns:
+        match = re.search(pattern, command, re.IGNORECASE)
+        if match:
+            drive_letter = match.group(1).upper()
+            break
+    
+    if not folder_name:
+        return make_result(intent, None, "failed",
+                          "What should I name the folder? Try: 'create folder [name]'")
+    
+    # Build the full path
+    if drive_letter:
+        # Create on specified drive (e.g., D:\folder_name)
+        folder_path = f"{drive_letter}:\\{folder_name}"
+    else:
+        # Use default location (Desktop or parsed location)
+        folder_path = _resolve_path(parsed)
+        if not folder_path:
+            folder_path = folder_name
+    
+    log_action(intent, folder_path, "creating folder")
+    result = create_folder(folder_path)
+    return make_result(intent, folder_path, result.get("status", "failed"),
+                      result.get("message", ""), result)
 
 
 def _handle_delete_folder(intent, command, parsed):
@@ -556,7 +604,9 @@ def _handle_generate_document(intent, command, parsed):
     topic = None
     topic_patterns = [
         r'(?:content\s+)?(?:about|on|regarding)\s+(.+?)(?:\s*$)',
+        r'(?:content\s+)?for\s+(.+?)(?:\s*$)',
         r'(?:write|generate|create|make)\s+(?:.+?)\s+(?:about|on|regarding)\s+(.+?)(?:\s*$)',
+        r'(?:write|generate|create|make|andaa|tengeneza)\s+(?:.+?)\s+for\s+(.+?)(?:\s*$)',
         r'(?:to learn|for learning|learn)\s+(.+?)(?:\s*$)',
     ]
     for pattern in topic_patterns:
@@ -573,12 +623,25 @@ def _handle_generate_document(intent, command, parsed):
     doc_type = None
     if re.search(r'\bassignment\b', cmd_lower):
         doc_type = "assignment"
+    elif re.search(r'\b(blueprint|dynamic\s+document|universal\s+document|fully\s+dynamic)\b', cmd_lower):
+        doc_type = "dynamic_blueprint"
+    elif re.search(r'\b(exam|test\s*paper|question\s*paper|final\s*exam|mtihani)\b', cmd_lower):
+        doc_type = "exam_paper"
     elif re.search(r'\bresearch\s+proposal\b|\bproposal\b', cmd_lower):
+        doc_type = "research_proposal"
+    elif re.search(r'\bresearch\b', cmd_lower):
+        # Support commands like: "create research about cocacola"
         doc_type = "research_proposal"
     elif re.search(r'\breport\b', cmd_lower):
         doc_type = "report"
     elif re.search(r'\bschedule\b|\bschedules\b|\bplan\b|\bratiba\b', cmd_lower):  # ratiba = schedule in Swahili
         doc_type = "schedule"
+
+    # If user says "learn/study from <url>" + create doc, prefer a detailed report
+    # rather than a short generic document.
+    has_source_url = bool(re.search(r'https?://[^\s)]+', command or ""))
+    if not doc_type and has_source_url and re.search(r'\b(learn|study|jifunze)\b', cmd_lower):
+        doc_type = "dynamic_blueprint"
     
     # Step 4b: For schedule commands, extract topic from the command itself if not found
     if not topic and doc_type == "schedule":
@@ -655,6 +718,36 @@ def _handle_generate_document(intent, command, parsed):
             topic = "Training Schedule"
         else:
             topic = "document"
+
+    # Step 6a: Better topic extraction for exam commands
+    if doc_type == "exam_paper":
+        exam_cmd = re.sub(r'\b(mfano|example)\s*:\s*.+$', '', cmd_lower, flags=re.I).strip()
+        exam_cmd = re.sub(r'https?://\S+', '', exam_cmd).strip()
+
+        # Priority: explicit "about <topic>"
+        about_m = re.search(r'\babout\s+(.+?)(?:\s+at\s+[\w\s.-]+)?\s*$', exam_cmd, re.I)
+        if about_m:
+            cand = about_m.group(1).strip()
+        else:
+            # Fallback: phrase before "exam"
+            pre_m = re.search(r'\b([a-z0-9][a-z0-9\s&/+.-]{1,40})\s+(?:exam|mtihani|test\s*paper|question\s*paper)\b', exam_cmd, re.I)
+            cand = pre_m.group(1).strip() if pre_m else ""
+
+        if cand:
+            # Remove command/filler words
+            cand = re.sub(r'\b(andaa|tengeneza|create|make|generate|write|a|an|the|detailed|final|year|for|at|kiut)\b', ' ', cand, flags=re.I)
+            cand = re.sub(r'\s+', ' ', cand).strip(' ,.-')
+            if cand and len(cand) >= 2:
+                topic = cand
+            elif not topic or topic == "document":
+                topic = "IT"
+
+    # Step 6b: Remove URL/source fragments from topic text
+    topic = re.sub(r'\b(from|using|with\s+source(?:s)?)\b\s+https?://\S+.*$', '', topic, flags=re.I).strip()
+    topic = re.sub(r'https?://\S+', '', topic).strip()
+    topic = re.sub(r'\s+', ' ', topic).strip()
+    if not topic:
+        topic = "document"
     
     # Step 7: Build output path
     def _safe_filename(name):
@@ -684,6 +777,10 @@ def _handle_generate_document(intent, command, parsed):
         output_path = str(DEFAULT_BASE_DIR / f"{_safe_filename(topic)}_Proposal.docx")
     elif doc_type == "report":
         output_path = str(DEFAULT_BASE_DIR / f"{_safe_filename(topic)}_Report.docx")
+    elif doc_type == "dynamic_blueprint":
+        output_path = str(DEFAULT_BASE_DIR / f"{_safe_filename(topic)}_Blueprint.docx")
+    elif doc_type == "exam_paper":
+        output_path = str(DEFAULT_BASE_DIR / f"{_safe_filename(topic)}_Final_Exam.docx")
     elif doc_type == "schedule":
         # Don't add _Schedule suffix if topic already contains "Schedule"
         safe_topic = _safe_filename(topic)
@@ -694,25 +791,38 @@ def _handle_generate_document(intent, command, parsed):
     else:
         output_path = str(DEFAULT_BASE_DIR / f"{_safe_filename(topic)}.{doc_format}")
     
-    # Step 8: Generate document
+    # Step 8: Collect optional source URLs from command
+    raw_urls = re.findall(r'https?://[^\s)]+', command or "")
+    source_urls = [u.rstrip('.,;!') for u in raw_urls]
+    source_material = None
+    source_meta = None
+    if source_urls:
+        source_meta = collect_reference_material(source_urls)
+        source_material = source_meta.get("combined_text") or None
+
+    # Step 9: Generate document
     log_action(intent, f"{topic} ({doc_format})", f"generating {doc_type or 'document'}")
     
     if doc_type == "assignment":
-        result = generate_document(output_path, topic=topic, doc_type="assignment")
+        result = generate_document(output_path, topic=topic, doc_type="assignment", content=source_material, instruction=command)
     elif doc_type == "research_proposal":
-        result = generate_document(output_path, topic=topic, doc_type="research_proposal")
+        result = generate_document(output_path, topic=topic, doc_type="research_proposal", content=source_material, instruction=command)
     elif doc_type == "report":
-        result = generate_document(output_path, topic=topic, doc_type="report")
+        result = generate_document(output_path, topic=topic, doc_type="report", content=source_material, instruction=command)
     elif doc_type == "schedule":
         # Generate schedule - topic already includes person name if extracted
-        result = generate_document(output_path, topic=topic, doc_type="schedule")
+        result = generate_document(output_path, topic=topic, doc_type="schedule", instruction=command)
+    elif doc_type == "dynamic_blueprint":
+        result = generate_document(output_path, topic=topic, doc_type="dynamic_blueprint", content=source_material, instruction=command)
+    elif doc_type == "exam_paper":
+        result = generate_document(output_path, topic=topic, doc_type="exam_paper", content=source_material, instruction=command)
     else:
         # For PDF/Excel/Word, generate with content
         research = research_topic(topic)
-        content = None
-        if research:
+        content = source_material
+        if not content and research:
             content = f"{topic.title()}\n\n{research}\n\nGenerated by AMAZON AI Assistant.\n"
-        result = generate_document(output_path, topic=topic, content=content)
+        result = generate_document(output_path, topic=topic, content=content, instruction=command)
     
     # Store the saved path in details for UI to display
     if result.get("status") == "success":
@@ -722,6 +832,13 @@ def _handle_generate_document(intent, command, parsed):
             result["details"] = {}
         result["details"]["saved_path"] = saved_path
         result["details"]["topic"] = topic
+        if source_meta:
+            result["details"]["sources"] = source_meta
+
+    # Add source-fetch context to failures/success messages when URLs were supplied
+    if source_urls and source_meta and source_meta.get("status") == "failed":
+        base_msg = result.get("message", "")
+        result["message"] = (base_msg + "\n\nSource note: " + source_meta.get("message", "")).strip()
     
     return make_result(intent, topic, result.get("status", "failed"), result.get("message", ""), result)
 

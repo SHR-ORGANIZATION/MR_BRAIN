@@ -1,5 +1,534 @@
 {
   "history": [],
-  "pending": [],
-  "updated_at": "2026-07-09T10:59:06.864140"
+  "pending": [
+    {
+      "id": "2026-07-09T19:42:28.107624",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to open it after creating?",
+        "Should I save it on Desktop or Documents?",
+        "Do you want to add content to it?"
+      ],
+      "context": {
+        "intent": "create_folder",
+        "command": "this is better We can play a game, have a fun conversation, or even create something together"
+      },
+      "asked_at": "2026-07-09T19:42:28.107635",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-09T22:14:57.751635",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to open it after creating?",
+        "Should I save it on Desktop or Documents?",
+        "Do you want to add content to it?"
+      ],
+      "context": {
+        "intent": "create_folder",
+        "command": "that's a new one for"
+      },
+      "asked_at": "2026-07-09T22:14:57.751641",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-10T00:43:27.828457",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to open it after creating?",
+        "Should I save it on Desktop or Documents?",
+        "Do you want to add content to it?"
+      ],
+      "context": {
+        "intent": "create_folder",
+        "command": "create folder name it as shikra store on disk drive d"
+      },
+      "asked_at": "2026-07-10T00:43:27.828466",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-10T00:44:31.722563",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to open it after creating?",
+        "Should I save it on Desktop or Documents?",
+        "Do you want to add content to it?"
+      ],
+      "context": {
+        "intent": "create_folder",
+        "command": "create folder shakira"
+      },
+      "asked_at": "2026-07-10T00:44:31.722575",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-11T14:59:00.096440",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to open it after creating?",
+        "Should I save it on Desktop or Documents?",
+        "Do you want to add content to it?"
+      ],
+      "context": {
+        "intent": "create_folder",
+        "command": "Amazon create folder inside it create another folder inside"
+      },
+      "asked_at": "2026-07-11T14:59:00.096451",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-11T14:59:01.885239",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to open it after creating?",
+        "Should I save it on Desktop or Documents?",
+        "Do you want to add content to it?"
+      ],
+      "context": {
+        "intent": "create_folder",
+        "command": "Amazon create folder inside it creates another folder inside it find a fold"
+      },
+      "asked_at": "2026-07-11T14:59:01.885255",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T12:31:36.544747",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to filter by file type?",
+        "Should I search in a specific location?",
+        "Do you want me to sort by date?"
+      ],
+      "context": {
+        "intent": "search_file",
+        "command": "where"
+      },
+      "asked_at": "2026-07-14T12:31:36.544765",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T17:10:43.686991",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to open it after creating?",
+        "Should I save it on Desktop or Documents?",
+        "Do you want to add content to it?"
+      ],
+      "context": {
+        "intent": "create_file",
+        "command": "create file name it aas shakira"
+      },
+      "asked_at": "2026-07-14T17:10:43.686999",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T17:19:11.966158",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to open it after creating?",
+        "Should I save it on Desktop or Documents?",
+        "Do you want to add content to it?"
+      ],
+      "context": {
+        "intent": "create_file",
+        "command": "naona links hazifanyi kazi \ud83d\udcc4 File Created\n\n**Item:** /Users/mac/Desktop/name it aas shakira nilimwam,bia create file name it aas shakira"
+      },
+      "asked_at": "2026-07-14T17:19:11.966171",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T17:28:49.326639",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "create research about cocacola"
+      },
+      "asked_at": "2026-07-14T17:28:49.326651",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T17:31:17.953555",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "create research about cocacola"
+      },
+      "asked_at": "2026-07-14T17:31:17.953565",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T17:37:23.678241",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "create research about cocacola"
+      },
+      "asked_at": "2026-07-14T17:37:23.678253",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T17:39:17.871871",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "create research about cocacola"
+      },
+      "asked_at": "2026-07-14T17:39:17.871880",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T17:43:34.285263",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "create research about cocacola"
+      },
+      "asked_at": "2026-07-14T17:43:34.285269",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T17:44:54.953261",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "create research about cocacola"
+      },
+      "asked_at": "2026-07-14T17:44:54.953267",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T17:48:54.657448",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to open it after creating?",
+        "Should I save it on Desktop or Documents?",
+        "Do you want to add content to it?"
+      ],
+      "context": {
+        "intent": "create_file",
+        "command": "llearn from https://lukinet.co.tz/ the create a nce doc about lukinet technologies limited"
+      },
+      "asked_at": "2026-07-14T17:48:54.657462",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T17:51:29.181257",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "create research about cocacola from https://www.coca-colacompany.com and https://www.investopedia.com/terms/b/brand-equity.asp"
+      },
+      "asked_at": "2026-07-14T17:51:29.181267",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T18:03:14.731773",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "learn from https://lukinet.co.tz/ the create a nce doc about lukinet technologies limited"
+      },
+      "asked_at": "2026-07-14T18:03:14.731784",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T18:05:11.023649",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "learn from https://lukinet.co.tz/ the create a nce doc about lukinet technologies limited"
+      },
+      "asked_at": "2026-07-14T18:05:11.023659",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T18:05:12.572746",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "learn from https://lukinet.co.tz/ the create a nce doc about lukinet technologies limited"
+      },
+      "asked_at": "2026-07-14T18:05:12.572756",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T18:14:15.963805",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "learn from https://lukinet.co.tz/ then create a nice doc about lukinet technologies limited"
+      },
+      "asked_at": "2026-07-14T18:14:15.963846",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T18:14:47.288926",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "learn from https://lukinet.co.tz/ then create a nice doc about lukinet technologies limited"
+      },
+      "asked_at": "2026-07-14T18:14:47.288934",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T18:15:50.767745",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "learn from https://lukinet.co.tz/ then create a detailed business profile report about lukinet technologies limited"
+      },
+      "asked_at": "2026-07-14T18:15:50.767754",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T18:25:14.906651",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "learn from https://lukinet.co.tz/ then create a detailed business profile, strategy, and implementation plan document about Lukinet Technologies Limited"
+      },
+      "asked_at": "2026-07-14T18:25:14.906659",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T18:27:48.829386",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "learn from https://lukinet.co.tz/ then create a fully dynamic blueprint document about lukinet technologies limited with strategy, market, timeline and kpi"
+      },
+      "asked_at": "2026-07-14T18:27:48.829394",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T18:31:17.751467",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "learn from https://lukinet.co.tz/ then create a detailed business profile, about Lukinet Technologies Limited"
+      },
+      "asked_at": "2026-07-14T18:31:17.751478",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T18:33:14.532889",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "learn from https://lukinet.co.tz/ then create a detailed business profile,  about Lukinet Technologies Limited"
+      },
+      "asked_at": "2026-07-14T18:33:14.532898",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T18:37:26.625246",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "create exam for IT last year"
+      },
+      "asked_at": "2026-07-14T18:37:26.625256",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T18:38:47.099424",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "andaa detailed IT final year exam paper for KIUT with sections A, B, C, instructions, marking scheme, and duration 3 hours"
+      },
+      "asked_at": "2026-07-14T18:38:47.099440",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T18:44:23.162957",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "andaa detailed IT final year exam paper for KIUT with sections A, B, C, instructions, marking scheme, and duration 3 hours"
+      },
+      "asked_at": "2026-07-14T18:44:23.162967",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T18:49:43.457898",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "andaa IT exam for final year at KIUT mfano: Section A iwe multiple choice maswali 10, Section B iwe essay maswali 5"
+      },
+      "asked_at": "2026-07-14T18:49:43.457910",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T18:49:43.606980",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "andaa IT exam for final year at KIUT mfano: Section A iwe multiple choice maswali 10, Section B iwe essay maswali 5"
+      },
+      "asked_at": "2026-07-14T18:49:43.606992",
+      "answered": false,
+      "answer": null
+    },
+    {
+      "id": "2026-07-14T18:51:03.284731",
+      "question": "What's next?",
+      "options": [
+        "Would you like me to save it as PDF or Word?",
+        "Should I add a title page?",
+        "Do you want me to include a table of contents?"
+      ],
+      "context": {
+        "intent": "generate_document",
+        "command": "learn from https://lukinet.co.tz then create dynamic blueprint for telecom customer support transformation with KPI roadmap"
+      },
+      "asked_at": "2026-07-14T18:51:03.284747",
+      "answered": false,
+      "answer": null
+    }
+  ],
+  "updated_at": "2026-07-14T18:51:03.284922"
 }

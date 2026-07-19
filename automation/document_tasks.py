@@ -211,29 +211,40 @@ def create_document(path, content="", topic=None):
     return _build_result("Create Document", path, "failed", f"Unsupported document type: {ext}", "Document")
 
 
-def generate_document(path, topic, content=None, doc_type=None):
-    from automation.document_generator import generate_assignment, generate_research_proposal, generate_report, generate_schedule, save_document
+def generate_document(path, topic, content=None, doc_type=None, instruction=None):
+    import importlib
+    import automation.document_generator as document_generator
+
+    # Reload in-process so UI sessions pick up template changes without restart
+    document_generator = importlib.reload(document_generator)
+    generate_assignment = document_generator.generate_assignment
+    generate_research_proposal = document_generator.generate_research_proposal
+    generate_report = document_generator.generate_report
+    generate_schedule = document_generator.generate_schedule
+    generate_dynamic_document = document_generator.generate_dynamic_document
+    generate_exam_document = document_generator.generate_exam_document
+    save_document = document_generator.save_document
     
     # Ensure path is a string
     path = str(path) if path else path
     topic_text = topic or Path(path).stem
     
     if doc_type == "assignment":
-        doc = generate_assignment(topic_text)
+        doc = generate_assignment(topic_text, source_material=content)
         result = save_document(doc, Path(path).name, Path(path).parent)
         if result.get("status") == "success":
             return _build_result("Created Document", result.get("path", path), "success", result.get("message", ""), "Word Document", result)
         return _build_result("Create Document", path, "failed", result.get("message", ""), "Word Document")
     
     if doc_type == "research_proposal":
-        doc = generate_research_proposal(topic_text)
+        doc = generate_research_proposal(topic_text, source_material=content)
         result = save_document(doc, Path(path).name, Path(path).parent)
         if result.get("status") == "success":
             return _build_result("Created Document", result.get("path", path), "success", result.get("message", ""), "Word Document", result)
         return _build_result("Create Document", path, "failed", result.get("message", ""), "Word Document")
     
     if doc_type == "report":
-        doc = generate_report(topic_text)
+        doc = generate_report(topic_text, source_material=content)
         result = save_document(doc, Path(path).name, Path(path).parent)
         if result.get("status") == "success":
             return _build_result("Created Document", result.get("path", path), "success", result.get("message", ""), "Word Document", result)
@@ -249,6 +260,28 @@ def generate_document(path, topic, content=None, doc_type=None):
             topic_text = name_match.group(2)
         doc = generate_schedule(topic_text, person_name)
         # Use the path that was passed in (already has correct filename)
+        result = save_document(doc, Path(path).name, Path(path).parent)
+        if result.get("status") == "success":
+            return _build_result("Created Document", result.get("path", path), "success", result.get("message", ""), "Word Document", result)
+        return _build_result("Create Document", path, "failed", result.get("message", ""), "Word Document")
+
+    if doc_type == "dynamic_blueprint":
+        doc = generate_dynamic_document(topic_text, instruction=instruction, source_material=content)
+        result = save_document(doc, Path(path).name, Path(path).parent)
+        if result.get("status") == "success":
+            return _build_result("Created Document", result.get("path", path), "success", result.get("message", ""), "Word Document", result)
+        return _build_result("Create Document", path, "failed", result.get("message", ""), "Word Document")
+
+    if doc_type == "exam_paper":
+        doc = generate_exam_document(topic_text, instruction=instruction, source_material=content)
+        result = save_document(doc, Path(path).name, Path(path).parent)
+        if result.get("status") == "success":
+            return _build_result("Created Document", result.get("path", path), "success", result.get("message", ""), "Word Document", result)
+        return _build_result("Create Document", path, "failed", result.get("message", ""), "Word Document")
+
+    # Non-hardcoded DOCX fallback: generate a rich dynamic document
+    if Path(path).suffix.lower() == ".docx":
+        doc = generate_dynamic_document(topic_text, instruction=instruction, source_material=content)
         result = save_document(doc, Path(path).name, Path(path).parent)
         if result.get("status") == "success":
             return _build_result("Created Document", result.get("path", path), "success", result.get("message", ""), "Word Document", result)

@@ -7,6 +7,7 @@ import json
 import os
 import csv
 import subprocess
+import sys
 from pathlib import Path
 from datetime import datetime, timedelta
 from collections import Counter
@@ -292,7 +293,7 @@ class AutoLearner:
                     checkpoint.unlink()
                 
                 subprocess.Popen(
-                    ["python", str(train_script)],
+                    [sys.executable, str(train_script)],
                     cwd=str(project_root),
                     stdout=subprocess.DEVNULL,
                     stderr=subprocess.DEVNULL,

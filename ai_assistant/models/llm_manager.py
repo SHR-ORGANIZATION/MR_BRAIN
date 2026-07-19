@@ -32,6 +32,7 @@ class LLMManager:
         self._client = None
         self._conversation_history: List[Dict] = []
         self._max_history = 10
+        self._progress_callback = None  # Optional callback for streaming progress
         
         # Try to initialize
         self._initialize()
@@ -42,7 +43,7 @@ class LLMManager:
         try:
             from ai_assistant.models.ollama_client import get_ollama_client
             client = get_ollama_client()
-            if client.is_available():
+            if client.is_available(force_refresh=True):
                 self._engine = LLMEngine.OLLAMA
                 self._client = client
                 logger.info("Using Ollama as LLM engine")
@@ -56,8 +57,26 @@ class LLMManager:
     
     def is_available(self) -> bool:
         """Check if any LLM engine is available."""
+        # If already on Ollama, verify it is still reachable.
+        if self._engine == LLMEngine.OLLAMA and self._client:
+            try:
+                if self._client.is_available():
+                    return True
+            except Exception:
+                pass
+            self._engine = LLMEngine.NONE
+            self._client = None
+
+        # If currently unavailable, try to re-detect (handles "installed Ollama after app start").
+        if self._engine in (None, LLMEngine.NONE):
+            self._initialize()
+
         return self._engine is not None and self._engine != LLMEngine.NONE
     
+    def set_progress_callback(self, callback):
+        """Set a callback to receive streaming token updates during LLM chat."""
+        self._progress_callback = callback
+
     def chat(self, message: str, use_context: bool = True) -> str:
         """
         Send a message to the LLM and get a response.
@@ -79,7 +98,11 @@ class LLMManager:
         
         # Route to appropriate engine
         if self._engine == LLMEngine.OLLAMA:
-            response = self._client.chat(message, context)
+            response = self._client.chat(
+                message, context,
+                stream=True,
+                progress_callback=self._progress_callback
+            )
         
         # Record in history
         self._conversation_history.append({"role": "user", "content": message})

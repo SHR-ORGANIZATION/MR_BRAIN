@@ -1,6 +1,6 @@
 {
   "model_name": "distilbert-base-uncased",
-  "num_labels": 12,
+  "num_labels": 9,
   "max_length": 64,
   "batch_size": 16,
   "epochs": 10,
@@ -8,11 +8,11 @@
   "weight_decay": 0.01,
   "warmup_ratio": 0.1,
   "gradient_clip": 1.0,
-  "best_accuracy": 0.6,
-  "final_accuracy": 0.6,
+  "best_accuracy": 0.5,
+  "final_accuracy": 0.5,
   "device": "cpu",
-  "dataset_size": 46,
-  "train_size": 36,
-  "test_size": 10,
-  "trained_at": "2026-07-09T16:15:36.740179"
+  "dataset_size": 39,
+  "train_size": 31,
+  "test_size": 8,
+  "trained_at": "2026-07-14T17:15:13.973053"
 }

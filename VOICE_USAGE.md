@@ -60,6 +60,21 @@ engine.tts_engine.setProperty("volume", 0.9) # Volume (0.0 to 1.0)
 - Speech recognition: English (default), Swahili (experimental)
 - Text-to-speech: English (system default)
 
+## Offline Swahili (No Internet)
+
+AMAZON AI sasa inaweza kutumia STT ya offline kwa Kiswahili kupitia Whisper local.
+
+1. Install package:
+```bash
+pip install openai-whisper
+```
+
+2. Hakikisha `ffmpeg` ipo kwenye system (Whisper inaitumia kusoma audio).
+
+3. Weka language ya voice kuwa Swahili (`sw` au `sw-TZ`).
+
+Mfumo utatumia backend ya `whisper` kwa offline recognition, kisha fallback zingine kama zipo.
+
 ## Troubleshooting
 - **Microphone not working**: Ensure `pyaudio` is installed and microphone is connected.
 - **Voice not speaking**: Check if `pyttsx3` is installed and system has TTS voices.

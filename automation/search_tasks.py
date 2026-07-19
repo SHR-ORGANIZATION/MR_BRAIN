@@ -4,8 +4,52 @@ import urllib.parse
 import urllib.request
 import json
 import platform
+import re
+import ssl
 from pathlib import Path
 from datetime import datetime
+from html import unescape
+from html.parser import HTMLParser
+
+
+class _SimpleHTMLTextExtractor(HTMLParser):
+    """Tiny HTML to text extractor (stdlib only)."""
+
+    def __init__(self):
+        super().__init__()
+        self._skip_depth = 0
+        self._chunks = []
+        self.title = ""
+        self._in_title = False
+
+    def handle_starttag(self, tag, attrs):
+        tag = (tag or "").lower()
+        if tag in {"script", "style", "noscript"}:
+            self._skip_depth += 1
+        if tag == "title":
+            self._in_title = True
+
+    def handle_endtag(self, tag):
+        tag = (tag or "").lower()
+        if tag in {"script", "style", "noscript"} and self._skip_depth > 0:
+            self._skip_depth -= 1
+        if tag == "title":
+            self._in_title = False
+
+    def handle_data(self, data):
+        if self._skip_depth > 0:
+            return
+        text = (data or "").strip()
+        if not text:
+            return
+        if self._in_title and not self.title:
+            self.title = text
+        self._chunks.append(text)
+
+    def text(self):
+        merged = " ".join(self._chunks)
+        merged = re.sub(r"\s+", " ", unescape(merged)).strip()
+        return merged
 
 
 def _build_result(action, path, status, message, item_type="Search", extra=None):
@@ -36,6 +80,105 @@ def _try_fetch_json(url, timeout=8):
             return json.loads(response.read().decode("utf-8", errors="ignore"))
     except Exception:
         return None
+
+
+def fetch_url_text(url, timeout=10, max_chars=5000):
+    """Fetch and extract readable text from a URL."""
+    def _read_once(target_url, insecure=False):
+        req = urllib.request.Request(target_url, headers={"User-Agent": "Mozilla/5.0"})
+        context = ssl._create_unverified_context() if insecure else None
+        with urllib.request.urlopen(req, timeout=timeout, context=context) as resp:
+            content_type = (resp.headers.get("Content-Type") or "").lower()
+            raw = resp.read()
+            if "html" in content_type or b"<html" in raw[:500].lower():
+                html = raw.decode("utf-8", errors="ignore")
+                parser = _SimpleHTMLTextExtractor()
+                parser.feed(html)
+                body = parser.text()[:max_chars]
+                return {
+                    "status": "success",
+                    "url": url,
+                    "title": parser.title or target_url,
+                    "text": body,
+                    "source": target_url,
+                }
+            text = raw.decode("utf-8", errors="ignore")[:max_chars]
+            return {
+                "status": "success",
+                "url": url,
+                "title": target_url,
+                "text": re.sub(r"\s+", " ", text).strip(),
+                "source": target_url,
+            }
+
+    last_error = None
+
+    # 1) direct fetch
+    try:
+        return _read_once(url, insecure=False)
+    except Exception as e:
+        last_error = e
+
+    # 2) SSL-relaxed fallback (helps local Python SSL cert issues)
+    try:
+        return _read_once(url, insecure=True)
+    except Exception as e:
+        last_error = e
+
+    # 3) mirror fallback for hard-to-parse pages
+    try:
+        mirror = f"https://r.jina.ai/http://{url.replace('https://', '').replace('http://', '')}"
+        return _read_once(mirror, insecure=False)
+    except Exception as e:
+        last_error = e
+
+    return {
+        "status": "failed",
+        "url": url,
+        "title": url,
+        "text": "",
+        "message": str(last_error) if last_error else "Unknown fetch error",
+    }
+
+
+def collect_reference_material(urls, max_urls=5, max_chars_per_url=2500):
+    """Collect summarized text from reference URLs for document generation."""
+    clean_urls = []
+    for u in urls or []:
+        if not u:
+            continue
+        cu = u.strip().rstrip(').,;!')
+        if cu.startswith("http://") or cu.startswith("https://"):
+            clean_urls.append(cu)
+    clean_urls = clean_urls[:max_urls]
+
+    results = [fetch_url_text(u, max_chars=max_chars_per_url) for u in clean_urls]
+    ok = [r for r in results if r.get("status") == "success" and r.get("text")]
+
+    if not ok:
+        fallback_lines = ["Provided source URLs (content fetch failed):"]
+        for i, r in enumerate(results, 1):
+            fallback_lines.append(f"{i}. {r.get('url', '')}")
+        return {
+            "status": "failed",
+            "message": "No reference content could be fetched from the provided URLs.",
+            "references": results,
+            "combined_text": "\n".join(fallback_lines),
+        }
+
+    sections = []
+    for i, r in enumerate(ok, 1):
+        sections.append(f"Source {i}: {r.get('title', r.get('url'))}")
+        sections.append(f"URL: {r.get('url')}")
+        sections.append(r.get("text", ""))
+        sections.append("")
+
+    return {
+        "status": "success",
+        "message": f"Fetched {len(ok)} reference source(s).",
+        "references": results,
+        "combined_text": "\n".join(sections).strip(),
+    }
 
 
 def search_file(query, root=None, max_results=50):
